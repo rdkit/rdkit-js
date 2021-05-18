@@ -60,9 +60,9 @@ RUN cp /src/rdkit/External/INCHI-API/src/INCHI_BASE/src/util.c /src/rdkit/Extern
   sed 's/&& defined(__APPLE__)//' /src/rdkit/External/INCHI-API/src/INCHI_BASE/src/util.c.bak > /src/rdkit/External/INCHI-API/src/INCHI_BASE/src/util.c
 
 # build and "install"
-RUN make -j2 RDKit_minimal && \
-  mkdir -p ../Code/MinimalLib/dist && \
-  cp Code/MinimalLib/RDKit_minimal.* ../Code/MinimalLib/dist/
+RUN make -j6 RDKit_minimal && \
+  mkdir -p ../Code/MinimalLib/demo && \
+  cp Code/MinimalLib/RDKit_minimal.* ../Code/MinimalLib/demo/
 
 # run the tests
 WORKDIR /src/rdkit/Code/MinimalLib/tests
@@ -72,5 +72,5 @@ RUN nodejs tests.js
 # This feature requires the BuildKit backend
 # https://docs.docker.com/engine/reference/commandline/build/#custom-build-outputs
 FROM scratch as export-stage
-COPY --from=build-stage /src/rdkit/Code/MinimalLib/dist /
+COPY --from=build-stage /src/rdkit/Code/MinimalLib/demo /
 COPY docs /
