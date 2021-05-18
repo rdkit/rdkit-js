@@ -31,16 +31,16 @@ RUN ./emsdk update-tags && \
 
 #RUN source ./emsdk_env.sh
 
-RUN mkdir /src
+RUN mkdir -p /src
 WORKDIR /src
 ENV RDBASE=/src/rdkit
 ARG RDKIT_BRANCH=${RDKIT_BRANCH:-master}
 RUN git clone https://github.com/rdkit/rdkit.git
 WORKDIR $RDBASE
 RUN git fetch --all --tags && \
-  git checkout $RDKIT_BRANCH
+  git checkout $RDKIT_BRANCH && \
+  mkdir -p build
 
-RUN mkdir build
 WORKDIR build
 
 RUN echo "source /opt/emsdk/emsdk_env.sh" >> ~/.bashrc
@@ -61,7 +61,8 @@ RUN cp /src/rdkit/External/INCHI-API/src/INCHI_BASE/src/util.c /src/rdkit/Extern
 
 # build and "install"
 RUN make -j2 RDKit_minimal && \
-  cp Code/MinimalLib/RDKit_minimal.* ../Code/MinimalLib/demo/
+  mkdir -p ../Code/MinimalLib/dist && \
+  cp Code/MinimalLib/RDKit_minimal.* ../Code/MinimalLib/dist/
 
 # run the tests
 WORKDIR /src/rdkit/Code/MinimalLib/tests
@@ -71,5 +72,5 @@ RUN nodejs tests.js
 # This feature requires the BuildKit backend
 # https://docs.docker.com/engine/reference/commandline/build/#custom-build-outputs
 FROM scratch as export-stage
-COPY --from=build-stage /src/rdkit/Code/MinimalLib/demo /
-COPY --from=build-stage /src/rdkit/Code/MinimalLib/docs /
+COPY --from=build-stage /src/rdkit/Code/MinimalLib/dist /
+COPY docs /
