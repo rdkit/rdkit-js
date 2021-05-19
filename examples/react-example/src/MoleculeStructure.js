@@ -3,7 +3,6 @@ import "./MoleculeStructure.css";
 import PropTypes from "prop-types";
 
 class MoleculeStructure extends Component {
-  static RDKit = undefined;
   static DEFAULT_SIZE = {
     width: 250,
     height: 200,
@@ -12,7 +11,7 @@ class MoleculeStructure extends Component {
   constructor(props) {
     super(props);
 
-    this.RDKit = MoleculeStructure.RDKit;
+    this.RDKit = window.RDKit;
 
     this.MOL_DETAILS = JSON.stringify({
       width: this.props.width || MoleculeStructure.DEFAULT_SIZE.width,
@@ -38,8 +37,8 @@ class MoleculeStructure extends Component {
       window
         .initRDKitModule()
         .then((RDKit) => {
-          MoleculeStructure.RDKit = RDKit;
-          this.RDKit = MoleculeStructure.RDKit;
+          window.RDKit = RDKit;
+          this.RDKit = window.RDKit;
           this.setState({ rdKitLoaded: true, rdKitError: false });
         })
         .catch(() => {
