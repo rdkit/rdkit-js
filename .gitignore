@@ -1,3 +1,7 @@
 dist
 rdkit
 Dockerfile
+node_modules
+
+# include builds to run examples remotely
+!examples/**/build
