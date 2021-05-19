@@ -33,7 +33,6 @@
     "dist/demo.html",
     "dist/GettingStartedInJS.html",
     "dist/RDKit_minimal.js",
-    "dist/RDKit_minimal.wasm",
-    "examples"
+    "dist/RDKit_minimal.wasm"
   ]
 }
