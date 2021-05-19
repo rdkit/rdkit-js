@@ -48,10 +48,11 @@ class MoleculeStructure extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const hasRdkitStateChanged =
+    const rdkitStateChanged =
       prevState.rdKitLoaded !== this.state.rdKitLoaded;
-    const hasStructureChanged = prevProps.structure !== this.props.structure;
-    if (hasRdkitStateChanged || hasStructureChanged) {
+    const structureChanged = prevProps.structure !== this.props.structure;
+
+    if (rdkitStateChanged || structureChanged) {
       let oldMol = this.state.mol || {};
       this.setState({ mol: this.RDKit.get_mol(this.props.structure) }, () =>
         this.draw()
