@@ -1,6 +1,7 @@
 {
   "name": "react-example",
   "version": "0.1.0",
+  "homepage": "examples/react-example/build/",
   "private": true,
   "dependencies": {
     "@rdkit/rdkit": "^2021.3.2",
