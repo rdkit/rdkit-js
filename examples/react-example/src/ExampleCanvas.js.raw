@@ -37,4 +37,15 @@ function ExampleCanvas() {
   );
 }
 
+function ExampleCanvasWithCode() {
+  return (
+    <>
+    <ExampleCanvas />
+    <SyntaxHighlighter language="javascript" style={docco}>
+      {ExampleCanvas.toString()}
+    </SyntaxHighlighter>
+    </>
+  )
+}
+
 export default ExampleCanvas;
