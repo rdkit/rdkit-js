@@ -18,7 +18,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "format": "prettier -w ./src"
   },
   "eslintConfig": {
     "extends": [
@@ -39,6 +40,7 @@
     ]
   },
   "devDependencies": {
+    "prettier": "^2.3.0",
     "prop-types": "^15.7.2"
   }
 }

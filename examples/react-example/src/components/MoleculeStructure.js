@@ -48,8 +48,7 @@ class MoleculeStructure extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const rdkitStateChanged =
-      prevState.rdKitLoaded !== this.state.rdKitLoaded;
+    const rdkitStateChanged = prevState.rdKitLoaded !== this.state.rdKitLoaded;
     const structureChanged = prevProps.structure !== this.props.structure;
 
     if (rdkitStateChanged || structureChanged) {

@@ -1,11 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import ExampleSVG from "./ExampleSvg";
+import ExampleCanvas from "./ExampleCanvas";
 import "./index.css";
-import App from "./App";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ExampleSVG />
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById("example-svg")
+);
+
+ReactDOM.render(
+  <React.StrictMode>
+    <ExampleCanvas />
+  </React.StrictMode>,
+  document.getElementById("example-canvas")
 );
