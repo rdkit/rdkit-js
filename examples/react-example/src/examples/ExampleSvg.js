@@ -1,4 +1,4 @@
-import MoleculeStructure from "./components/MoleculeStructure";
+import MoleculeStructure from "../components/MoleculeStructure/MoleculeStructure";
 
 function ExampleSVG() {
   const caffeine = "CN1C=NC2=C1C(=O)N(C(=O)N2C)";

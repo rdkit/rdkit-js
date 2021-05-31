@@ -1,4 +1,4 @@
-import MoleculeStructure from "./components/MoleculeStructure";
+import MoleculeStructure from "../components/MoleculeStructure/MoleculeStructure";
 
 function ExampleCanvas() {
   const caffeine = "CN1C=NC2=C1C(=O)N(C(=O)N2C)";
@@ -35,17 +35,6 @@ function ExampleCanvas() {
       </div>
     </div>
   );
-}
-
-function ExampleCanvasWithCode() {
-  return (
-    <>
-    <ExampleCanvas />
-    <SyntaxHighlighter language="javascript" style={docco}>
-      {ExampleCanvas.toString()}
-    </SyntaxHighlighter>
-    </>
-  )
 }
 
 export default ExampleCanvas;
