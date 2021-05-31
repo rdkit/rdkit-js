@@ -9,7 +9,7 @@ function CodeExample({ code, children }) {
       <div className="container">
         <ReactCollapsible
           trigger={
-            <button class="button is-primary is-light is-large is-fullwidth">
+            <button className="button is-primary is-light is-large is-fullwidth">
               See Code Example
             </button>
           }

@@ -6,10 +6,10 @@ function ExampleSVG() {
 
   return (
     <div id="component-example-svg" className="container">
-      <section class="hero">
-        <div class="hero-body">
-          <p class="title">SVG Rendering</p>
-          <p class="subtitle">
+      <section className="hero">
+        <div className="hero-body">
+          <p className="title">SVG Rendering</p>
+          <p className="subtitle">
             You can render molecules using svg and specify height and width.
           </p>
         </div>

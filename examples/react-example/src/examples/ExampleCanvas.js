@@ -6,10 +6,10 @@ function ExampleCanvas() {
 
   return (
     <div id="component-example-canvas" className="container">
-      <section class="hero">
-        <div class="hero-body">
-          <p class="title">Canvas rendering</p>
-          <p class="subtitle">
+      <section className="hero">
+        <div className="hero-body">
+          <p className="title">Canvas rendering</p>
+          <p className="subtitle">
             You can also render molecules using the HTML Canvas API and specify
             height and width.
           </p>
