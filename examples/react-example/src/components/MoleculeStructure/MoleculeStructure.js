@@ -113,26 +113,17 @@ class MoleculeStructure extends Component {
   componentDidUpdate(prevProps, prevState) {
     const rdkitStateChanged = prevState.rdKitLoaded !== this.state.rdKitLoaded;
 
-    if (rdkitStateChanged) {
+    if (rdkitStateChanged && this.state.rdKitLoaded) {
       let oldMol, oldQMol;
-      const shouldUpdateMol = prevProps.smiles !== this.props.smiles;
-      const shouldUpdateQMol =
-        prevProps.subStructure !== this.props.subStructure;
       const updateObject = {};
 
-      if (shouldUpdateMol) {
-        oldMol = this.state.mol || undefined;
-        updateObject.mol = window.RDKit.get_mol(this.props.smiles);
-      }
+      oldMol = this.state.mol || undefined;
+      updateObject.mol = this.RDKit.get_mol(this.props.structure);
 
-      if (shouldUpdateQMol) {
-        oldQMol = this.state.mol || undefined;
-        updateObject.qmol = window.RDKit.get_qmol(this.props.subStructure);
-      }
+      oldQMol = this.state.qmol || undefined;
+      updateObject.qmol = this.RDKit.get_qmol(this.props.subStructure);
 
-      if (shouldUpdateMol || shouldUpdateQMol) {
-        this.setState({ ...updateObject }, () => this.draw());
-      }
+      this.setState({ ...updateObject }, () => this.draw());
 
       /**
        * Delete C++ mol objects manually
