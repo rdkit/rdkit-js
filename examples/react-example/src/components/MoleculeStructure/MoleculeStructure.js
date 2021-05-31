@@ -128,15 +128,14 @@ class MoleculeStructure extends Component {
       return "Loading renderer...";
     }
 
-    let compound = null;
     if (!this.isValidMol()) {
-      compound = (
+      return (
         <span title={`Cannot render structure: ${this.props.structure}`}>
           Render Error.
         </span>
       );
     } else if (this.props.svgMode) {
-      compound = (
+      return (
         <div
           title={this.props.structure}
           className={"molecule-structure-svg " + (this.props.className || "")}
@@ -145,7 +144,7 @@ class MoleculeStructure extends Component {
         ></div>
       );
     } else {
-      compound = (
+      return (
         <div
           className={
             "molecule-canvas-container " + (this.props.className || "")
@@ -160,8 +159,6 @@ class MoleculeStructure extends Component {
         </div>
       );
     }
-
-    return compound;
   }
 }
 
