@@ -18,16 +18,57 @@ class MoleculeStructure extends Component {
       height: this.props.height || MoleculeStructure.DEFAULT_SIZE.height,
       bondLineWidth: 1,
       addStereoAnnotation: true,
+      ...(props.molDetails || {}),
     });
 
     const structure =
       typeof this.props.structure === "string" ? this.props.structure : "";
     this.state = {
       svg: undefined,
-      mol: this.RDKit && this.RDKit.get_mol(structure),
+      mol:
+        this.RDKit && !!this.props.structure
+          ? this.RDKit.get_mol(structure)
+          : this.RDKit.get_mol(""),
+      qmol:
+        this.RDKit && !!this.props.subStructure
+          ? this.RDKit.get_qmol(this.props.subStructure)
+          : this.RDKit.get_qmol(""),
       rdKitLoaded: !!this.RDKit,
       rdKitError: false,
     };
+  }
+
+  draw() {
+    const isValidMol = this.isValidMol();
+    if (isValidMol && this.props.svgMode) {
+      const svg = this.state.mol.get_svg_with_highlights(this.MOL_DETAILS);
+      this.setState({ svg });
+    } else if (isValidMol) {
+      const canvas = document.getElementById(this.props.id);
+      this.state.mol.draw_to_canvas_with_highlights(canvas, this.MOL_DETAILS);
+    }
+  }
+
+  isValidMol() {
+    return !!this.state.mol && this.state.mol.is_valid();
+  }
+
+  isValidQMol() {
+    return !!this.state.qmol && this.state.qmol.is_valid();
+  }
+
+  getMolDetails() {
+    if (this.isValidMol() && this.isValidQMol()) {
+      const extraMolDetails = JSON.parse(
+        this.state.mol.get_substruct_match(this.state.qmol)
+      );
+      return JSON.stringify({
+        ...this.MOL_DETAILS,
+        ...extraMolDetails,
+      });
+    } else {
+      return JSON.stringify(this.MOL_DETAILS);
+    }
   }
 
   componentDidMount() {
@@ -66,14 +107,13 @@ class MoleculeStructure extends Component {
     }
   }
 
-  draw() {
-    const isValidMol = this.isValidMol();
-    if (isValidMol && this.props.svgMode) {
-      const svg = this.state.mol.get_svg_with_highlights(this.MOL_DETAILS);
-      this.setState({ svg });
-    } else if (isValidMol) {
-      const canvas = document.getElementById(this.props.id);
-      this.state.mol.draw_to_canvas_with_highlights(canvas, this.MOL_DETAILS);
+  componentWillUnmount() {
+    if (this.state.mol) {
+      this.state.mol.delete();
+    }
+
+    if (this.state.qmol) {
+      this.state.qmol.delete();
     }
   }
 
@@ -88,8 +128,8 @@ class MoleculeStructure extends Component {
     let compound = null;
     if (!this.isValidMol()) {
       compound = (
-        <span title={this.props.structure}>
-          {this.props.structure.substring(0, 6)} ...
+        <span title={`Cannot render structure: ${this.props.structure}`}>
+          Render Error.
         </span>
       );
     } else if (this.props.svgMode) {
@@ -103,30 +143,40 @@ class MoleculeStructure extends Component {
       );
     } else {
       compound = (
-        <canvas
-          title={this.props.structure}
-          id={this.props.id}
-          width={this.props.width}
-          height={this.props.height}
-        ></canvas>
+        <div
+          className={
+            "molecule-canvas-container " + (this.props.className || "")
+          }
+        >
+          <canvas
+            title={this.props.structure}
+            id={this.props.id}
+            width={this.props.width}
+            height={this.props.height}
+          ></canvas>
+        </div>
       );
     }
 
     return compound;
   }
-
-  isValidMol() {
-    return !!this.state.mol && this.state.mol.is_valid();
-  }
 }
 
 MoleculeStructure.propTypes = {
+  /**
+   * Generic properties
+   */
   id: PropTypes.string.isRequired,
-  structure: PropTypes.string.isRequired,
   className: PropTypes.string,
   svgMode: PropTypes.bool,
   width: PropTypes.number,
   height: PropTypes.number,
+  /**
+   * RDKit-specific properties
+   */
+  structure: PropTypes.string.isRequired,
+  subStructure: PropTypes.string,
+  extraDetails: PropTypes.object,
 };
 
 export default MoleculeStructure;
