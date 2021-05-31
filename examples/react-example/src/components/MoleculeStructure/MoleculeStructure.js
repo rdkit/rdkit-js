@@ -41,11 +41,14 @@ class MoleculeStructure extends Component {
   draw() {
     const isValidMol = this.isValidMol();
     if (isValidMol && this.props.svgMode) {
-      const svg = this.state.mol.get_svg_with_highlights(this.MOL_DETAILS);
+      const svg = this.state.mol.get_svg_with_highlights(this.getMolDetails());
       this.setState({ svg });
     } else if (isValidMol) {
       const canvas = document.getElementById(this.props.id);
-      this.state.mol.draw_to_canvas_with_highlights(canvas, this.MOL_DETAILS);
+      this.state.mol.draw_to_canvas_with_highlights(
+        canvas,
+        this.getMolDetails()
+      );
     }
   }
 
