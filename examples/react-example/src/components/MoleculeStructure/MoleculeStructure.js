@@ -196,21 +196,4 @@ class MoleculeStructure extends Component {
   }
 }
 
-MoleculeStructure.propTypes = {
-  /**
-   * Generic properties
-   */
-  id: PropTypes.string.isRequired,
-  className: PropTypes.string,
-  svgMode: PropTypes.bool,
-  width: PropTypes.number,
-  height: PropTypes.number,
-  /**
-   * RDKit-specific properties
-   */
-  structure: PropTypes.string.isRequired,
-  subStructure: PropTypes.string,
-  extraDetails: PropTypes.object,
-};
-
 export default MoleculeStructure;
