@@ -25,10 +25,9 @@ class MoleculeStructure extends Component {
       typeof this.props.structure === "string" ? this.props.structure : "";
     this.state = {
       svg: undefined,
-      mol: !!this.RDKit
-          ? this.RDKit.get_mol(structure)
-          : "",
-      qmol: this.RDKit && !!this.props.subStructure
+      mol: !!this.RDKit ? this.RDKit.get_mol(structure) : "",
+      qmol:
+        this.RDKit && !!this.props.subStructure
           ? this.RDKit.get_qmol(this.props.subStructure)
           : "",
       rdKitLoaded: !!this.RDKit,
