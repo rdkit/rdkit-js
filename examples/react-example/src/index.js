@@ -4,7 +4,7 @@ import CodeExample from "./components/CodeExample/CodeExample";
 import ExampleMoleculeStructure from "./examples/ExampleMoleculeStructure";
 import ExampleSubstructure from "./examples/ExampleSubstructure";
 import ExampleSVG from "./examples/ExampleSvg";
-import ExampleCanvas from "./examples/ExampleSvg";
+import ExampleCanvas from "./examples/ExampleCanvas";
 /* eslint import/no-webpack-loader-syntax: off */
 import MoleculeStructureCode from "!!raw-loader!./components/MoleculeStructure/MoleculeStructure";
 import ExampleSVGCode from "!!raw-loader!./examples/ExampleSvg.js";
