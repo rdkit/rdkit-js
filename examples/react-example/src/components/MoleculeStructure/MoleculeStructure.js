@@ -3,9 +3,30 @@ import "./MoleculeStructure.css";
 import PropTypes from "prop-types";
 
 class MoleculeStructure extends Component {
-  static DEFAULT_SIZE = {
+  static propTypes = {
+    /**
+     * Generic properties
+     */
+    id: PropTypes.string.isRequired,
+    className: PropTypes.string,
+    svgMode: PropTypes.bool,
+    width: PropTypes.number,
+    height: PropTypes.number,
+    /**
+     * RDKit-specific properties
+     */
+    structure: PropTypes.string.isRequired,
+    subStructure: PropTypes.string,
+    extraDetails: PropTypes.object,
+  };
+
+  static defaultProps = {
+    subStructure: "",
+    className: "",
     width: 250,
     height: 200,
+    svgMode: false,
+    extraDetails: {},
   };
 
   constructor(props) {
@@ -14,22 +35,23 @@ class MoleculeStructure extends Component {
     this.RDKit = window.RDKit;
 
     this.MOL_DETAILS = JSON.stringify({
-      width: this.props.width || MoleculeStructure.DEFAULT_SIZE.width,
-      height: this.props.height || MoleculeStructure.DEFAULT_SIZE.height,
+      width: this.props.width,
+      height: this.props.height,
       bondLineWidth: 1,
       addStereoAnnotation: true,
-      ...(props.molDetails || {}),
+      ...this.props.extraDetails,
     });
 
     const structure =
       typeof this.props.structure === "string" ? this.props.structure : "";
+    const subStructure =
+      typeof this.props.subStructure === "string"
+        ? this.props.subStructure
+        : "";
     this.state = {
       svg: undefined,
       mol: !!this.RDKit ? this.RDKit.get_mol(structure) : "",
-      qmol:
-        this.RDKit && !!this.props.subStructure
-          ? this.RDKit.get_qmol(this.props.subStructure)
-          : "",
+      qmol: this.RDKit ? this.RDKit.get_qmol(subStructure) : "",
       rdKitLoaded: !!this.RDKit,
       rdKitError: false,
     };
@@ -90,24 +112,48 @@ class MoleculeStructure extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     const rdkitStateChanged = prevState.rdKitLoaded !== this.state.rdKitLoaded;
-    const structureChanged = prevProps.structure !== this.props.structure;
 
-    if (rdkitStateChanged || structureChanged) {
-      let oldMol = this.state.mol || {};
-      this.setState({ mol: this.RDKit.get_mol(this.props.structure) }, () =>
-        this.draw()
-      );
+    if (rdkitStateChanged) {
+      let oldMol, oldQMol;
+      const shouldUpdateMol = prevProps.smiles !== this.props.smiles;
+      const shouldUpdateQMol =
+        prevProps.subStructure !== this.props.subStructure;
+      const updateObject = {};
+
+      if (shouldUpdateMol) {
+        oldMol = this.state.mol || undefined;
+        updateObject.mol = window.RDKit.get_mol(this.props.smiles);
+      }
+
+      if (shouldUpdateQMol) {
+        oldQMol = this.state.mol || undefined;
+        updateObject.qmol = window.RDKit.get_qmol(this.props.subStructure);
+      }
+
+      if (shouldUpdateMol || shouldUpdateQMol) {
+        this.setState({ ...updateObject }, () => this.draw());
+      }
+
       /**
-       * attempt at forcing old mol objects
-       * to be garbage collected
+       * Delete C++ mol objects manually
+       * https://emscripten.org/docs/porting/connecting_cpp_and_javascript/embind.html#memory-management
        */
-      if (typeof oldMol === "object") {
-        oldMol = null;
+      if (oldMol) {
+        oldMol.delete();
+      }
+
+      if (oldQMol) {
+        oldQMol.delete();
       }
     }
   }
 
   componentWillUnmount() {
+    /**
+     * Delete C++ mol objects manually
+     * https://emscripten.org/docs/porting/connecting_cpp_and_javascript/embind.html#memory-management
+     */
+
     if (this.state.mol) {
       this.state.mol.delete();
     }
