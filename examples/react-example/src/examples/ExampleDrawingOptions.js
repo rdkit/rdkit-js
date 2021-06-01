@@ -27,8 +27,8 @@ function ExampleDrawingOptions() {
             subStructure={caffeineSubStruct}
             extraDetails={{
               addAtomIndices: true,
-              highlightColor: [1,0,1],
-              legend: "caffeine"
+              highlightColor: [1, 0, 1],
+              legend: "caffeine",
             }}
             id="structure-example-drawing-options-caffeine"
           />
@@ -41,8 +41,8 @@ function ExampleDrawingOptions() {
             subStructure={aspirinSubStruct}
             extraDetails={{
               addAtomIndices: true,
-              highlightColor: [0,1,1],
-              legend: "aspirin"
+              highlightColor: [0, 1, 1],
+              legend: "aspirin",
             }}
             id="structure-example-drawing-options-aspirin"
           />
