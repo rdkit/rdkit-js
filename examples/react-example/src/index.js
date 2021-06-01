@@ -5,11 +5,13 @@ import ExampleMoleculeStructure from "./examples/ExampleMoleculeStructure";
 import ExampleSubstructure from "./examples/ExampleSubstructure";
 import ExampleSVG from "./examples/ExampleSvg";
 import ExampleCanvas from "./examples/ExampleCanvas";
+import ExampleDrawingOptions from "./examples/ExampleDrawingOptions";
 /* eslint import/no-webpack-loader-syntax: off */
 import MoleculeStructureCode from "!!raw-loader!./components/MoleculeStructure/MoleculeStructure";
 import ExampleSVGCode from "!!raw-loader!./examples/ExampleSvg.js";
 import ExampleCanvasCode from "!!raw-loader!./examples/ExampleCanvas.js";
 import ExampleSubstructureCode from "!!raw-loader!./examples/ExampleSubstructure.js";
+import ExampleDrawingOptionsCode from "!!raw-loader!./examples/ExampleDrawingOptions.js";
 import "./index.css";
 
 ReactDOM.render(
@@ -38,4 +40,11 @@ ReactDOM.render(
     <ExampleSubstructure />
   </CodeExample>,
   document.getElementById("example-substructures")
+);
+
+ReactDOM.render(
+  <CodeExample code={ExampleDrawingOptionsCode}>
+    <ExampleDrawingOptions />
+  </CodeExample>,
+  document.getElementById("example-all-options")
 );

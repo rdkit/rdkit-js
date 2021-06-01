@@ -34,13 +34,13 @@ class MoleculeStructure extends Component {
 
     this.RDKit = window.RDKit;
 
-    this.MOL_DETAILS = JSON.stringify({
+    this.MOL_DETAILS = {
       width: this.props.width,
       height: this.props.height,
       bondLineWidth: 1,
       addStereoAnnotation: true,
       ...this.props.extraDetails,
-    });
+    };
 
     const structure =
       typeof this.props.structure === "string" ? this.props.structure : "";

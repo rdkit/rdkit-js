@@ -1,6 +1,6 @@
 import MoleculeStructure from "../components/MoleculeStructure/MoleculeStructure";
 
-function ExampleSubstructure() {
+function ExampleDrawingOptions() {
   const caffeine = "CN1C=NC2=C1C(=O)N(C(=O)N2C)";
   const caffeineSubStruct = "[N,n,O;!H0]";
 
@@ -8,13 +8,12 @@ function ExampleSubstructure() {
   const aspirinSubStruct = "CC(=O)Oc1ccccc1C";
 
   return (
-    <div id="component-example-substruct" className="container">
+    <div id="component-example-drawing-options" className="container">
       <section className="hero">
         <div className="hero-body">
-          <p className="title">Substructure Highlight</p>
+          <p className="title">Additional Drawing Options</p>
           <p className="subtitle">
-            You can also highlight substructure of molecules with both the SVG
-            and Canvas APIs.
+            RDKit.js provides you with all these additional options.
           </p>
         </div>
       </section>
@@ -26,7 +25,12 @@ function ExampleSubstructure() {
             svgMode
             structure={caffeine}
             subStructure={caffeineSubStruct}
-            id="structure-example-substruct-svg-caffeine"
+            extraDetails={{
+              addAtomIndices: true,
+              highlightColor: [1,0,1],
+              legend: "caffeine"
+            }}
+            id="structure-example-drawing-options-caffeine"
           />
         </div>
         <div className="column">
@@ -35,7 +39,12 @@ function ExampleSubstructure() {
             height={300}
             structure={aspirin}
             subStructure={aspirinSubStruct}
-            id="structure-example-subsctruct-canvas-aspirin"
+            extraDetails={{
+              addAtomIndices: true,
+              highlightColor: [0,1,1],
+              legend: "aspirin"
+            }}
+            id="structure-example-drawing-options-aspirin"
           />
         </div>
       </div>
@@ -43,4 +52,4 @@ function ExampleSubstructure() {
   );
 }
 
-export default ExampleSubstructure;
+export default ExampleDrawingOptions;
