@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import CodeExample from "./components/CodeExample/CodeExample";
+import NavBar from "./components/NavBar/NavBar";
 import ExampleMoleculeStructure from "./examples/ExampleMoleculeStructure";
 import ExampleSubstructure from "./examples/ExampleSubstructure";
 import ExampleSVG from "./examples/ExampleSvg";
@@ -14,6 +15,7 @@ import ExampleSubstructureCode from "!!raw-loader!./examples/ExampleSubstructure
 import ExampleDrawingOptionsCode from "!!raw-loader!./examples/ExampleDrawingOptions.js";
 import "./index.css";
 
+ReactDOM.render(<NavBar />, document.getElementById("navbar"));
 ReactDOM.render(
   <CodeExample code={MoleculeStructureCode}>
     <ExampleMoleculeStructure />
