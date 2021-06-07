@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 
 export default class NavBar extends Component {
+  state = {
+    burgerActive: false,
+  };
   render() {
+    const brugerActiveClass = this.state.burgerActive ? " is-active" : "";
     return (
       <>
         <nav
@@ -21,10 +25,13 @@ export default class NavBar extends Component {
 
             <a
               role="button"
-              className="navbar-burger"
+              className={`navbar-burger${brugerActiveClass}`}
               aria-label="menu"
               aria-expanded="false"
               data-target="navbarBasicExample"
+              onClick={() => {
+                this.setState({ burgerActive: !this.state.burgerActive });
+              }}
             >
               <span aria-hidden="true"></span>
               <span aria-hidden="true"></span>
@@ -32,7 +39,10 @@ export default class NavBar extends Component {
             </a>
           </div>
 
-          <div id="navbarBasicExample" className="navbar-menu">
+          <div
+            id="navbarBasicExample"
+            className={`navbar-menu${brugerActiveClass}`}
+          >
             <div className="navbar-start">
               <a className="navbar-item" href="#">
                 {" "}
