@@ -11,7 +11,7 @@
     />
     <link
       rel="apple-touch-icon"
-      href="%PUBLIC_URL%/logo-nobackground-200.png"
+      href="%PUBLIC_URL%/rdkitjs_cropped-200.png"
     />
     <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -38,69 +38,92 @@
       href="https://unpkg.com/bulma-tooltip@3.0.2/dist/css/bulma-tooltip.min.css"
     />
     <title>React App</title>
+    <style>
+      html,
+      body,
+      #app {
+        height: 100%;
+      }
+      #app {
+        min-height: 100%;
+      }
+      .main-content {
+      }
+      .footer {
+        margin-top: -12px;
+      }
+      @media screen and (max-width: 768px) {
+        #menu-toggle:checked + .nav-menu {
+          display: block;
+        }
+      }
+    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <nav
-      class="navbar"
-      style="padding-left: 48px; padding-right: 48px"
-      role="navigation"
-      aria-label="main navigation"
-    >
-      <div class="navbar-brand">
-        <a
-          class="navbar-item"
-          href="https://www.npmjs.com/package/@rdkit/rdkit"
-          target="_blank"
-        >
-          <img
-            src="%PUBLIC_URL%/logo-nobackground-200.png"
-            style="min-width: 150px; min-height: 150px"
-          />
-        </a>
+    <div id="app">
+      <nav
+        class="navbar has-shadow"
+        style="padding-left: 48px; padding-right: 48px"
+        role="navigation"
+        aria-label="main navigation"
+      >
+        <div class="navbar-brand" style="padding: 24px;">
+          <a
+            class="navbar-item"
+            href="https://www.npmjs.com/package/@rdkit/rdkit"
+            target="_blank"
+          >
+            <img
+              src="%PUBLIC_URL%/rdkitjs_cropped_200.png"
+            />
+          </a>
 
-        <a
-          role="button"
-          class="navbar-burger"
-          aria-label="menu"
-          aria-expanded="false"
-          data-target="navbarBasicExample"
-        >
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
-      </div>
-
-      <div id="navbarBasicExample" class="navbar-menu">
-        <div class="navbar-start">
-          <a class="navbar-item"> Home </a>
-          <a class="navbar-item"> Documentation </a>
+          <a
+            role="button"
+            class="navbar-burger"
+            aria-label="menu"
+            aria-expanded="false"
+            data-target="navbarBasicExample"
+          >
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
         </div>
-        <div class="navbar-end">
-          <div class="navbar-item">
-            <div class="buttons">
-              <a
-                data-tooltip="Source Code"
-                class="button has-tooltip-bottom is-white is-big"
-                href="https://github.com/rdkit/rdkit"
-                target="_blank"
-              >
-                <span class="icon">
-                  <i class="fab fa-github fa-2x"></i>
-                </span>
-              </a>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item"> Home </a>
+            <a class="navbar-item"> Documentation </a>
+          </div>
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="buttons">
+                <a
+                  data-tooltip="Source Code"
+                  class="button has-tooltip-bottom is-white is-big"
+                  href="https://github.com/rdkit/rdkit"
+                  target="_blank"
+                >
+                  <span class="icon">
+                    <i class="fab fa-github fa-2x"></i>
+                  </span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </nav>
-    <main class="container is-fluid">
-      <div
-        class="column"
-        style="width: 250px; height: 100vh; background-color: blue"
-      >
-        <aside style="100vh">
+      </nav>
+      <section class="main-content columns is-fullheight">
+        <aside
+          class="
+            column
+            is-2 is-narrow-mobile is-fullheight
+            section
+            is-hidden-mobile
+          "
+        >
           <div>hello</div>
           <div>hello</div>
           <div>hello</div>
@@ -140,19 +163,17 @@
           <div>hello</div>
           <div>hello</div>
         </aside>
-      </div>
-      <div class="column">
-        <div id="example-mol-structure"></div>
-        <div id="example-svg"></div>
-        <div id="example-canvas"></div>
-        <div id="example-substructures"></div>
-        <div id="example-substructure-search"></div>
-        <div id="example-all-options"></div>
-        <div id="example-descriptors"></div>
-      </div>
-    </main>
-
-    <!--
+        <div class="container column is-10">
+          <div id="example-mol-structure"></div>
+          <div id="example-svg"></div>
+          <div id="example-canvas"></div>
+          <div id="example-substructures"></div>
+          <div id="example-substructure-search"></div>
+          <div id="example-all-options"></div>
+          <div id="example-descriptors"></div>
+        </div>
+      </section>
+      <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
 
@@ -162,18 +183,19 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-    <footer class="footer" style="margin-top: 100px">
-      <div class="content has-text-centered">
-        <p>
-          <strong>RDKit.js</strong> by
-          <a href="https://github.com/rdkit/rdkit"
-            >Greg Landrum and the RDKit contributors</a
-          >. The source code is licensed
-          <a href="https://github.com/rdkit/rdkit/blob/master/license.txt"
-            >BDS-3</a
-          >.
-        </p>
-      </div>
-    </footer>
+      <footer class="footer" style="margin-top: 100px">
+        <div class="content has-text-centered">
+          <p>
+            <strong>RDKit.js</strong> by
+            <a href="https://github.com/rdkit/rdkit"
+              >Greg Landrum and the RDKit contributors</a
+            >. The source code is licensed
+            <a href="https://github.com/rdkit/rdkit/blob/master/license.txt"
+              >BDS-3</a
+            >.
+          </p>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>
