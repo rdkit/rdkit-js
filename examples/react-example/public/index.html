@@ -2,17 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
       content="Web site created using create-react-app"
     />
-    <link
-      rel="apple-touch-icon"
-      href="%PUBLIC_URL%/rdkitjs_cropped-200.png"
-    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/rdkitjs_cropped-200.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -37,7 +34,7 @@
       rel="stylesheet"
       href="https://unpkg.com/bulma-tooltip@3.0.2/dist/css/bulma-tooltip.min.css"
     />
-    <title>React App</title>
+    <title>RDKit.js - React Example</title>
     <style>
       html,
       body,
@@ -64,19 +61,17 @@
     <div id="app">
       <nav
         class="navbar has-shadow"
-        style="padding-left: 48px; padding-right: 48px"
+        style="padding-left: 12px; padding-right: 12px"
         role="navigation"
         aria-label="main navigation"
       >
-        <div class="navbar-brand" style="padding: 24px;">
+        <div class="navbar-brand" style="padding: 6px">
           <a
             class="navbar-item"
             href="https://www.npmjs.com/package/@rdkit/rdkit"
             target="_blank"
           >
-            <img
-              src="%PUBLIC_URL%/rdkitjs_cropped_200.png"
-            />
+            <img src="%PUBLIC_URL%/rdkitjs_cropped_200.png" />
           </a>
 
           <a
@@ -97,71 +92,55 @@
             <a class="navbar-item"> Home </a>
             <a class="navbar-item"> Documentation </a>
           </div>
-          <div class="navbar-end">
-            <div class="navbar-item">
-              <div class="buttons">
-                <a
-                  data-tooltip="Source Code"
-                  class="button has-tooltip-bottom is-white is-big"
-                  href="https://github.com/rdkit/rdkit"
-                  target="_blank"
-                >
-                  <span class="icon">
-                    <i class="fab fa-github fa-2x"></i>
-                  </span>
-                </a>
-              </div>
+        </div>
+
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a
+                data-tooltip="Source Code"
+                class="button has-tooltip-bottom is-white is-big"
+                href="https://github.com/rdkit/rdkit"
+                target="_blank"
+              >
+                <span class="icon">
+                  <i class="fab fa-github fa-2x"></i>
+                </span>
+              </a>
             </div>
           </div>
         </div>
       </nav>
       <section class="main-content columns is-fullheight">
         <aside
-          class="
-            column
-            is-2 is-narrow-mobile is-fullheight
-            section
-            is-hidden-mobile
-          "
+          class="menu is-narrow-mobile is-fullheight section is-hidden-mobile"
         >
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
+          <p class="menu-label">General</p>
+          <ul class="menu-list">
+            <li><a>Dashboard</a></li>
+            <li><a>Customers</a></li>
+          </ul>
+          <p class="menu-label">Administration</p>
+          <ul class="menu-list">
+            <li><a>Team Settings</a></li>
+            <li>
+              <a class="is-active">Manage Your Team</a>
+              <ul>
+                <li><a>Members</a></li>
+                <li><a>Plugins</a></li>
+                <li><a>Add a member</a></li>
+              </ul>
+            </li>
+            <li><a>Invitations</a></li>
+            <li><a>Cloud Storage Environment Settings</a></li>
+            <li><a>Authentication</a></li>
+          </ul>
+          <p class="menu-label">Transactions</p>
+          <ul class="menu-list">
+            <li><a>Payments</a></li>
+            <li><a>Transfers</a></li>
+            <li><a>Balance</a></li>
+          </ul>
         </aside>
         <div class="container column is-10">
           <div id="example-mol-structure"></div>
