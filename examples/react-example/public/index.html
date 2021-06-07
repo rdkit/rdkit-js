@@ -55,35 +55,39 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="app">
       <div id="navbar"></div>
-      <section class="main-content columns is-fullheight">
+      <section
+        class="main-content columns is-fullheight"
+        style="padding-left: 12px"
+      >
         <aside
+          style="
+            position: sticky;
+            display: inline-block;
+            max-height: 100vh;
+            top: 0;
+          "
           class="menu is-narrow-mobile is-fullheight section is-hidden-mobile"
         >
-          <p class="menu-label">General</p>
+          <p class="menu-label">Components</p>
           <ul class="menu-list">
-            <li><a>Dashboard</a></li>
-            <li><a>Customers</a></li>
-          </ul>
-          <p class="menu-label">Administration</p>
-          <ul class="menu-list">
-            <li><a>Team Settings</a></li>
             <li>
-              <a class="is-active">Manage Your Team</a>
-              <ul>
-                <li><a>Members</a></li>
-                <li><a>Plugins</a></li>
-                <li><a>Add a member</a></li>
-              </ul>
+              <a href="#component-example-moleculestructure"
+                >MoleculeScructure</a
+              >
             </li>
-            <li><a>Invitations</a></li>
-            <li><a>Cloud Storage Environment Settings</a></li>
-            <li><a>Authentication</a></li>
           </ul>
-          <p class="menu-label">Transactions</p>
+          <p class="menu-label">Examples</p>
           <ul class="menu-list">
-            <li><a>Payments</a></li>
-            <li><a>Transfers</a></li>
-            <li><a>Balance</a></li>
+            <li><a href="#component-example-svg">SVG Rendering</a></li>
+            <li><a href="#component-example-canvas">Canvas Rendering</a></li>
+            <li>
+              <a href="#component-example-substruct">Substructure Highlight</a>
+            </li>
+            <li>
+              <a href="#component-example-drawing-options"
+                >Additional Options</a
+              >
+            </li>
           </ul>
         </aside>
         <div class="container column is-10">

@@ -1,6 +1,6 @@
 function ExampleMoleculeStructure() {
   return (
-    <div id="component-example-svg" className="container">
+    <div id="component-example-moleculestructure" className="container">
       <section className="hero">
         <div className="hero-body">
           <p className="title">MoleculeStructure</p>
