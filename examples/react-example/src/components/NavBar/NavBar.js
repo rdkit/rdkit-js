@@ -17,8 +17,7 @@ export default class NavBar extends Component {
           <div className="navbar-brand" style={{ padding: "6px" }}>
             <a
               className="navbar-item"
-              href="https://www.npmjs.com/package/@rdkit/rdkit"
-              target="_blank"
+              href="#"
             >
               <img src={`${process.env.PUBLIC_URL}/rdkitjs_cropped_200.png`} />
             </a>
@@ -65,6 +64,20 @@ export default class NavBar extends Component {
                   >
                     <span className="icon">
                       <i className="fab fa-github fa-2x"></i>
+                    </span>
+                  </a>
+                </div>
+              </div>
+              <div className="navbar-item">
+                <div className="buttons">
+                  <a
+                    data-tooltip="NPM"
+                    className="button has-tooltip-bottom is-white is-big"
+                    href="https://www.npmjs.com/package/@rdkit/rdkit"
+                    target="_blank"
+                  >
+                    <span className="icon">
+                      <i className="fab fa-npm fa-2x"></i>
                     </span>
                   </a>
                 </div>
