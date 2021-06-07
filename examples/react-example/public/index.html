@@ -36,34 +36,48 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <aside class="menu">
-      <p class="menu-label">General</p>
-      <ul class="menu-list">
-        <li><a>Dashboard</a></li>
-        <li><a>Customers</a></li>
-      </ul>
-      <p class="menu-label">Administration</p>
-      <ul class="menu-list">
-        <li><a>Team Settings</a></li>
-        <li>
-          <a class="is-active">Manage Your Team</a>
-          <ul>
-            <li><a>Members</a></li>
-            <li><a>Plugins</a></li>
-            <li><a>Add a member</a></li>
-          </ul>
-        </li>
-        <li><a>Invitations</a></li>
-        <li><a>Cloud Storage Environment Settings</a></li>
-        <li><a>Authentication</a></li>
-      </ul>
-      <p class="menu-label">Transactions</p>
-      <ul class="menu-list">
-        <li><a>Payments</a></li>
-        <li><a>Transfers</a></li>
-        <li><a>Balance</a></li>
-      </ul>
-    </aside>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://bulma.io">
+          <img
+            src="%PUBLIC_URL%/logo-nobackground-200.png"
+            style="min-width:100px;min-height:100px"
+          />
+        </a>
+
+        <a
+          role="button"
+          class="navbar-burger"
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="navbarBasicExample"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item"> Home </a>
+
+          <a class="navbar-item"> Documentation </a>
+
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link"> More </a>
+
+            <div class="navbar-dropdown">
+              <a class="navbar-item"> About </a>
+              <a class="navbar-item"> Jobs </a>
+              <a class="navbar-item"> Contact </a>
+              <hr class="navbar-divider" />
+              <a class="navbar-item"> Report an issue </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
     <main class="container">
       <div style="display: flex; align-items: middle; justify-content: center">
         <div><img src="%PUBLIC_URL%/logo-nobackground-200.png" /></div>
