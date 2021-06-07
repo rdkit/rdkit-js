@@ -3,7 +3,7 @@ function ExampleMoleculeStructure() {
     <div id="component-example-svg" className="container">
       <section className="hero">
         <div className="hero-body">
-          <p className="title">MoleculeStructure - A Basic React Component</p>
+          <p className="title">MoleculeStructure</p>
           <p className="subtitle">
             The examples below will mostly use the React component{" "}
             <code className="is-family-code">MoleculeStructure</code> to render
