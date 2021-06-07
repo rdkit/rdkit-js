@@ -28,10 +28,12 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <script src="https://unpkg.com/@rdkit/rdkit@2021.3.2/Code/MinimalLib/dist/RDKit_minimal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css"
     />
+        <link rel="stylesheet" href="https://unpkg.com/bulma-tooltip@3.0.2/dist/css/bulma-tooltip.min.css" />
     <title>React App</title>
   </head>
   <body>
@@ -41,7 +43,7 @@
         <a class="navbar-item" href="https://bulma.io">
           <img
             src="%PUBLIC_URL%/logo-nobackground-200.png"
-            style="min-width:100px;min-height:100px"
+            style="min-width: 150px; min-height: 150px"
           />
         </a>
 
@@ -73,6 +75,18 @@
               <a class="navbar-item"> Contact </a>
               <hr class="navbar-divider" />
               <a class="navbar-item"> Report an issue </a>
+            </div>
+          </div>
+        </div>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="button is-white is-big" href="https://github.com/rdkit/rdkit" target="_blank">
+                <span class="icon">
+  <i class="fab fa-github fa-2x"></i>
+</span>
+              </a>
+              <a class="button is-light">RDKit Docs</a>
             </div>
           </div>
         </div>
