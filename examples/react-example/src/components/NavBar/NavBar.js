@@ -15,10 +15,7 @@ export default class NavBar extends Component {
           aria-label="main navigation"
         >
           <div className="navbar-brand" style={{ padding: "6px" }}>
-            <a
-              className="navbar-item"
-              href="#"
-            >
+            <a className="navbar-item" href="#">
               <img src={`${process.env.PUBLIC_URL}/rdkitjs_cropped_200.png`} />
             </a>
 
@@ -57,7 +54,7 @@ export default class NavBar extends Component {
               <div className="navbar-item">
                 <div className="buttons">
                   <a
-                    data-tooltip="Source Code"
+                    data-tooltip="View Source Code"
                     className="button has-tooltip-bottom is-white is-big"
                     href="https://github.com/rdkit/rdkit"
                     target="_blank"
@@ -71,7 +68,7 @@ export default class NavBar extends Component {
               <div className="navbar-item">
                 <div className="buttons">
                   <a
-                    data-tooltip="NPM"
+                    data-tooltip="Go to NPM package"
                     className="button has-tooltip-bottom is-white is-big"
                     href="https://www.npmjs.com/package/@rdkit/rdkit"
                     target="_blank"
