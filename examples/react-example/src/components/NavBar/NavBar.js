@@ -15,8 +15,11 @@ export default class NavBar extends Component {
           aria-label="main navigation"
         >
           <div className="navbar-brand" style={{ padding: "6px" }}>
-            <a className="navbar-item" href="#">
-              <img src={`${process.env.PUBLIC_URL}/rdkitjs_cropped_200.png`} />
+            <a className="navbar-item" href="#/">
+              <img
+                alt="logo"
+                src={`${process.env.PUBLIC_URL}/rdkitjs_cropped_200.png`}
+              />
             </a>
 
             <a
@@ -25,6 +28,7 @@ export default class NavBar extends Component {
               aria-label="menu"
               aria-expanded="false"
               data-target="navbarBasicExample"
+              href="#/"
               onClick={() => {
                 this.setState({ burgerActive: !this.state.burgerActive });
               }}
@@ -40,11 +44,11 @@ export default class NavBar extends Component {
             className={`navbar-menu${brugerActiveClass}`}
           >
             <div className="navbar-start">
-              <a className="navbar-item" href="#">
+              <a className="navbar-item" href="#/">
                 {" "}
                 Home{" "}
               </a>
-              <a className="navbar-item" href="#">
+              <a className="navbar-item" href="#/">
                 {" "}
                 Documentation{" "}
               </a>
@@ -57,7 +61,6 @@ export default class NavBar extends Component {
                     data-tooltip="View Source Code"
                     className="button has-tooltip-bottom is-white is-big"
                     href="https://github.com/rdkit/rdkit"
-                    target="_blank"
                   >
                     <span className="icon">
                       <i className="fab fa-github fa-2x"></i>
@@ -71,7 +74,6 @@ export default class NavBar extends Component {
                     data-tooltip="Go to NPM package"
                     className="button has-tooltip-bottom is-white is-big"
                     href="https://www.npmjs.com/package/@rdkit/rdkit"
-                    target="_blank"
                   >
                     <span className="icon">
                       <i className="fab fa-npm fa-2x"></i>
