@@ -36,40 +36,73 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div style="display: flex; align-items: middle; justify-content: center">
-      <div><img src="%PUBLIC_URL%/logo-nobackground-200.png" /></div>
-    </div>
-    <div
-      class="section"
-      style="
-        display: flex;
-        align-items: middle;
-        justify-content: center;
-        margin-top: -100px;
-      "
-    >
-      <div class="subtitle" style="max-width: 600px; text-align: center">
-        JavaScript distribution of cheminformatics functionality from the <a href="https://github.com/rdkit/rdkit" target="_blank">RDKit</a>
-        - a C++ library for cheminformatics.
+    <aside class="menu">
+      <p class="menu-label">General</p>
+      <ul class="menu-list">
+        <li><a>Dashboard</a></li>
+        <li><a>Customers</a></li>
+      </ul>
+      <p class="menu-label">Administration</p>
+      <ul class="menu-list">
+        <li><a>Team Settings</a></li>
+        <li>
+          <a class="is-active">Manage Your Team</a>
+          <ul>
+            <li><a>Members</a></li>
+            <li><a>Plugins</a></li>
+            <li><a>Add a member</a></li>
+          </ul>
+        </li>
+        <li><a>Invitations</a></li>
+        <li><a>Cloud Storage Environment Settings</a></li>
+        <li><a>Authentication</a></li>
+      </ul>
+      <p class="menu-label">Transactions</p>
+      <ul class="menu-list">
+        <li><a>Payments</a></li>
+        <li><a>Transfers</a></li>
+        <li><a>Balance</a></li>
+      </ul>
+    </aside>
+    <main class="container">
+      <div style="display: flex; align-items: middle; justify-content: center">
+        <div><img src="%PUBLIC_URL%/logo-nobackground-200.png" /></div>
       </div>
-    </div>
-    <div class="container title"
-          style="
-        display: flex;
-        align-items: middle;
-        justify-content: center;
-        margin-top: 100px;
-      "
-    >
-    RDKit.js with React
-    </div>
-    <div id="example-mol-structure"></div>
-    <div id="example-svg"></div>
-    <div id="example-canvas"></div>
-    <div id="example-substructures"></div>
-    <div id="example-substructure-search"></div>
-    <div id="example-all-options"></div>
-    <div id="example-descriptors"></div>
+      <div
+        class="section"
+        style="
+          display: flex;
+          align-items: middle;
+          justify-content: center;
+          margin-top: -100px;
+        "
+      >
+        <div class="subtitle" style="max-width: 600px; text-align: center">
+          JavaScript distribution of cheminformatics functionality from the
+          <a href="https://github.com/rdkit/rdkit" target="_blank">RDKit</a>
+          - a C++ library for cheminformatics.
+        </div>
+      </div>
+      <div
+        class="container title"
+        style="
+          display: flex;
+          align-items: middle;
+          justify-content: center;
+          margin-top: 100px;
+        "
+      >
+        RDKit.js with React
+      </div>
+      <div id="example-mol-structure"></div>
+      <div id="example-svg"></div>
+      <div id="example-canvas"></div>
+      <div id="example-substructures"></div>
+      <div id="example-substructure-search"></div>
+      <div id="example-all-options"></div>
+      <div id="example-descriptors"></div>
+    </main>
+
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -80,5 +113,19 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <footer class="footer" style="margin-top: 100px">
+      <div class="content has-text-centered">
+        <p>
+          <strong>RDKit.js</strong> by
+          <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is
+          licensed
+          <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The
+          website content is licensed
+          <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
+            >CC BY NC SA 4.0</a
+          >.
+        </p>
+      </div>
+    </footer>
   </body>
 </html>
