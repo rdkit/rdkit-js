@@ -7,15 +7,24 @@ import ExampleSubstructure from "./examples/ExampleSubstructure";
 import ExampleSVG from "./examples/ExampleSvg";
 import ExampleCanvas from "./examples/ExampleCanvas";
 import ExampleDrawingOptions from "./examples/ExampleDrawingOptions";
+import ExampleList from "./examples/ExampleList";
 /* eslint import/no-webpack-loader-syntax: off */
 import MoleculeStructureCode from "!!raw-loader!./components/MoleculeStructure/MoleculeStructure";
 import ExampleSVGCode from "!!raw-loader!./examples/ExampleSvg.js";
 import ExampleCanvasCode from "!!raw-loader!./examples/ExampleCanvas.js";
 import ExampleSubstructureCode from "!!raw-loader!./examples/ExampleSubstructure.js";
 import ExampleDrawingOptionsCode from "!!raw-loader!./examples/ExampleDrawingOptions.js";
+import ExampleListCode from "!!raw-loader!./examples/ExampleList.js";
 import "./index.css";
 
 ReactDOM.render(<NavBar />, document.getElementById("navbar"));
+// ReactDOM.render(
+//   <CodeExample code={ExampleListCode}>
+//     <ExampleList />
+//   </CodeExample>,
+//   document.getElementById("example-list")
+// );
+
 ReactDOM.render(
   <CodeExample code={MoleculeStructureCode}>
     <ExampleMoleculeStructure />
