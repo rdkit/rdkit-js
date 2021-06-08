@@ -20,7 +20,7 @@ class MoleculeStructure extends Component {
     structure: PropTypes.string.isRequired,
     subStructure: PropTypes.string,
     extraDetails: PropTypes.object,
-    drawingDelay: PropTypes.number
+    drawingDelay: PropTypes.number,
   };
 
   static defaultProps = {
@@ -30,7 +30,7 @@ class MoleculeStructure extends Component {
     height: 200,
     svgMode: false,
     extraDetails: {},
-    drawingDelay: undefined
+    drawingDelay: undefined,
   };
 
   constructor(props) {
@@ -132,7 +132,8 @@ class MoleculeStructure extends Component {
     if (this.props.rdKitState === "LOADED") {
       const shouldUpdateDrawing =
         prevProps.smiles !== this.props.smiles ||
-        prevProps.subStructure !== this.props.subStructure;
+        prevProps.subStructure !== this.props.subStructure ||
+        !_.isEqual(prevProps.extraDetails, this.props.extraDetails);
 
       if (shouldUpdateDrawing) {
         this.draw();
