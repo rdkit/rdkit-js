@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import "./MoleculeStructure.css";
+import _ from "lodash";
 import PropTypes from "prop-types";
+
+import "./MoleculeStructure.css";
 
 class MoleculeStructure extends Component {
   static propTypes = {
@@ -18,6 +20,7 @@ class MoleculeStructure extends Component {
     structure: PropTypes.string.isRequired,
     subStructure: PropTypes.string,
     extraDetails: PropTypes.object,
+    drawingDelay: PropTypes.number
   };
 
   static defaultProps = {
@@ -27,6 +30,7 @@ class MoleculeStructure extends Component {
     height: 200,
     svgMode: false,
     extraDetails: {},
+    drawingDelay: undefined
   };
 
   constructor(props) {
