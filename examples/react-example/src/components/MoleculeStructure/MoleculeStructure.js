@@ -58,38 +58,52 @@ class MoleculeStructure extends Component {
   }
 
   draw() {
-    const isValidMol = this.isValidMol();
-    if (isValidMol && this.props.svgMode) {
-      const svg = this.state.mol.get_svg_with_highlights(this.getMolDetails());
-      this.setState({ svg });
-    } else if (isValidMol) {
-      const canvas = document.getElementById(this.props.id);
-      this.state.mol.draw_to_canvas_with_highlights(
-        canvas,
-        this.getMolDetails()
-      );
+    if (this.props.drawingDelay) {
+      setTimeout(() => {
+        this.drawSVGorCanvas();
+      }, this.props.drawingDelay);
+    } else {
+      this.drawSVGorCanvas();
     }
   }
 
-  isValidMol() {
-    return !!this.state.mol && this.state.mol.is_valid();
+  drawSVGorCanvas() {
+    const mol = window.RDKit.get_mol(this.props.smiles || "invalid");
+    const qmol = window.RDKit.get_qmol(this.props.subStructure || "invalid");
+
+    if (this.props.svgMode && this.isValidMol(mol)) {
+      const svg = mol.get_svg_with_highlights(this.getMolDetails(mol, qmol));
+      this.setState({ svg });
+    } else if (this.isValidMol(mol)) {
+      const canvas = document.getElementById(this.props.id);
+      mol.draw_to_canvas_with_highlights(canvas, this.getMolDetails(mol, qmol));
+    }
+
+    /**
+     * Delete C++ mol objects manually
+     * https://emscripten.org/docs/porting/connecting_cpp_and_javascript/embind.html#memory-management
+     */
+    mol.delete();
+    qmol.delete();
   }
 
-  isValidQMol() {
-    return !!this.state.qmol && this.state.qmol.is_valid();
+  isValidMol(mol) {
+    return mol.is_valid();
   }
 
-  getMolDetails() {
-    if (this.isValidMol() && this.isValidQMol()) {
-      const extraMolDetails = JSON.parse(
-        this.state.mol.get_substruct_match(this.state.qmol)
-      );
+  getMolDetails(mol, qmol) {
+    if (this.isValidMol(mol) && this.isValidMol(qmol)) {
+      const matchDetails = JSON.parse(mol.get_substruct_match(qmol));
       return JSON.stringify({
         ...this.MOL_DETAILS,
-        ...extraMolDetails,
+        ...(this.props.extraDetails || {}),
+        ...matchDetails,
       });
     } else {
-      return JSON.stringify(this.MOL_DETAILS);
+      return JSON.stringify({
+        ...this.MOL_DETAILS,
+        ...(this.props.extraDetails || {}),
+      });
     }
   }
 
@@ -110,47 +124,15 @@ class MoleculeStructure extends Component {
     }
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    const rdkitStateChanged = prevState.rdKitLoaded !== this.state.rdKitLoaded;
+  componentDidUpdate(prevProps) {
+    if (this.props.rdKitState === "LOADED") {
+      const shouldUpdateDrawing =
+        prevProps.smiles !== this.props.smiles ||
+        prevProps.subStructure !== this.props.subStructure;
 
-    if (rdkitStateChanged && this.state.rdKitLoaded) {
-      let oldMol, oldQMol;
-      const updateObject = {};
-
-      oldMol = this.state.mol || undefined;
-      updateObject.mol = this.RDKit.get_mol(this.props.structure);
-
-      oldQMol = this.state.qmol || undefined;
-      updateObject.qmol = this.RDKit.get_qmol(this.props.subStructure);
-
-      this.setState({ ...updateObject }, () => this.draw());
-
-      /**
-       * Delete C++ mol objects manually
-       * https://emscripten.org/docs/porting/connecting_cpp_and_javascript/embind.html#memory-management
-       */
-      if (oldMol) {
-        oldMol.delete();
+      if (shouldUpdateDrawing) {
+        this.draw();
       }
-
-      if (oldQMol) {
-        oldQMol.delete();
-      }
-    }
-  }
-
-  componentWillUnmount() {
-    /**
-     * Delete C++ mol objects manually
-     * https://emscripten.org/docs/porting/connecting_cpp_and_javascript/embind.html#memory-management
-     */
-
-    if (this.state.mol) {
-      this.state.mol.delete();
-    }
-
-    if (this.state.qmol) {
-      this.state.qmol.delete();
     }
   }
 
