@@ -60,7 +60,9 @@ const examples = [
     component: <ExampleDrawingOptions />,
     elementId: "example-all-options",
   },
-].forEach((example) => {
+]
+
+examples.forEach((example) => {
   ReactDOM.render(
     <CodeExample code={example.code}>{example.component}</CodeExample>,
     document.getElementById(example.elementId)
