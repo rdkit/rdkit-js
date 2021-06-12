@@ -18,12 +18,13 @@ import ExampleListCode from "!!raw-loader!./examples/ExampleList.js";
 import "./index.css";
 
 ReactDOM.render(<NavBar />, document.getElementById("navbar"));
-// ReactDOM.render(
-//   <CodeExample code={ExampleListCode}>
-//     <ExampleList />
-//   </CodeExample>,
-//   document.getElementById("example-list")
-// );
+
+ReactDOM.render(
+  <CodeExample code={ExampleListCode}>
+    <ExampleList />
+  </CodeExample>,
+  document.getElementById("example-list")
+);
 
 ReactDOM.render(
   <CodeExample code={MoleculeStructureCode}>

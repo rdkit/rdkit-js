@@ -3,6 +3,7 @@ import _ from "lodash";
 import PropTypes from "prop-types";
 
 import "./MoleculeStructure.css";
+import initRDKit from "../../utils/initRDKit";
 
 class MoleculeStructure extends Component {
   static propTypes = {
@@ -36,8 +37,6 @@ class MoleculeStructure extends Component {
   constructor(props) {
     super(props);
 
-    this.RDKit = window.RDKit;
-
     this.MOL_DETAILS = {
       width: this.props.width,
       height: this.props.height,
@@ -46,17 +45,9 @@ class MoleculeStructure extends Component {
       ...this.props.extraDetails,
     };
 
-    const structure =
-      typeof this.props.structure === "string" ? this.props.structure : "";
-    const subStructure =
-      typeof this.props.subStructure === "string"
-        ? this.props.subStructure
-        : "";
     this.state = {
       svg: undefined,
-      mol: !!this.RDKit ? this.RDKit.get_mol(structure) : "",
-      qmol: this.RDKit ? this.RDKit.get_qmol(subStructure) : "",
-      rdKitLoaded: !!this.RDKit,
+      rdKitLoaded: false,
       rdKitError: false,
     };
   }
@@ -72,7 +63,7 @@ class MoleculeStructure extends Component {
   }
 
   drawSVGorCanvas() {
-    const mol = window.RDKit.get_mol(this.props.smiles || "invalid");
+    const mol = window.RDKit.get_mol(this.props.structure || "invalid");
     const qmol = window.RDKit.get_qmol(this.props.subStructure || "invalid");
 
     if (this.props.svgMode && this.isValidMol(mol)) {
@@ -92,7 +83,7 @@ class MoleculeStructure extends Component {
   }
 
   isValidMol(mol) {
-    return mol.is_valid();
+    return !!mol && mol.is_valid();
   }
 
   getMolDetails(mol, qmol) {
@@ -112,26 +103,20 @@ class MoleculeStructure extends Component {
   }
 
   componentDidMount() {
-    this.draw();
-
-    if (!this.state.rdKitLoaded) {
-      window
-        .initRDKitModule()
-        .then((RDKit) => {
-          window.RDKit = RDKit;
-          this.RDKit = window.RDKit;
-          this.setState({ rdKitLoaded: true, rdKitError: false });
-        })
-        .catch(() => {
-          this.setState({ rdKitLoaded: false, rdKitError: true });
-        });
-    }
+    initRDKit()
+      .then(() => {
+        this.setState({ rdKitLoaded: true });
+        this.draw();
+      })
+      .catch(() => {
+        this.setState({ rdKitError: true });
+      });
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.rdKitState === "LOADED") {
+    if (this.state.rdKitLoaded) {
       const shouldUpdateDrawing =
-        prevProps.smiles !== this.props.smiles ||
+        prevProps.structure !== this.props.structure ||
         prevProps.subStructure !== this.props.subStructure ||
         !_.isEqual(prevProps.extraDetails, this.props.extraDetails);
 
@@ -149,7 +134,11 @@ class MoleculeStructure extends Component {
       return "Loading renderer...";
     }
 
-    if (!this.isValidMol()) {
+    const mol = window.RDKit.get_mol(this.props.structure || "invalid");
+    const isValidMol = this.isValidMol(mol);
+    mol.delete();
+
+    if (!isValidMol) {
       return (
         <span title={`Cannot render structure: ${this.props.structure}`}>
           Render Error.
