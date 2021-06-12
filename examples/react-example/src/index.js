@@ -24,51 +24,45 @@ ReactDOM.render(<NavBar />, document.getElementById("navbar"));
 
 ReactDOM.render(<Introduction />, document.getElementById("introduction"));
 
-ReactDOM.render(
-  <CodeExample code={ExampleListCode}>
-    <ExampleList />
-  </CodeExample>,
-  document.getElementById("example-list")
-);
-
-ReactDOM.render(
-  <CodeExample code={MoleculeStructureCode}>
-    <ExampleMoleculeStructure />
-  </CodeExample>,
-  document.getElementById("example-mol-structure")
-);
-
-ReactDOM.render(
-  <CodeExample code={ExampleSVGCode}>
-    <ExampleSVG />
-  </CodeExample>,
-  document.getElementById("example-svg")
-);
-
-ReactDOM.render(
-  <CodeExample code={ExampleCanvasCode}>
-    <ExampleCanvas />
-  </CodeExample>,
-  document.getElementById("example-canvas")
-);
-
-ReactDOM.render(
-  <CodeExample code={ExampleSubstructureCode}>
-    <ExampleSubstructure />
-  </CodeExample>,
-  document.getElementById("example-substructures")
-);
-
-ReactDOM.render(
-  <CodeExample code={ExampleMultiSubstructureCode}>
-    <ExampleMultiSubstructure />
-  </CodeExample>,
-  document.getElementById("example-multi-substructures")
-);
-
-ReactDOM.render(
-  <CodeExample code={ExampleDrawingOptionsCode}>
-    <ExampleDrawingOptions />
-  </CodeExample>,
-  document.getElementById("example-all-options")
-);
+const examples = [
+  {
+    code: ExampleListCode,
+    component: <ExampleList />,
+    elementId: "example-list",
+  },
+  {
+    code: MoleculeStructureCode,
+    component: <ExampleMoleculeStructure />,
+    elementId: "example-mol-structure",
+  },
+  {
+    code: ExampleSVGCode,
+    component: <ExampleSVG />,
+    elementId: "example-svg",
+  },
+  {
+    code: ExampleCanvasCode,
+    component: <ExampleCanvas />,
+    elementId: "example-canvas",
+  },
+  {
+    code: ExampleSubstructureCode,
+    component: <ExampleSubstructure />,
+    elementId: "example-substructures",
+  },
+  {
+    code: ExampleMultiSubstructureCode,
+    component: <ExampleMultiSubstructure />,
+    elementId: "example-multi-substructures",
+  },
+  {
+    code: ExampleDrawingOptionsCode,
+    component: <ExampleDrawingOptions />,
+    elementId: "example-all-options",
+  },
+].forEach((example) => {
+  ReactDOM.render(
+    <CodeExample code={example.code}>{example.component}</CodeExample>,
+    document.getElementById(example.elementId)
+  );
+});

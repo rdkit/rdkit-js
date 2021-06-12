@@ -6,7 +6,7 @@ class ExampleList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      matches: props.smilesList,
+      matches: SMILES_LIST,
     };
   }
 
@@ -16,7 +16,7 @@ class ExampleList extends React.Component {
 
   render() {
     return (
-      <div id="component-example-list" className="container">
+      <div id="component-example-substruct-search" className="container">
         <section className="hero">
           <div className="hero-body">
             <p className="title">Substructure match</p>
@@ -29,7 +29,39 @@ class ExampleList extends React.Component {
           className="columns is-desktop"
           style={{ margin: "12px", overflowX: "scroll" }}
         >
-          {SMILES_LIST.map((smiles) => (
+          {this.state.matches.slice(0, 30).map((smiles) => (
+            <div className="column" key={smiles}>
+              <MoleculeStructure
+                id={smiles}
+                structure={smiles}
+                height={200}
+                width={200}
+                svgMode
+              />
+            </div>
+          ))}
+        </div>
+        <div
+          className="columns is-desktop"
+          style={{ margin: "12px", overflowX: "scroll" }}
+        >
+          {this.state.matches.slice(30, 60).map((smiles) => (
+            <div className="column" key={smiles}>
+              <MoleculeStructure
+                id={smiles}
+                structure={smiles}
+                height={200}
+                width={200}
+                svgMode
+              />
+            </div>
+          ))}
+        </div>
+        <div
+          className="columns is-desktop"
+          style={{ margin: "12px", overflowX: "scroll" }}
+        >
+          {this.state.matches.slice(60, 90).map((smiles) => (
             <div className="column" key={smiles}>
               <MoleculeStructure
                 id={smiles}
