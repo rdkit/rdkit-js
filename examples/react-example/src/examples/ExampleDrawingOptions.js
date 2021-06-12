@@ -20,23 +20,22 @@ function ExampleDrawingOptions() {
       <div className="columns is-desktop">
         <div className="column">
           <MoleculeStructure
+            id="structure-example-drawing-options-caffeine"
+            structure={caffeine}
+            subStructure={caffeineSubStruct}
             width={350}
             height={300}
             svgMode
-            structure={caffeine}
-            subStructure={caffeineSubStruct}
             extraDetails={{
               addAtomIndices: true,
               highlightColor: [1, 0, 1],
               legend: "caffeine",
             }}
-            id="structure-example-drawing-options-caffeine"
           />
         </div>
         <div className="column">
           <MoleculeStructure
-            width={350}
-            height={300}
+            id="structure-example-drawing-options-aspirin"
             structure={aspirin}
             subStructure={aspirinSubStruct}
             extraDetails={{
@@ -44,7 +43,8 @@ function ExampleDrawingOptions() {
               highlightColor: [0, 1, 1],
               legend: "aspirin",
             }}
-            id="structure-example-drawing-options-aspirin"
+            width={350}
+            height={300}
           />
         </div>
       </div>

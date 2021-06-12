@@ -18,18 +18,18 @@ function ExampleCanvas() {
       <div className="columns is-desktop">
         <div className="column">
           <MoleculeStructure
+            id="structure-example-canvas-caffeine"
+            structure={caffeine}
             width={350}
             height={300}
-            structure={caffeine}
-            id="structure-example-canvas-caffeine"
           />
         </div>
         <div className="column">
           <MoleculeStructure
+            id="structure-example-canvas-aspirin"
+            structure={aspirin}
             width={350}
             height={300}
-            structure={aspirin}
-            id="structure-example-canvas-aspirin"
           />
         </div>
       </div>

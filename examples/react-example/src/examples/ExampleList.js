@@ -20,10 +20,10 @@ function ExampleList() {
           <div className="column" key={smiles}>
             <MoleculeStructure
               id={smiles}
-              svgMode
               structure={smiles}
               height={200}
               width={200}
+              svgMode
             />
           </div>
         ))}

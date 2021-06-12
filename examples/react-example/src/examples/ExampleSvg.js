@@ -17,20 +17,20 @@ function ExampleSVG() {
       <div className="columns is-desktop">
         <div className="column">
           <MoleculeStructure
+            id="structure-example-svg-caffeine"
+            structure={caffeine}
             width={350}
             height={300}
             svgMode
-            structure={caffeine}
-            id="structure-example-svg-caffeine"
           />
         </div>
         <div className="column">
           <MoleculeStructure
+            id="structure-example-svg-aspirin"
+            structure={aspirin}
             width={350}
             height={300}
             svgMode
-            structure={aspirin}
-            id="structure-example-svg-aspirin"
           />
         </div>
       </div>

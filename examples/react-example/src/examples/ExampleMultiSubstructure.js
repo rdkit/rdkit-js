@@ -21,21 +21,21 @@ function ExampleMultiSubstructure() {
       <div className="columns is-desktop">
         <div className="column">
           <MoleculeStructure
+            id="structure-example-multisubstruct-svg-caffeine"
+            structure={caffeine}
+            subStructure={caffeineSubStruct}
             width={350}
             height={300}
             svgMode
-            structure={caffeine}
-            subStructure={caffeineSubStruct}
-            id="structure-example-multisubstruct-svg-caffeine"
           />
         </div>
         <div className="column">
           <MoleculeStructure
-            width={350}
-            height={300}
+            id="structure-example-multisubsctruct-canvas-aspirin"
             structure={aspirin}
             subStructure={aspirinSubStruct}
-            id="structure-example-multisubsctruct-canvas-aspirin"
+            width={350}
+            height={300}
           />
         </div>
       </div>

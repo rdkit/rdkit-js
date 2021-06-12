@@ -21,21 +21,21 @@ function ExampleSubstructure() {
       <div className="columns is-desktop">
         <div className="column">
           <MoleculeStructure
+            id="structure-example-substruct-svg-caffeine"
+            structure={caffeine}
+            subStructure={caffeineSubStruct}
             width={350}
             height={300}
             svgMode
-            structure={caffeine}
-            subStructure={caffeineSubStruct}
-            id="structure-example-substruct-svg-caffeine"
           />
         </div>
         <div className="column">
           <MoleculeStructure
-            width={350}
-            height={300}
+            id="structure-example-subsctruct-canvas-aspirin"
             structure={aspirin}
             subStructure={aspirinSubStruct}
-            id="structure-example-subsctruct-canvas-aspirin"
+            width={350}
+            height={300}
           />
         </div>
       </div>
