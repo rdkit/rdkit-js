@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar/NavBar";
 import ExampleMoleculeStructure from "./examples/ExampleMoleculeStructure";
 import ExampleSubstructure from "./examples/ExampleSubstructure";
 import ExampleMultiSubstructure from "./examples/ExampleMultiSubstructure";
+import ExampleSubstructureSearch from "./examples/ExampleSubstructureSearch";
 import ExampleSVG from "./examples/ExampleSvg";
 import ExampleCanvas from "./examples/ExampleCanvas";
 import ExampleDrawingOptions from "./examples/ExampleDrawingOptions";
@@ -17,6 +18,7 @@ import ExampleCanvasCode from "!!raw-loader!./examples/ExampleCanvas.js";
 import ExampleSubstructureCode from "!!raw-loader!./examples/ExampleSubstructure.js";
 import ExampleMultiSubstructureCode from "!!raw-loader!./examples/ExampleMultiSubstructure.js";
 import ExampleDrawingOptionsCode from "!!raw-loader!./examples/ExampleDrawingOptions.js";
+import ExampleSubstructureSearchCode from "!!raw-loader!./examples/ExampleSubstructureSearch";
 import ExampleListCode from "!!raw-loader!./examples/ExampleList.js";
 import "./index.css";
 
@@ -59,6 +61,11 @@ const examples = [
     code: ExampleDrawingOptionsCode,
     component: <ExampleDrawingOptions />,
     elementId: "example-all-options",
+  },
+  {
+    code: ExampleSubstructureSearchCode,
+    component: <ExampleSubstructureSearch />,
+    elementId: "example-substructure-search",
   },
 ];
 

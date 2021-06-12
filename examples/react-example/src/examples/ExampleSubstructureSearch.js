@@ -25,49 +25,14 @@ class ExampleList extends React.Component {
             </p>
           </div>
         </section>
-        <div
-          className="columns is-desktop"
-          style={{ margin: "12px", overflowX: "scroll" }}
-        >
+        <div className="columns is-multiline" style={{ margin: "12px" }}>
           {this.state.matches.slice(0, 30).map((smiles) => (
             <div className="column" key={smiles}>
               <MoleculeStructure
                 id={smiles}
                 structure={smiles}
-                height={200}
-                width={200}
-                svgMode
-              />
-            </div>
-          ))}
-        </div>
-        <div
-          className="columns is-desktop"
-          style={{ margin: "12px", overflowX: "scroll" }}
-        >
-          {this.state.matches.slice(30, 60).map((smiles) => (
-            <div className="column" key={smiles}>
-              <MoleculeStructure
-                id={smiles}
-                structure={smiles}
-                height={200}
-                width={200}
-                svgMode
-              />
-            </div>
-          ))}
-        </div>
-        <div
-          className="columns is-desktop"
-          style={{ margin: "12px", overflowX: "scroll" }}
-        >
-          {this.state.matches.slice(60, 90).map((smiles) => (
-            <div className="column" key={smiles}>
-              <MoleculeStructure
-                id={smiles}
-                structure={smiles}
-                height={200}
-                width={200}
+                height={100}
+                width={100}
                 svgMode
               />
             </div>
