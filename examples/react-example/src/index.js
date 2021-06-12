@@ -60,7 +60,7 @@ const examples = [
     component: <ExampleDrawingOptions />,
     elementId: "example-all-options",
   },
-]
+];
 
 examples.forEach((example) => {
   ReactDOM.render(

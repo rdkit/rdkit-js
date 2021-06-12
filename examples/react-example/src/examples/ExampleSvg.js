@@ -9,9 +9,7 @@ function ExampleSVG() {
       <section className="hero">
         <div className="hero-body">
           <p className="title">SVG Rendering</p>
-          <p className="subtitle">
-            You can render molecules using svg and specify height and width.
-          </p>
+          <p className="subtitle">You can render molecules using svg.</p>
         </div>
       </section>
       <div className="columns is-desktop">

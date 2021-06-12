@@ -10,8 +10,7 @@ function ExampleCanvas() {
         <div className="hero-body">
           <p className="title">Canvas rendering</p>
           <p className="subtitle">
-            You can also render molecules using the HTML Canvas API and specify
-            height and width.
+            You can also render molecules using the HTML Canvas API.
           </p>
         </div>
       </section>
