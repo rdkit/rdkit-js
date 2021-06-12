@@ -5,6 +5,7 @@ import CodeExample from "./components/CodeExample/CodeExample";
 import NavBar from "./components/NavBar/NavBar";
 import ExampleMoleculeStructure from "./examples/ExampleMoleculeStructure";
 import ExampleSubstructure from "./examples/ExampleSubstructure";
+import ExampleMultiSubstructure from "./examples/ExampleMultiSubstructure";
 import ExampleSVG from "./examples/ExampleSvg";
 import ExampleCanvas from "./examples/ExampleCanvas";
 import ExampleDrawingOptions from "./examples/ExampleDrawingOptions";
@@ -14,6 +15,7 @@ import MoleculeStructureCode from "!!raw-loader!./components/MoleculeStructure/M
 import ExampleSVGCode from "!!raw-loader!./examples/ExampleSvg.js";
 import ExampleCanvasCode from "!!raw-loader!./examples/ExampleCanvas.js";
 import ExampleSubstructureCode from "!!raw-loader!./examples/ExampleSubstructure.js";
+import ExampleMultiSubstructureCode from "!!raw-loader!./examples/ExampleMultiSubstructure.js";
 import ExampleDrawingOptionsCode from "!!raw-loader!./examples/ExampleDrawingOptions.js";
 import ExampleListCode from "!!raw-loader!./examples/ExampleList.js";
 import "./index.css";
@@ -55,6 +57,13 @@ ReactDOM.render(
     <ExampleSubstructure />
   </CodeExample>,
   document.getElementById("example-substructures")
+);
+
+ReactDOM.render(
+  <CodeExample code={ExampleMultiSubstructureCode}>
+    <ExampleMultiSubstructure />
+  </CodeExample>,
+  document.getElementById("example-multi-substructures")
 );
 
 ReactDOM.render(

@@ -1,20 +1,20 @@
 import MoleculeStructure from "../components/MoleculeStructure/MoleculeStructure";
 
-function ExampleSubstructure() {
+function ExampleMultiSubstructure() {
   const caffeine = "CN1C=NC2=C1C(=O)N(C(=O)N2C)";
-  const caffeineSubStruct = "[N,n,O;!H0]";
+  const caffeineSubStruct = "[N,n,o,O]";
 
   const aspirin = "CC(=O)Oc1ccccc1C(=O)O";
-  const aspirinSubStruct = "CC(=O)Oc1ccccc1C";
+  const aspirinSubStruct = "[O,o].c1ccccc1";
 
   return (
     <div id="component-example-substruct" className="container">
       <section className="hero">
         <div className="hero-body">
-          <p className="title">Substructure Highlight</p>
+          <p className="title">Multi-substructure Highlight</p>
           <p className="subtitle">
-            You can also highlight substructure of molecules with both the SVG
-            and Canvas APIs.
+            You can also highlight multiple substructures of molecules with
+            SMILES, SMARTS and a combination of the two with dot notation.
           </p>
         </div>
       </section>
@@ -26,7 +26,7 @@ function ExampleSubstructure() {
             svgMode
             structure={caffeine}
             subStructure={caffeineSubStruct}
-            id="structure-example-substruct-svg-caffeine"
+            id="structure-example-multisubstruct-svg-caffeine"
           />
         </div>
         <div className="column">
@@ -35,7 +35,7 @@ function ExampleSubstructure() {
             height={300}
             structure={aspirin}
             subStructure={aspirinSubStruct}
-            id="structure-example-subsctruct-canvas-aspirin"
+            id="structure-example-multisubsctruct-canvas-aspirin"
           />
         </div>
       </div>
@@ -43,4 +43,4 @@ function ExampleSubstructure() {
   );
 }
 
-export default ExampleSubstructure;
+export default ExampleMultiSubstructure;
