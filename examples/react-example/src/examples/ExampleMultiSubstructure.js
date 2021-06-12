@@ -8,7 +8,7 @@ function ExampleMultiSubstructure() {
   const aspirinSubStruct = "[O,o].c1ccccc1";
 
   return (
-    <div id="component-example-substruct" className="container">
+    <div id="component-example-multi-substruct" className="container">
       <section className="hero">
         <div className="hero-body">
           <p className="title">Multi-substructure Highlight</p>
