@@ -3,7 +3,7 @@ import React, { Component } from "react";
 export default class Introduction extends Component {
   render() {
     return (
-      <div id="component-example-canvas" className="container">
+      <div id="component-introduction" className="container">
         <section className="hero">
           <div className="hero-body">
             <p className="title">Introduction</p>
