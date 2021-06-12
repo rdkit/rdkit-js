@@ -12,18 +12,21 @@ function ExampleList() {
           </p>
         </div>
       </section>
-      <div className="columns is-desktop" style={{margin: "12px", overflowX: "scroll"}}>
-          {SMILES_LIST.map((smiles) => (
-            <div className="column" key={smiles}>
-              <MoleculeStructure
-                id={smiles}
-                svgMode
-                structure={smiles}
-                height={200}
-                width={200}
-              />
-            </div>
-          ))}
+      <div
+        className="columns is-desktop"
+        style={{ margin: "12px", overflowX: "scroll" }}
+      >
+        {SMILES_LIST.map((smiles) => (
+          <div className="column" key={smiles}>
+            <MoleculeStructure
+              id={smiles}
+              svgMode
+              structure={smiles}
+              height={200}
+              width={200}
+            />
+          </div>
+        ))}
       </div>
     </div>
   );

@@ -15,6 +15,7 @@ const initRDKit = (() => {
           });
       });
     }
+
     return rdkitLoadingPromise;
   };
 })();
