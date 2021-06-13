@@ -1,4 +1,5 @@
 import React from "react";
+import _ from "lodash";
 import MoleculeStructure from "../components/MoleculeStructure/MoleculeStructure";
 import { SMILES_LIST } from "../utils/smiles";
 
@@ -9,6 +10,7 @@ class ExampleList extends React.Component {
   };
 
   render() {
+    const matches = this.state.matches.slice(0, 50);
     return (
       <div id="component-example-substruct-search" className="container">
         <section className="hero">
@@ -26,8 +28,8 @@ class ExampleList extends React.Component {
                 <input
                   className="input"
                   type="email"
+                  onChange={(e) => this.handleSearchChange(e)}
                   placeholder="Enter a SMARTS or SMILES string here..."
-                  value={this.state.searchValue}
                 />
                 <span className="icon is-small is-left">
                   <i className="fas fa-search" />
@@ -37,21 +39,47 @@ class ExampleList extends React.Component {
           </div>
         </div>
         <div className="columns is-multiline" style={{ margin: "12px" }}>
-          {this.state.matches.slice(0, 50).map((smiles) => (
-            <div className="column" key={smiles}>
-              <MoleculeStructure
-                id={smiles}
-                structure={smiles}
-                height={100}
-                width={100}
-                svgMode
-              />
-            </div>
-          ))}
+          {matches.length > 0
+            ? matches.slice(0, 40).map((smiles) => (
+                <div className="column" key={smiles}>
+                  <MoleculeStructure
+                    id={smiles}
+                    structure={smiles}
+                    subStructure={this.state.searchValue}
+                    height={200}
+                    width={200}
+                    svgMode
+                  />
+                </div>
+              ))
+            : "Input is either invalid or no matches were found."}
         </div>
       </div>
     );
   }
+
+  handleSearchChange = _.debounce((e) => {
+    const noMatchLength = 2;
+    const currentVal = e.target.value;
+    this.setState({ searchValue: currentVal });
+    if (!currentVal) {
+      this.setState({ smilesList: SMILES_LIST });
+    } else {
+      const qmol = window.RDKit.get_qmol(currentVal);
+      const matches = SMILES_LIST.filter((smiles) => {
+        const mol = window.RDKit.get_mol(smiles);
+        const hasMatch = mol.get_substruct_match(qmol).length > noMatchLength;
+        mol.delete();
+        return hasMatch;
+      });
+      this.setState({ matches });
+      if (qmol.is_valid()) {
+      } else {
+        this.setState({ matches: [] });
+      }
+      qmol.delete();
+    }
+  }, 300);
 }
 
 export default ExampleList;
