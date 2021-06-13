@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import Introduction from "./components/Introduction/Introduction";
 import CodeExample from "./components/CodeExample/CodeExample";
 import NavBar from "./components/NavBar/NavBar";
+import SideNav from "./components/SideNav/SideNav";
 import ExampleMoleculeStructure from "./examples/ExampleMoleculeStructure";
 import ExampleSubstructure from "./examples/ExampleSubstructure";
 import ExampleMultiSubstructure from "./examples/ExampleMultiSubstructure";
@@ -23,6 +24,7 @@ import ExampleListCode from "!!raw-loader!./examples/ExampleList.js";
 import "./index.css";
 
 ReactDOM.render(<NavBar />, document.getElementById("navbar"));
+ReactDOM.render(<SideNav />, document.getElementById("side-navigation"));
 
 ReactDOM.render(<Introduction />, document.getElementById("introduction"));
 
