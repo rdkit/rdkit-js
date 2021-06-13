@@ -44,13 +44,9 @@ export default class NavBar extends Component {
             className={`navbar-menu${brugerActiveClass}`}
           >
             <div className="navbar-start">
-              <a className="navbar-item" href="#/">
+              <a className="navbar-item" href="https://github.com/rdkit/rdkit">
                 {" "}
-                Home{" "}
-              </a>
-              <a className="navbar-item" href="#/">
-                {" "}
-                Documentation{" "}
+                RDKit Home{" "}
               </a>
             </div>
 
@@ -60,7 +56,7 @@ export default class NavBar extends Component {
                   <a
                     data-tooltip="View Source Code"
                     className="button has-tooltip-bottom is-white is-big"
-                    href="https://github.com/rdkit/rdkit"
+                    href="https://github.com/MichelML/rdkit-js"
                   >
                     <span className="icon">
                       <i className="fab fa-github fa-2x"></i>
