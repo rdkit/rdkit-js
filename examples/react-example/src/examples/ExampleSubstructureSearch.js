@@ -3,15 +3,9 @@ import MoleculeStructure from "../components/MoleculeStructure/MoleculeStructure
 import { SMILES_LIST } from "../utils/smiles";
 
 class ExampleList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      matches: SMILES_LIST,
-    };
-  }
-
   state = {
-    matches: [],
+    matches: SMILES_LIST,
+    searchValue: "",
   };
 
   render() {
@@ -25,8 +19,25 @@ class ExampleList extends React.Component {
             </p>
           </div>
         </section>
+        <div className="columns" style={{ margin: "12px 0" }}>
+          <div className="column">
+            <div className="field">
+              <div className="control has-icons-left">
+                <input
+                  className="input"
+                  type="email"
+                  placeholder="Enter a SMARTS or SMILES string here..."
+                  value={this.state.searchValue}
+                />
+                <span className="icon is-small is-left">
+                  <i className="fas fa-search" />
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
         <div className="columns is-multiline" style={{ margin: "12px" }}>
-          {this.state.matches.slice(0, 30).map((smiles) => (
+          {this.state.matches.slice(0, 50).map((smiles) => (
             <div className="column" key={smiles}>
               <MoleculeStructure
                 id={smiles}
