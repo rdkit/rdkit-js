@@ -84,6 +84,7 @@ export default class SideNav extends Component {
         </ul>
       </React.Fragment>
     ));
+
     return renderedSections;
   }
 }
