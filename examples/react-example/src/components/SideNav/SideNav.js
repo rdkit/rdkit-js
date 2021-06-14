@@ -2,53 +2,88 @@ import React, { Component } from "react";
 
 export default class SideNav extends Component {
   state = {
-    activeLink: "introduction",
+    activeLink: "#component-introduction",
   };
 
+  componentDidMount() {
+    this.setState({ activeLink: window.location.hash });
+  }
+
   render() {
-    return (
-      <>
-        <p className="menu-label">Quick Start</p>
+    const sections = [
+      {
+        name: "Quick Start",
+        children: [
+          {
+            id: "#component-introduction",
+            name: "Introduction",
+          },
+          {
+            id: "#component-example-list",
+            name: "Overview",
+          },
+        ],
+      },
+      {
+        name: "Components",
+        children: [
+          {
+            id: "#component-example-moleculestructure",
+            name: "MoleculeStructure",
+          },
+        ],
+      },
+      {
+        name: "Examples",
+        children: [
+          {
+            id: "#component-example-svg",
+            name: "SVG Rendering",
+          },
+          {
+            id: "#component-example-canvas",
+            name: "Canvas Rendering",
+          },
+          {
+            id: "#component-example-substruct",
+            name: "Substructure Highlighting",
+          },
+          {
+            id: "#component-example-multi-substruct",
+            name: "Multi-Substructure Highlighting",
+          },
+          {
+            id: "#component-example-substruct-search",
+            name: "Substructure Search",
+          },
+          {
+            id: "#component-example-drawing-options",
+            name: "Additional Options",
+          },
+        ],
+      },
+    ];
+
+    const renderedSections = sections.map((section) => (
+      <React.Fragment key={section.name}>
+        <p className="menu-label">{section.name}</p>
         <ul className="menu-list">
-          <li>
-            <a href="#component-introduction">Introduction</a>
-          </li>
-          <li>
-            <a href="#component-example-list">Overview</a>
-          </li>
+          {section.children.map((child) => (
+            <li key={child.id}>
+              <a
+                className={
+                  this.state.activeLink === child.id ? "is-active" : undefined
+                }
+                onClick={() => this.setState({ activeLink: child.id })}
+                href={child.id}
+              >
+                {child.name}
+              </a>
+            </li>
+          ))}
         </ul>
-        <p className="menu-label">Components</p>
-        <ul className="menu-list">
-          <li>
-            <a href="#component-example-moleculestructure">MoleculeStructure</a>
-          </li>
-        </ul>
-        <p className="menu-label">Examples</p>
-        <ul className="menu-list">
-          <li>
-            <a href="#component-example-svg">SVG Rendering</a>
-          </li>
-          <li>
-            <a href="#component-example-canvas">Canvas Rendering</a>
-          </li>
-          <li>
-            <a href="#component-example-substruct">Substructure Highlighting</a>
-          </li>
-          <li>
-            <a href="#component-example-multi-substruct">
-              Multi-Substructure Highlighting
-            </a>
-          </li>
-          <li>
-            <a href="#component-example-substruct-search">
-              Substructure Search
-            </a>
-          </li>
-          <li>
-            <a href="#component-example-drawing-options">Additional Options</a>
-          </li>
-        </ul>
-      </>
-    );
+      </React.Fragment>
+    ));
+    return renderedSections;
   }
 }
