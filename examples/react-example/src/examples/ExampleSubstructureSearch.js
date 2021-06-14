@@ -7,6 +7,7 @@ class ExampleList extends React.Component {
   state = {
     matches: SMILES_LIST,
     searchValue: "",
+    searching: false,
   };
 
   render() {
@@ -31,9 +32,7 @@ class ExampleList extends React.Component {
                   onChange={(e) => this.handleSearchChange(e)}
                   placeholder="Enter a SMARTS or SMILES string here..."
                 />
-                <span className="icon is-small is-left">
-                  <i className="fas fa-search" />
-                </span>
+                {this.renderInputIcon()}
               </div>
             </div>
           </div>
@@ -59,27 +58,45 @@ class ExampleList extends React.Component {
   }
 
   handleSearchChange = _.debounce((e) => {
-    const noMatchLength = 2;
-    const currentVal = e.target.value;
-    this.setState({ searchValue: currentVal });
-    if (!currentVal) {
-      this.setState({ smilesList: SMILES_LIST });
-    } else {
-      const qmol = window.RDKit.get_qmol(currentVal);
-      const matches = SMILES_LIST.filter((smiles) => {
-        const mol = window.RDKit.get_mol(smiles);
-        const hasMatch = mol.get_substruct_match(qmol).length > noMatchLength;
-        mol.delete();
-        return hasMatch;
-      });
-      this.setState({ matches });
-      if (qmol.is_valid()) {
+    this.setState({ searching: true });
+
+    setTimeout(() => {
+      const noMatchLength = 2;
+      const currentVal = e.target.value;
+      this.setState({ searchValue: currentVal });
+      if (!currentVal) {
+        this.setState({ smilesList: SMILES_LIST });
       } else {
-        this.setState({ matches: [] });
+        const qmol = window.RDKit.get_qmol(currentVal);
+        const matches = SMILES_LIST.filter((smiles) => {
+          const mol = window.RDKit.get_mol(smiles);
+          const hasMatch = mol.get_substruct_match(qmol).length > noMatchLength;
+          mol.delete();
+          return hasMatch;
+        });
+        this.setState({ matches });
+        if (qmol.is_valid()) {
+        } else {
+          this.setState({ matches: [] });
+        }
+        qmol.delete();
       }
-      qmol.delete();
-    }
+
+      this.setState({ searching: false });
+    }, 500);
   }, 300);
+
+  renderInputIcon() {
+    console.log(this.state.searching);
+    const className = this.state.searching
+      ? "fas fa-circle-notch fa-spin"
+      : "fas fa-search";
+    return (
+      <span className="icon is-small is-left">
+        <i className={className} />
+      </span>
+    );
+  }
 }
 
 export default ExampleList;

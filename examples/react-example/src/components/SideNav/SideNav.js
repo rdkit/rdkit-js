@@ -8,8 +8,8 @@ export default class SideNav extends Component {
   render() {
     return (
       <>
-        <p class="menu-label">Quick Start</p>
-        <ul class="menu-list">
+        <p className="menu-label">Quick Start</p>
+        <ul className="menu-list">
           <li>
             <a href="#component-introduction">Introduction</a>
           </li>
@@ -17,14 +17,14 @@ export default class SideNav extends Component {
             <a href="#component-example-list">Overview</a>
           </li>
         </ul>
-        <p class="menu-label">Components</p>
-        <ul class="menu-list">
+        <p className="menu-label">Components</p>
+        <ul className="menu-list">
           <li>
             <a href="#component-example-moleculestructure">MoleculeStructure</a>
           </li>
         </ul>
-        <p class="menu-label">Examples</p>
-        <ul class="menu-list">
+        <p className="menu-label">Examples</p>
+        <ul className="menu-list">
           <li>
             <a href="#component-example-svg">SVG Rendering</a>
           </li>
