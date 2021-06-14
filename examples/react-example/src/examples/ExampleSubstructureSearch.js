@@ -83,19 +83,23 @@ class ExampleList extends React.Component {
       }
 
       this.setState({ searching: false });
-    }, 500);
+    }, 100);
   }, 300);
 
   renderInputIcon() {
-    console.log(this.state.searching);
-    const className = this.state.searching
-      ? "fas fa-circle-notch fa-spin"
-      : "fas fa-search";
-    return (
-      <span className="icon is-small is-left">
-        <i className={className} />
-      </span>
-    );
+    if (this.state.searching) {
+      return (
+        <span key="searching-input-icon" className="icon is-small is-left">
+          <i className="fas fa-circle-notch fa-spin" />
+        </span>
+      );
+    } else {
+      return (
+        <span key="search-input-icon" className="icon is-small is-left">
+          <i className="fas fa-search" />
+        </span>
+      );
+    }
   }
 }
 
