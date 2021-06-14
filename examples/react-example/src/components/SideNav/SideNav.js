@@ -71,11 +71,11 @@ export default class SideNav extends Component {
           {section.children.map((child) => (
             <li key={child.id}>
               <a
+                href={child.id}
                 className={
                   this.state.activeLink === child.id ? "is-active" : undefined
                 }
                 onClick={() => this.setState({ activeLink: child.id })}
-                href={child.id}
               >
                 {child.name}
               </a>
