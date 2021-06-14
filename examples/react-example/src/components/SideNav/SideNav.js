@@ -6,7 +6,9 @@ export default class SideNav extends Component {
   };
 
   componentDidMount() {
-    this.setState({ activeLink: window.location.hash });
+    if (window.location.hash.length > 1) {
+      this.setState({ activeLink: window.location.hash });
+    }
   }
 
   render() {
