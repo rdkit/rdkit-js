@@ -25,7 +25,7 @@ class ExampleDrawingOptions extends React.Component {
         <div className="columns" style={{ margin: "12px 0" }}>
           <div className="column">
             <div className="field">
-              <div className="control has-icons-left">
+              <div className="control">
                 <input
                   className="input"
                   type="email"
@@ -39,7 +39,7 @@ class ExampleDrawingOptions extends React.Component {
         <div className="columns" style={{ margin: "12px 0" }}>
           <div className="column">
             <div className="field">
-              <div className="control has-icons-left">
+              <div className="control">
                 <input
                   className="input"
                   type="email"
