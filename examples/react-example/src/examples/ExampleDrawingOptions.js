@@ -60,7 +60,11 @@ class ExampleDrawingOptions extends React.Component {
       return (
         <div className="columns is-desktop">
           <div className="column">
-            <span key="computing-input-icon" className="icon is-small is-left">
+            <span
+              style={{ width: "350px", height: "300px" }}
+              key="computing-input-icon"
+              className="icon is-small is-left"
+            >
               <i className="fas fa-circle-notch fa-spin" />
             </span>
           </div>
