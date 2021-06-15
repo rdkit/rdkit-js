@@ -28,7 +28,7 @@ class ExampleDrawingOptions extends React.Component {
               <div className="control">
                 <input
                   className="input"
-                  type="email"
+                  defaultValue={this.state.mainStructureInput}
                   onChange={(e) => this.handleInputStructureChange(e)}
                   placeholder="Enter a SMILES string here..."
                 />
@@ -42,7 +42,7 @@ class ExampleDrawingOptions extends React.Component {
               <div className="control">
                 <input
                   className="input"
-                  type="email"
+                  defaultValue={this.state.subStructureInput}
                   onChange={(e) => this.handleSubStructureInputChange(e)}
                   placeholder="Enter a SMILES or SMARTS string here..."
                 />
@@ -113,7 +113,7 @@ class ExampleDrawingOptions extends React.Component {
     this.setState({ computing: true });
 
     setTimeout(() => {
-      this.setState({ mainStructureInput: e.target.value });
+      this.setState({ subStructureInput: e.target.value });
 
       this.setState({ computing: false });
     }, 100);
