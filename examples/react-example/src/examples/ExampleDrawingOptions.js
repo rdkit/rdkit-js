@@ -1,18 +1,17 @@
 import React from "react";
+import _ from "lodash";
 import MoleculeStructure from "../components/MoleculeStructure/MoleculeStructure";
 
 class ExampleDrawingOptions extends React.Component {
-  state = {
-    searching: false,
+  static initialState = {
+    computing: false,
+    mainStructureInput: "CN1C=NC2=C1C(=O)N(C(=O)N2C)",
+    subStructureInput: "[N,n,O;!H0]",
   };
 
+  state = { ...ExampleDrawingOptions.initialState };
+
   render() {
-    const caffeine = "CN1C=NC2=C1C(=O)N(C(=O)N2C)";
-    const caffeineSubStruct = "[N,n,O;!H0]";
-
-    const aspirin = "CC(=O)Oc1ccccc1C(=O)O";
-    const aspirinSubStruct = "CC(=O)Oc1ccccc1C";
-
     return (
       <div id="component-example-drawing-options" className="container">
         <section className="hero">
@@ -30,53 +29,64 @@ class ExampleDrawingOptions extends React.Component {
                 <input
                   className="input"
                   type="email"
-                  onChange={(e) => this.handleSearchChange(e)}
-                  placeholder="Enter a SMARTS or SMILES string here..."
+                  onChange={(e) => this.handleInputStructureChange(e)}
+                  placeholder="Enter a SMILES string here..."
                 />
-                {this.renderInputIcon()}
               </div>
             </div>
           </div>
         </div>
+        <div className="columns" style={{ margin: "12px 0" }}>
+          <div className="column">
+            <div className="field">
+              <div className="control has-icons-left">
+                <input
+                  className="input"
+                  type="email"
+                  onChange={(e) => this.handleSubStructureInputChange(e)}
+                  placeholder="Enter a SMILES or SMARTS string here..."
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        {this.renderContent()}
+      </div>
+    );
+  }
+
+  renderContent() {
+    if (this.state.computing) {
+      return (
         <div className="columns is-desktop">
           <div className="column">
-            <MoleculeStructure
-              id="structure-example-drawing-options-caffeine"
-              structure={caffeine}
-              subStructure={caffeineSubStruct}
-              width={350}
-              height={300}
-              svgMode
-              extraDetails={{
-                addAtomIndices: true,
-                highlightColor: [1, 0, 1],
-                legend: "caffeine",
-              }}
-            />
+            <span key="computing-input-icon" className="icon is-small is-left">
+              <i className="fas fa-circle-notch fa-spin" />
+            </span>
           </div>
-          <div className="column">
-            <MoleculeStructure
-              id="structure-example-drawing-options-aspirin"
-              structure={aspirin}
-              subStructure={aspirinSubStruct}
-              extraDetails={{
-                addAtomIndices: true,
-                highlightColor: [0, 1, 1],
-                legend: "aspirin",
-              }}
-              width={350}
-              height={300}
-            />
-          </div>
+        </div>
+      );
+    }
+
+    return (
+      <div className="columns is-desktop">
+        <div className="column">
+          <MoleculeStructure
+            id="structure-example-drawing-options-caffeine"
+            structure={this.state.mainStructureInput}
+            subStructure={this.state.subStructureInput}
+            width={350}
+            height={300}
+          />
         </div>
       </div>
     );
   }
 
   renderInputIcon() {
-    if (this.state.searching) {
+    if (this.state.computing) {
       return (
-        <span key="searching-input-icon" className="icon is-small is-left">
+        <span key="computing-input-icon" className="icon is-small is-left">
           <i className="fas fa-circle-notch fa-spin" />
         </span>
       );
@@ -88,6 +98,26 @@ class ExampleDrawingOptions extends React.Component {
       );
     }
   }
+
+  handleInputStructureChange = _.debounce((e) => {
+    this.setState({ computing: true });
+
+    setTimeout(() => {
+      this.setState({ mainStructureInput: e.target.value });
+
+      this.setState({ computing: false });
+    }, 100);
+  }, 300);
+
+  handleSubStructureInputChange = _.debounce((e) => {
+    this.setState({ computing: true });
+
+    setTimeout(() => {
+      this.setState({ mainStructureInput: e.target.value });
+
+      this.setState({ computing: false });
+    }, 100);
+  }, 300);
 }
 
 export default ExampleDrawingOptions;
