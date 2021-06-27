@@ -12,7 +12,10 @@ class ExampleDrawingOptions extends React.Component {
     height: 250,
     bondLineWidth: 1,
     addStereoAnnotation: true,
-    highlightColour: "#020202",
+    highlightColour: "#fd5c63",
+    legendColour: "#000000",
+    symbolColour: "#000000",
+    backgroundColour: "#ffffff",
   };
 
   state = { ...ExampleDrawingOptions.initialState };
@@ -121,15 +124,62 @@ class ExampleDrawingOptions extends React.Component {
               </div>
             </div>
           </div>
+        </div>
+        <div className="columns" style={{ margin: "12px 0" }}>
           <div className="column">
             <div className="field">
               <label className="label">Highlight Colour</label>
               <div className="control">
                 <input
                   type="color"
+                  className="input"
                   defaultValue={this.state.highlightColour}
                   onChange={(e) => this.handleStateChange(e, "highlightColour")}
                   placeholder="Highlight Colour"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="column">
+            <div className="field">
+              <label className="label">Background Colour</label>
+              <div className="control">
+                <input
+                  type="color"
+                  className="input"
+                  defaultValue={this.state.backgroundColour}
+                  onChange={(e) =>
+                    this.handleStateChange(e, "backgroundColour")
+                  }
+                  placeholder="Background Colour"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="column">
+            <div className="field">
+              <label className="label">Legend Colour</label>
+              <div className="control">
+                <input
+                  type="color"
+                  className="input"
+                  defaultValue={this.state.legendColour}
+                  onChange={(e) => this.handleStateChange(e, "legendColour")}
+                  placeholder="Legend Colour"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="column">
+            <div className="field">
+              <label className="label">Symbol Colour</label>
+              <div className="control">
+                <input
+                  type="color"
+                  className="input"
+                  defaultValue={this.state.symbolColour}
+                  onChange={(e) => this.handleStateChange(e, "symbolColour")}
+                  placeholder="Symbol Colour"
                 />
               </div>
             </div>
@@ -147,6 +197,15 @@ class ExampleDrawingOptions extends React.Component {
     const addStereoAnnotation = this.state.addStereoAnnotation || false;
     const highlightColour = this.getColourProportionsFromHex(
       this.state.highlightColour
+    );
+    const legendColour = this.getColourProportionsFromHex(
+      this.state.legendColour
+    );
+    const backgroundColour = this.getColourProportionsFromHex(
+      this.state.backgroundColour
+    );
+    const symbolColour = this.getColourProportionsFromHex(
+      this.state.symbolColour
     );
 
     if (this.state.computing) {
@@ -186,8 +245,10 @@ class ExampleDrawingOptions extends React.Component {
                 bondLineWidth,
                 addStereoAnnotation,
                 highlightColour,
+                legendColour,
+                backgroundColour,
+                symbolColour,
               }}
-              svgMode
             />
           </div>
         </div>
