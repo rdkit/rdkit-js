@@ -131,6 +131,8 @@ class MoleculeStructure extends Component {
       const shouldUpdateDrawing =
         prevProps.structure !== this.props.structure ||
         prevProps.subStructure !== this.props.subStructure ||
+        prevProps.width !== this.props.width ||
+        prevProps.height !== this.props.height ||
         !_.isEqual(prevProps.extraDetails, this.props.extraDetails);
 
       if (shouldUpdateDrawing) {
