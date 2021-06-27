@@ -7,8 +7,8 @@ class ExampleDrawingOptions extends React.Component {
   static initialState = {
     computing: false,
     mainStructureInput: "CN1C=NC2=C1C(=O)N(C(=O)N2C)",
-    subStructureInput: "[N,n,O;!H0]",
-    legend: "add legend here",
+    subStructureInput: "[n,O]",
+    legend: "Legend Text",
     width: 350,
     height: 250,
     bondLineWidth: 1,
