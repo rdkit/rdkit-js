@@ -25,7 +25,6 @@ import "./index.css";
 
 ReactDOM.render(<NavBar />, document.getElementById("navbar"));
 ReactDOM.render(<SideNav />, document.getElementById("side-navigation"));
-
 ReactDOM.render(<Introduction />, document.getElementById("introduction"));
 
 const examples = [
