@@ -56,7 +56,7 @@ export default class NavBar extends Component {
                   <a
                     data-tooltip="View Source Code"
                     className="button has-tooltip-bottom is-white is-big"
-                    href="https://github.com/MichelML/rdkit-js"
+                    href="https://github.com/MichelML/rdkit-js/tree/master/examples/react-example"
                   >
                     <span className="icon">
                       <i className="fab fa-github fa-2x"></i>
