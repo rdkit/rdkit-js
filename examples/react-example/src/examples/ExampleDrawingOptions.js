@@ -9,6 +9,7 @@ class ExampleDrawingOptions extends React.Component {
     subStructureInput: "[N,n,O;!H0]",
     width: 350,
     height: 250,
+    bondLineWidth: 1
   };
 
   state = { ...ExampleDrawingOptions.initialState };
@@ -80,9 +81,23 @@ class ExampleDrawingOptions extends React.Component {
                 <input
                   className="input"
                   type="number"
-                  defaultValue={this.state.width}
+                  defaultValue={this.state.height}
                   onChange={(e) => this.handleStateChange(e, "height")}
                   placeholder="Height"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="column">
+            <div className="field">
+              <label className="label">Bond line width</label>
+              <div className="control">
+                <input
+                  className="input"
+                  type="number"
+                  defaultValue={this.state.bondLineWidth}
+                  onChange={(e) => this.handleStateChange(e, "bondLineWidth")}
+                  placeholder="Bond line width"
                 />
               </div>
             </div>
@@ -96,6 +111,8 @@ class ExampleDrawingOptions extends React.Component {
   renderContent() {
     const width = this.state.width || 250;
     const height = this.state.width || 250;
+    const bondLineWidth = this.state.bondLineWidth || 1;
+
     if (this.state.computing) {
       return (
         <div className="columns">
@@ -129,6 +146,9 @@ class ExampleDrawingOptions extends React.Component {
               subStructure={this.state.subStructureInput}
               width={width}
               height={height}
+              extraDetails={{
+                bondLineWidth
+              }}
               svgMode
             />
           </div>
