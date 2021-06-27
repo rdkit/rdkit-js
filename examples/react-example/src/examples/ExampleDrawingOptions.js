@@ -163,7 +163,6 @@ class ExampleDrawingOptions extends React.Component {
           : e.target.value;
 
       this.setState({ [stateProp]: value });
-      console.log(this.state);
       this.setState({ computing: false });
     }, 100);
   }, 300);
