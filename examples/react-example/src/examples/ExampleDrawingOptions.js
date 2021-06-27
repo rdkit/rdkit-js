@@ -13,6 +13,8 @@ class ExampleDrawingOptions extends React.Component {
     height: 250,
     bondLineWidth: 1,
     addStereoAnnotation: true,
+    addAtomIndices: true,
+    explicitMethyl: true,
     highlightColour: "#fd5c63",
     legendColour: "#000000",
     symbolColour: "#000000",
@@ -131,11 +133,39 @@ class ExampleDrawingOptions extends React.Component {
                 <input
                   className="checkbox"
                   type="checkbox"
-                  defaultValue={this.state.addStereoAnnotation}
+                  defaultChecked={this.state.addStereoAnnotation}
                   onChange={(e) =>
                     this.handleStateChange(e, "addStereoAnnotation")
                   }
                   placeholder="Stereo-Annotation"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="column">
+            <div className="field">
+              <label className="label">Atom Indices</label>
+              <div className="control">
+                <input
+                  className="checkbox"
+                  type="checkbox"
+                  defaultChecked={this.state.addAtomIndices}
+                  onChange={(e) => this.handleStateChange(e, "addAtomIndices")}
+                  placeholder="Atom Indices"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="column">
+            <div className="field">
+              <label className="label">Explicit Methyl</label>
+              <div className="control">
+                <input
+                  className="checkbox"
+                  type="checkbox"
+                  defaultChecked={this.state.explicitMethyl}
+                  onChange={(e) => this.handleStateChange(e, "explicitMethyl")}
+                  placeholder="Explicit Methyl"
                 />
               </div>
             </div>
@@ -211,6 +241,8 @@ class ExampleDrawingOptions extends React.Component {
     const height = this.state.width || 250;
     const bondLineWidth = this.state.bondLineWidth || 1;
     const addStereoAnnotation = this.state.addStereoAnnotation || false;
+    const addAtomIndices = this.state.addAtomIndices || false;
+    const explicitMethyl = this.state.explicitMethyl || false;
     const highlightColour = this.getColourProportionsFromHex(
       this.state.highlightColour
     );
@@ -261,6 +293,8 @@ class ExampleDrawingOptions extends React.Component {
                 legend: this.state.legend || "",
                 bondLineWidth,
                 addStereoAnnotation,
+                addAtomIndices,
+                explicitMethyl,
                 highlightColour,
                 legendColour,
                 backgroundColour,
