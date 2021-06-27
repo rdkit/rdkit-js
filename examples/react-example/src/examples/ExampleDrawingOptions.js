@@ -1,5 +1,6 @@
 import React from "react";
 import _ from "lodash";
+import hexRgb from "hex-rgb";
 import MoleculeStructure from "../components/MoleculeStructure/MoleculeStructure";
 
 class ExampleDrawingOptions extends React.Component {
@@ -9,7 +10,9 @@ class ExampleDrawingOptions extends React.Component {
     subStructureInput: "[N,n,O;!H0]",
     width: 350,
     height: 250,
-    bondLineWidth: 1
+    bondLineWidth: 1,
+    addStereoAnnotation: true,
+    highlightColour: "#020202",
   };
 
   state = { ...ExampleDrawingOptions.initialState };
@@ -102,6 +105,35 @@ class ExampleDrawingOptions extends React.Component {
               </div>
             </div>
           </div>
+          <div className="column">
+            <div className="field">
+              <label className="label">Stereo-Annotation</label>
+              <div className="control">
+                <input
+                  className="checkbox"
+                  type="checkbox"
+                  defaultValue={this.state.addStereoAnnotation}
+                  onChange={(e) =>
+                    this.handleStateChange(e, "addStereoAnnotation")
+                  }
+                  placeholder="Stereo-Annotation"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="column">
+            <div className="field">
+              <label className="label">Highlight Colour</label>
+              <div className="control">
+                <input
+                  type="color"
+                  defaultValue={this.state.highlightColour}
+                  onChange={(e) => this.handleStateChange(e, "highlightColour")}
+                  placeholder="Highlight Colour"
+                />
+              </div>
+            </div>
+          </div>
         </div>
         {this.renderContent()}
       </div>
@@ -112,6 +144,10 @@ class ExampleDrawingOptions extends React.Component {
     const width = this.state.width || 250;
     const height = this.state.width || 250;
     const bondLineWidth = this.state.bondLineWidth || 1;
+    const addStereoAnnotation = this.state.addStereoAnnotation || false;
+    const highlightColour = this.getColourProportionsFromHex(
+      this.state.highlightColour
+    );
 
     if (this.state.computing) {
       return (
@@ -147,7 +183,9 @@ class ExampleDrawingOptions extends React.Component {
               width={width}
               height={height}
               extraDetails={{
-                bondLineWidth
+                bondLineWidth,
+                addStereoAnnotation,
+                highlightColour,
               }}
               svgMode
             />
@@ -177,15 +215,25 @@ class ExampleDrawingOptions extends React.Component {
     this.setState({ computing: true });
 
     setTimeout(() => {
-      const value =
-        e.target.type === "number"
-          ? parseFloat(e.target.value, 10)
-          : e.target.value;
+      let value;
+      if (e.target.type === "number") {
+        value = parseFloat(e.target.value, 10);
+      } else if (e.target.type === "checkbox") {
+        value = !!e.target.checked;
+      } else {
+        value = e.target.value;
+      }
 
       this.setState({ [stateProp]: value });
       this.setState({ computing: false });
     }, 100);
   }, 300);
+
+  getColourProportionsFromHex(hex) {
+    return hexRgb(hex, { format: "array" }).map((v) =>
+      parseFloat((v / 255).toFixed(2), 10)
+    );
+  }
 }
 
 export default ExampleDrawingOptions;
