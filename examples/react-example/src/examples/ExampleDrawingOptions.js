@@ -8,6 +8,7 @@ class ExampleDrawingOptions extends React.Component {
     computing: false,
     mainStructureInput: "CN1C=NC2=C1C(=O)N(C(=O)N2C)",
     subStructureInput: "[N,n,O;!H0]",
+    legend: "add legend here",
     width: 350,
     height: 250,
     bondLineWidth: 1,
@@ -60,6 +61,21 @@ class ExampleDrawingOptions extends React.Component {
                     this.handleStateChange(e, "subStructureInput")
                   }
                   placeholder="Enter a SMILES or SMARTS string here..."
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="columns" style={{ margin: "12px 0" }}>
+          <div className="column">
+            <div className="field">
+              <label className="label">Legend</label>
+              <div className="control">
+                <input
+                  className="input"
+                  defaultValue={this.state.legend}
+                  onChange={(e) => this.handleStateChange(e, "legend")}
+                  placeholder="Add a legend here..."
                 />
               </div>
             </div>
@@ -242,6 +258,7 @@ class ExampleDrawingOptions extends React.Component {
               width={width}
               height={height}
               extraDetails={{
+                legend: this.state.legend || "",
                 bondLineWidth,
                 addStereoAnnotation,
                 highlightColour,
