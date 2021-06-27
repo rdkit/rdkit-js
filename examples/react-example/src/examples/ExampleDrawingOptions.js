@@ -114,7 +114,7 @@ class ExampleDrawingOptions extends React.Component {
 
     return (
       <div className="columns">
-        <div className="column">
+        <div className="column" style={{margin: "12px 12px"}}>
           <div
             style={{
               width: width + 12,
