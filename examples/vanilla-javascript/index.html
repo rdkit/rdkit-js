@@ -21,11 +21,11 @@
       rel="stylesheet"
       href="https://unpkg.com/bulma-tooltip@3.0.2/dist/css/bulma-tooltip.min.css"
     />
-    <title>RDKit.js - Vanila JS</title>
+    <title>RDKit.js - JavaScript Example</title>
   </head>
 
   <script>
-    onRuntimeInitialized: initRDKitModule().then(function (instance) {
+    initRDKitModule().then(function (instance) {
       RDKitModule = instance;
       console.log("version: " + RDKitModule.version());
     });
