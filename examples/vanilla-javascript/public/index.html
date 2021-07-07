@@ -3,14 +3,14 @@
   <head>
     <meta name="Author" content="greg Landrum" />
     <meta charset="utf-8" />
-    <link rel="icon" href="/favicon.png" />
+    <link rel="icon" href="/public/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
       content="Web site created using create-react-app"
     />
-    <link rel="apple-touch-icon" href="/rdkitjs_cropped-200.png" />
+    <link rel="apple-touch-icon" href="/public/rdkitjs_cropped-200.png" />
     <script src="https://unpkg.com/@rdkit/rdkit@2021.3.2/Code/MinimalLib/dist/RDKit_minimal.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
     <link
@@ -116,7 +116,7 @@
         </section>
 
         <div class="columns px-5">
-          <div id="example-1-container" class="column is-one-third">
+          <div id="example-1-container" class="column">
             <textarea
               id="example-1"
               class="textarea"
@@ -153,7 +153,7 @@ dest.innerHTML = "<div id='drawing'>" + svg + "</div>";
         </div>
       </section>
       <div class="columns px-5">
-        <div class="column is-one-third">
+        <div class="column">
           <textarea
             class="textarea"
             id="example-2"
@@ -189,7 +189,7 @@ mol.draw_to_canvas(canvas, -1, -1);
         </div>
       </section>
       <div class="columns px-5">
-        <div class="column is-one-third">
+        <div class="column">
           <textarea
             class="textarea"
             id="example-3"
@@ -288,12 +288,22 @@ mol.draw_to_canvas_with_highlights(canvas, JSON.stringify(mdetails));
           <canvas id="canvas-4" width="250" height="200"> </canvas>
         </div>
       </div>
-    </div>
 
-    and of course we can combine the two:
-    <div class="row">
-      <div class="col-sm-6">
-        <textarea id="example-5" cols="40" rows="5" wrap="off">
+      <section class="hero">
+        <div class="hero-body">
+          <p class="subtitle">and of course we can combine the two:</p>
+        </div>
+      </section>
+
+      <div class="columns px-5">
+        <div class="column">
+          <textarea
+            class="textarea"
+            id="example-5"
+            cols="40"
+            rows="5"
+            wrap="off"
+          >
 var smiles = "CC(=O)Oc1ccccc1C(=O)O";
 var mol = RDKitModule.get_mol(smiles);
 var smarts = "O=C";
@@ -304,15 +314,19 @@ mdetails['legend']='aspirin';
 var canvas = document.getElementById("canvas-5");
 mol.draw_to_canvas_with_highlights(canvas, JSON.stringify(mdetails));
 </textarea
-        >
-        <br /><input
-          value="run"
-          onclick="eval(document.getElementById('example-5').value)"
-          type="button"
-        />
-      </div>
-      <div id="example-5-output" class="col-sm-6">
-        <canvas id="canvas-5" width="250" height="200"> </canvas>
+          >
+          <div>
+            <input
+              class="button mt-2"
+              value="run"
+              onclick="eval(document.getElementById('example-5').value)"
+              type="button"
+            />
+          </div>
+        </div>
+        <div id="example-5-output" class="col-sm-6">
+          <canvas id="canvas-5" width="250" height="200"> </canvas>
+        </div>
       </div>
     </div>
 
