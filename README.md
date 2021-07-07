@@ -3,6 +3,12 @@ New demos in progress at:
 - Vanilla JavaScript Example: https://michelml.github.io/rdkit-js/examples/vanilla-javascript/
 - React Example: https://michelml.github.io/rdkit-js/examples/react-example/build/
 
+<p align="center">
+  <a href="https://github.com/michelml/rdkit-js">
+    <img src="rdkitjs_logo.png" alt="rdkit.js - Project Logo" width="200" height="200">
+  </a>
+  </p>
+
 # RDKit for JavaScript (Official)
 
 [![Azure build Status](https://dev.azure.com/rdkit-builds/RDKit/_apis/build/status/rdkit.rdkit?branchName=master)](https://dev.azure.com/rdkit-builds/RDKit/_build/latest?definitionId=1&branchName=master)
