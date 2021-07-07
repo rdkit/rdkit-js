@@ -2,24 +2,29 @@
 <html lang="en">
 
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="Author" content="greg Landrum">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="/rdkitjs_cropped-200.png" />
+    <script src="https://unpkg.com/@rdkit/rdkit@2021.3.2/Code/MinimalLib/dist/RDKit_minimal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/bulma-tooltip@3.0.2/dist/css/bulma-tooltip.min.css"
+    />
+    <title>RDKit.js - Vanila JS</title>
+  </head>
 
-    <style>
-        h1,
-        h2,
-        h3,
-        h4 {
-            color: #044484;
-        }
-    </style>
-</head>
-
-<script src="./RDKit_minimal.js"></script>
 <script>
   onRuntimeInitialized: initRDKitModule().then(function (instance) {
       RDKitModule = instance;
@@ -27,27 +32,114 @@
   });
 </script>
 <body>
-<div class="container-fluid col-md-12">
-<h1>Getting started with RDKit-JS</h1>
+      <div id="navbar">
+              <nav
+          class="navbar has-shadow"
+          style="padding: 12px 0;"
+          role="navigation"
+          aria-label="main navigation"
+        >
+          <div class="navbar-brand" style="padding: 6px;">
+            <a class="navbar-item" href="#/">
+              <img
+                alt="logo"
+                src="/public/rdkitjs_cropped_200.png"
+              />
+            </a>
 
-<h2>Drawing molecules</h2>
+            <a
+              role="button"
+              id="burger-menu-toggle"
+              class="navbar-burger"
+              aria-label="menu"
+              aria-expanded="false"
+              data-target="navbarBasicExample"
+              href="#/"
+            >
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
+          </div>
 
-<p>First we'll work with an SVG drawing:
-        <div class="row">
-            <div class="col-sm-6">
-                <textarea id="example-1" cols="40" rows="5" wrap="off">
+          <div
+            id="navbarBasicExample"
+            class="navbar-menu"
+          >
+            <div class="navbar-start">
+              <a class="navbar-item" href="https://github.com/rdkit/rdkit">
+                RDKit Home
+              </a>
+            </div>
+
+            <div class="navbar-end">
+              <div class="navbar-item">
+                <div class="buttons">
+                  <a
+                    data-tooltip="View Source Code"
+                    class="button has-tooltip-bottom is-white is-big"
+                    href="https://github.com/MichelML/rdkit-js/tree/master/examples/react-example"
+                  >
+                    <span class="icon">
+                      <i class="fab fa-github fa-2x"></i>
+                    </span>
+                  </a>
+                </div>
+              </div>
+              <div class="navbar-item">
+                <div class="buttons">
+                  <a
+                    data-tooltip="Go to NPM package"
+                    class="button has-tooltip-bottom is-white is-big"
+                    href="https://www.npmjs.com/package/@rdkit/rdkit"
+                  >
+                    <span class="icon">
+                      <i class="fab fa-npm fa-2x"></i>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+        <div class="container is-10">
+              <div id="introduction" class="container">
+        <section class="hero">
+          <div class="hero-body">
+            <p class="title">Introduction</p>
+            <p class="subtitle">Welcome to RDKit.js with Vanilla JavaScript.</p>
+          </div>
+        </section>
+      </div>
+
+                  <div id="drawing-molecules" class="container">
+        <section class="hero">
+          <div class="hero-body">
+            <p class="title">Drawing molecules</p>
+            <p class="subtitle">First we'll work with an SVG drawing:</p>
+          </div>
+        </section>
+        
+        <div class="columns px-5">
+            <div id="example-1-container" class="column is-one-third">
+                            <textarea id="example-1" class="textarea" cols="40" rows="5" wrap="off">
 var smiles = "CC(=O)Oc1ccccc1C(=O)O";
 var mol = RDKitModule.get_mol(smiles);
 var dest = document.getElementById("example-1-output");
 var svg = mol.get_svg();
-dest.outerHTML = "<div id='drawing'>" + svg + "</div>";
+dest.innerHTML = "<div id='drawing'>" + svg + "</div>";
 </textarea>
-                <br /><input value="run" onclick="eval(document.getElementById('example-1').value)" type="button" />
+<div><input value="run" class="button mt-2" onclick="eval(document.getElementById('example-1').value)" type="button" /></div>
             </div>
-            <div id="example-1-output" class="col-sm-6">
-            </div>
+            <div id="example-1-output" class="ml-6 column"></div>
         </div>
-</p>
+      </div>
+        </div>
+
+
+
 
 <p>As of v2020.09 of the RDKit we can do the same thing using the HTML5 canvas:
 <div class="row">
@@ -242,7 +334,15 @@ mol.draw_to_canvas_with_highlights(canvas,tdetails);
 
 
 
-    </div>
+        <script>
+    const menuToggle = document.getElementById("burger-menu-toggle");
+    const navBar = document.getElementById("navbarBasicExample");
+
+    menuToggle.addEventListener("click", function() {
+    menuToggle.classList.toggle("is-active");
+navBar.classList.toggle("is-active");
+    });
+    </script>
 </body>
 
 </html>
