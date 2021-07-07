@@ -5,7 +5,7 @@ New demos in progress at:
 
 <p align="center">
   <a href="https://github.com/michelml/rdkit-js">
-    <img src="rdkitjs_logo.png" alt="rdkit.js - Project Logo" width="200" height="200">
+    <img src="rdkitjs_logo.png" alt="rdkit.js - Project Logo">
   </a>
   </p>
 
