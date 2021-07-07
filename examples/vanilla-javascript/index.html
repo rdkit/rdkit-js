@@ -3,14 +3,20 @@
   <head>
     <meta name="Author" content="greg Landrum" />
     <meta charset="utf-8" />
-    <link rel="icon" href="/rdkit-js/examples/vanilla-javascript/public/favicon.png" />
+    <link
+      rel="icon"
+      href="/rdkit-js/examples/vanilla-javascript/public/favicon.png"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
       content="Web site created using create-react-app"
     />
-    <link rel="apple-touch-icon" href="/rdkit-js/examples/vanilla-javascript/public/rdkitjs_cropped-200.png" />
+    <link
+      rel="apple-touch-icon"
+      href="/rdkit-js/examples/vanilla-javascript/public/rdkitjs_cropped-200.png"
+    />
     <script src="https://unpkg.com/@rdkit/rdkit@2021.3.2/Code/MinimalLib/dist/RDKit_minimal.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
     <link
@@ -40,7 +46,10 @@
       >
         <div class="navbar-brand" style="padding: 6px">
           <a class="navbar-item" href="#/">
-            <img alt="logo" src="/rdkit-js/examples/vanilla-javascript/public/rdkitjs_cropped_200.png" />
+            <img
+              alt="logo"
+              src="/rdkit-js/examples/vanilla-javascript/public/rdkitjs_cropped_200.png"
+            />
           </a>
 
           <a
@@ -60,16 +69,61 @@
 
         <div id="navbarBasicExample" class="navbar-menu">
           <div class="navbar-start">
-            <a class="navbar-item" href="https://github.com/rdkit/rdkit">
-              RDKit Home
-            </a>
+            <a
+              class="navbar-item"
+              href="https://github.com/MichelML/rdkit-js/tree/master/examples/vanilla-javascript"
+              >Source Code</a
+            >
+
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link"> Examples </a>
+
+              <div class="navbar-dropdown">
+                <a
+                  class="navbar-item is-active"
+                  href="https://michelml.github.io/rdkit-js/examples/react-example/build/"
+                >
+                  JavaScript
+                </a>
+                <a
+                  class="navbar-item"
+                  href="https://michelml.github.io/rdkit-js/examples/react-example/build/"
+                >
+                  React
+                </a>
+                <a
+                  class="navbar-item"
+                  href="https://michelml.github.io/rdkit-js/examples/react-redux-example/build/"
+                >
+                  React Redux
+                </a>
+                <hr class="navbar-divider" />
+                <a
+                  class="navbar-item"
+                  href="https://github.com/MichelML/rdkit-js/issues"
+                >
+                  Contribute
+                </a>
+              </div>
+            </div>
           </div>
 
           <div class="navbar-end">
             <div class="navbar-item">
               <div class="buttons">
                 <a
-                  data-tooltip="View Source Code"
+                  data-tooltip="Go to main RDKit project"
+                  class="button has-tooltip-bottom is-white is-big"
+                  href="https://github.com/rdkit/rdkit"
+                >
+                  <img src="/rdkit-js/examples/vanilla-javascript/public/favicon.png" height="32" width="32" />
+                </a>
+              </div>
+            </div>
+            <div class="navbar-item">
+              <div class="buttons">
+                <a
+                  data-tooltip="Go to RDKit.js"
                   class="button has-tooltip-bottom is-white is-big"
                   href="https://github.com/MichelML/rdkit-js/tree/master/examples/react-example"
                 >
@@ -80,7 +134,7 @@
               </div>
             </div>
             <div class="navbar-item">
-              <div class="buttons">
+              <div class="buttons mr-6">
                 <a
                   data-tooltip="Go to NPM package"
                   class="button has-tooltip-bottom is-white is-big"
