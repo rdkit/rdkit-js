@@ -97,7 +97,7 @@
       </nav>
     </div>
 
-    <div class="container is-10">
+    <div class="container is-widescreen">
       <div id="introduction" class="container">
         <section class="hero">
           <div class="hero-body">
@@ -245,13 +245,25 @@ var svg = mol.get_svg_with_highlights(mdetails);
 </pre>
         </div>
       </div>
-    </div>
 
-    The same call can be used to control drawing options or to manually set the
-    atoms/bonds which should be highlighted:
-    <div class="row">
-      <div class="col-sm-6">
-        <textarea id="example-4" cols="40" rows="5" wrap="off">
+      <section class="hero">
+        <div class="hero-body">
+          <p class="subtitle">
+            The same call can be used to control drawing options or to manually
+            set the atoms/bonds which should be highlighted:
+          </p>
+        </div>
+      </section>
+
+      <div class="columns px-5">
+        <div class="column">
+          <textarea
+            class="textarea"
+            id="example-4"
+            cols="40"
+            rows="5"
+            wrap="off"
+          >
 var smiles = "CC(=O)Oc1ccccc1C(=O)O";
 var mol = RDKitModule.get_mol(smiles);
 var mdetails = {};
@@ -262,15 +274,19 @@ mdetails['legend']='aspirin';
 var canvas = document.getElementById("canvas-4");
 mol.draw_to_canvas_with_highlights(canvas, JSON.stringify(mdetails));
 </textarea
-        >
-        <br /><input
-          value="run"
-          onclick="eval(document.getElementById('example-4').value)"
-          type="button"
-        />
-      </div>
-      <div id="example-4-output" class="col-sm-6">
-        <canvas id="canvas-4" width="250" height="200"> </canvas>
+          >
+          <div>
+            <input
+              class="button mt-2"
+              value="run"
+              onclick="eval(document.getElementById('example-4').value)"
+              type="button"
+            />
+          </div>
+        </div>
+        <div id="example-4-output" class="column ml-6">
+          <canvas id="canvas-4" width="250" height="200"> </canvas>
+        </div>
       </div>
     </div>
 
