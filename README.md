@@ -3,6 +3,10 @@ New demos in progress at:
 - Vanilla JavaScript Example: https://michelml.github.io/rdkit-js/examples/vanilla-javascript/
 - React Example: https://michelml.github.io/rdkit-js/examples/react-example/build/
 
+<br />
+<br />
+<br />
+<br />
 <p align="center">
   <a href="https://github.com/michelml/rdkit-js">
     <img src="rdkitjs_logo.png" alt="rdkit.js - Project Logo">
