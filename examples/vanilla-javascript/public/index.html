@@ -1,8 +1,7 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta name="Author" content="greg Landrum">
+  <head>
+    <meta name="Author" content="greg Landrum" />
     <meta charset="utf-8" />
     <link rel="icon" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -25,87 +24,81 @@
     <title>RDKit.js - Vanila JS</title>
   </head>
 
-<script>
-  onRuntimeInitialized: initRDKitModule().then(function (instance) {
+  <script>
+    onRuntimeInitialized: initRDKitModule().then(function (instance) {
       RDKitModule = instance;
-      console.log('version: ' + RDKitModule.version());
-  });
-</script>
-<body>
-      <div id="navbar">
-              <nav
-          class="navbar has-shadow"
-          style="padding: 12px 0;"
-          role="navigation"
-          aria-label="main navigation"
-        >
-          <div class="navbar-brand" style="padding: 6px;">
-            <a class="navbar-item" href="#/">
-              <img
-                alt="logo"
-                src="/public/rdkitjs_cropped_200.png"
-              />
-            </a>
+      console.log("version: " + RDKitModule.version());
+    });
+  </script>
+  <body>
+    <div id="navbar">
+      <nav
+        class="navbar has-shadow"
+        style="padding: 12px 0"
+        role="navigation"
+        aria-label="main navigation"
+      >
+        <div class="navbar-brand" style="padding: 6px">
+          <a class="navbar-item" href="#/">
+            <img alt="logo" src="/public/rdkitjs_cropped_200.png" />
+          </a>
 
-            <a
-              role="button"
-              id="burger-menu-toggle"
-              class="navbar-burger"
-              aria-label="menu"
-              aria-expanded="false"
-              data-target="navbarBasicExample"
-              href="#/"
-            >
-              <span aria-hidden="true"></span>
-              <span aria-hidden="true"></span>
-              <span aria-hidden="true"></span>
-            </a>
-          </div>
-
-          <div
-            id="navbarBasicExample"
-            class="navbar-menu"
+          <a
+            role="button"
+            id="burger-menu-toggle"
+            class="navbar-burger"
+            aria-label="menu"
+            aria-expanded="false"
+            data-target="navbarBasicExample"
+            href="#/"
           >
-            <div class="navbar-start">
-              <a class="navbar-item" href="https://github.com/rdkit/rdkit">
-                RDKit Home
-              </a>
-            </div>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
 
-            <div class="navbar-end">
-              <div class="navbar-item">
-                <div class="buttons">
-                  <a
-                    data-tooltip="View Source Code"
-                    class="button has-tooltip-bottom is-white is-big"
-                    href="https://github.com/MichelML/rdkit-js/tree/master/examples/react-example"
-                  >
-                    <span class="icon">
-                      <i class="fab fa-github fa-2x"></i>
-                    </span>
-                  </a>
-                </div>
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item" href="https://github.com/rdkit/rdkit">
+              RDKit Home
+            </a>
+          </div>
+
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="buttons">
+                <a
+                  data-tooltip="View Source Code"
+                  class="button has-tooltip-bottom is-white is-big"
+                  href="https://github.com/MichelML/rdkit-js/tree/master/examples/react-example"
+                >
+                  <span class="icon">
+                    <i class="fab fa-github fa-2x"></i>
+                  </span>
+                </a>
               </div>
-              <div class="navbar-item">
-                <div class="buttons">
-                  <a
-                    data-tooltip="Go to NPM package"
-                    class="button has-tooltip-bottom is-white is-big"
-                    href="https://www.npmjs.com/package/@rdkit/rdkit"
-                  >
-                    <span class="icon">
-                      <i class="fab fa-npm fa-2x"></i>
-                    </span>
-                  </a>
-                </div>
+            </div>
+            <div class="navbar-item">
+              <div class="buttons">
+                <a
+                  data-tooltip="Go to NPM package"
+                  class="button has-tooltip-bottom is-white is-big"
+                  href="https://www.npmjs.com/package/@rdkit/rdkit"
+                >
+                  <span class="icon">
+                    <i class="fab fa-npm fa-2x"></i>
+                  </span>
+                </a>
               </div>
             </div>
           </div>
-        </nav>
-      </div>
+        </div>
+      </nav>
+    </div>
 
-        <div class="container is-10">
-              <div id="introduction" class="container">
+    <div class="container is-10">
+      <div id="introduction" class="container">
         <section class="hero">
           <div class="hero-body">
             <p class="title">Introduction</p>
@@ -114,55 +107,96 @@
         </section>
       </div>
 
-                  <div id="drawing-molecules" class="container">
+      <div id="drawing-molecules" class="container">
         <section class="hero">
           <div class="hero-body">
             <p class="title">Drawing molecules</p>
             <p class="subtitle">First we'll work with an SVG drawing:</p>
           </div>
         </section>
-        
+
         <div class="columns px-5">
-            <div id="example-1-container" class="column is-one-third">
-                            <textarea id="example-1" class="textarea" cols="40" rows="5" wrap="off">
+          <div id="example-1-container" class="column is-one-third">
+            <textarea
+              id="example-1"
+              class="textarea"
+              cols="40"
+              rows="5"
+              wrap="off"
+            >
 var smiles = "CC(=O)Oc1ccccc1C(=O)O";
 var mol = RDKitModule.get_mol(smiles);
 var dest = document.getElementById("example-1-output");
 var svg = mol.get_svg();
 dest.innerHTML = "<div id='drawing'>" + svg + "</div>";
-</textarea>
-<div><input value="run" class="button mt-2" onclick="eval(document.getElementById('example-1').value)" type="button" /></div>
+</textarea
+            >
+            <div>
+              <input
+                value="run"
+                class="button mt-2"
+                onclick="eval(document.getElementById('example-1').value)"
+                type="button"
+              />
             </div>
-            <div id="example-1-output" class="ml-6 column"></div>
+          </div>
+          <div id="example-1-output" class="ml-6 column"></div>
         </div>
       </div>
+
+      <section class="hero">
+        <div class="hero-body">
+          <p class="subtitle">
+            As of v2020.09 of the RDKit we can do the same thing using the HTML5
+            canvas:
+          </p>
         </div>
-
-
-
-
-<p>As of v2020.09 of the RDKit we can do the same thing using the HTML5 canvas:
-<div class="row">
-    <div class="col-sm-6">
-        <textarea id="example-2" cols="40" rows="5" wrap="off">
+      </section>
+      <div class="columns px-5">
+        <div class="column is-one-third">
+          <textarea
+            class="textarea"
+            id="example-2"
+            cols="40"
+            rows="5"
+            wrap="off"
+          >
 var smiles = "CC(=O)Oc1ccccc1C(=O)O";
 var mol = RDKitModule.get_mol(smiles);
 var canvas = document.getElementById("canvas-2");
 mol.draw_to_canvas(canvas, -1, -1);
-</textarea>
-        <br /><input value="run" onclick="eval(document.getElementById('example-2').value)" type="button" />
-    </div>
-    <div id="example-2-output" class="col-sm-6">
-        <canvas id="canvas-2" width="250" height="200" >
-        </canvas>
-    </div>
-</div>
-</p>
+</textarea
+          >
+          <div>
+            <input
+              class="button mt-2"
+              value="run"
+              onclick="eval(document.getElementById('example-2').value)"
+              type="button"
+            />
+          </div>
+        </div>
+        <div id="example-2-output" class="ml-6 column">
+          <canvas id="canvas-2" width="250" height="200"> </canvas>
+        </div>
+      </div>
 
-<p>We can do substructure searches and highlight the results:
-<div class="row">
-    <div class="col-sm-6">
-        <textarea id="example-3" cols="40" rows="5" wrap="off">
+      <section class="hero">
+        <div class="hero-body">
+          <p class="subtitle">
+            We can do substructure searches and highlight the results:
+          </p>
+        </div>
+      </section>
+      <div class="columns px-5">
+        <div class="column is-one-third">
+          <textarea
+            class="textarea"
+            id="example-3"
+            cols="40"
+            rows="5"
+            wrap="off"
+          >
 var smiles = "CC(=O)Oc1ccccc1C(=O)O";
 var mol = RDKitModule.get_mol(smiles);
 var smarts = "Oc1[c,n]cccc1";
@@ -170,30 +204,53 @@ var qmol = RDKitModule.get_qmol(smarts)
 var mdetails = mol.get_substruct_match(qmol)
 var canvas = document.getElementById("canvas-3");
 mol.draw_to_canvas_with_highlights(canvas, mdetails);
-</textarea>
-        <br /><input value="run" onclick="eval(document.getElementById('example-3').value)" type="button" />
-    </div>
-    <div id="example-3-output" class="col-sm-6">
-        <canvas id="canvas-3" width="250" height="200">
-        </canvas>
-    </div>
-</div>
-</p>
-You can also change drawing options and do highlighting with the SVG renderer,
-but we don't show it here. You just need to replace 
-<pre>
+</textarea
+          >
+          <div>
+            <input
+              class="button mt-2"
+              value="run"
+              onclick="eval(document.getElementById('example-3').value)"
+              type="button"
+            />
+          </div>
+        </div>
+        <div id="example-3-output" class="ml-6 column">
+          <canvas id="canvas-3" width="250" height="200"> </canvas>
+        </div>
+      </div>
+
+      <section class="hero">
+        <div class="hero-body">
+          <p class="subtitle">
+            You can also change drawing options and do highlighting with the SVG
+            renderer, but we don't show it here. You just need to replace:
+          </p>
+        </div>
+      </section>
+      <div class="px-3">
+        <div class="column is-full">
+          <pre>
+            <code>
 mol.draw_to_canvas_with_highlights(canvas, mdetails);
+</code>
 </pre>
-with
-<pre>
+        </div>
+        <div class="column is-full">with</div>
+        <div class="column is-full">
+          <pre>
+            <code>
 var svg = mol.get_svg_with_highlights(mdetails);
+</code>
 </pre>
+        </div>
+      </div>
+    </div>
 
-
-<p>The same call can be used to control drawing options or to manually 
-set the atoms/bonds which should be highlighted:
-<div class="row">
-    <div class="col-sm-6">
+    The same call can be used to control drawing options or to manually set the
+    atoms/bonds which should be highlighted:
+    <div class="row">
+      <div class="col-sm-6">
         <textarea id="example-4" cols="40" rows="5" wrap="off">
 var smiles = "CC(=O)Oc1ccccc1C(=O)O";
 var mol = RDKitModule.get_mol(smiles);
@@ -204,19 +261,22 @@ mdetails['addAtomIndices'] = true;
 mdetails['legend']='aspirin';
 var canvas = document.getElementById("canvas-4");
 mol.draw_to_canvas_with_highlights(canvas, JSON.stringify(mdetails));
-</textarea>
-        <br /><input value="run" onclick="eval(document.getElementById('example-4').value)" type="button" />
+</textarea
+        >
+        <br /><input
+          value="run"
+          onclick="eval(document.getElementById('example-4').value)"
+          type="button"
+        />
+      </div>
+      <div id="example-4-output" class="col-sm-6">
+        <canvas id="canvas-4" width="250" height="200"> </canvas>
+      </div>
     </div>
-    <div id="example-4-output" class="col-sm-6">
-        <canvas id="canvas-4" width="250" height="200">
-        </canvas>
-    </div>
-</div>
-</p>
 
-<p>and of course we can combine the two:
-<div class="row">
-    <div class="col-sm-6">
+    and of course we can combine the two:
+    <div class="row">
+      <div class="col-sm-6">
         <textarea id="example-5" cols="40" rows="5" wrap="off">
 var smiles = "CC(=O)Oc1ccccc1C(=O)O";
 var mol = RDKitModule.get_mol(smiles);
@@ -227,68 +287,54 @@ mdetails['highlightColour'] = [1,0,1];
 mdetails['legend']='aspirin';
 var canvas = document.getElementById("canvas-5");
 mol.draw_to_canvas_with_highlights(canvas, JSON.stringify(mdetails));
-</textarea>
-        <br /><input value="run" onclick="eval(document.getElementById('example-5').value)" type="button" />
+</textarea
+        >
+        <br /><input
+          value="run"
+          onclick="eval(document.getElementById('example-5').value)"
+          type="button"
+        />
+      </div>
+      <div id="example-5-output" class="col-sm-6">
+        <canvas id="canvas-5" width="250" height="200"> </canvas>
+      </div>
     </div>
-    <div id="example-5-output" class="col-sm-6">
-        <canvas id="canvas-5" width="250" height="200">
-        </canvas>
-    </div>
-</div>
-</p>
 
-The currently supported options are:
-<ol>
-    <li><tt>atoms</tt>,<tt>bonds</tt>: lists to specify which atoms/bonds are highlighted</li>
-    <li><tt>width</tt>,<tt>height</tt><tt>offsetx</tt>,<tt>offsety</tt>: used to
-    draw in a subregion of a canvas. Only supported by the HTML5 canvas
-    drawer.</li>
-    <li><tt>legend</tt>: the legend drawn under the molecule</li>
-    <li>These <tt>MolDrawOptions</tt> values: <tt>
-atomLabelDeuteriumTritium,
-dummiesAreAttachments,
-circleAtoms,
-continuousHighlight,
-fillHighlights,
-highlightRadius,
-flagCloseContactsDist,
-includeAtomTags,
-clearBackground,
-legendFontSize,
-maxFontSize,
-minFontSize,
-annotationFontScale,
-fontFile,
-multipleBondOffset,
-padding,
-additionalAtomLabelPadding,
-bondLineWidth,
-scaleBondWidth,
-scaleHighlightBondWidth,
-highlightBondWidthMultiplier,
-prepareMolsBeforeDrawing,
-fixedScale,
-fixedBondLength,
-rotate,
-addAtomIndices,
-addBondIndices,
-addStereoAnnotation,
-atomHighlightsAreCircles,
-centreMoleculesBeforeDrawing,
-explicitMethyl,
-includeMetadata,
-includeRadicals,
-highlightColour,
-backgroundColour,
-legendColour,
-symbolColour,
-atomLabels
-    </tt></li>
-</ol>
+    The currently supported options are:
+    <ol>
+      <li>
+        <tt>atoms</tt>,<tt>bonds</tt>: lists to specify which atoms/bonds are
+        highlighted
+      </li>
+      <li>
+        <tt>width</tt>,<tt>height</tt><tt>offsetx</tt>,<tt>offsety</tt>: used to
+        draw in a subregion of a canvas. Only supported by the HTML5 canvas
+        drawer.
+      </li>
+      <li><tt>legend</tt>: the legend drawn under the molecule</li>
+      <li>
+        These <tt>MolDrawOptions</tt> values:
+        <tt>
+          atomLabelDeuteriumTritium, dummiesAreAttachments, circleAtoms,
+          continuousHighlight, fillHighlights, highlightRadius,
+          flagCloseContactsDist, includeAtomTags, clearBackground,
+          legendFontSize, maxFontSize, minFontSize, annotationFontScale,
+          fontFile, multipleBondOffset, padding, additionalAtomLabelPadding,
+          bondLineWidth, scaleBondWidth, scaleHighlightBondWidth,
+          highlightBondWidthMultiplier, prepareMolsBeforeDrawing, fixedScale,
+          fixedBondLength, rotate, addAtomIndices, addBondIndices,
+          addStereoAnnotation, atomHighlightsAreCircles,
+          centreMoleculesBeforeDrawing, explicitMethyl, includeMetadata,
+          includeRadicals, highlightColour, backgroundColour, legendColour,
+          symbolColour, atomLabels
+        </tt>
+      </li>
+    </ol>
 
-<p>It's often useful to generate molecule renderings where the coordinates of a core is constrained.
-<div class="row">
-    <div class="col-sm-6">
+    It's often useful to generate molecule renderings where the coordinates of a
+    core is constrained.
+    <div class="row">
+      <div class="col-sm-6">
         <textarea id="example-6" cols="40" rows="5" wrap="off">
 var smiles = "c1cnc(C)nc1C(=O)O";
 var mol = RDKitModule.get_mol(smiles);
@@ -322,27 +368,27 @@ mol.generate_aligned_coords(qmol,true);
 var tdetails = mol.get_substruct_match(qmol);
 var canvas = document.getElementById("canvas-6");
 mol.draw_to_canvas_with_highlights(canvas,tdetails);
-</textarea>
-        <br /><input value="run" onclick="eval(document.getElementById('example-6').value)" type="button" />
+</textarea
+        >
+        <br /><input
+          value="run"
+          onclick="eval(document.getElementById('example-6').value)"
+          type="button"
+        />
+      </div>
+      <div id="example-6-output" class="col-sm-6">
+        <canvas id="canvas-6" width="250" height="200"> </canvas>
+      </div>
     </div>
-    <div id="example-6-output" class="col-sm-6">
-        <canvas id="canvas-6" width="250" height="200">
-        </canvas>
-    </div>
-</div>
-</p>
 
+    <script>
+      const menuToggle = document.getElementById("burger-menu-toggle");
+      const navBar = document.getElementById("navbarBasicExample");
 
-
-        <script>
-    const menuToggle = document.getElementById("burger-menu-toggle");
-    const navBar = document.getElementById("navbarBasicExample");
-
-    menuToggle.addEventListener("click", function() {
-    menuToggle.classList.toggle("is-active");
-navBar.classList.toggle("is-active");
-    });
+      menuToggle.addEventListener("click", function () {
+        menuToggle.classList.toggle("is-active");
+        navBar.classList.toggle("is-active");
+      });
     </script>
-</body>
-
+  </body>
 </html>
