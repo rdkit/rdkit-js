@@ -231,7 +231,7 @@ mol.draw_to_canvas_with_highlights(canvas, mdetails);
       <div class="px-3">
         <div class="column is-full">
           <pre>
-            <code>
+            <code class="is-family-code">
 mol.draw_to_canvas_with_highlights(canvas, mdetails);
 </code>
 </pre>
@@ -239,7 +239,7 @@ mol.draw_to_canvas_with_highlights(canvas, mdetails);
         <div class="column is-full">with</div>
         <div class="column is-full">
           <pre>
-            <code>
+            <code class="is-family-code">
 var svg = mol.get_svg_with_highlights(mdetails);
 </code>
 </pre>
@@ -328,44 +328,120 @@ mol.draw_to_canvas_with_highlights(canvas, JSON.stringify(mdetails));
           <canvas id="canvas-5" width="250" height="200"> </canvas>
         </div>
       </div>
-    </div>
 
-    The currently supported options are:
-    <ol>
-      <li>
-        <tt>atoms</tt>,<tt>bonds</tt>: lists to specify which atoms/bonds are
-        highlighted
-      </li>
-      <li>
-        <tt>width</tt>,<tt>height</tt><tt>offsetx</tt>,<tt>offsety</tt>: used to
-        draw in a subregion of a canvas. Only supported by the HTML5 canvas
-        drawer.
-      </li>
-      <li><tt>legend</tt>: the legend drawn under the molecule</li>
-      <li>
-        These <tt>MolDrawOptions</tt> values:
-        <tt>
-          atomLabelDeuteriumTritium, dummiesAreAttachments, circleAtoms,
-          continuousHighlight, fillHighlights, highlightRadius,
-          flagCloseContactsDist, includeAtomTags, clearBackground,
-          legendFontSize, maxFontSize, minFontSize, annotationFontScale,
-          fontFile, multipleBondOffset, padding, additionalAtomLabelPadding,
-          bondLineWidth, scaleBondWidth, scaleHighlightBondWidth,
-          highlightBondWidthMultiplier, prepareMolsBeforeDrawing, fixedScale,
-          fixedBondLength, rotate, addAtomIndices, addBondIndices,
-          addStereoAnnotation, atomHighlightsAreCircles,
-          centreMoleculesBeforeDrawing, explicitMethyl, includeMetadata,
-          includeRadicals, highlightColour, backgroundColour, legendColour,
-          symbolColour, atomLabels
-        </tt>
-      </li>
-    </ol>
+      <section class="hero">
+        <div class="hero-body">
+          <p class="subtitle">The currently supported options are:</p>
+        </div>
+      </section>
 
-    It's often useful to generate molecule renderings where the coordinates of a
-    core is constrained.
-    <div class="row">
-      <div class="col-sm-6">
-        <textarea id="example-6" cols="40" rows="5" wrap="off">
+      <div class="content px-3">
+        <ul>
+          <li>
+            <code class="is-family-code">atoms</code>: list to specify which
+            atoms are highlighted
+          </li>
+          <li>
+            <code class="is-family-code">bonds</code>: list to specify which
+            bonds are highlighted
+          </li>
+          <li>
+            <code class="is-family-code">width</code>,
+            <code class="is-family-code">height</code>,
+            <code class="is-family-code">offsetx</code>,
+            <code class="is-family-code">offsety</code>: used to draw in a
+            subregion of a canvas. Only supported by the HTML5 canvas drawer.
+          </li>
+          <li>
+            <code class="is-family-code">legend</code>: the legend drawn under
+            the molecule
+          </li>
+          <li>
+            The following
+            <a
+              class="is-link"
+              href="http://rdkit.org/docs/cppapi/structRDKit_1_1MolDrawOptions.html"
+              target="_blank"
+              >MolDrawOptions</a
+            >:
+            <ul>
+              <li><code class="is-family-code">addAtomIndices</code></li>
+              <li><code class="is-family-code">addBondIndices</code></li>
+              <li>
+                <code class="is-family-code">additionalAtomLabelPadding</code>
+              </li>
+              <li><code class="is-family-code">addStereoAnnotation</code></li>
+              <li><code class="is-family-code">annotationFontScale</code></li>
+              <li>
+                <code class="is-family-code">atomHighlightsAreCircles</code>
+              </li>
+              <li>
+                <code class="is-family-code">atomLabelDeuteriumTritium</code>
+              </li>
+              <li><code class="is-family-code">atomLabels</code></li>
+              <li><code class="is-family-code">backgroundColour</code></li>
+              <li><code class="is-family-code">bondLineWidth</code></li>
+              <li>
+                <code class="is-family-code">centreMoleculesBeforeDrawing</code>
+              </li>
+              <li><code class="is-family-code">circleAtoms</code></li>
+              <li><code class="is-family-code">clearBackground</code></li>
+              <li><code class="is-family-code">continuousHighlight</code></li>
+              <li><code class="is-family-code">dummiesAreAttachments</code></li>
+              <li><code class="is-family-code">explicitMethyl</code></li>
+              <li><code class="is-family-code">fillHighlights</code></li>
+              <li><code class="is-family-code">fixedBondLength</code></li>
+              <li><code class="is-family-code">fixedScale</code></li>
+              <li><code class="is-family-code">flagCloseContactsDist</code></li>
+              <li><code class="is-family-code">fontFile</code></li>
+              <li>
+                <code class="is-family-code">highlightBondWidthMultiplier</code>
+              </li>
+              <li><code class="is-family-code">highlightColour</code></li>
+              <li><code class="is-family-code">highlightRadius</code></li>
+              <li><code class="is-family-code">includeAtomTags</code></li>
+              <li><code class="is-family-code">includeMetadata</code></li>
+              <li><code class="is-family-code">includeRadicals</code></li>
+              <li><code class="is-family-code">legendColour</code></li>
+              <li><code class="is-family-code">legendFontSize</code></li>
+              <li><code class="is-family-code">maxFontSize</code></li>
+              <li><code class="is-family-code">minFontSize</code></li>
+              <li><code class="is-family-code">multipleBondOffset</code></li>
+              <li><code class="is-family-code">padding</code></li>
+              <li>
+                <code class="is-family-code">prepareMolsBeforeDrawing</code>
+              </li>
+              <li><code class="is-family-code">rotate</code></li>
+              <li><code class="is-family-code">scaleBondWidth</code></li>
+              <li>
+                <code class="is-family-code">scaleHighlightBondWidth</code>
+              </li>
+              <li><code class="is-family-code">symbolColour</code></li>
+            </ul>
+          </li>
+
+          <li></li>
+        </ul>
+      </div>
+
+      <section class="hero">
+        <div class="hero-body">
+          <p class="subtitle">
+            Finally, it's often useful to generate molecule renderings where the
+            coordinates of a core is constrained:
+          </p>
+        </div>
+      </section>
+
+      <div class="columns px-5 mb-6">
+        <div class="column">
+          <textarea
+            class="textarea"
+            id="example-6"
+            cols="40"
+            rows="5"
+            wrap="off"
+          >
 var smiles = "c1cnc(C)nc1C(=O)O";
 var mol = RDKitModule.get_mol(smiles);
 var template = `
@@ -399,18 +475,35 @@ var tdetails = mol.get_substruct_match(qmol);
 var canvas = document.getElementById("canvas-6");
 mol.draw_to_canvas_with_highlights(canvas,tdetails);
 </textarea
-        >
-        <br /><input
-          value="run"
-          onclick="eval(document.getElementById('example-6').value)"
-          type="button"
-        />
-      </div>
-      <div id="example-6-output" class="col-sm-6">
-        <canvas id="canvas-6" width="250" height="200"> </canvas>
+          >
+          <div>
+            <input
+              class="button mt-2"
+              value="run"
+              onclick="eval(document.getElementById('example-6').value)"
+              type="button"
+            />
+          </div>
+        </div>
+        <div id="example-6-output" class="column ml-6">
+          <canvas id="canvas-6" width="250" height="200"> </canvas>
+        </div>
       </div>
     </div>
 
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          <strong>RDKit.js</strong> by
+          <a href="https://github.com/rdkit/rdkit"
+            >Greg Landrum and the RDKit contributors</a
+          >. The source code is licensed
+          <a href="https://github.com/rdkit/rdkit/blob/master/license.txt"
+            >BDS-3</a
+          >.
+        </p>
+      </div>
+    </footer>
     <script>
       const menuToggle = document.getElementById("burger-menu-toggle");
       const navBar = document.getElementById("navbarBasicExample");
