@@ -1,5 +1,6 @@
 dist
 rdkit
+!examples/react-redux-example/src/redux/rdkit
 Dockerfile
 node_modules
 
