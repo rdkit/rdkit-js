@@ -60,7 +60,7 @@ export default class NavBar extends Component {
               <div className="navbar-dropdown">
                 <a
                   className="navbar-item"
-                  href="https://michelml.github.io/rdkit-js/examples/react-example/build/"
+                  href="https://michelml.github.io/rdkit-js/examples/vanilla-javascript/"
                 >
                   JavaScript
                 </a>
