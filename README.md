@@ -2,6 +2,7 @@ New demos in progress at:
 
 - Vanilla JavaScript Example: https://michelml.github.io/rdkit-js/examples/vanilla-javascript/
 - React Example: https://michelml.github.io/rdkit-js/examples/react-example/build/
+- React Redux Example: https://michelml.github.io/rdkit-js/examples/react-redux-example/build/
 
 <br />
 <br />
