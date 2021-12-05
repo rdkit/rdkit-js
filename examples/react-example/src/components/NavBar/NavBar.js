@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 export default class NavBar extends Component {
   state = {
-    burgerActive: false
+    burgerActive: false,
   };
   render() {
     const brugerActiveClass = this.state.burgerActive ? " is-active" : "";

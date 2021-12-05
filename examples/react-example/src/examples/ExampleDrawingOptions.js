@@ -6,19 +6,24 @@ import MoleculeStructure from "../components/MoleculeStructure/MoleculeStructure
 class ExampleDrawingOptions extends React.Component {
   static initialState = {
     computing: false,
-    mainStructureInput: "CN1C=NC2=C1C(=O)N(C(=O)N2C)",
+    mainStructureInput:
+      "Cc1coc(-c2cn([C@@H]3O[C@H](COc4ccc5ccc(N6CCC6)nc5c4)[C@@H](O)[C@@H]3F)c3ncnc(N)c23)n1",
     subStructureInput: "[n,O]",
     legend: "Legend Text",
-    width: 350,
-    height: 250,
+    // legendFontSize: 16,
+    width: 500,
+    height: 450,
     bondLineWidth: 1,
+    scaleBondWidth: false,
     addStereoAnnotation: true,
     addAtomIndices: true,
+    addBondIndices: false,
     explicitMethyl: true,
     highlightColour: "#fd5c63",
     legendColour: "#000000",
     symbolColour: "#000000",
-    backgroundColour: "#ffffff"
+    backgroundColour: "#ffffff",
+    rotate: 0.0
   };
 
   state = { ...ExampleDrawingOptions.initialState };
@@ -82,6 +87,20 @@ class ExampleDrawingOptions extends React.Component {
               </div>
             </div>
           </div>
+          <div className="column">
+            <div className="field">
+              <label className="label">Legend font size</label>
+              <div className="control">
+                <input
+                  className="input"
+                  type="number"
+                  defaultValue={this.state.legendFontSize}
+                  onChange={(e) => this.handleStateChange(e, "legendFontSize")}
+                  placeholder="Add a font size..."
+                />
+              </div>
+            </div>
+          </div>
         </div>
         <div className="columns" style={{ margin: "12px 0" }}>
           <div className="column">
@@ -128,6 +147,24 @@ class ExampleDrawingOptions extends React.Component {
           </div>
           <div className="column">
             <div className="field">
+              <label className="label">Rotate</label>
+              <div className="control">
+                <input
+                  className="input"
+                  type="number"
+                  step="0.5"
+                  defaultValue={this.state.rotate}
+                  onChange={(e) => this.handleStateChange(e, "rotate")}
+                  placeholder="Rotate"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="columns" style={{ margin: "12px 0" }}>
+          <div className="column">
+            <div className="field">
               <label className="label">Stereo-Annotation</label>
               <div className="control">
                 <input
@@ -158,6 +195,20 @@ class ExampleDrawingOptions extends React.Component {
           </div>
           <div className="column">
             <div className="field">
+              <label className="label">Bond Indices</label>
+              <div className="control">
+                <input
+                  className="checkbox"
+                  type="checkbox"
+                  defaultChecked={this.state.addBondIndices}
+                  onChange={(e) => this.handleStateChange(e, "addBondIndices")}
+                  placeholder="Bond Indices"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="column">
+            <div className="field">
               <label className="label">Explicit Methyl</label>
               <div className="control">
                 <input
@@ -170,7 +221,24 @@ class ExampleDrawingOptions extends React.Component {
               </div>
             </div>
           </div>
+          <div className="column">
+            <div className="field">
+              <label className="label">Scale bond width</label>
+              <div className="control">
+                <input
+                  className="checkbox"
+                  type="checkbox"
+                  defaultChecked={this.state.scaleBondWidth}
+                  onChange={(e) =>
+                    this.handleStateChange(e, "scaleBondWidth")
+                  }
+                  placeholder="Scale bond width"
+                />
+              </div>
+            </div>
+          </div>
         </div>
+
         <div className="columns" style={{ margin: "12px 0" }}>
           <div className="column">
             <div className="field">
@@ -240,9 +308,12 @@ class ExampleDrawingOptions extends React.Component {
     const width = this.state.width || 250;
     const height = this.state.width || 250;
     const bondLineWidth = this.state.bondLineWidth || 1;
+    const rotate = this.state.rotate || 0.0;
     const addStereoAnnotation = this.state.addStereoAnnotation || false;
     const addAtomIndices = this.state.addAtomIndices || false;
+    const addBondIndices = this.state.addBondIndices || false;
     const explicitMethyl = this.state.explicitMethyl || false;
+    const scaleBondWidth = this.state.scaleBondWidth || false;
     const highlightColour = this.getColourProportionsFromHex(
       this.state.highlightColour
     );
@@ -280,7 +351,7 @@ class ExampleDrawingOptions extends React.Component {
               width: width + 12,
               height: height + 12,
               border: "1px solid rgba(0,0,0,.1)",
-              borderRadius: "2px"
+              borderRadius: "2px",
             }}
           >
             <MoleculeStructure
@@ -291,14 +362,18 @@ class ExampleDrawingOptions extends React.Component {
               height={height}
               extraDetails={{
                 legend: this.state.legend || "",
+                legendFontSize: this.state.legendFontSize || 16,
                 bondLineWidth,
+                rotate,
                 addStereoAnnotation,
                 addAtomIndices,
+                addBondIndices,
                 explicitMethyl,
+                scaleBondWidth,
                 highlightColour,
                 legendColour,
                 backgroundColour,
-                symbolColour
+                symbolColour,
               }}
             />
           </div>
@@ -342,9 +417,9 @@ class ExampleDrawingOptions extends React.Component {
   }, 300);
 
   getColourProportionsFromHex(hex) {
-    return hexRgb(hex, { format: "array" }).map((v) =>
+    return _.take(hexRgb(hex, { format: "array" }).map((v) =>
       parseFloat((v / 255).toFixed(2), 10)
-    );
+    ), 3);
   }
 }
 

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 export default class SideNav extends Component {
   state = {
-    activeLink: "#component-introduction"
+    activeLink: "#component-introduction",
   };
 
   componentDidMount() {
@@ -18,52 +18,52 @@ export default class SideNav extends Component {
         children: [
           {
             id: "#component-introduction",
-            name: "Introduction"
+            name: "Introduction",
           },
           {
             id: "#component-example-list",
-            name: "Overview"
-          }
-        ]
+            name: "Overview",
+          },
+        ],
       },
       {
         name: "Components",
         children: [
           {
             id: "#component-example-moleculestructure",
-            name: "MoleculeStructure"
-          }
-        ]
+            name: "MoleculeStructure",
+          },
+        ],
       },
       {
         name: "Examples",
         children: [
           {
             id: "#component-example-svg",
-            name: "SVG Rendering"
+            name: "SVG Rendering",
           },
           {
             id: "#component-example-canvas",
-            name: "Canvas Rendering"
+            name: "Canvas Rendering",
           },
           {
             id: "#component-example-substruct",
-            name: "Substructure Highlighting"
+            name: "Substructure Highlighting",
           },
           {
             id: "#component-example-multi-substruct",
-            name: "Multi-Substructure Highlighting"
+            name: "Multi-Substructure Highlighting",
           },
           {
             id: "#component-example-substruct-search",
-            name: "Substructure Search"
+            name: "Substructure Search",
           },
           {
             id: "#component-example-drawing-options",
-            name: "Additional Options"
-          }
-        ]
-      }
+            name: "Additional Options",
+          },
+        ],
+      },
     ];
 
     const renderedSections = sections.map((section) => (

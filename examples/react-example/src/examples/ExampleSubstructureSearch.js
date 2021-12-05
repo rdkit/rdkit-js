@@ -7,7 +7,7 @@ class ExampleList extends React.Component {
   state = {
     matches: SMILES_LIST,
     searchValue: "",
-    searching: false
+    searching: false,
   };
 
   render() {
