@@ -7,7 +7,7 @@ class ExampleDrawingOptions extends React.Component {
   static initialState = {
     computing: false,
     mainStructureInput:
-      "Cc1coc(-c2cn([C@@H]3O[C@H](COc4ccc5ccc(N6CCC6)nc5c4)[C@@H](O)[C@@H]3F)c3ncnc(N)c23)n1",
+      "CSCC[C@H](NC(=O)[C@H](CC1=CNC2=C1C=CC=C2)NC(=O)CCNC(=O)OC(C)(C)C)C(=O)N[C@@H](CC(O)=O)C(=O)N[C@@H](CC1=CC=CC=C1)C(N)=O",
     subStructureInput: "[n,O]",
     legend: "Legend Text",
     legendFontSize: 16,
@@ -38,8 +38,13 @@ class ExampleDrawingOptions extends React.Component {
         <section className="hero">
           <div className="hero-body">
             <p className="title">Additional Drawing Options</p>
-            <p className="subtitle">
-              RDKit.js provides you with all these additional options.
+            <p className="subtitle column is-two-thirds pl-0">
+              RDKit.js provides you a lot of options for drawing molecules.
+              Checkout the{" "}
+              <a href="https://michelml.github.io/rdkit-js/examples/vanilla-javascript/#drawing-molecules-all-options">
+                JavaScript examples
+              </a>{" "}
+              for the full list of available options.
             </p>
           </div>
         </section>
@@ -157,8 +162,10 @@ class ExampleDrawingOptions extends React.Component {
                   className="input"
                   type="number"
                   step="0.1"
-                  defaultValue={this.state.annotationFontScale }
-                  onChange={(e) => this.handleStateChange(e, "annotationFontScale ")}
+                  defaultValue={this.state.annotationFontScale}
+                  onChange={(e) =>
+                    this.handleStateChange(e, "annotationFontScale ")
+                  }
                   placeholder="Annotation font scale"
                 />
               </div>
@@ -262,7 +269,9 @@ class ExampleDrawingOptions extends React.Component {
                   className="checkbox"
                   type="checkbox"
                   defaultChecked={this.state.centreMoleculesBeforeDrawing}
-                  onChange={(e) => this.handleStateChange(e, "centreMoleculesBeforeDrawing")}
+                  onChange={(e) =>
+                    this.handleStateChange(e, "centreMoleculesBeforeDrawing")
+                  }
                   placeholder="Center molecule"
                 />
               </div>
@@ -346,7 +355,7 @@ class ExampleDrawingOptions extends React.Component {
         </div>
         <div className="columns" style={{ margin: "12px 0" }}>
           <div className="column">
-          <div className="field">
+            <div className="field">
               <label className="label">SVG Rendering (Default is Canvas)</label>
               <div className="control">
                 <input
@@ -377,7 +386,8 @@ class ExampleDrawingOptions extends React.Component {
     const explicitMethyl = this.state.explicitMethyl || false;
     const scaleBondWidth = this.state.scaleBondWidth || false;
     const comicMode = this.state.comicMode || false;
-    const centreMoleculesBeforeDrawing = this.state.centreMoleculesBeforeDrawing || false;
+    const centreMoleculesBeforeDrawing =
+      this.state.centreMoleculesBeforeDrawing || false;
     const highlightColour = this.getColourProportionsFromHex(
       this.state.highlightColour
     );
