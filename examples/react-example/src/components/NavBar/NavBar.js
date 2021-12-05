@@ -70,12 +70,6 @@ export default class NavBar extends Component {
                 >
                   React
                 </a>
-                <a
-                  className="navbar-item"
-                  href="https://michelml.github.io/rdkit-js/examples/react-redux-example/build/"
-                >
-                  React Redux
-                </a>
                 <hr className="navbar-divider" />
                 <a
                   className="navbar-item"
