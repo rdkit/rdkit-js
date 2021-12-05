@@ -14,7 +14,7 @@ export default class SideNav extends Component {
   render() {
     const sections = [
       {
-        name: "Quick Start",
+        name: "General",
         children: [
           {
             id: "#component-introduction",
