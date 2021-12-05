@@ -1,10 +1,13 @@
 {
-  "name": "@rdkit/rdkit",
-  "version": "2021.3.2-rdkit-mini-beta-4",
+  "name": "rdkit-testing",
+  "version": "0.0.1",
   "description": "JavaScript distribution of cheminformatics functionality from the RDKit - a C++ library for cheminformatics.",
   "main": "dist/RDKit_minimal.js",
   "scripts": {
     "build": "bash scripts/build_rdkitjs.sh",
+    "react:build": "cd examples/react-example && npm run build",
+    "react:start": "cd examples/react-example && npm run start",
+    "vanilla:start": "serve examples/vanilla-javascript",
     "resetVersion": "jq '.version = \"PLACEHOLDER\"' package.json > temp && mv temp package.json",
     "test": "echo \"Tests are run during the docker build. See https://github.com/rdkit/rdkit/blob/master/docker/Dockerfile .\" && exit 1"
   },

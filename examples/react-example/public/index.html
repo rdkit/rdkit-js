@@ -24,7 +24,7 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <script src="https://unpkg.com/@rdkit/rdkit@2021.3.2/Code/MinimalLib/dist/RDKit_minimal.js"></script>
+    <script src="https://unpkg.com/@rdkit/rdkit/Code/MinimalLib/dist/RDKit_minimal.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
     <link
       rel="stylesheet"
@@ -35,6 +35,27 @@
       href="https://unpkg.com/bulma-tooltip@3.0.2/dist/css/bulma-tooltip.min.css"
     />
     <title>RDKit.js - React Example</title>
+    <style>
+      .back_to_top {
+        position: fixed;
+        bottom: 80px;
+        right: 40px;
+        z-index: 9999;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        background: #f5f5f5;
+        color: #444;
+        cursor: pointer;
+        border-radius: 2px;
+        display: block;
+      }
+      
+      .back_to_top:hover {
+        background: #e9ebec;
+      }
+    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -97,6 +118,7 @@
           </p>
         </div>
       </footer>
+      <a class="back_to_top" href="#navbar">&uarr;</a>
     </div>
   </body>
 </html>
