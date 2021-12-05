@@ -63,6 +63,19 @@ export default class SideNav extends Component {
             name: "Additional Options"
           }
         ]
+      },
+      {
+        name: "Other",
+        children: [
+          {
+            id: "#other-examples-vanilla-js",
+            name: "JavaScript Examples"
+          },
+          {
+            id: "#other-examples-legacy",
+            name: "Legacy Examples"
+          }
+        ]
       }
     ];
 

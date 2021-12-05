@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/rdkit-js/examples/react-example/build/static/css/main.d59225f1.chunk.css",
-    "main.js": "/rdkit-js/examples/react-example/build/static/js/main.70b437c9.chunk.js",
-    "main.js.map": "/rdkit-js/examples/react-example/build/static/js/main.70b437c9.chunk.js.map",
+    "main.js": "/rdkit-js/examples/react-example/build/static/js/main.4d18620a.chunk.js",
+    "main.js.map": "/rdkit-js/examples/react-example/build/static/js/main.4d18620a.chunk.js.map",
     "runtime-main.js": "/rdkit-js/examples/react-example/build/static/js/runtime-main.02b05453.js",
     "runtime-main.js.map": "/rdkit-js/examples/react-example/build/static/js/runtime-main.02b05453.js.map",
     "static/js/2.4ad8947f.chunk.js": "/rdkit-js/examples/react-example/build/static/js/2.4ad8947f.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.02b05453.js",
     "static/js/2.4ad8947f.chunk.js",
     "static/css/main.d59225f1.chunk.css",
-    "static/js/main.70b437c9.chunk.js"
+    "static/js/main.4d18620a.chunk.js"
   ]
 }
