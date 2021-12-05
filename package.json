@@ -5,10 +5,12 @@
   "main": "dist/RDKit_minimal.js",
   "scripts": {
     "build": "bash scripts/build_rdkitjs.sh",
-    "react:build": "cd examples/react-example && npm run build",
-    "react:start": "cd examples/react-example && npm run start",
+    "react:pre": "cp utils/init.js examples/react-example/src/utils/initRDKit.js",
+    "react:build": "npm run react:pre && cd examples/react-example && npm run build",
+    "react:start": "npm run react:pre && cd examples/react-example && npm run start",
     "vanilla:start": "serve examples/vanilla-javascript",
     "resetVersion": "jq '.version = \"PLACEHOLDER\"' package.json > temp && mv temp package.json",
+    "format": "prettier --trailing-comma none --write 'examples' 'utils' '*.md' !examples/*/build",
     "test": "echo \"Tests are run during the docker build. See https://github.com/rdkit/rdkit/blob/master/docker/Dockerfile .\" && exit 1"
   },
   "repository": {
@@ -33,9 +35,13 @@
     "package.json",
     "ReleaseNotes.md",
     "README.md",
+    "utils/init.js",
     "dist/demo.html",
     "dist/GettingStartedInJS.html",
     "dist/RDKit_minimal.js",
     "dist/RDKit_minimal.wasm"
-  ]
+  ],
+  "devDependencies": {
+    "prettier": "^2.5.1"
+  }
 }

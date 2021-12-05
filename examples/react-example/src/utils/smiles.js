@@ -97,5 +97,5 @@ export const SMILES_LIST = [
   "[H]O[Co+]N1C2=C(C)/C3=N/C(=CC4=NC(=C(C)/C5=N[C@@](C)([C@@]1([H])[C@H](CC(=O)N)[C@@]2(C)CCC(=O)NC[C@@H](C)OP(=O)([O-])O[C@H]1[C@@H](O)[C@H](O[C@@H]1CO)N1C=NC2=CC(C)=C(C)C=C12)[C@@](C)(CC(N)=O)[C@@H]5CCC(=O)N)[C@@](C)(CC(=O)N)[C@@H]4CCC(=O)N)/C(C)(C)[C@@H]3CCC(=O)N",
   "CN1C=NC2=C1C(=O)N(C)C(=O)N2C",
   "C[N+](C)(C)CCOC(=O)CCC(=O)OCC[N+](C)(C)C",
-  "CCCC1=NN(C)C2=C1NC(=NC2=O)C1=C(OCC)C=CC(=C1)S(=O)(=O)N1CCN(C)CC1",
+  "CCCC1=NN(C)C2=C1NC(=NC2=O)C1=C(OCC)C=CC(=C1)S(=O)(=O)N1CCN(C)CC1"
 ];

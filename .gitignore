@@ -6,3 +6,4 @@ node_modules
 
 # include builds to run examples remotely
 !examples/**/build
+examples/react-example/src/utils/initRDKit.js
