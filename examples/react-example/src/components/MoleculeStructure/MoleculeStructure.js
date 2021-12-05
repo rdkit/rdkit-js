@@ -20,7 +20,7 @@ class MoleculeStructure extends Component {
     structure: PropTypes.string.isRequired,
     subStructure: PropTypes.string,
     extraDetails: PropTypes.object,
-    drawingDelay: PropTypes.number,
+    drawingDelay: PropTypes.number
   };
 
   static defaultProps = {
@@ -30,7 +30,7 @@ class MoleculeStructure extends Component {
     height: 200,
     svgMode: false,
     extraDetails: {},
-    drawingDelay: undefined,
+    drawingDelay: undefined
   };
 
   constructor(props) {
@@ -41,13 +41,13 @@ class MoleculeStructure extends Component {
       height: this.props.height,
       bondLineWidth: 1,
       addStereoAnnotation: true,
-      ...this.props.extraDetails,
+      ...this.props.extraDetails
     };
 
     this.state = {
       svg: undefined,
       rdKitLoaded: false,
-      rdKitError: false,
+      rdKitError: false
     };
   }
 
@@ -96,7 +96,7 @@ class MoleculeStructure extends Component {
         ? subStructHighlightDetails.reduce(
             (acc, { atoms, bonds }) => ({
               atoms: [...acc.atoms, ...atoms],
-              bonds: [...acc.bonds, ...bonds],
+              bonds: [...acc.bonds, ...bonds]
             }),
             { bonds: [], atoms: [] }
           )
@@ -104,12 +104,12 @@ class MoleculeStructure extends Component {
       return JSON.stringify({
         ...this.MOL_DETAILS,
         ...(this.props.extraDetails || {}),
-        ...subStructHighlightDetailsMerged,
+        ...subStructHighlightDetailsMerged
       });
     } else {
       return JSON.stringify({
         ...this.MOL_DETAILS,
-        ...(this.props.extraDetails || {}),
+        ...(this.props.extraDetails || {})
       });
     }
   }
