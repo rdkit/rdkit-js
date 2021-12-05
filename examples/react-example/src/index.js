@@ -31,43 +31,43 @@ const examples = [
   {
     code: ExampleListCode,
     component: <ExampleList />,
-    elementId: "example-list"
+    elementId: "example-list",
   },
   {
     code: MoleculeStructureCode,
     component: <ExampleMoleculeStructure />,
-    elementId: "example-mol-structure"
+    elementId: "example-mol-structure",
   },
   {
     code: ExampleSVGCode,
     component: <ExampleSVG />,
-    elementId: "example-svg"
+    elementId: "example-svg",
   },
   {
     code: ExampleCanvasCode,
     component: <ExampleCanvas />,
-    elementId: "example-canvas"
+    elementId: "example-canvas",
   },
   {
     code: ExampleSubstructureCode,
     component: <ExampleSubstructure />,
-    elementId: "example-substructures"
+    elementId: "example-substructures",
   },
   {
     code: ExampleMultiSubstructureCode,
     component: <ExampleMultiSubstructure />,
-    elementId: "example-multi-substructures"
+    elementId: "example-multi-substructures",
   },
   {
     code: ExampleDrawingOptionsCode,
     component: <ExampleDrawingOptions />,
-    elementId: "example-all-options"
+    elementId: "example-all-options",
   },
   {
     code: ExampleSubstructureSearchCode,
     component: <ExampleSubstructureSearch />,
-    elementId: "example-substructure-search"
-  }
+    elementId: "example-substructure-search",
+  },
 ];
 
 examples.forEach((example) => {
