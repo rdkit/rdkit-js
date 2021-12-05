@@ -18,7 +18,7 @@ class ExampleDrawingOptions extends React.Component {
     highlightColour: "#fd5c63",
     legendColour: "#000000",
     symbolColour: "#000000",
-    backgroundColour: "#ffffff",
+    backgroundColour: "#ffffff"
   };
 
   state = { ...ExampleDrawingOptions.initialState };
@@ -280,7 +280,7 @@ class ExampleDrawingOptions extends React.Component {
               width: width + 12,
               height: height + 12,
               border: "1px solid rgba(0,0,0,.1)",
-              borderRadius: "2px",
+              borderRadius: "2px"
             }}
           >
             <MoleculeStructure
@@ -298,7 +298,7 @@ class ExampleDrawingOptions extends React.Component {
                 highlightColour,
                 legendColour,
                 backgroundColour,
-                symbolColour,
+                symbolColour
               }}
             />
           </div>
