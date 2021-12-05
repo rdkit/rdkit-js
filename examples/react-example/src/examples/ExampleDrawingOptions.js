@@ -10,7 +10,7 @@ class ExampleDrawingOptions extends React.Component {
       "Cc1coc(-c2cn([C@@H]3O[C@H](COc4ccc5ccc(N6CCC6)nc5c4)[C@@H](O)[C@@H]3F)c3ncnc(N)c23)n1",
     subStructureInput: "[n,O]",
     legend: "Legend Text",
-    // legendFontSize: 16,
+    legendFontSize: 16,
     width: 500,
     height: 450,
     bondLineWidth: 1,
