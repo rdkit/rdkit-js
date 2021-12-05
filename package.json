@@ -5,6 +5,7 @@
   "main": "dist/RDKit_minimal.js",
   "scripts": {
     "build": "bash scripts/build_rdkitjs.sh",
+    "react:build": "cd examples/react-example && npm run build",
     "resetVersion": "jq '.version = \"PLACEHOLDER\"' package.json > temp && mv temp package.json",
     "test": "echo \"Tests are run during the docker build. See https://github.com/rdkit/rdkit/blob/master/docker/Dockerfile .\" && exit 1"
   },
