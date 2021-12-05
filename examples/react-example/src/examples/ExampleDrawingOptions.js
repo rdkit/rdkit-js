@@ -25,6 +25,8 @@ class ExampleDrawingOptions extends React.Component {
     symbolColour: "#000000",
     backgroundColour: "#ffffff",
     rotate: 0.0,
+    annotationFontScale: 0.5,
+    comicMode: false,
     svgMode: false
   };
 
@@ -149,6 +151,21 @@ class ExampleDrawingOptions extends React.Component {
           </div>
           <div className="column">
             <div className="field">
+              <label className="label">Annotation font scale</label>
+              <div className="control">
+                <input
+                  className="input"
+                  type="number"
+                  step="0.1"
+                  defaultValue={this.state.annotationFontScale }
+                  onChange={(e) => this.handleStateChange(e, "annotationFontScale ")}
+                  placeholder="Annotation font scale"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="column">
+            <div className="field">
               <label className="label">Rotate</label>
               <div className="control">
                 <input
@@ -251,6 +268,20 @@ class ExampleDrawingOptions extends React.Component {
               </div>
             </div>
           </div>
+          <div className="column">
+            <div className="field">
+              <label className="label">Comic mode</label>
+              <div className="control">
+                <input
+                  className="checkbox"
+                  type="checkbox"
+                  defaultChecked={this.state.comicMode}
+                  onChange={(e) => this.handleStateChange(e, "comicMode")}
+                  placeholder="Comic mode"
+                />
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="columns" style={{ margin: "12px 0" }}>
@@ -339,11 +370,13 @@ class ExampleDrawingOptions extends React.Component {
     const height = this.state.width || 250;
     const bondLineWidth = this.state.bondLineWidth || 1;
     const rotate = this.state.rotate || 0.0;
+    const annotationFontScale = this.state.annotationFontScale || 0.5;
     const addStereoAnnotation = this.state.addStereoAnnotation || false;
     const addAtomIndices = this.state.addAtomIndices || false;
     const addBondIndices = this.state.addBondIndices || false;
     const explicitMethyl = this.state.explicitMethyl || false;
     const scaleBondWidth = this.state.scaleBondWidth || false;
+    const comicMode = this.state.comicMode || false;
     const centreMoleculesBeforeDrawing = this.state.centreMoleculesBeforeDrawing || false;
     const highlightColour = this.getColourProportionsFromHex(
       this.state.highlightColour
@@ -406,7 +439,9 @@ class ExampleDrawingOptions extends React.Component {
                 legendColour,
                 backgroundColour,
                 symbolColour,
-                centreMoleculesBeforeDrawing
+                centreMoleculesBeforeDrawing,
+                annotationFontScale,
+                comicMode
               }}
             />
           </div>
