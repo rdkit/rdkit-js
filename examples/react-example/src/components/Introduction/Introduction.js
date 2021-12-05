@@ -7,7 +7,14 @@ export default class Introduction extends Component {
         <section className="hero">
           <div className="hero-body">
             <p className="title">Introduction</p>
-            <p className="subtitle">Welcome to RDKit.js for React.</p>
+            <p className="subtitle column is-two-thirds pl-0">
+              Welcome to RDKit.js for React. If you didn't do it already, we
+              first recommend to go through the{" "}
+              <a href="https://michelml.github.io/rdkit-js/examples/vanilla-javascript/#drawing-molecules-all-options">
+                JavaScript examples
+              </a>{" "}
+              for a low-level overview of the RDKit.js API.
+            </p>
           </div>
         </section>
       </div>
