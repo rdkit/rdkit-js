@@ -1,4 +1,5 @@
 New demos in progress at:
+
 - Vanilla JavaScript Example: https://michelml.github.io/rdkit-js/examples/vanilla-javascript/
 - React Example: https://michelml.github.io/rdkit-js/examples/react-example/build/
 - React Redux Example: https://michelml.github.io/rdkit-js/examples/react-redux-example/build/
@@ -27,23 +28,23 @@ New demos in progress at:
 
 ## Table of contents
 
-  - [Introduction](#introduction)
-  - [Install](#install)
-  - [Using the RDKit package assets](#using-the-rdkit-package-assets)
-    - [Option 1: Use the npm package distribution files](#option-1-use-the-npm-package-distribution-files)
-    - [Option 2: Use the remote distribution files from unpkg.com](#option-2-use-the-remote-distribution-files-from-unpkgcom)
-  - [Running RDKit in your JavaScript code](#running-rdkit-in-your-javascript-code)
-  - [Usage](#usage)
-  - [Live demos](#live-demos)
-  - [Contributing](#contributing)
-    - [Preparing a new release of the package](#preparing-a-new-release-of-the-package)
-    - [Releasing a new beta version of the package](#releasing-a-new-beta-version-of-the-package)
+- [Introduction](#introduction)
+- [Install](#install)
+- [Using the RDKit package assets](#using-the-rdkit-package-assets)
+  - [Option 1: Use the npm package distribution files](#option-1-use-the-npm-package-distribution-files)
+  - [Option 2: Use the remote distribution files from unpkg.com](#option-2-use-the-remote-distribution-files-from-unpkgcom)
+- [Running RDKit in your JavaScript code](#running-rdkit-in-your-javascript-code)
+- [Usage](#usage)
+- [Live demos](#live-demos)
+- [Contributing](#contributing)
+  - [Preparing a new release of the package](#preparing-a-new-release-of-the-package)
+  - [Releasing a new beta version of the package](#releasing-a-new-beta-version-of-the-package)
 
 ## Introduction
 
 **Note: This package should be considered experimental. The API is not yet stable and may change from release to release.**
 
-The idea of this package is to allow the [RDKit](https://github.com/rdkit/rdkit) to be used from JavaScript so that we can add chemical capabilities to web applications.  
+The idea of this package is to allow the [RDKit](https://github.com/rdkit/rdkit) to be used from JavaScript so that we can add chemical capabilities to web applications.
 
 Rather than attempting a comprehensive wrapper (like the old [RDKitJS](https://github.com/rdkit/RDKitjs)), this exposes a small set of key functionality. I think the general approach, including this actual library, can be useful for other wrapper projects in the future.
 
@@ -53,7 +54,7 @@ This initial set of functionality is not complete, but it is intended to already
 
 ```bash
 npm i @rdkit/rdkit
-```  
+```
 
 ## Using the RDKit package assets
 
@@ -77,28 +78,28 @@ To use RDKit, load the javascript file and instantiate the wasm module inside th
 
 ```html
 <head>
-    <!-- ...other files and HTML tags... -->
-    <!-- Load the RDKit JS file -->
-    <script src="https://unpkg.com/@rdkit/rdkit/Code/MinimalLib/dist/RDKit_minimal.js"></script>
+  <!-- ...other files and HTML tags... -->
+  <!-- Load the RDKit JS file -->
+  <script src="https://unpkg.com/@rdkit/rdkit/Code/MinimalLib/dist/RDKit_minimal.js"></script>
 
-    <!-- Instantiate the WASM module. The inline script below could live elsewhere inside your application code. -->
-    <script>
-        window.initRDKitModule()
-            .then(function(RDKit) {
-                console.log("RDKit version: " + RDKit.version());
-                window.RDKit = RDKit;
-                /**
-                 * The RDKit module is now loaded.
-                 * You can use it anywhere.
-                 */
-            })
-            .catch(() => {
-                // handle loading errors here...
-            });
-    </script>
-    <!-- ...your application code goes here... -->
+  <!-- Instantiate the WASM module. The inline script below could live elsewhere inside your application code. -->
+  <script>
+    window
+      .initRDKitModule()
+      .then(function (RDKit) {
+        console.log("RDKit version: " + RDKit.version());
+        window.RDKit = RDKit;
+        /**
+         * The RDKit module is now loaded.
+         * You can use it anywhere.
+         */
+      })
+      .catch(() => {
+        // handle loading errors here...
+      });
+  </script>
+  <!-- ...your application code goes here... -->
 </head>
-
 ```
 
 ## Usage
@@ -140,7 +141,7 @@ Once you have verified that the distribution files have been properly added in `
 
 ```bash
 npm publish --access public
-```  
+```
 
 #### Step 4: Set back the placeholder version in package.json
 
