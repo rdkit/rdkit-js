@@ -6,19 +6,28 @@ import MoleculeStructure from "../components/MoleculeStructure/MoleculeStructure
 class ExampleDrawingOptions extends React.Component {
   static initialState = {
     computing: false,
-    mainStructureInput: "CN1C=NC2=C1C(=O)N(C(=O)N2C)",
+    mainStructureInput:
+      "Cc1coc(-c2cn([C@@H]3O[C@H](COc4ccc5ccc(N6CCC6)nc5c4)[C@@H](O)[C@@H]3F)c3ncnc(N)c23)n1",
     subStructureInput: "[n,O]",
     legend: "Legend Text",
-    width: 350,
-    height: 250,
+    legendFontSize: 16,
+    width: 500,
+    height: 450,
     bondLineWidth: 1,
+    scaleBondWidth: false,
     addStereoAnnotation: true,
     addAtomIndices: true,
+    addBondIndices: false,
     explicitMethyl: true,
+    centreMoleculesBeforeDrawing: false,
     highlightColour: "#fd5c63",
     legendColour: "#000000",
     symbolColour: "#000000",
-    backgroundColour: "#ffffff"
+    backgroundColour: "#ffffff",
+    rotate: 0.0,
+    annotationFontScale: 0.5,
+    comicMode: false,
+    svgMode: false
   };
 
   state = { ...ExampleDrawingOptions.initialState };
@@ -82,6 +91,20 @@ class ExampleDrawingOptions extends React.Component {
               </div>
             </div>
           </div>
+          <div className="column">
+            <div className="field">
+              <label className="label">Legend font size</label>
+              <div className="control">
+                <input
+                  className="input"
+                  type="number"
+                  defaultValue={this.state.legendFontSize}
+                  onChange={(e) => this.handleStateChange(e, "legendFontSize")}
+                  placeholder="Add a font size..."
+                />
+              </div>
+            </div>
+          </div>
         </div>
         <div className="columns" style={{ margin: "12px 0" }}>
           <div className="column">
@@ -128,6 +151,39 @@ class ExampleDrawingOptions extends React.Component {
           </div>
           <div className="column">
             <div className="field">
+              <label className="label">Annotation font scale</label>
+              <div className="control">
+                <input
+                  className="input"
+                  type="number"
+                  step="0.1"
+                  defaultValue={this.state.annotationFontScale }
+                  onChange={(e) => this.handleStateChange(e, "annotationFontScale ")}
+                  placeholder="Annotation font scale"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="column">
+            <div className="field">
+              <label className="label">Rotate</label>
+              <div className="control">
+                <input
+                  className="input"
+                  type="number"
+                  step="0.5"
+                  defaultValue={this.state.rotate}
+                  onChange={(e) => this.handleStateChange(e, "rotate")}
+                  placeholder="Rotate"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="columns" style={{ margin: "12px 0" }}>
+          <div className="column">
+            <div className="field">
               <label className="label">Stereo-Annotation</label>
               <div className="control">
                 <input
@@ -158,6 +214,20 @@ class ExampleDrawingOptions extends React.Component {
           </div>
           <div className="column">
             <div className="field">
+              <label className="label">Bond Indices</label>
+              <div className="control">
+                <input
+                  className="checkbox"
+                  type="checkbox"
+                  defaultChecked={this.state.addBondIndices}
+                  onChange={(e) => this.handleStateChange(e, "addBondIndices")}
+                  placeholder="Bond Indices"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="column">
+            <div className="field">
               <label className="label">Explicit Methyl</label>
               <div className="control">
                 <input
@@ -170,7 +240,50 @@ class ExampleDrawingOptions extends React.Component {
               </div>
             </div>
           </div>
+          <div className="column">
+            <div className="field">
+              <label className="label">Scale bond width</label>
+              <div className="control">
+                <input
+                  className="checkbox"
+                  type="checkbox"
+                  defaultChecked={this.state.scaleBondWidth}
+                  onChange={(e) => this.handleStateChange(e, "scaleBondWidth")}
+                  placeholder="Scale bond width"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="column">
+            <div className="field">
+              <label className="label">Center molecule</label>
+              <div className="control">
+                <input
+                  className="checkbox"
+                  type="checkbox"
+                  defaultChecked={this.state.centreMoleculesBeforeDrawing}
+                  onChange={(e) => this.handleStateChange(e, "centreMoleculesBeforeDrawing")}
+                  placeholder="Center molecule"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="column">
+            <div className="field">
+              <label className="label">Comic mode</label>
+              <div className="control">
+                <input
+                  className="checkbox"
+                  type="checkbox"
+                  defaultChecked={this.state.comicMode}
+                  onChange={(e) => this.handleStateChange(e, "comicMode")}
+                  placeholder="Comic mode"
+                />
+              </div>
+            </div>
+          </div>
         </div>
+
         <div className="columns" style={{ margin: "12px 0" }}>
           <div className="column">
             <div className="field">
@@ -231,6 +344,22 @@ class ExampleDrawingOptions extends React.Component {
             </div>
           </div>
         </div>
+        <div className="columns" style={{ margin: "12px 0" }}>
+          <div className="column">
+          <div className="field">
+              <label className="label">SVG Rendering (Default is Canvas)</label>
+              <div className="control">
+                <input
+                  className="checkbox"
+                  type="checkbox"
+                  defaultChecked={this.state.svgMode}
+                  onChange={(e) => this.handleStateChange(e, "svgMode")}
+                  placeholder="Svg mode"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
         {this.renderContent()}
       </div>
     );
@@ -240,9 +369,15 @@ class ExampleDrawingOptions extends React.Component {
     const width = this.state.width || 250;
     const height = this.state.width || 250;
     const bondLineWidth = this.state.bondLineWidth || 1;
+    const rotate = this.state.rotate || 0.0;
+    const annotationFontScale = this.state.annotationFontScale || 0.5;
     const addStereoAnnotation = this.state.addStereoAnnotation || false;
     const addAtomIndices = this.state.addAtomIndices || false;
+    const addBondIndices = this.state.addBondIndices || false;
     const explicitMethyl = this.state.explicitMethyl || false;
+    const scaleBondWidth = this.state.scaleBondWidth || false;
+    const comicMode = this.state.comicMode || false;
+    const centreMoleculesBeforeDrawing = this.state.centreMoleculesBeforeDrawing || false;
     const highlightColour = this.getColourProportionsFromHex(
       this.state.highlightColour
     );
@@ -255,7 +390,7 @@ class ExampleDrawingOptions extends React.Component {
     const symbolColour = this.getColourProportionsFromHex(
       this.state.symbolColour
     );
-
+    const svgMode = this.state.svgMode || false;
     if (this.state.computing) {
       return (
         <div className="columns">
@@ -289,16 +424,24 @@ class ExampleDrawingOptions extends React.Component {
               subStructure={this.state.subStructureInput}
               width={width}
               height={height}
+              svgMode={svgMode}
               extraDetails={{
                 legend: this.state.legend || "",
+                legendFontSize: this.state.legendFontSize || 16,
                 bondLineWidth,
+                rotate,
                 addStereoAnnotation,
                 addAtomIndices,
+                addBondIndices,
                 explicitMethyl,
+                scaleBondWidth,
                 highlightColour,
                 legendColour,
                 backgroundColour,
-                symbolColour
+                symbolColour,
+                centreMoleculesBeforeDrawing,
+                annotationFontScale,
+                comicMode
               }}
             />
           </div>
@@ -342,8 +485,11 @@ class ExampleDrawingOptions extends React.Component {
   }, 300);
 
   getColourProportionsFromHex(hex) {
-    return hexRgb(hex, { format: "array" }).map((v) =>
-      parseFloat((v / 255).toFixed(2), 10)
+    return _.take(
+      hexRgb(hex, { format: "array" }).map((v) =>
+        parseFloat((v / 255).toFixed(2), 10)
+      ),
+      3
     );
   }
 }
