@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import _ from "lodash";
 import PropTypes from "prop-types";
-
 import "./MoleculeStructure.css";
 import initRDKit from "../../utils/initRDKit";
 
