@@ -15,7 +15,7 @@ New demos in progress at
 <br />
 
 ```
-Please do ⭐ this repo if you like the initiative!
+Please ⭐ this repo if you like the initiative!
 ```
 
 # RDKit for JavaScript (Official)
