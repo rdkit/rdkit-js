@@ -12,7 +12,6 @@ New demos in progress at
   </a>
   </p>
 <br />
-<br />
 
 ```
 Please ⭐ this repo if you like it!
