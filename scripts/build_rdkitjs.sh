@@ -4,11 +4,20 @@ set -e
 rm -rf rdkit Dockerfile
 
 # Set branch to release
-RDKIT_BRANCH=${1:-master}
+RDKIT_BRANCH="Release_$RDKIT_DASH_VERSION"
+RDKIT_VERSION=${RDKIT_DASH_VERSION//_0/_}
+RDKIT_VERSION=${RDKIT_VERSION//_/.}
+if [ "$BETA" = "true" ]; then
+    RDKIT_VERSION="$RDKIT_VERSION-beta"
+fi
+
+echo $RDKIT_DASH_VERSION
+echo $RDKIT_VERSION
 
 # Retrieve Dockerfile from main rdkit repository
 git clone https://github.com/rdkit/rdkit.git
 cd rdkit
+npm --no-git-tag-version version $RDKIT_VERSION
 git fetch --all --tags
 git checkout $RDKIT_BRANCH
 cp Code/MinimalLib/docker/Dockerfile ../Dockerfile
@@ -35,3 +44,12 @@ cp docs/GettingStartedInJS.html dist/GettingStartedInJS.html
 # Log build completed
 echo "Build completed"
 echo "MinimalLib distribution files are at $MINIMALLIB_OUTPUT_PATH"
+
+# Publish
+if [ "$BETA" = "true" ]; then
+    npm publish --beta --access public
+else
+    npm publish --access public
+fi
+
+npm run resetVersion
