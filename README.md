@@ -1,4 +1,4 @@
-New demos in progress at:
+New demos in progress at
 
 - Vanilla JavaScript Example: https://michelml.github.io/rdkit-js/examples/vanilla-javascript/
 - React Example: https://michelml.github.io/rdkit-js/examples/react-example/build/
@@ -12,7 +12,10 @@ New demos in progress at:
   </a>
   </p>
 <br />
-<br />
+
+```
+Please ⭐ this repo if you like it!
+```
 
 # RDKit for JavaScript (Official)
 
