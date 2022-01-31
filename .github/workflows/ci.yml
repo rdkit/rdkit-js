@@ -1,0 +1,28 @@
+name: Build & Publish
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version of RDKit package published (with dashes _)"
+        required: true
+        type: string
+      beta:
+        description: "Is this a beta release"
+        required: false
+        default: "true"
+        type: boolean
+
+jobs:
+  build_publish:
+    name: build_publish
+    runs-on: "ubuntu-latest"
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+      - run: |
+          RDKIT_DASH_VERSION=$RDKIT_DASH_VERSION BETA=$BETA npm run build
+        env:
+          RDKIT_DASH_VERSION: ${{ github.event.inputs.version }}
+          BETA: ${{ github.event.inputs.beta }}
