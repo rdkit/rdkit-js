@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: "Version of RDKit package published (with dashes _)"
+        description: "Version of RDKit package published (with dashes, ex: 2021_04_3)"
         required: true
         type: string
       beta:
