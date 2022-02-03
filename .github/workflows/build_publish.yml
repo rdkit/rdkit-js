@@ -16,11 +16,17 @@ on:
 jobs:
   build_publish:
     name: build_publish
-    runs-on: "macos-latest"
+    runs-on: "ubuntu-latest"
 
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
+      - uses: docker/setup-qemu-action@v1
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+        with:
+          driver-opts: |
+            image=moby/buildkit:master
       - run: |
           RDKIT_DASH_VERSION=$RDKIT_DASH_VERSION BETA=$BETA npm run build
         env:

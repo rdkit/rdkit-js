@@ -31,7 +31,6 @@ mkdir -p $MINIMALLIB_OUTPUT_PATH
 
 # Build distribution files
 DOCKER_BUILDKIT=1 docker build --no-cache -f Dockerfile --build-arg RDKIT_BRANCH=$RDKIT_BRANCH -o $MINIMALLIB_OUTPUT_PATH .
-rm Dockerfile
 
 # Make dist files executable
 chmod a+rwx $MINIMALLIB_OUTPUT_PATH/RDKit_minimal.js
