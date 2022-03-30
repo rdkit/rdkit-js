@@ -4,7 +4,7 @@
   "homepage": "rdkit-js/examples/react-example/build/",
   "private": true,
   "dependencies": {
-    "@rdkit/rdkit": "^2021.9.5",
+    "@rdkit/rdkit": "^2022.3.1",
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^14.0.0",

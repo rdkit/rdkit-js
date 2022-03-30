@@ -1501,10 +1501,10 @@
     schema-utils "^2.6.5"
     source-map "^0.7.3"
 
-"@rdkit/rdkit@^2021.9.5":
-  version "2021.9.5"
-  resolved "https://registry.yarnpkg.com/@rdkit/rdkit/-/rdkit-2021.9.5.tgz#fd07607e44e98fe41e80024b2c40a5d676739c2f"
-  integrity sha512-2Zt/IqFhAFSpx8FOrBclPmvGLl1u6WGTPhEtoC0Ab4kh4emazX++QuvYp9n7NFv3D8qJd4ApYbbg+bJVtS0vWQ==
+"@rdkit/rdkit@^2022.3.1":
+  version "2022.3.1"
+  resolved "https://registry.yarnpkg.com/@rdkit/rdkit/-/rdkit-2022.3.1.tgz#c2b88c86ff62c4764d0a27e46a96a1a24b0f29c9"
+  integrity sha512-9zS8hFtZZj/iVFsrC2elSxPnnSx5NThhQ65ofRYzmxsLZH2EdU6pjA9CnR5Tg9IdjiaWeToBdEypfC4v9ToDnA==
 
 "@rollup/plugin-node-resolve@^7.1.1":
   version "7.1.3"
