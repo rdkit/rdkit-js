@@ -3,6 +3,11 @@
   "version": "0.0.1",
   "description": "JavaScript distribution of cheminformatics functionality from the RDKit - a C++ library for cheminformatics.",
   "main": "dist/RDKit_minimal.js",
+  "private": true,
+  "workspaces": [
+    "examples/react-example",
+    "examples/vanilla-javascript"
+  ],
   "scripts": {
     "build": "bash scripts/build_rdkitjs.sh",
     "react:pre": "cp utils/init.js examples/react-example/src/utils/initRDKit.js",
