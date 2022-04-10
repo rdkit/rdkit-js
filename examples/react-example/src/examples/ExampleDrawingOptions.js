@@ -448,7 +448,7 @@ class ExampleDrawingOptions extends React.Component {
                 scaleBondWidth,
                 highlightColour,
                 legendColour,
-                backgroundColour: undefined,
+                backgroundColour,
                 symbolColour,
                 centreMoleculesBeforeDrawing,
                 annotationFontScale,
