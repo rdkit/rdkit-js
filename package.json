@@ -12,7 +12,7 @@
   "scripts": {
     "build": "bash scripts/build_rdkitjs.sh",
     "react:pre": "cp utils/init.js examples/react-example/src/utils/initRDKit.js",
-    "react:build": "npm run react:pre && cd examples/react-example && PUBLIC_URL=$VERCEL_URL npm run build",
+    "react:build": "npm run react:pre && cd examples/react-example && PUBLIC_URL=https://www.$VERCEL_URL npm run build",
     "react:start": "npm run react:pre && cd examples/react-example && npm run start",
     "vanilla:start": "serve examples/vanilla-javascript",
     "resetVersion": "jq '.version = \"PLACEHOLDER\"' package.json > temp && mv temp package.json",
