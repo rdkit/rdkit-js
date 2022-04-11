@@ -18,7 +18,7 @@ export default class NavBar extends Component {
           <a className="navbar-item" href="#/">
             <img
               alt="logo"
-              src="/rdkit-js/examples/vanilla-javascript/public/rdkitjs_cropped_200.png"
+              src="/rdkitjs_cropped_200.png"
             />
           </a>
 
@@ -92,7 +92,7 @@ export default class NavBar extends Component {
                   <span className="icon">
                     <img
                       alt="RDKit Logo"
-                      src="/rdkit-js/examples/vanilla-javascript/public/rdkit.png"
+                      src="/rdkit.png"
                     />
                   </span>
                 </a>
