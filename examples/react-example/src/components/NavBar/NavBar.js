@@ -16,10 +16,7 @@ export default class NavBar extends Component {
       >
         <div className="navbar-brand" style={{ padding: "6px" }}>
           <a className="navbar-item" href="#/">
-            <img
-              alt="logo"
-              src="/rdkitjs_cropped_200.png"
-            />
+            <img alt="logo" src="/rdkitjs_cropped_200.png" />
           </a>
 
           <a
@@ -90,10 +87,7 @@ export default class NavBar extends Component {
                   href="https://github.com/rdkit/rdkit"
                 >
                   <span className="icon">
-                    <img
-                      alt="RDKit Logo"
-                      src="/rdkit.png"
-                    />
+                    <img alt="RDKit Logo" src="/rdkit.png" />
                   </span>
                 </a>
               </div>
