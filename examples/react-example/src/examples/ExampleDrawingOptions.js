@@ -30,7 +30,12 @@ class ExampleDrawingOptions extends React.Component {
     svgMode: false
   };
 
-  state = { ...ExampleDrawingOptions.initialState };
+  constructor(props) {
+    super(props);
+    this.state = {
+      ...ExampleDrawingOptions.initialState
+    };
+  }
 
   render() {
     return (
