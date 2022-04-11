@@ -46,7 +46,7 @@ class ExampleDrawingOptions extends React.Component {
             <p className="subtitle column is-two-thirds pl-0">
               RDKit.js provides you a lot of options for drawing molecules.
               Checkout the{" "}
-              <a href="https://michelml.github.io/rdkit-js/examples/vanilla-javascript/#drawing-molecules-all-options">
+              <a href="https://rdkitjs.com#drawing-molecules-all-options">
                 JavaScript examples
               </a>{" "}
               for the full list of available options.
