@@ -6,7 +6,7 @@
   "dependencies": {
     "@rdkit/rdkit": "^2022.3.1",
     "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^12.1.4",
+    "@testing-library/react": "^13.0.1",
     "@testing-library/user-event": "^14.1.0",
     "hex-rgb": "^5.0.0",
     "lodash": "^4.17.21",
