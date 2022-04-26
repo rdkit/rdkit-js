@@ -1406,10 +1406,10 @@
     schema-utils "^3.0.0"
     source-map "^0.7.3"
 
-"@rdkit/rdkit@^2022.3.1":
-  version "2022.3.1"
-  resolved "https://registry.yarnpkg.com/@rdkit/rdkit/-/rdkit-2022.3.1.tgz#c2b88c86ff62c4764d0a27e46a96a1a24b0f29c9"
-  integrity sha512-9zS8hFtZZj/iVFsrC2elSxPnnSx5NThhQ65ofRYzmxsLZH2EdU6pjA9CnR5Tg9IdjiaWeToBdEypfC4v9ToDnA==
+"@rdkit/rdkit@^2022.3.2":
+  version "2022.3.2"
+  resolved "https://registry.yarnpkg.com/@rdkit/rdkit/-/rdkit-2022.3.2.tgz#96831a77b305faf15649a01bfcc26fd6276f0daf"
+  integrity sha512-lt1eiHadBJ0kvfH52jgb6SRiq6x6ITssIDhZQMSoFy+2y3Yo0bfa/SLhzespRCZaRdGZquthwxPPqjyWkd97oA==
 
 "@rollup/plugin-babel@^5.2.0":
   version "5.3.1"
