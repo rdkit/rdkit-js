@@ -1,7 +1,6 @@
 New demos in progress at [rdkitjs.com](https://rdkitjs.com) & [react.rdkitjs.com](https://react.rdkitjs.com)
 
 <br />
-<br />
 <p align="center">
   <a href="https://github.com/michelml/rdkit-js">
     <img src="rdkitjs_logo.png" alt="rdkit.js - Project Logo">
