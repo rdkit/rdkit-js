@@ -12,6 +12,9 @@ New demos in progress at [rdkitjs.com](https://rdkitjs.com) & [react.rdkitjs.com
 Please ⭐ this repo to show interest and support ongoing development!
 ```
 
+Read [original discussion on RDKit's official repository](https://github.com/rdkit/rdkit/discussions/4124) for more context.
+
+
 # RDKit for JavaScript (Official)
 
 [![Azure build Status](https://dev.azure.com/rdkit-builds/RDKit/_apis/build/status/rdkit.rdkit?branchName=master)](https://dev.azure.com/rdkit-builds/RDKit/_build/latest?definitionId=1&branchName=master)
