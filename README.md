@@ -9,7 +9,7 @@ New demos in progress at [rdkitjs.com](https://rdkitjs.com) & [react.rdkitjs.com
 <br />
 
 ```
-Please ⭐ this repo if you like it!
+Please ⭐ this repo to show interest and support ongoing development!
 ```
 
 # RDKit for JavaScript (Official)
