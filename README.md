@@ -1,4 +1,4 @@
-New demos in progress at [rdkitjs.com](https://rdkitjs.com) & [react.rdkitjs.com](https://react.rdkitjs.com)
+New demos in progress at [rdkitjs.com](https://rdkitjs.com) & [react.rdkitjs.com](https://react.rdkitjs.com) 
 
 <br />
 <p align="center">
