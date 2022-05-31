@@ -6,7 +6,7 @@ New demos in progress at [rdkitjs.com](https://rdkitjs.com) & [react.rdkitjs.com
     <img src="rdkitjs_logo.png" alt="rdkit.js - Project Logo">
   </a>
   </p>
-<br />
+<br /> 
 
 ```
 Please ⭐ this repo to show interest and support ongoing development!
