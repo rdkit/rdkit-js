@@ -7,7 +7,7 @@ New demos in progress at [rdkitjs.com](https://rdkitjs.com) & [react.rdkitjs.com
   </a>
   </p>
 <br /> 
-
+ 
 ```
 Please ⭐ this repo to show interest and support ongoing development!
 ```
