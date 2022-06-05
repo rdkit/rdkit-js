@@ -7,6 +7,10 @@ rm -rf rdkit Dockerfile
 RDKIT_BRANCH="Release_$RDKIT_DASH_VERSION"
 RDKIT_VERSION=${RDKIT_DASH_VERSION//_0/_}
 RDKIT_VERSION=${RDKIT_VERSION//_/.}
+
+# make sure true/false is lowercase
+BETA="${BETA,,}"
+
 if [ "$BETA" = "true" ]; then
     RDKIT_VERSION="$RDKIT_VERSION-beta"
 fi
