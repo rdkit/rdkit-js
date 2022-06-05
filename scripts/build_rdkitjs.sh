@@ -23,13 +23,12 @@ echo $RDKIT_VERSION
 
 # Retrieve Dockerfile from main rdkit repository
 git clone https://github.com/michelml/rdkit.git
+
 cd rdkit
-npm --no-git-tag-version version $RDKIT_VERSION
 git fetch --all --tags
 git checkout $RDKIT_BRANCH
 cp Code/MinimalLib/docker/Dockerfile ../Dockerfile
 cd ..
-rm -rf rdkit
 
 # Clean and create distribution folder
 MINIMALLIB_OUTPUT_PATH="dist"
@@ -50,6 +49,10 @@ cp docs/GettingStartedInJS.html dist/GettingStartedInJS.html
 # Log build completed
 echo "Build completed"
 echo "MinimalLib distribution files are at $MINIMALLIB_OUTPUT_PATH"
+
+# Pre-publish
+sed -i '/"private": true/d' ./package.json
+npm --no-git-tag-version version $RDKIT_VERSION
 
 # Publish
 if [ "$BETA" = "true" ]; then
