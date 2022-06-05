@@ -1,10 +1,9 @@
 {
   "name": "@rdkit/rdkit-temporary-testing",
-  "version": "0.0.0-temp",
+  "version": "0.0.1-temp",
   "description": "JavaScript distribution of cheminformatics functionality from the RDKit - a C++ library for cheminformatics.",
   "main": "dist/RDKit_minimal.js",
   "homepage": "",
-  "private": true,
   "workspaces": [
     "examples/react-example",
     "examples/vanilla-javascript"
