@@ -25,7 +25,9 @@ steps:
 
 - task: DockerInstaller@0
   displayName: Docker Installer
-
+  inputs:
+    dockerVersion: 20.10.5
+    releaseType: stable
 - script: |
     RDKIT_DASH_VERSION=${{ parameters.version }}  BETA=${{ parameters.beta }} npm run build
   displayName: 'Build rdkit-js'
