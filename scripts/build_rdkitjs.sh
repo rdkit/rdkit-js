@@ -1,5 +1,8 @@
 set -e
 
+# DEBUG
+echo $NPM_TOKEN
+
 # Clean up temp files if exists
 rm -rf rdkit Dockerfile
 
@@ -50,9 +53,9 @@ echo "MinimalLib distribution files are at $MINIMALLIB_OUTPUT_PATH"
 
 # Publish
 if [ "$BETA" = "true" ]; then
-    npm publish --beta --access public
+    NPM_TOKEN=$NPM_TOKEN npm publish --beta --access public
 else
-    npm publish --access public
+    NPM_TOKEN=$NPM_TOKEN npm publish --access public
 fi
 
 npm run resetVersion
