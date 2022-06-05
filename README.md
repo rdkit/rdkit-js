@@ -1,5 +1,7 @@
 New demos in progress at [rdkitjs.com](https://rdkitjs.com) & [react.rdkitjs.com](https://react.rdkitjs.com) 
 
+[![Build Status](https://dev.azure.com/michmoreaul/rdkit-js/_apis/build/status/MichelML.rdkit-js?branchName=master)](https://dev.azure.com/michmoreaul/rdkit-js/_build/latest?definitionId=1&branchName=master)
+
 <br />
 <p align="center">
   <a href="https://github.com/michelml/rdkit-js">
