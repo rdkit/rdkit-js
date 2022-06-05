@@ -1,8 +1,5 @@
 set -e
 
-# DEBUG
-echo $NPM_TOKEN
-
 # Clean up temp files if exists
 rm -rf rdkit Dockerfile
 
@@ -53,6 +50,8 @@ echo "MinimalLib distribution files are at $MINIMALLIB_OUTPUT_PATH"
 # Pre-publish
 sed -i '/"private": true/d' ./package.json
 npm --no-git-tag-version version $RDKIT_VERSION
+echo "registry=https://registry.npmjs.org/" > .npmrc
+echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> .npmrc
 
 # Publish
 if [ "$BETA" = "true" ]; then
