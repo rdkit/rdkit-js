@@ -27,5 +27,5 @@ steps:
   displayName: Docker Installer
 
 - script: |
-    RDKIT_DASH_VERSION=${{ parameter.version }}  BETA=${{ parameter.beta }} npm run build
+    RDKIT_DASH_VERSION=${{ parameters.version }}  BETA=${{ parameters.beta }} npm run build
   displayName: 'Build rdkit-js'
