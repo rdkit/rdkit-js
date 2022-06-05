@@ -1,5 +1,5 @@
 {
-  "name": "rdkit-testing",
+  "name": "@rdkit/rdkit-next",
   "version": "0.0.1",
   "description": "JavaScript distribution of cheminformatics functionality from the RDKit - a C++ library for cheminformatics.",
   "main": "dist/RDKit_minimal.js",

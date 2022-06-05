@@ -1,0 +1,33 @@
+# Node.js
+# Build a general Node.js project with npm.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+parameters:
+- name: version
+  displayName: Rdkit version (dash format)
+  type: string
+- name: beta
+  displayName: Is beta?
+  type: boolean
+  default: true
+
+trigger: none
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '14.x'
+  displayName: 'Install Node.js'
+
+- task: DockerInstaller@0
+  displayName: Docker Installer
+  inputs:
+    dockerVersion: 20.10.5
+    releaseType: stable
+- script: |
+    RDKIT_DASH_VERSION=${{ parameters.version }}  BETA=${{ parameters.beta }} NPM_TOKEN=$NPM_TOKEN npm run build
+  displayName: 'Build rdkit-js'
