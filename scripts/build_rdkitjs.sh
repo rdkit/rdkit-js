@@ -19,7 +19,7 @@ echo $RDKIT_DASH_VERSION
 echo $RDKIT_VERSION
 
 # Retrieve Dockerfile from main rdkit repository
-git clone https://github.com/michelml/rdkit.git
+git clone https://github.com/rdkit/rdkit.git
 
 cd rdkit
 git fetch --all --tags
