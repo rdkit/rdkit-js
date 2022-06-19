@@ -195,6 +195,11 @@
               >Constraints and alignment</a
             >
           </li>
+          <li>
+            <a href="#descriptors-calculation"
+              >Descriptors calculation</a
+            >
+          </li>
         </ul>
         <p class="menu-label">Other</p>
         <ul class="menu-list">
@@ -548,7 +553,7 @@
         <section class="hero">
           <div class="hero-body">
             <p class="subtitle" id="drawing-molecules-constraints">
-              Finally, it's often useful to generate molecule renderings where
+              Also, it's often useful to generate molecule renderings where
               the coordinates of a core is constrained:
             </p>
           </div>
@@ -608,6 +613,47 @@
           </div>
           <div id="example-6-output" class="column ml-6">
             <canvas id="canvas-6" width="250" height="200"> </canvas>
+          </div>
+        </div>
+
+        <section class="hero">
+          <div class="hero-body">
+            <p class="subtitle" id="descriptors-calculation">Finally, you can compute a series of descriptors for a given molecule:</p>
+          </div>
+        </section>
+
+        <div class="columns px-5">
+          <div class="column">
+            <textarea
+              class="textarea"
+              id="example-7"
+              cols="40"
+              rows="5"
+              wrap="off"
+            >
+  var smiles = "CC(=O)Oc1ccccc1C(=O)O";
+  var mol = RDKitModule.get_mol(smiles);
+  var descriptors = JSON.parse(mol.get_descriptors());
+  descriptorsSorted = Object.keys(descriptors)
+    .sort(function(a,b) {return a.localeCompare(b, undefined, {sensitivity: 'base'});})
+    .map(function(descriptor) {return [descriptor, descriptors[descriptor]]}) 
+  var output = document.getElementById("example-7-output");
+  output.innerHTML = "";
+  descriptorsSorted.forEach(function(descriptor) {
+    output.innerHTML += `<div>${descriptor[0]}: ${descriptor[1]}</div>`
+  });
+  </textarea
+            >
+            <div>
+              <input
+                class="button mt-2"
+                value="run"
+                onclick="eval(document.getElementById('example-7').value)"
+                type="button"
+              />
+            </div>
+          </div>
+          <div id="example-7-output" class="column">
           </div>
         </div>
 
