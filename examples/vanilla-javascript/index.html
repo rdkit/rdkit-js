@@ -200,6 +200,11 @@
               >Descriptors calculation</a
             >
           </li>
+          <li>
+            <a href="#identifiers-generation"
+              >Identifiers</a
+            >
+          </li>
         </ul>
         <p class="menu-label">Other</p>
         <ul class="menu-list">
@@ -618,7 +623,7 @@
 
         <section class="hero">
           <div class="hero-body">
-            <p class="subtitle" id="descriptors-calculation">Finally, you can compute a series of descriptors for a given molecule:</p>
+            <p class="subtitle" id="descriptors-calculation">You can compute a series of descriptors for a given molecule:</p>
           </div>
         </section>
 
@@ -657,6 +662,59 @@
           </div>
         </div>
 
+        <section class="hero">
+          <div class="hero-body">
+            <p class="subtitle" id="identifiers-generation">Finally, you can generate a series of identifiers for a given molecule:</p>
+          </div>
+        </section>
+
+        <div class="columns px-5">
+          <div class="column">
+            <textarea
+              class="textarea"
+              id="example-8"
+              cols="40"
+              rows="5"
+              wrap="off"
+            >
+  var smiles = "CC(=O)Oc1ccccc1C(=O)O";
+  var mol = RDKitModule.get_mol(smiles);
+  var output = document.getElementById("example-8-output");
+  output.innerHTML = "";
+  [
+    "smiles",
+    "cxsmiles",
+    "inchi",
+    "inchikey",
+    "morgan_fp",
+    "pattern_fp",
+    "aromatic_form",
+    "kekule_form",
+    "molblock", 
+    "v3Kmolblock"
+  ].forEach(function(identifier) {
+    var val = identifier === "inchikey"
+      ? RDKitModule.get_inchikey_for_inchi(mol.get_inchi())
+      : mol[`get_${identifier}`]();
+    var whiteSpace = /_fp$/.test(identifier) ? "pre-wrap" : "pre";
+    output.innerHTML += `<div class="mt-2 columns" style="white-space: ${whiteSpace};word-break: break-all;"><div class="column"><span class="has-text-weight-bold">${identifier}:</span><br/>${val}</div></div>`
+  });
+  </textarea
+            >
+            <div>
+              <input
+                class="button mt-2"
+                value="run"
+                onclick="eval(document.getElementById('example-8').value)"
+                type="button"
+              />
+            </div>
+          </div>
+
+        </div>
+
+        <div id="example-8-output" class="px-5">
+        </div>
         <section class="hero">
           <div class="hero-body">
             <p class="title" id="other-examples">Where to go next?</p>
