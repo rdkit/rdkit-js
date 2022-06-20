@@ -5,7 +5,7 @@
 
 parameters:
 - name: version
-  displayName: Rdkit version (dash format)
+  displayName: Rdkit version (underscore format)
   type: string
 - name: beta
   displayName: Is beta?
