@@ -114,7 +114,7 @@ If you are using React.js, several additional examples using React.js are availa
 
 Npm releases are currently semi-automated with the following azure pipeline:
 
-[https://dev.azure.com/michmoreaul/rdkit-js/_build?definitionId=1](https://dev.azure.com/michmoreaul/rdkit-js/_build?definitionId=1)
+[https://dev.azure.com/michmoreaul/rdkit-js/\_build?definitionId=1](https://dev.azure.com/michmoreaul/rdkit-js/_build?definitionId=1)
 
 Here are the guidelines to respect when releasing a new version of the package:
 
