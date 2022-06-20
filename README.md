@@ -38,12 +38,7 @@ Please ⭐ this repo to show interest and support ongoing development!
   - [Running RDKit in your JavaScript code](#running-rdkit-in-your-javascript-code)
   - [Usage](#usage)
   - [Contributing](#contributing)
-    - [Preparing a new release of the package](#preparing-a-new-release-of-the-package)
-      - [Step 1: Set the release version in package.json](#step-1-set-the-release-version-in-packagejson)
-      - [Step 2: Build the distribution files](#step-2-build-the-distribution-files)
-      - [Step 3: Publish the package to npm](#step-3-publish-the-package-to-npm)
-      - [Step 4: Set back the placeholder version in package.json](#step-4-set-back-the-placeholder-version-in-packagejson)
-    - [Releasing a new beta version of the package](#releasing-a-new-beta-version-of-the-package)
+  - [Releases](#releases)
 
 ## Introduction
 
@@ -115,47 +110,17 @@ If you are using React.js, several additional examples using React.js are availa
 
 ## Contributing
 
-### Preparing a new release of the package
+## Releases
 
-Make sure you are at the root of the [RDKit](https://github.com/rdkit/rdkit) GitHub project, and on the branch and version of the project you want to release. **Note that no commits should occur during the release process.**
+Npm releases are currently semi-automated with the following azure pipeline:
 
-#### Step 1: Set the release version in package.json
+[https://dev.azure.com/michmoreaul/rdkit-js/_build?definitionId=1](https://dev.azure.com/michmoreaul/rdkit-js/_build?definitionId=1)
 
-```bash
-npm --no-git-tag-version version <semver version matching an RDKit release>
-# Example npm --no-git-tag-version version 2021.3.1
-```
+Here are the guidelines to respect when releasing a new version of the package:
 
-#### Step 2: Build the distribution files
-
-```bash
-npm run build -- <RDKit git release tag name>
-# Example: npm run build -- Release_2021_03_1
-```
-
-This command will default to using the `master` branch if no version is provided. Also, checkout the `build_rdkitjs.sh` file and the minimallib `Dockerfile` to see how things are tied together.
-
-#### Step 3: Publish the package to npm
-
-Once you have verified that the distribution files have been properly added in `Code/MinimalLib/dist`, publish the package:
-
-```bash
-npm publish --access public
-```
-
-#### Step 4: Set back the placeholder version in package.json
-
-```bash
-npm run resetVersion
-```
-
-And you're done!
-
-### Releasing a new beta version of the package
-
-The process is the same as publishing a regular version, but the version specified and the npm publish command change slightly:
-
-```bash
-npm --no-git-tag-version version 2021.3.1-beta.0 # specify beta number in version here
-npm publish --beta --access public # specify npm that it's a beta version
-```
+- Always release a new package from the master branch
+- Use the following commit message format: "RDKit release \<version of the main rdkit release\>"
+  - > Example commit message: "RDKit release 2022.3.3"
+- In Azure pipeline parameters, specify the RDKit version with underscores seperating major, minor, and patch version
+  - > Example: 2022_03_3
+- If you are releasing an official release, do not forget to uncheck the **Is beta?** checkbox in the Azure pipeline parameters.
