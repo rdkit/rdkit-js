@@ -110,6 +110,14 @@ If you are using React.js, several additional examples using React.js are availa
 
 ## Contributing
 
+You are welcome to contribute to [any GitHub issue](https://github.com/MichelML/rdkit-js/issues) currently open.
+
+You are also welcome to [log any issue](https://github.com/MichelML/rdkit-js/issues/new/choose) or [start a discussion](https://github.com/MichelML/rdkit-js/discussions/new) on any topic related to RDKit-JS.
+
+To contribute to the plain javascript examples, read this (TBD).
+
+To contribute to the React.js examples, read this (TBD).
+
 ## Releases
 
 Npm releases are currently semi-automated with the following azure pipeline:
