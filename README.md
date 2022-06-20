@@ -1,5 +1,7 @@
 New demos in progress at [rdkitjs.com](https://rdkitjs.com) & [react.rdkitjs.com](https://react.rdkitjs.com)
 
+Read [original discussion on RDKit's official repository](https://github.com/rdkit/rdkit/discussions/4124) for more context.
+
 <br />
 <p align="center">
   <a href="https://github.com/michelml/rdkit-js">
@@ -11,8 +13,6 @@ New demos in progress at [rdkitjs.com](https://rdkitjs.com) & [react.rdkitjs.com
 ```
 Please ⭐ this repo to show interest and support ongoing development!
 ```
-
-Read [original discussion on RDKit's official repository](https://github.com/rdkit/rdkit/discussions/4124) for more context.
 
 # RDKit for JavaScript (Official)
 
@@ -28,27 +28,32 @@ Read [original discussion on RDKit's official repository](https://github.com/rdk
 
 ## Table of contents
 
-- [Introduction](#introduction)
-- [Install](#install)
-- [Using the RDKit package assets](#using-the-rdkit-package-assets)
-  - [Option 1: Use the npm package distribution files](#option-1-use-the-npm-package-distribution-files)
-  - [Option 2: Use the remote distribution files from unpkg.com](#option-2-use-the-remote-distribution-files-from-unpkgcom)
-- [Running RDKit in your JavaScript code](#running-rdkit-in-your-javascript-code)
-- [Usage](#usage)
-- [Live demos](#live-demos)
-- [Contributing](#contributing)
-  - [Preparing a new release of the package](#preparing-a-new-release-of-the-package)
-  - [Releasing a new beta version of the package](#releasing-a-new-beta-version-of-the-package)
+- [RDKit for JavaScript (Official)](#rdkit-for-javascript-official)
+  - [Table of contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Install](#install)
+  - [Using the RDKit package assets](#using-the-rdkit-package-assets)
+    - [Option 1: Use the npm package distribution files](#option-1-use-the-npm-package-distribution-files)
+    - [Option 2: Use the remote distribution files from unpkg.com](#option-2-use-the-remote-distribution-files-from-unpkgcom)
+  - [Running RDKit in your JavaScript code](#running-rdkit-in-your-javascript-code)
+  - [Usage](#usage)
+  - [Contributing](#contributing)
+    - [Preparing a new release of the package](#preparing-a-new-release-of-the-package)
+      - [Step 1: Set the release version in package.json](#step-1-set-the-release-version-in-packagejson)
+      - [Step 2: Build the distribution files](#step-2-build-the-distribution-files)
+      - [Step 3: Publish the package to npm](#step-3-publish-the-package-to-npm)
+      - [Step 4: Set back the placeholder version in package.json](#step-4-set-back-the-placeholder-version-in-packagejson)
+    - [Releasing a new beta version of the package](#releasing-a-new-beta-version-of-the-package)
 
 ## Introduction
 
 **Note: This package should be considered experimental. The API is not yet stable and may change from release to release.**
 
-The idea of this package is to allow the [RDKit](https://github.com/rdkit/rdkit) to be used from JavaScript so that we can add chemical capabilities to web applications.
+RDKit-JS is the JavaScript distribution of cheminformatics functionality from the [RDKit](https://github.com/rdkit/rdkit) - a C++ library for cheminformatics.
 
-Rather than attempting a comprehensive wrapper (like the old [RDKitJS](https://github.com/rdkit/RDKitjs)), this exposes a small set of key functionality. I think the general approach, including this actual library, can be useful for other wrapper projects in the future.
+The project is leveraging web assembly to rollout a subset of the RDKit functionality that is relevant in any javascript context. The WASM module bundled with this package is compiled directly from the RDKit source code.
 
-This initial set of functionality is not complete, but it is intended to already be directly useful.
+The functionality included in RDKit-JS is decided by the RDKit community, thus if you use this package, your voice matters.
 
 ## Install
 
@@ -104,14 +109,9 @@ To use RDKit, load the javascript file and instantiate the wasm module inside th
 
 ## Usage
 
-See the getting started demo at https://unpkg.com/@rdkit/rdkit/Code/MinimalLib/dist/GettingStartedInJS.html .
+It is recommended to go through all the JavaScript examples available on the official website [rdkitjs.com](https://rdkitjs.com).
 
-Follow the examples of this page to see the various ways to use the JavaScript release of RDKit.
-
-## Live demos
-
-- From this npm package: https://unpkg.com/@rdkit/rdkit/Code/MinimalLib/dist/GettingStartedInJS.html
-- From this npm package: https://unpkg.com/@rdkit/rdkit/Code/MinimalLib/dist/demo.html
+If you are using React.js, several additional examples using React.js are available at [react.rdkitjs.com](https://react.rdkitjs.com).
 
 ## Contributing
 
