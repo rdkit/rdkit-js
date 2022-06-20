@@ -1,5 +1,4 @@
-New demos in progress at [rdkitjs.com](https://rdkitjs.com) & [react.rdkitjs.com](https://react.rdkitjs.com) 
-
+New demos in progress at [rdkitjs.com](https://rdkitjs.com) & [react.rdkitjs.com](https://react.rdkitjs.com)
 
 <br />
 <p align="center">
@@ -14,7 +13,6 @@ Please ⭐ this repo to show interest and support ongoing development!
 ```
 
 Read [original discussion on RDKit's official repository](https://github.com/rdkit/rdkit/discussions/4124) for more context.
-
 
 # RDKit for JavaScript (Official)
 
