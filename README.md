@@ -126,9 +126,13 @@ Npm releases are currently semi-automated with the following azure pipeline:
 
 Here are the guidelines to respect when releasing a new version of the package:
 
-- Always release a new package from the master branch
-- Use the following commit message format: "RDKit release \<version of the main rdkit release\>"
-  - > Example commit message: "RDKit release 2022.3.3"
-- In Azure pipeline parameters, specify the RDKit version with underscores seperating major, minor, and patch version
-  - > Example: 2022_03_3
-- If you are releasing an official release, do not forget to uncheck the **Is beta?** checkbox in the Azure pipeline parameters.
+1. Always release a new package from the master branch
+2. Use the following commit message format: "RDKit release \<version of the main rdkit release\>"
+
+- > Example commit message: "RDKit release 2022.3.3"
+
+3. In Azure pipeline parameters, specify the RDKit version with underscores seperating major, minor, and patch version
+
+- > Example: 2022_03_3
+
+4. If you are releasing an official release, do not forget to uncheck the **Is beta?** checkbox in the Azure pipeline parameters.
