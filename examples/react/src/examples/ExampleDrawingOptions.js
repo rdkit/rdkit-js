@@ -27,7 +27,7 @@ class ExampleDrawingOptions extends React.Component {
     rotate: 0.0,
     annotationFontScale: 0.5,
     comicMode: false,
-    svgMode: false
+    svgMode: true
   };
 
   constructor(props) {
@@ -315,7 +315,7 @@ class ExampleDrawingOptions extends React.Component {
           </div>
           <div className="column">
             <div className="field">
-              <label className="label">Background Colour</label>
+              <label className="label">Background Colour (canvas only)</label>
               <div className="control">
                 <input
                   type="color"
@@ -434,9 +434,10 @@ class ExampleDrawingOptions extends React.Component {
             }}
           >
             <MoleculeStructure
-              id="structure-example-drawing-options-caffeine"
+              id="structure-example-drawing-options"
               structure={this.state.mainStructureInput}
               subStructure={this.state.subStructureInput}
+              drawingDelay={200}
               width={width}
               height={height}
               svgMode={svgMode}
@@ -445,7 +446,7 @@ class ExampleDrawingOptions extends React.Component {
                 legendFontSize: this.state.legendFontSize || 16,
                 bondLineWidth,
                 rotate,
-                clearBackground: false,
+                clearBackground: true,
                 addStereoAnnotation,
                 addAtomIndices,
                 addBondIndices,
