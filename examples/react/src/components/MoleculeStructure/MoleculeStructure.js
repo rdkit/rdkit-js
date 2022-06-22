@@ -64,11 +64,12 @@ class MoleculeStructure extends Component {
   drawSVGorCanvas() {
     const mol = window.RDKit.get_mol(this.props.structure || "invalid");
     const qmol = window.RDKit.get_qmol(this.props.subStructure || "invalid");
+    const isValidMol = this.isValidMol(mol);
 
-    if (this.props.svgMode && this.isValidMol(mol)) {
+    if (this.props.svgMode && isValidMol) {
       const svg = mol.get_svg_with_highlights(this.getMolDetails(mol, qmol));
       this.setState({ svg });
-    } else if (this.isValidMol(mol)) {
+    } else if (isValidMol) {
       const canvas = document.getElementById(this.props.id);
       mol.draw_to_canvas_with_highlights(canvas, this.getMolDetails(mol, qmol));
     }
@@ -120,7 +121,8 @@ class MoleculeStructure extends Component {
         this.setState({ rdKitLoaded: true });
         this.draw();
       })
-      .catch(() => {
+      .catch((err) => {
+        console.log(err);
         this.setState({ rdKitError: true });
       });
   }
@@ -129,6 +131,7 @@ class MoleculeStructure extends Component {
     if (this.state.rdKitLoaded) {
       const shouldUpdateDrawing =
         prevProps.structure !== this.props.structure ||
+        prevProps.svgMode !== this.props.svgMode ||
         prevProps.subStructure !== this.props.subStructure ||
         prevProps.width !== this.props.width ||
         prevProps.height !== this.props.height ||
