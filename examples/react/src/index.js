@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import Introduction from "./components/Introduction/Introduction";
 import CodeExample from "./components/CodeExample/CodeExample";
 import NavBar from "./components/NavBar/NavBar";
@@ -23,9 +23,14 @@ import ExampleSubstructureSearchCode from "!!raw-loader!./examples/ExampleSubstr
 import ExampleListCode from "!!raw-loader!./examples/ExampleList.js";
 import "./index.css";
 
-ReactDOM.render(<NavBar />, document.getElementById("navbar"));
-ReactDOM.render(<SideNav />, document.getElementById("side-navigation"));
-ReactDOM.render(<Introduction />, document.getElementById("introduction"));
+const navbar = ReactDOM.createRoot(document.getElementById("navbar"));
+navbar.render(<NavBar />);
+
+const sidenav = ReactDOM.createRoot(document.getElementById("side-navigation"));
+sidenav.render(<SideNav />);
+
+const intro = ReactDOM.createRoot(document.getElementById("introduction"));
+intro.render(<Introduction />);
 
 const examples = [
   {
@@ -71,8 +76,7 @@ const examples = [
 ];
 
 examples.forEach((example) => {
-  ReactDOM.render(
-    <CodeExample code={example.code}>{example.component}</CodeExample>,
-    document.getElementById(example.elementId)
+  ReactDOM.createRoot(document.getElementById(example.elementId)).render(
+    <CodeExample code={example.code}>{example.component}</CodeExample>
   );
 });
