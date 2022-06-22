@@ -43,7 +43,7 @@ export default class NavBar extends Component {
           <div className="navbar-start">
             <a
               className="navbar-item"
-              href="https://github.com/MichelML/rdkit-js/tree/master/examples/vanilla-javascript"
+              href="https://github.com/MichelML/rdkit-js/tree/master/examples/javascript"
             >
               Source Code
             </a>
