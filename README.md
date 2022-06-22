@@ -149,6 +149,7 @@ With this in mind, we will version the package with the following convention.
    > Example: when the 2022.03.3 version of RDKit is released, its first NPM released will be `2022.03.3-1.0.0`.
 2. On each subsequent npm release using the same core module, only the semver version will be modified according to semver conventions.
    > Example: when a bug fix is made in a React component built on top of RDKit for version 2022.03.3, a new npm release `2022.03.3-1.0.1` will be published.
+   > Example: when a new React component is built on top of RDKit for version 2022.03.3, a new npm release `2022.03.3-1.1.0` will be published.
 
 ## Websites deployments
 
