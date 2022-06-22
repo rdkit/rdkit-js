@@ -1,5 +1,5 @@
 {
-  "name": "vanilla-javascript",
+  "name": "@rdkit/javascript-examples",
   "version": "1.0.0",
   "description": "The following sub-repository is dedicated to showcasing the functionalities of RDKit-JS via plain javascript examples, i.e. without any web framework or libraries.",
   "main": "index.html",
