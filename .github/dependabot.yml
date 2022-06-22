@@ -5,6 +5,10 @@ updates:
   schedule:
     interval: daily
 - package-ecosystem: npm
-  directory: "/examples/react-example/"
+  directory: "/examples/react/"
+  schedule:
+    interval: daily
+- package-ecosystem: npm
+  directory: "/examples/javascript/"
   schedule:
     interval: daily

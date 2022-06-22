@@ -6,7 +6,7 @@ The examples are live at [rdkitjs.com](https://www.rdkitjs.com).
 
 If you are looking for examples leveraging modern web framework, follow the link to their related sub-repositories:
 
-- [React.js Examples](https://github.com/MichelML/rdkit-js/tree/master/examples/react-example)
+- [React.js Examples](https://github.com/MichelML/rdkit-js/tree/master/examples/react)
 
 ## Contributing
 
