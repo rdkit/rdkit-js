@@ -24,6 +24,6 @@
   },
   "homepage": "https://github.com/MichelML/rdkit-js#readme",
   "devDependencies": {
-    "serve": "^1.0.0"
+    "serve": "^13.0.2"
   }
 }
