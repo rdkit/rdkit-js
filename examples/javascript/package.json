@@ -1,0 +1,29 @@
+{
+  "name": "vanilla-javascript",
+  "version": "1.0.0",
+  "description": "The following sub-repository is dedicated to showcasing the functionalities of RDKit-JS via plain javascript examples, i.e. without any web framework or libraries.",
+  "main": "index.html",
+  "scripts": {
+    "dev": "serve .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MichelML/rdkit-js.git"
+  },
+  "keywords": [
+    "rdkit",
+    "rdkit-js",
+    "wasm",
+    "javascript"
+  ],
+  "author": "",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/MichelML/rdkit-js/issues"
+  },
+  "homepage": "https://github.com/MichelML/rdkit-js#readme",
+  "devDependencies": {
+    "serve": "^1.0.0"
+  }
+}

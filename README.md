@@ -1,14 +1,10 @@
-New demos in progress at [rdkitjs.com](https://rdkitjs.com) & [react.rdkitjs.com](https://react.rdkitjs.com)
-
-Read [original discussion on RDKit's official repository](https://github.com/rdkit/rdkit/discussions/4124) for more context.
-
 <br />
 <p align="center">
   <a href="https://github.com/michelml/rdkit-js">
     <img src="rdkitjs_logo.png" alt="rdkit.js - Project Logo">
   </a>
   </p>
-<br /> 
+<br />
  
 ```
 Please ⭐ this repo to show interest and support ongoing development!
@@ -129,10 +125,10 @@ Here are the guidelines to respect when releasing a new version of the package:
 1. Always release a new package from the master branch
 2. Use the following commit message format: "RDKit release \<version of the main rdkit release\>"
 
-  > Example commit message: "RDKit release 2022.3.3"
+> Example commit message: "RDKit release 2022.3.3"
 
 3. In Azure pipeline parameters, specify the RDKit version with underscores seperating major, minor, and patch version
 
-  > Example: 2022_03_3
+> Example: 2022_03_3
 
 4. If you are releasing an official release, do not forget to uncheck the **Is beta?** checkbox in the Azure pipeline parameters.
