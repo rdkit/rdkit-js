@@ -48,7 +48,7 @@ RDKit-JS is the JavaScript distribution of cheminformatics functionality from th
 
 The project is leveraging web assembly to rollout a subset of the RDKit functionality that is relevant in any javascript context. The WASM module bundled with this package is compiled directly from the RDKit source code.
 
-The functionality included in RDKit-JS is decided by the RDKit community, thus if you use this package, your voice matters.
+The functionality included in RDKit-JS is decided by the RDKit core team and its community. If you use this package, your voice matters.
 
 ## Install
 
