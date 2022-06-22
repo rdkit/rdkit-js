@@ -153,7 +153,7 @@ With this in mind, we will version the package with the following convention.
 
 ## Websites deployments
 
-Website deployments for rdkitjs.com are automated via [Vercel](https://vercel.com/) for each commit merged or pushed to the master branch.
+Website deployments for [rdkitjs.com](https://rdkitjs.com) are automated via [Vercel](https://vercel.com/) for each commit merged or pushed to the master branch.
 
 Live demo URLs are also generated on each pull requests made to easily visualize changes before merging.
 
