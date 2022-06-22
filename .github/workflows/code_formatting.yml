@@ -18,4 +18,5 @@ jobs:
       - name: Prettify code
         uses: creyD/prettier_action@v4.2
         with:
+          dry: true
           prettier_options: examples *.md !examples/*/build
