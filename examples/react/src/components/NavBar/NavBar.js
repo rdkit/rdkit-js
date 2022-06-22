@@ -43,7 +43,7 @@ export default class NavBar extends Component {
           <div className="navbar-start">
             <a
               className="navbar-item"
-              href="https://github.com/MichelML/rdkit-js/tree/master/examples/javascript"
+              href="https://github.com/MichelML/RDKit.js/tree/master/examples/javascript"
             >
               Source Code
             </a>
@@ -67,7 +67,7 @@ export default class NavBar extends Component {
                 <hr className="navbar-divider" />
                 <a
                   className="navbar-item"
-                  href="https://github.com/MichelML/rdkit-js/issues"
+                  href="https://github.com/MichelML/RDKit.js/issues"
                 >
                   Contribute
                 </a>
@@ -94,7 +94,7 @@ export default class NavBar extends Component {
                 <a
                   data-tooltip="Go to RDKit.js"
                   className="button has-tooltip-bottom is-white is-big"
-                  href="https://github.com/MichelML/rdkit-js/tree/master/examples/react-example"
+                  href="https://github.com/MichelML/RDKit.js/tree/master/examples/react-example"
                 >
                   <span className="icon">
                     <i className="fab fa-github fa-2x"></i>

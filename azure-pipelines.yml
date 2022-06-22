@@ -30,4 +30,4 @@ steps:
     releaseType: stable
 - script: |
     RDKIT_DASH_VERSION=${{ parameters.version }}  BETA=${{ parameters.beta }} NPM_TOKEN=$(NPM_TOKEN) npm run build
-  displayName: 'Build rdkit-js'
+  displayName: 'Build RDKit.js'

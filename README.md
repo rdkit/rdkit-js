@@ -1,6 +1,6 @@
 <br />
 <p align="center">
-  <a href="https://github.com/michelml/rdkit-js">
+  <a href="https://github.com/michelml/RDKit.js">
     <img src="rdkitjs_logo.png" alt="rdkit.js - Project Logo">
   </a>
   </p>
@@ -12,7 +12,7 @@ Please ⭐ this repo to show interest and support ongoing development!
 
 # RDKit for JavaScript (Official)
 
-[![Build Status](https://dev.azure.com/michmoreaul/rdkit-js/_apis/build/status/MichelML.rdkit-js?branchName=master)](https://dev.azure.com/michmoreaul/rdkit-js/_build/latest?definitionId=1&branchName=master)
+[![Build Status](https://dev.azure.com/michmoreaul/RDKit.js/_apis/build/status/MichelML.RDKit.js?branchName=master)](https://dev.azure.com/michmoreaul/RDKit.js/_build/latest?definitionId=1&branchName=master)
 [![Documentation Status](https://readthedocs.org/projects/rdkit/badge/?version=latest)](https://unpkg.com/@rdkit/rdkit/Code/MinimalLib/dist/GettingStartedInJS.html)
 [![License](https://img.shields.io/github/license/rdkit/rdkit)](https://github.com/rdkit/rdkit/blob/master/license.txt)
 [![DOI](https://zenodo.org/badge/10009991.svg)](https://zenodo.org/badge/latestdoi/10009991)  
@@ -40,11 +40,11 @@ Please ⭐ this repo to show interest and support ongoing development!
 
 **Note: This package should be considered experimental. The API is not yet stable and may change from release to release.**
 
-RDKit-JS is the JavaScript distribution of cheminformatics functionality from the [RDKit](https://github.com/rdkit/rdkit) - a C++ library for cheminformatics.
+RDKit.js is the JavaScript distribution of cheminformatics functionality from the [RDKit](https://github.com/rdkit/rdkit) - a C++ library for cheminformatics.
 
 The project is leveraging web assembly to rollout a subset of the RDKit functionality that is relevant in any javascript context. The WASM module bundled with this package is compiled directly from the RDKit source code.
 
-The functionality included in RDKit-JS is decided by the RDKit core team and its community. If you use this package, your voice matters.
+The functionality included in RDKit.js is decided by the RDKit core team and its community. If you use this package, your voice matters.
 
 ## Install
 
@@ -106,19 +106,19 @@ If you are using React.js, several additional examples using React.js are availa
 
 ## Contributing
 
-You are welcome to contribute to [any GitHub issue](https://github.com/MichelML/rdkit-js/issues) currently open.
+You are welcome to contribute to [any GitHub issue](https://github.com/MichelML/RDKit.js/issues) currently open.
 
-You are also welcome to [log any issue](https://github.com/MichelML/rdkit-js/issues/new/choose) or [start a discussion](https://github.com/MichelML/rdkit-js/discussions/new) on any topic related to RDKit-JS.
+You are also welcome to [log any issue](https://github.com/MichelML/RDKit.js/issues/new/choose) or [start a discussion](https://github.com/MichelML/RDKit.js/discussions/new) on any topic related to RDKit.js.
 
-To contribute to the plain javascript examples, read [this sub-repository README](https://github.com/MichelML/rdkit-js/tree/master/examples/javascript).
+To contribute to the plain javascript examples, read [this sub-repository README](https://github.com/MichelML/RDKit.js/tree/master/examples/javascript).
 
-To contribute to the React.js examples, read [this sub-repository README](https://github.com/MichelML/rdkit-js/tree/master/examples/react).
+To contribute to the React.js examples, read [this sub-repository README](https://github.com/MichelML/RDKit.js/tree/master/examples/react).
 
 ## Releases
 
 Npm releases are currently semi-automated with the following azure pipeline:
 
-[https://dev.azure.com/michmoreaul/rdkit-js/\_build?definitionId=1](https://dev.azure.com/michmoreaul/rdkit-js/_build?definitionId=1)
+[https://dev.azure.com/michmoreaul/RDKit.js/\_build?definitionId=1](https://dev.azure.com/michmoreaul/RDKit.js/_build?definitionId=1)
 
 Here are the guidelines to respect when releasing a new version of the package:
 

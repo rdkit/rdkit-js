@@ -1,7 +1,7 @@
 {
   "name": "@rdkit/javascript-examples",
   "version": "1.0.0",
-  "description": "The following sub-repository is dedicated to showcasing the functionalities of RDKit-JS via plain javascript examples, i.e. without any web framework or libraries.",
+  "description": "The following sub-repository is dedicated to showcasing the functionalities of RDKit.js via plain javascript examples, i.e. without any web framework or libraries.",
   "main": "index.html",
   "scripts": {
     "dev": "serve .",
@@ -9,20 +9,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MichelML/rdkit-js.git"
+    "url": "git+https://github.com/MichelML/RDKit.js.git"
   },
   "keywords": [
     "rdkit",
-    "rdkit-js",
+    "RDKit.js",
     "wasm",
     "javascript"
   ],
   "author": "",
   "license": "BSD-3-Clause",
   "bugs": {
-    "url": "https://github.com/MichelML/rdkit-js/issues"
+    "url": "https://github.com/MichelML/RDKit.js/issues"
   },
-  "homepage": "https://github.com/MichelML/rdkit-js#readme",
+  "homepage": "https://github.com/MichelML/RDKit.js#readme",
   "devDependencies": {
     "serve": "^13.0.2"
   }
