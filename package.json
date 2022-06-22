@@ -15,7 +15,7 @@
     "react:start": "cd examples/react && npm run start",
     "javascript:start": "serve examples/javascript",
     "resetVersion": "jq '.version = \"PLACEHOLDER\"' package.json > temp && mv temp package.json",
-    "format": "prettier --trailing-comma none --write 'examples' '*.md' !examples/*/build",
+    "format": "prettier --trailing-comma none --write examples *.md !examples/*/build",
     "test": "echo \"Tests are run during the docker build. See https://github.com/rdkit/rdkit/blob/master/docker/Dockerfile .\" && exit 1"
   },
   "repository": {
