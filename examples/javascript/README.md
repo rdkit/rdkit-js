@@ -44,6 +44,7 @@ To add a new example, make sure to respect the following checklist:
 
 - [ ] Start a new git branch from the master branch and give it a meaningful name
 - [ ] An example should have the following components to it:
+
   - [ ] A textarea section containing the executable code.
   - [ ] A text explanation of what the example is about.
   - [ ] A button "Run" to execute the code.
