@@ -7,7 +7,7 @@
 <br />
  
 ```
-Please ⭐ this repo to show interest and support ongoing development!
+You are encouraged to ⭐ this repo to show interest and support ongoing development!
 ```
 
 # RDKit for JavaScript (Official)
