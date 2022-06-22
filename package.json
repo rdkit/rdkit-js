@@ -6,8 +6,8 @@
   "homepage": "",
   "private": true,
   "workspaces": [
-    "examples/react-example",
-    "examples/vanilla-javascript"
+    "examples/react",
+    "examples/javascript"
   ],
   "scripts": {
     "build": "bash scripts/build_rdkitjs.sh",
