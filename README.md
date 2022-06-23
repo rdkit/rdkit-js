@@ -27,8 +27,8 @@ You are encouraged to ⭐ this repo to show interest and support ongoing develop
 - [RDKit for JavaScript (Official)](#rdkit-for-javascript-official)
   - [Table of contents](#table-of-contents)
   - [Introduction](#introduction)
-    - [What is the scope of this repository/project](#what-is-the-scope-of-this-repositoryproject)
-    - [What is NOT the scope of this repository/project](#what-is-not-the-scope-of-this-repositoryproject)
+    - [What is the scope of this repository](#what-is-the-scope-of-this-repository)
+    - [What is NOT the scope of this repository](#what-is-not-the-scope-of-this-repository)
   - [Install](#install)
   - [Using the RDKit package assets](#using-the-rdkit-package-assets)
     - [Option 1: Use the npm package distribution files](#option-1-use-the-npm-package-distribution-files)
@@ -51,17 +51,17 @@ The project is leveraging web assembly to rollout a subset of the RDKit function
 
 The functionality included in RDKit.js is decided by the RDKit core team and its community. Thus, if you use this package, your voice matters.
 
-### What is the scope of this repository/project
+### What is the scope of this repository
 
-This project is dedicated to:
+This project is currently dedicated to:
 
 1. NPM builds and releases of the RDKit core wasm module
-2. Examples using the RDKit core wasm module in JavaScript and web frameworks
+2. Website deployment of examples using the RDKit core wasm module in JavaScript and web frameworks
 3. Any additional functionalities built **on top of** the RDKit core wasm module.
 
-The scope of the project may however change over time.
+The scope of the project may change over time.
 
-### What is NOT the scope of this repository/project
+### What is NOT the scope of this repository
 
 Any changes to the core RDKit wasm module (also known as RDKit's MinimalLib) is out of scope of this project.
 
