@@ -13,8 +13,7 @@ You are encouraged to ⭐ this repo to show interest and support ongoing develop
 # RDKit for JavaScript (Official)
 
 [![Build Status](https://dev.azure.com/michmoreaul/rdkit-js/_apis/build/status/MichelML.rdkit-js?branchName=master)](https://dev.azure.com/michmoreaul/rdkit-js/_build/latest?definitionId=1&branchName=master)
-[![Documentation Status](https://readthedocs.org/projects/rdkit/badge/?version=latest)](https://unpkg.com/@rdkit/rdkit/Code/MinimalLib/dist/GettingStartedInJS.html)
-[![License](https://img.shields.io/github/license/rdkit/rdkit)](https://github.com/rdkit/rdkit/blob/master/license.txt)
+[![License](https://img.shields.io/github/license/rdkit/rdkit)](https://github.com/MichelML/rdkit-s/blob/master/license.txt)
 [![DOI](https://zenodo.org/badge/10009991.svg)](https://zenodo.org/badge/latestdoi/10009991)  
 [![NPM Latest Version](https://img.shields.io/npm/v/@rdkit/rdkit)](https://www.npmjs.com/package/@rdkit/rdkit)
 [![NPM Weekly Downloads](https://img.shields.io/npm/dw/@rdkit/rdkit)](https://www.npmjs.com/package/@rdkit/rdkit)
