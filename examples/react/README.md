@@ -4,7 +4,7 @@ The following sub-repository is dedicated to showcasing a few examples using RDK
 
 The examples are live at [react.rdkitjs.com](https://www.react.rdkitjs.com).
 
-If didn't go through the plain javascript examples already, it is recommended to do so before going forward:
+If you didn't go through the plain javascript examples already, it is recommended to do so before going forward:
 
 - [JavaScript Examples](https://github.com/MichelML/rdkit-js/tree/master/examples/javascript)
 
