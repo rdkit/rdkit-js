@@ -67,7 +67,7 @@ export default class NavBar extends Component {
                 <hr className="navbar-divider" />
                 <a
                   className="navbar-item"
-                  href="https://github.com/MichelML/rdkit-js/issues"
+                  href="https://github.com/MichelML/rdkit-js#contributing"
                 >
                   Contribute
                 </a>
