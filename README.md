@@ -177,4 +177,4 @@ Live demo URLs are also generated on each pull requests made to easily visualize
 
 ## Maintainers
 
-- Michel Moreau @MichelML & the RDKit community
+- Michel Moreau [@MichelML](https://github.com/MichelML) & the RDKit community
