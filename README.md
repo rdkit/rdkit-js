@@ -7,12 +7,12 @@
 <br />
  
 ```
-Please ⭐ this repo to show interest and support ongoing development!
+You are encouraged to ⭐ this repo to show interest and support ongoing development!
 ```
 
 # RDKit for JavaScript (Official)
 
-[![Build Status](https://dev.azure.com/michmoreaul/RDKit.js/_apis/build/status/MichelML.RDKit.js?branchName=master)](https://dev.azure.com/michmoreaul/RDKit.js/_build/latest?definitionId=1&branchName=master)
+[![Build Status](https://dev.azure.com/michmoreaul/rdkit-js/_apis/build/status/MichelML.RDKit.js?branchName=master)](https://dev.azure.com/michmoreaul/rdkit-js/_build/latest?definitionId=1&branchName=master)
 [![Documentation Status](https://readthedocs.org/projects/rdkit/badge/?version=latest)](https://unpkg.com/@rdkit/rdkit/Code/MinimalLib/dist/GettingStartedInJS.html)
 [![License](https://img.shields.io/github/license/rdkit/rdkit)](https://github.com/rdkit/rdkit/blob/master/license.txt)
 [![DOI](https://zenodo.org/badge/10009991.svg)](https://zenodo.org/badge/latestdoi/10009991)  
@@ -153,7 +153,7 @@ With this in mind, we will version the package with the following convention.
 
 ## Website deployments
 
-Website deployments for rdkitjs.com are automated via [Vercel](https://vercel.com/) for each commit merged or pushed to the master branch.
+Website deployments for [rdkitjs.com](https://rdkitjs.com) are automated via [Vercel](https://vercel.com/) for each commit merged or pushed to the master branch.
 
 Live demo URLs are also generated on each pull requests made to easily visualize changes before merging.
 
