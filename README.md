@@ -158,12 +158,15 @@ Here are the guidelines to respect when releasing a new version of the package:
 
 The scope of this repository goes beyond the release of the RDKit wasm core module. Other utilities may eventually be included on top of the core module in the RDKit.js npm release.
 
-Because of that, we need a versioning system that will keep track of 1) the RDKit wasm core module version (exact match with its parent RDKit release) AND 2) multiple npm release versions that can be published on top of a same wasm core module version.
+Because of that, we need a versioning system that will keep track of  
 
-With this in mind, we will version the package with the following convention.
+1) The RDKit wasm core module version (exact match with its parent RDKit release)   
+2) Multiple npm release versions that can be published on top of a same wasm core module version.
+
+With this in mind, we will attempt the following versioning schem of the package:
 
 1. For each RDKit release, a new version of the npm package will be released as <rdkit version>-<initial semver version>.
-   > Example: when the 2022.03.3 version of RDKit is released, its first NPM released will be `2022.03.3-1.0.0`.
+   > Example: when the 2022.03.3 version of RDKit is released, its first NPM release will be `2022.03.3-1.0.0`.
 2. On each subsequent npm release using the same core module, only the semver version will be modified according to semver conventions.
    > Example: when a bug fix is made in a React component built on top of RDKit for version 2022.03.3, a new npm release `2022.03.3-1.0.1` will be published.
    > Example: when a new React component is built on top of RDKit for version 2022.03.3, a new npm release `2022.03.3-1.1.0` will be published.
