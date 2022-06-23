@@ -27,6 +27,8 @@ You are encouraged to ⭐ this repo to show interest and support ongoing develop
 - [RDKit for JavaScript (Official)](#rdkit-for-javascript-official)
   - [Table of contents](#table-of-contents)
   - [Introduction](#introduction)
+    - [What is the scope of this repository/project](#what-is-the-scope-of-this-repositoryproject)
+    - [What is NOT the scope of this repository/project](#what-is-not-the-scope-of-this-repositoryproject)
   - [Install](#install)
   - [Using the RDKit package assets](#using-the-rdkit-package-assets)
     - [Option 1: Use the npm package distribution files](#option-1-use-the-npm-package-distribution-files)
@@ -48,6 +50,22 @@ RDKit.js is the JavaScript distribution of cheminformatics functionality from th
 The project is leveraging web assembly to rollout a subset of the RDKit functionality that is relevant in any javascript context. The WASM module bundled with this package is compiled directly from the RDKit source code.
 
 The functionality included in RDKit.js is decided by the RDKit core team and its community. Thus, if you use this package, your voice matters.
+
+### What is the scope of this repository/project
+
+This project is dedicated to:
+
+1. NPM builds and releases of the RDKit core wasm module
+2. Examples using the RDKit core wasm module in JavaScript and web frameworks
+3. Any additional functionalities built **on top of** the RDKit core wasm module.
+
+The scope of the project may however change over time.
+
+### What is NOT the scope of this repository/project
+
+Any changes to the core RDKit wasm module (also known as RDKit's MinimalLib) is out of scope of this project.
+
+To contribute or keep track of the changes to the core RDKit wasm module, go [here](https://github.com/rdkit/rdkit/tree/master/Code/MinimalLib).
 
 ## Install
 
