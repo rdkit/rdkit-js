@@ -5,10 +5,6 @@
   </a>
   </p>
 <br />
- 
-```
-You are encouraged to ⭐ this repo to show interest and support ongoing development!
-```
 
 # RDKit for JavaScript (Official)
 
