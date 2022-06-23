@@ -51,6 +51,17 @@ class MoleculeStructure extends Component {
     };
   }
 
+  drawOnce = (() => {
+    let wasCalled = false;
+
+    return () => {
+      if (!wasCalled) {
+        wasCalled = true;
+        this.draw();
+      }
+    };
+  })();
+
   draw() {
     if (this.props.drawingDelay) {
       setTimeout(() => {
@@ -119,7 +130,11 @@ class MoleculeStructure extends Component {
     initRDKit()
       .then(() => {
         this.setState({ rdKitLoaded: true });
-        this.draw();
+        try {
+          this.draw();
+        } catch (err) {
+          console.log(err);
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -128,6 +143,14 @@ class MoleculeStructure extends Component {
   }
 
   componentDidUpdate(prevProps) {
+    if (
+      !this.state.rdKitError &&
+      this.state.rdKitLoaded &&
+      !this.props.svgMode
+    ) {
+      this.drawOnce();
+    }
+
     if (this.state.rdKitLoaded) {
       const shouldUpdateDrawing =
         prevProps.structure !== this.props.structure ||
