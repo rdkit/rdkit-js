@@ -154,10 +154,10 @@ Here are the guidelines to respect when releasing a new version of the package:
 
 The scope of this repository goes beyond the release of the RDKit wasm core module. Other utilities may eventually be included on top of the core module in the RDKit.js npm release.
 
-Because of that, we need a versioning system that will keep track of  
+Because of that, we need a versioning system that will keep track of
 
-1) The RDKit wasm core module version (exact match with its parent RDKit release)   
-2) Multiple npm release versions that can be published on top of a same wasm core module version.
+1. The RDKit wasm core module version (exact match with its parent RDKit release)
+2. Multiple npm release versions that can be published on top of a same wasm core module version.
 
 With this in mind, we will attempt the following versioning scheme of the package:
 
