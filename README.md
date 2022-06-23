@@ -163,7 +163,7 @@ Because of that, we need a versioning system that will keep track of
 1) The RDKit wasm core module version (exact match with its parent RDKit release)   
 2) Multiple npm release versions that can be published on top of a same wasm core module version.
 
-With this in mind, we will attempt the following versioning schem of the package:
+With this in mind, we will attempt the following versioning scheme of the package:
 
 1. For each RDKit release, a new version of the npm package will be released as <rdkit version>-<initial semver version>.
    > Example: when the 2022.03.3 version of RDKit is released, its first NPM release will be `2022.03.3-1.0.0`.
