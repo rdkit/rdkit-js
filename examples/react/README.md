@@ -31,7 +31,7 @@ yarn install
 Once the project is installed, run the following command at the root of the RDKit.js repository to start the development server:
 
 ```bash
-npm run javascript:start
+npm run react:start
 ```
 
 You are now ready to develop.
