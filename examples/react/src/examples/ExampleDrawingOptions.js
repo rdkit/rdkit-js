@@ -361,7 +361,7 @@ class ExampleDrawingOptions extends React.Component {
         <div className="columns" style={{ margin: "12px 0" }}>
           <div className="column">
             <div className="field">
-              <label className="label">SVG Rendering (Default is Canvas)</label>
+              <label className="label">SVG/Canvas Rendering (Uncheck for canvas rendering)</label>
               <div className="control">
                 <input
                   className="checkbox"
