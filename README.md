@@ -52,7 +52,7 @@ The functionality included in RDKit.js is decided by the RDKit core team and its
 
 ### What is the scope of this repository
 
-This project is currently dedicated to:
+This repository is currently dedicated to:
 
 1. NPM builds and releases of the RDKit core wasm module
 2. Website deployment of examples using the RDKit core wasm module in JavaScript and web frameworks
