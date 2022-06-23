@@ -35,8 +35,8 @@ Please ⭐ this repo to show interest and support ongoing development!
   - [Usage](#usage)
   - [Contributing](#contributing)
   - [NPM Releases](#npm-releases)
-    - [A note on npm versioning](#a-note-on-npm-versioning)
-  - [Websites deployments](#websites-deployments)
+    - [Important note on npm versioning](#important-note-on-npm-versioning)
+  - [Website deployments](#website-deployments)
   - [Maintainers](#maintainers)
 
 ## Introduction
@@ -47,7 +47,7 @@ RDKit.js is the JavaScript distribution of cheminformatics functionality from th
 
 The project is leveraging web assembly to rollout a subset of the RDKit functionality that is relevant in any javascript context. The WASM module bundled with this package is compiled directly from the RDKit source code.
 
-The functionality included in RDKit.js is decided by the RDKit core team and its community. If you use this package, your voice matters.
+The functionality included in RDKit.js is decided by the RDKit core team and its community. Thus, if you use this package, your voice matters.
 
 ## Install
 
@@ -137,7 +137,7 @@ Here are the guidelines to respect when releasing a new version of the package:
 
 4. If you are releasing an official release, do not forget to uncheck the **Is beta?** checkbox in the Azure pipeline parameters.
 
-### A note on npm versioning
+### Important note on npm versioning
 
 The scope of this repository goes beyond the release of the RDKit wasm core module. Other utilities may eventually be included on top of the core module in the RDKit.js npm release.
 
@@ -151,7 +151,7 @@ With this in mind, we will version the package with the following convention.
    > Example: when a bug fix is made in a React component built on top of RDKit for version 2022.03.3, a new npm release `2022.03.3-1.0.1` will be published.
    > Example: when a new React component is built on top of RDKit for version 2022.03.3, a new npm release `2022.03.3-1.1.0` will be published.
 
-## Websites deployments
+## Website deployments
 
 Website deployments for rdkitjs.com are automated via [Vercel](https://vercel.com/) for each commit merged or pushed to the master branch.
 
