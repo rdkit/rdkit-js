@@ -4,7 +4,7 @@
   "homepage": "",
   "private": true,
   "dependencies": {
-    "@rdkit/rdkit": "^2022.3.3-2",
+    "@rdkit/rdkit": "^2022.3.2",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^14.2.1",
