@@ -10,7 +10,7 @@ class ExampleList extends React.Component {
           <div className="hero-body">
             <p className="title">Overview</p>
             <p className="subtitle">
-              You can draw any molecule from SMILES dynamically with rdkit.js .
+              You can draw any molecule from SMILES dynamically with RDKit.js .
             </p>
           </div>
         </section>

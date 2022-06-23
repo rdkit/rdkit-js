@@ -1,6 +1,6 @@
 <br />
 <p align="center">
-  <a href="https://github.com/michelml/RDKit.js">
+  <a href="https://github.com/michelml/rdkit-js">
     <img src="rdkitjs_logo.png" alt="rdkit.js - Project Logo">
   </a>
   </p>
@@ -12,7 +12,7 @@ You are encouraged to ⭐ this repo to show interest and support ongoing develop
 
 # RDKit for JavaScript (Official)
 
-[![Build Status](https://dev.azure.com/michmoreaul/rdkit-js/_apis/build/status/MichelML.RDKit.js?branchName=master)](https://dev.azure.com/michmoreaul/rdkit-js/_build/latest?definitionId=1&branchName=master)
+[![Build Status](https://dev.azure.com/michmoreaul/rdkit-js/_apis/build/status/MichelML.rdkit-js?branchName=master)](https://dev.azure.com/michmoreaul/rdkit-js/_build/latest?definitionId=1&branchName=master)
 [![Documentation Status](https://readthedocs.org/projects/rdkit/badge/?version=latest)](https://unpkg.com/@rdkit/rdkit/Code/MinimalLib/dist/GettingStartedInJS.html)
 [![License](https://img.shields.io/github/license/rdkit/rdkit)](https://github.com/rdkit/rdkit/blob/master/license.txt)
 [![DOI](https://zenodo.org/badge/10009991.svg)](https://zenodo.org/badge/latestdoi/10009991)  
@@ -110,19 +110,19 @@ If you are using React.js, several additional examples using React.js are availa
 
 ## Contributing
 
-You are welcome to contribute to [any GitHub issue](https://github.com/MichelML/RDKit.js/issues) currently open.
+You are welcome to contribute to [any GitHub issue](https://github.com/MichelML/rdkit-js/issues) currently open.
 
-You are also welcome to [log any issue](https://github.com/MichelML/RDKit.js/issues/new/choose) or [start a discussion](https://github.com/MichelML/RDKit.js/discussions/new) on any topic related to RDKit.js.
+You are also welcome to [log any issue](https://github.com/MichelML/rdkit-js/issues/new/choose) or [start a discussion](https://github.com/MichelML/rdkit-js/discussions/new) on any topic related to RDKit.js.
 
-To contribute to the plain javascript examples, read [this sub-repository README](https://github.com/MichelML/RDKit.js/tree/master/examples/javascript).
+To contribute to the plain javascript examples, read [this sub-repository README](https://github.com/MichelML/rdkit-js/tree/master/examples/javascript).
 
-To contribute to the React.js examples, read [this sub-repository README](https://github.com/MichelML/RDKit.js/tree/master/examples/react).
+To contribute to the React.js examples, read [this sub-repository README](https://github.com/MichelML/rdkit-js/tree/master/examples/react).
 
 ## NPM Releases
 
 NPM releases are currently semi-automated with the following azure pipeline:
 
-[https://dev.azure.com/michmoreaul/RDKit.js/\_build?definitionId=1](https://dev.azure.com/michmoreaul/RDKit.js/_build?definitionId=1)
+[https://dev.azure.com/michmoreaul/rdkit-js/\_build?definitionId=1](https://dev.azure.com/michmoreaul/rdkit-js/_build?definitionId=1)
 
 Here are the guidelines to respect when releasing a new version of the package:
 

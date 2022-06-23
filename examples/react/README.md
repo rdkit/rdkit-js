@@ -6,7 +6,7 @@ The examples are live at [react.rdkitjs.com](https://www.react.rdkitjs.com).
 
 If didn't go through the plain javascript examples already, it is recommended to do so before going forward:
 
-- [JavaScript Examples](https://github.com/MichelML/RDKit.js/tree/master/examples/javascript)
+- [JavaScript Examples](https://github.com/MichelML/rdkit-js/tree/master/examples/javascript)
 
 ## Contributing
 
@@ -23,8 +23,8 @@ First, fork the RDKit.js GitHub repository and run the remaining instructions fr
 Run the following command to install the RDKit.js project.
 
 ```bash
-git clone https://github.com/<name of your fork>/RDKit.js.git && \
-cd RDKit.js && \
+git clone https://github.com/<name of your fork>/rdkit-js.git && \
+cd rdkit-js && \
 yarn install
 ```
 
