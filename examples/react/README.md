@@ -6,7 +6,7 @@ The examples are live at [react.rdkitjs.com](https://www.react.rdkitjs.com).
 
 If you didn't go through the plain javascript examples already, it is recommended to do so before going forward:
 
-- [JavaScript Examples](https://github.com/MichelML/rdkit-js/tree/master/examples/javascript)
+- [JavaScript Examples](https://github.com/rdkit/rdkit-js/tree/master/examples/javascript)
 
 ## Contributing
 

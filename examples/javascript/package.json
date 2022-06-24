@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MichelML/rdkit-js.git"
+    "url": "git+https://github.com/rdkit/rdkit-js.git"
   },
   "keywords": [
     "rdkit",
@@ -20,9 +20,9 @@
   "author": "",
   "license": "BSD-3-Clause",
   "bugs": {
-    "url": "https://github.com/MichelML/rdkit-js/issues"
+    "url": "https://github.com/rdkit/rdkit-js/issues"
   },
-  "homepage": "https://github.com/MichelML/rdkit-js#readme",
+  "homepage": "https://github.com/rdkit/rdkit-js#readme",
   "devDependencies": {
     "serve": "^13.0.2"
   }
