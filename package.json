@@ -29,7 +29,7 @@
     "rdkit",
     "wasm"
   ],
-  "author": "Greg Landrum and the RDKit contributors",
+  "author": "Valence Discovery Inc., Greg Landrum, Paolo Tosco, and other RDKit contributors",
   "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/rdkit/rdkit/issues"
