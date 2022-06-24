@@ -5,7 +5,6 @@
   </a>
   </p>
 <br />
-
 # RDKit for JavaScript (Official)
 
 [![Build Status](https://dev.azure.com/michmoreaul/rdkit-js/_apis/build/status/MichelML.rdkit-js?branchName=master)](https://dev.azure.com/michmoreaul/rdkit-js/_build/latest?definitionId=1&branchName=master)
