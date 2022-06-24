@@ -4,7 +4,7 @@
     <img src="rdkitjs_logo.png" alt="rdkit.js - Project Logo">
   </a>
   </p>
-<br />  
+<br />
 
 # RDKit for JavaScript (Official)
 
