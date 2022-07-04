@@ -38,8 +38,6 @@
 
 ## Introduction
 
-**Note: This package should be considered experimental. The API is not yet stable and may change from release to release.**
-
 RDKit.js is the JavaScript distribution of cheminformatics functionality from the [RDKit](https://github.com/rdkit/rdkit) - a C++ library for cheminformatics.
 
 The project is leveraging web assembly to rollout a subset of the RDKit functionality that is relevant in any javascript context. The WASM module bundled with this package is compiled directly from the RDKit source code.
