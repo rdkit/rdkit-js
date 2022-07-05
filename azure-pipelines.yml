@@ -4,8 +4,11 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 parameters:
-- name: version
+- name: rdkit version
   displayName: Rdkit version (underscore format)
+  type: string
+- name: semver version
+  displayName: Sub-semver version of the npm package
   type: string
 - name: beta
   displayName: Is beta?
