@@ -25,11 +25,13 @@
     - [What is the scope of this repository](#what-is-the-scope-of-this-repository)
     - [What is NOT the scope of this repository](#what-is-not-the-scope-of-this-repository)
   - [Install](#install)
-  - [Using the RDKit package assets](#using-the-rdkit-package-assets)
+  - [Usage](#usage)
+    - [How to use RDKit.js package assets](#how-to-use-rdkitjs-package-assets)
     - [Option 1: Use the npm package distribution files](#option-1-use-the-npm-package-distribution-files)
     - [Option 2: Use the remote distribution files from unpkg.com](#option-2-use-the-remote-distribution-files-from-unpkgcom)
-  - [Running RDKit.js in your JavaScript code](#running-rdkitjs-in-your-javascript-code)
-  - [Usage](#usage)
+    - [Running RDKit.js in your JavaScript code](#running-rdkitjs-in-your-javascript-code)
+    - [Using RDKit.js with JavaScript only](#using-rdkitjs-with-javascript-only)
+    - [Using RDKit.js with React.js](#using-rdkitjs-with-reactjs)
   - [Contributing](#contributing)
   - [NPM Releases](#npm-releases)
     - [Important note on npm versioning](#important-note-on-npm-versioning)
@@ -67,23 +69,25 @@ npm i @rdkit/rdkit
 # or yarn add @rdkit/rdkit
 ```
 
-## Using the RDKit package assets
+## Usage
+
+### How to use RDKit.js package assets
 
 ### Option 1: Use the npm package distribution files
 
 Once you have the RDKit package installed in your node modules, copy the following distribution files anywhere in your deployed assets.
 
-- `node_modules/@rdkit/rdkit/CodeMinimalLib/dist/RDKit_minimal.js`
-- `node_modules/@rdkit/rdkit/CodeMinimalLib/dist/RDKit_minimal.wasm`
+- `node_modules/@rdkit/rdkit/dist/RDKit_minimal.js`
+- `node_modules/@rdkit/rdkit/dist/RDKit_minimal.wasm`
 
 **NOTE: Both files must be copied at the same location in your deployed assets for the library to work properly.**
 
 ### Option 2: Use the remote distribution files from [unpkg.com](https://unpkg.com/)
 
-- `https://unpkg.com/@rdkit/rdkit/Code/MinimalLib/dist/RDKit_minimal.js`
-- `https://unpkg.com/@rdkit/rdkit/Code/MinimalLib/dist/RDKit_minimal.wasm`
+- `https://unpkg.com/@rdkit/rdkit/dist/RDKit_minimal.js`
+- `https://unpkg.com/@rdkit/rdkit/dist/RDKit_minimal.wasm`
 
-## Running RDKit.js in your JavaScript code
+### Running RDKit.js in your JavaScript code
 
 To use RDKit.js, load the javascript file and instantiate the wasm module inside the `head` tag of your `index.html`, before you run your application code:
 
@@ -91,7 +95,7 @@ To use RDKit.js, load the javascript file and instantiate the wasm module inside
 <head>
   <!-- ...other files and HTML tags... -->
   <!-- Load the RDKit JS file -->
-  <script src="https://unpkg.com/@rdkit/rdkit/Code/MinimalLib/dist/RDKit_minimal.js"></script>
+  <script src="https://unpkg.com/@rdkit/rdkit/dist/RDKit_minimal.js"></script>
 
   <!-- Instantiate the WASM module. The inline script below could live elsewhere inside your application code. -->
   <script>
@@ -113,9 +117,11 @@ To use RDKit.js, load the javascript file and instantiate the wasm module inside
 </head>
 ```
 
-## Usage
+### Using RDKit.js with JavaScript only
 
 It is recommended to go through all the JavaScript examples available on the official website [rdkitjs.com](https://rdkitjs.com).
+
+### Using RDKit.js with React.js
 
 If you are using React.js, several additional examples using React.js are available at [react.rdkitjs.com](https://react.rdkitjs.com).
 
