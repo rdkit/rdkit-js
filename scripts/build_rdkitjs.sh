@@ -51,7 +51,7 @@ echo "MinimalLib distribution files are at $MINIMALLIB_OUTPUT_PATH"
 
 # Pre-publish
 sed -i '/"private": true/d' ./package.json
-npm --no-git-tag-version version $NPM_RELEASE_VERSION
+npm --no-git-tag-version --allow-same-version version $NPM_RELEASE_VERSION
 echo "registry=https://registry.npmjs.org/" > .npmrc
 echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> .npmrc
 
