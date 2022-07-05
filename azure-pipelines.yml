@@ -4,10 +4,10 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 parameters:
-- name: rdkit version
+- name: rdkit_version
   displayName: Rdkit version (underscore format)
   type: string
-- name: semver version
+- name: semver_version
   displayName: Sub-semver version of the npm package
   type: string
 - name: beta
@@ -32,5 +32,5 @@ steps:
     dockerVersion: 20.10.5
     releaseType: stable
 - script: |
-    RDKIT_DASH_VERSION=${{ parameters.version }}  BETA=${{ parameters.beta }} NPM_TOKEN=$(NPM_TOKEN) npm run build
+    RDKIT_DASH_VERSION=${{ parameters.rdkit_version }} SEMVER_VERSION=${{ parameters.semver_version }}  BETA=${{ parameters.beta }} NPM_TOKEN=$(NPM_TOKEN) npm run build
   displayName: 'Build RDKit.js'

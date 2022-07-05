@@ -7,6 +7,8 @@ rm -rf rdkit Dockerfile
 RDKIT_BRANCH="Release_$RDKIT_DASH_VERSION"
 RDKIT_VERSION=${RDKIT_DASH_VERSION//_0/_}
 RDKIT_VERSION=${RDKIT_VERSION//_/.}
+SEMVER_VERSION="$SEMVER_VERSION"
+NPM_RELEASE_VERSION="$RDKIT_VERSION-$SEMVER_VERSION"
 
 # make sure true/false is lowercase
 BETA="${BETA,,}"
@@ -49,7 +51,7 @@ echo "MinimalLib distribution files are at $MINIMALLIB_OUTPUT_PATH"
 
 # Pre-publish
 sed -i '/"private": true/d' ./package.json
-npm --no-git-tag-version version $RDKIT_VERSION
+npm --no-git-tag-version version $NPM_RELEASE_VERSION
 echo "registry=https://registry.npmjs.org/" > .npmrc
 echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> .npmrc
 
