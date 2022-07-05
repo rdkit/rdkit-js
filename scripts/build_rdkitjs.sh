@@ -61,5 +61,3 @@ if [ "$BETA" = "true" ]; then
 else
     NPM_TOKEN=$NPM_TOKEN npm publish --access public
 fi
-
-npm run resetVersion
