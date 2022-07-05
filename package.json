@@ -20,19 +20,24 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rdkit/rdkit.git"
+    "url": "git+https://github.com/rdkit/rdkit-js.git"
   },
   "keywords": [
     "javascript",
     "c-plus-plus",
     "cheminformatics",
     "rdkit",
-    "wasm"
+    "wasm",
+    "node-js",
+    "molecule",
+    "molecule-visualization",
+    "molecule-viewer",
+    "molecule-drawing"
   ],
   "author": "Valence Discovery Inc., Greg Landrum, Paolo Tosco, and other RDKit contributors",
   "license": "BSD-3-Clause",
   "bugs": {
-    "url": "https://github.com/rdkit/rdkit/issues"
+    "url": "https://github.com/rdkit/rdkit-js/issues"
   },
   "files": [
     "license.txt",
