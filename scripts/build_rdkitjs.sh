@@ -42,8 +42,8 @@ chmod a+rwx $MINIMALLIB_OUTPUT_PATH/RDKit_minimal.js
 chmod a+rwx $MINIMALLIB_OUTPUT_PATH/RDKit_minimal.wasm
 
 # Move docs file in dist folder for demos to work properly
-cp docs/demo.html dist/demo.html
-cp docs/GettingStartedInJS.html dist/GettingStartedInJS.html
+cp docs/demo.html $MINIMALLIB_OUTPUT_PATH/demo.html
+cp docs/GettingStartedInJS.html $MINIMALLIB_OUTPUT_PATH/GettingStartedInJS.html
 
 # Log build completed
 echo "Build completed"
