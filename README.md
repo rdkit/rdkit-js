@@ -26,11 +26,11 @@
     - [What is NOT the scope of this repository](#what-is-not-the-scope-of-this-repository)
   - [Install](#install)
   - [Usage](#usage)
-    - [How to use RDKit.js package assets](#how-to-use-rdkitjs-package-assets)
-    - [Option 1: Use the npm package distribution files](#option-1-use-the-npm-package-distribution-files)
-    - [Option 2: Use the remote distribution files from unpkg.com](#option-2-use-the-remote-distribution-files-from-unpkgcom)
+    - [Using RDKit.js package assets](#using-rdkitjs-package-assets)
+      - [Option 1: Use the npm package distribution files](#option-1-use-the-npm-package-distribution-files)
+      - [Option 2: Use the remote distribution files from unpkg.com](#option-2-use-the-remote-distribution-files-from-unpkgcom)
     - [Running RDKit.js in your JavaScript code](#running-rdkitjs-in-your-javascript-code)
-    - [Using RDKit.js with JavaScript only](#using-rdkitjs-with-javascript-only)
+    - [Using RDKit.js with JavaScript](#using-rdkitjs-with-javascript)
     - [Using RDKit.js with React.js](#using-rdkitjs-with-reactjs)
   - [Contributing](#contributing)
   - [NPM Releases](#npm-releases)
@@ -71,9 +71,9 @@ npm i @rdkit/rdkit
 
 ## Usage
 
-### How to use RDKit.js package assets
+### Using RDKit.js package assets
 
-### Option 1: Use the npm package distribution files
+#### Option 1: Use the npm package distribution files
 
 Once you have the RDKit package installed in your node modules, copy the following distribution files anywhere in your deployed assets.
 
@@ -82,7 +82,7 @@ Once you have the RDKit package installed in your node modules, copy the followi
 
 **NOTE: Both files must be copied at the same location in your deployed assets for the library to work properly.**
 
-### Option 2: Use the remote distribution files from [unpkg.com](https://unpkg.com/)
+#### Option 2: Use the remote distribution files from [unpkg.com](https://unpkg.com/)
 
 - `https://unpkg.com/@rdkit/rdkit/dist/RDKit_minimal.js`
 - `https://unpkg.com/@rdkit/rdkit/dist/RDKit_minimal.wasm`
@@ -117,7 +117,7 @@ To use RDKit.js, load the javascript file and instantiate the wasm module inside
 </head>
 ```
 
-### Using RDKit.js with JavaScript only
+### Using RDKit.js with JavaScript
 
 It is recommended to go through all the JavaScript examples available on the official website [rdkitjs.com](https://rdkitjs.com).
 
