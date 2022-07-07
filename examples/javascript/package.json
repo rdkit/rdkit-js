@@ -24,6 +24,6 @@
   },
   "homepage": "https://www.rdkitjs.com",
   "devDependencies": {
-    "serve": "^13.0.2"
+    "serve": "^13.0.4"
   }
 }
