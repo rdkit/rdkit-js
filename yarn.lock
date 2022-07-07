@@ -1351,9 +1351,9 @@
     source-map "^0.7.3"
 
 "@rdkit/rdkit@^2022.3.4-1.0.1":
-  version "2022.3.4-1.0.0"
-  resolved "https://registry.yarnpkg.com/@rdkit/rdkit/-/rdkit-2022.3.4-1.0.0.tgz#e76a37bd74558df3ccd3194675d45862ada4e4c7"
-  integrity sha512-CQ5I0oiJomAodnOIndMZD2LZpC6zTYLOO35aMvTDtbnylZMoYjl9MBx4s+p7tTVh99HZZPgCqMo98CJsZgpJRA==
+  version "2022.3.4-1.0.2"
+  resolved "https://registry.yarnpkg.com/@rdkit/rdkit/-/rdkit-2022.3.4-1.0.2.tgz#77de128ce243fff6720815b14775e4436fd9a8f5"
+  integrity sha512-Ko94aATT1YLy1klcRAIXk8xumnDLVDY29v426kcmynCh1ACkvUSMo1+4TmmP7PuJlDoDBraD0x5aosgK2Nyc+A==
 
 "@rollup/plugin-babel@^5.2.0":
   version "5.3.1"
@@ -7068,9 +7068,10 @@ serve-static@1.15.0:
     parseurl "~1.3.3"
     send "0.18.0"
 
-serve@^13.0.2:
-  version "13.0.2"
-  resolved "https://registry.yarnpkg.com/serve/-/serve-13.0.2.tgz#b19ccb854dfdf3085613cd3a4033c7807aeaf85b"
+serve@^13.0.4:
+  version "13.0.4"
+  resolved "https://registry.yarnpkg.com/serve/-/serve-13.0.4.tgz#fc4466dc84b3e4a6cb622247c85ed8afe4b88820"
+  integrity sha512-Lj8rhXmphJCRQVv5qwu0NQZ2h+0MrRyRJxDZu5y3qLH2i/XY6a0FPj/VmjMUdkJb672MBfE8hJ274PU6JzBd0Q==
   dependencies:
     "@zeit/schemas" "2.6.0"
     ajv "6.12.6"
