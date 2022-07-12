@@ -6,7 +6,7 @@
   </p>
 <br />
 
-# RDKit for JavaScript (Official)
+# RDKit for JavaScript (Official) <!-- omit in toc -->
 
 [![Build Status](https://dev.azure.com/rdkit-js/rdkit-js/_apis/build/status/rdkit.rdkit-js?branchName=master)](https://dev.azure.com/rdkit-js/rdkit-js/_build/latest?definitionId=1&branchName=master)
 [![License](https://img.shields.io/github/license/rdkit/rdkit)](https://github.com/rdkit/rdkit-js/blob/master/LICENSE)
@@ -17,26 +17,15 @@
 [![NPM Yearly Downloads](https://img.shields.io/npm/dy/@rdkit/rdkit)](https://www.npmjs.com/package/@rdkit/rdkit)
 [![NPM Total Downloads](https://img.shields.io/npm/dt/@rdkit/rdkit?label=total%20downloads)](https://www.npmjs.com/package/@rdkit/rdkit)
 
-## Table of contents
+## Table of contents <!-- omit in toc -->
 
-- [RDKit for JavaScript (Official)](#rdkit-for-javascript-official)
-  - [Table of contents](#table-of-contents)
-  - [Introduction](#introduction)
-    - [What is the scope of this repository](#what-is-the-scope-of-this-repository)
-    - [What is NOT the scope of this repository](#what-is-not-the-scope-of-this-repository)
-  - [Install](#install)
-  - [Usage](#usage)
-    - [Using RDKit.js package assets](#using-rdkitjs-package-assets)
-      - [Option 1: Use the npm package distribution files](#option-1-use-the-npm-package-distribution-files)
-      - [Option 2: Use the remote distribution files from unpkg.com](#option-2-use-the-remote-distribution-files-from-unpkgcom)
-    - [Running RDKit.js in your JavaScript code](#running-rdkitjs-in-your-javascript-code)
-    - [Using RDKit.js with JavaScript](#using-rdkitjs-with-javascript)
-    - [Using RDKit.js with React.js](#using-rdkitjs-with-reactjs)
-  - [Contributing](#contributing)
-  - [NPM Releases](#npm-releases)
-    - [Important note on npm versioning](#important-note-on-npm-versioning)
-  - [Website deployments](#website-deployments)
-  - [Maintainers](#maintainers)
+- [Introduction](#introduction)
+- [Install](#install)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [Release process](#release-process)
+- [Website deployment](#website-deployment)
+- [Maintainers](#maintainers)
 
 ## Introduction
 
@@ -135,7 +124,7 @@ To contribute to the plain javascript examples, read [this sub-repository README
 
 To contribute to the React.js examples, read [this sub-repository README](https://github.com/rdkit/rdkit-js/tree/master/examples/react).
 
-## NPM Releases
+## Release process
 
 NPM releases are currently semi-automated with the following azure pipeline:
 
@@ -171,7 +160,7 @@ With this in mind, we will attempt the following versioning scheme of the packag
    > Example: when a bug fix is made in a React component built on top of RDKit for version 2022.03.3, a new npm release `2022.03.3-1.0.1` will be published.
    > Example: when a new React component is built on top of RDKit for version 2022.03.3, a new npm release `2022.03.3-1.1.0` will be published.
 
-## Website deployments
+## Website deployment
 
 Website deployments for [rdkitjs.com](https://rdkitjs.com) are automated via [Vercel](https://vercel.com/) for each commit merged or pushed to the master branch.
 
