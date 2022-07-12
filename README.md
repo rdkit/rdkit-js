@@ -141,7 +141,11 @@ Here are the guidelines to respect when releasing a new version of the package:
 
 > Example: 2022_03_3
 
-4. If you are releasing an official release, do not forget to uncheck the **Is beta?** checkbox in the Azure pipeline parameters.
+4. In Azure pipeline parameters, specify the semver version with dots seperating major, minor, and patch version
+
+> Example: 1.0.1
+
+5. If you are releasing an official release, do not forget to uncheck the **Is beta?** checkbox in the Azure pipeline parameters.
 
 ### Important note on npm versioning
 
