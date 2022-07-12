@@ -128,7 +128,7 @@ To contribute to the React.js examples, read [this sub-repository README](https:
 
 NPM releases are currently semi-automated with the following azure pipeline:
 
-[https://dev.azure.com/michmoreaul/rdkit-js/\_build?definitionId=1](https://dev.azure.com/michmoreaul/rdkit-js/_build?definitionId=1)
+[https://dev.azure.com/rdkit-js/rdkit-js/\_build?definitionId=1](https://dev.azure.com/michmoreaul/rdkit-js/_build?definitionId=1)
 
 Here are the guidelines to respect when releasing a new version of the package:
 
@@ -141,7 +141,11 @@ Here are the guidelines to respect when releasing a new version of the package:
 
 > Example: 2022_03_3
 
-4. If you are releasing an official release, do not forget to uncheck the **Is beta?** checkbox in the Azure pipeline parameters.
+4. In Azure pipeline parameters, specify the semver version with dots seperating major, minor, and patch version
+
+> Example: 1.0.1
+
+5. If you are releasing an official release, do not forget to uncheck the **Is beta?** checkbox in the Azure pipeline parameters.
 
 ### Important note on npm versioning
 
