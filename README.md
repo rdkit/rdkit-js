@@ -128,7 +128,7 @@ To contribute to the React.js examples, read [this sub-repository README](https:
 
 NPM releases are currently semi-automated with the following azure pipeline:
 
-[https://dev.azure.com/rdkit-js/rdkit-js/\_build?definitionId=1](https://dev.azure.com/michmoreaul/rdkit-js/_build?definitionId=1)
+[https://dev.azure.com/rdkit-js/rdkit-js/\_build?definitionId=1](https://dev.azure.com/rdkit-js/rdkit-js/_build?definitionId=1)
 
 Here are the guidelines to respect when releasing a new version of the package:
 
