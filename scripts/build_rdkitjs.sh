@@ -1,8 +1,5 @@
 set -e
 
-# Clean up temp files if exists
-rm -rf rdkit Dockerfile
-
 # Set branch to release
 RDKIT_BRANCH="Release_$RDKIT_DASH_VERSION"
 RDKIT_VERSION=${RDKIT_DASH_VERSION//_0/_}
