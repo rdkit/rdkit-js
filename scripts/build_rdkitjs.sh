@@ -20,15 +20,6 @@ fi
 echo $RDKIT_DASH_VERSION
 echo $RDKIT_VERSION
 
-# Retrieve Dockerfile from main rdkit repository
-git clone https://github.com/rdkit/rdkit.git
-
-cd rdkit
-git fetch --all --tags
-git checkout $RDKIT_BRANCH
-cp Code/MinimalLib/docker/Dockerfile ../Dockerfile
-cd ..
-
 # Clean and create distribution folder
 MINIMALLIB_OUTPUT_PATH="dist"
 rm -rf $MINIMALLIB_OUTPUT_PATH
