@@ -2230,10 +2230,10 @@
     schema-utils "^3.0.0"
     source-map "^0.7.3"
 
-"@rdkit/rdkit@^2022.3.4-1.0.5":
-  version "2022.3.4-1.0.5"
-  resolved "https://registry.yarnpkg.com/@rdkit/rdkit/-/rdkit-2022.3.4-1.0.5.tgz#9316e51c806e5e1110da9a769565a3ad734c9bb8"
-  integrity sha512-kPmMvC0hz0MhHcrs8pTzxXUiW5HyG6wF4bCiLfe/yalJgxLdNYxcekdXkbYVNRfAYwM3QbdhOxOW9a6084vy6A==
+"@rdkit/rdkit@^2022.3.5-1.0.2":
+  version "2022.3.5-1.0.2"
+  resolved "https://registry.yarnpkg.com/@rdkit/rdkit/-/rdkit-2022.3.5-1.0.2.tgz#f4fd4e81732cdace2b3367c0fc76eb7682feb0fb"
+  integrity sha512-CpMEJAWGKvAt6++OJtk++b2uB2T4YkafST+RFvq76rN/zkpIEWT1TXe4/EnB3XiUSOqNJOoRjoxm2X4JOuYkZQ==
 
 "@rollup/plugin-babel@^5.2.0":
   version "5.3.1"
@@ -2442,10 +2442,10 @@
     "@testing-library/dom" "^8.5.0"
     "@types/react-dom" "^18.0.0"
 
-"@testing-library/user-event@^14.4.1":
-  version "14.4.1"
-  resolved "https://registry.yarnpkg.com/@testing-library/user-event/-/user-event-14.4.1.tgz#dfa1cceef4833f5288a4090d1b85dce5d8dc20b6"
-  integrity sha512-Gr20dje1RaNxZ1ehHGPvFkLswfetBQKCfRD/lo6sUJQ52X2TV/QnqUpkjoShfEebrB2KiTPfQkcONwdQiofLhg==
+"@testing-library/user-event@^14.4.2":
+  version "14.4.2"
+  resolved "https://registry.yarnpkg.com/@testing-library/user-event/-/user-event-14.4.2.tgz#d3fb5d24e2d7d019a7d2e9978a8deb90b0aa230b"
+  integrity sha512-1gVTWtueNimveOjcm2ApFCnCTeky7WqY3EX31/GRKLWyCd+HfH+Gd2l1J8go9FpDNe+0Mx8X4zbQHTg0WWNJwg==
 
 "@tootallnate/once@1":
   version "1.1.2"
