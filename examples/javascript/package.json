@@ -23,7 +23,7 @@
     "url": "https://github.com/rdkit/rdkit-js/issues"
   },
   "homepage": "https://www.rdkitjs.com",
-  "devDependencies": {
+  "dependencies": {
     "serve": "^14.0.1"
   }
 }
