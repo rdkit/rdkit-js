@@ -4,10 +4,10 @@
   "homepage": "https://react.rdkitjs.com",
   "private": true,
   "dependencies": {
-    "@rdkit/rdkit": "^2022.3.4-1.0.5",
-    "@testing-library/jest-dom": "^5.16.4",
+    "@rdkit/rdkit": "^2022.3.5-1.0.2",
+    "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
-    "@testing-library/user-event": "^14.3.0",
+    "@testing-library/user-event": "^14.4.2",
     "hex-rgb": "^5.0.0",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
