@@ -153,7 +153,7 @@ export type RDKitLoader = () => Promise<RDKitModule>;
 declare global {
   interface Window {
     initRDKitModule: RDKitLoader;
-    // This assumes that the RDKit module module will be assigned as
+    // This assumes that the RDKit module will be assigned as
     // window.RDKit = <RDKitModule received from initRDKitModule's promise result>;
     RDKit: RDKitModule;
   }
