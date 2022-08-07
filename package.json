@@ -3,6 +3,7 @@
   "version": "2022.3.4-1.0.5",
   "description": "JavaScript distribution of cheminformatics functionality from the RDKit - a C++ library for cheminformatics.",
   "main": "dist/RDKit_minimal.js",
+  "types": "dist/index.d.ts",
   "homepage": "https://www.rdkitjs.com",
   "private": true,
   "workspaces": [
@@ -14,7 +15,7 @@
     "react:build": "cd examples/react && PUBLIC_URL='' npm run build",
     "react:start": "cd examples/react && npm run start",
     "javascript:start": "serve examples/javascript",
-    "format": "prettier --trailing-comma none --write examples *.md !examples/*/build",
+    "format": "prettier --trailing-comma none --write examples *.md !examples/*/build typescript/**/*",
     "test": "echo \"Tests are run during the docker build. See https://github.com/rdkit/rdkit/blob/master/docker/Dockerfile .\" && exit 1"
   },
   "repository": {
@@ -42,6 +43,7 @@
     "license.txt",
     "package.json",
     "README.md",
+    "dist/index.d.ts",
     "dist/demo.html",
     "dist/GettingStartedInJS.html",
     "dist/RDKit_minimal.js",

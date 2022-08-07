@@ -59,6 +59,9 @@ cp docs/GettingStartedInJS.html $MINIMALLIB_OUTPUT_PATH/GettingStartedInJS.html
 echo "Build completed"
 echo "MinimalLib distribution files are at $MINIMALLIB_OUTPUT_PATH"
 
+# Move typescript files to dist folder
+cp typescript/index.d.ts $MINIMALLIB_OUTPUT_PATH/index.d.ts
+
 # Pre-publish
 sed -i '/"private": true/d' ./package.json
 npm --no-git-tag-version --allow-same-version version $NPM_RELEASE_VERSION
