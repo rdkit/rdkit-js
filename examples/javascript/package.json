@@ -2,7 +2,6 @@
   "name": "@rdkit/javascript-examples",
   "version": "1.0.0",
   "description": "The following sub-repository is dedicated to showcasing the functionalities of RDKit.js via plain javascript examples, i.e. without any web framework or libraries.",
-  "private": true,
   "main": "index.html",
   "scripts": {
     "dev": "serve .",
@@ -23,8 +22,5 @@
   "bugs": {
     "url": "https://github.com/rdkit/rdkit-js/issues"
   },
-  "homepage": "https://www.rdkitjs.com",
-  "devDependencies": {
-    "serve": "^14.0.1"
-  }
+  "homepage": "https://www.rdkitjs.com"
 }
