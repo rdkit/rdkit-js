@@ -51,8 +51,5 @@
   ],
   "devDependencies": {
     "prettier": "^2.7.1"
-  },
-  "dependencies": {
-    "serve": "^14.0.1"
   }
 }
