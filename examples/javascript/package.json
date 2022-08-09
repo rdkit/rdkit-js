@@ -22,8 +22,5 @@
   "bugs": {
     "url": "https://github.com/rdkit/rdkit-js/issues"
   },
-  "homepage": "https://www.rdkitjs.com",
-  "dependencies": {
-    "serve": "^14.0.1"
-  }
+  "homepage": "https://www.rdkitjs.com"
 }
