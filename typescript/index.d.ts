@@ -133,10 +133,20 @@ export interface SubstructLibrary {
   count_matches(q: JSMol, useChirality: boolean, numThreads: number): number;
 }
 
+// constructor interfaces
+
+interface JSMolConstructor {
+  new(): JSMol
+}
+
+interface SubstructLibraryConstructor {
+  new(): SubstructLibrary
+}
+
 export interface RDKitModule {
-  Mol: JSMol;
-  SubstructLibrary: SubstructLibrary;
-  get_mol(input: string, details_json: string): JSMol;
+  Mol: JSMolConstructor;
+  SubstructLibrary: SubstructLibraryConstructor;
+  get_mol(input: string, details_json?: string): JSMol;
   get_mol_from_pickle(pkl: string): JSMol;
   get_mol_from_uint8array(pklAsUInt8Array: Uint8Array): JSMol;
   get_mol_copy(other: JSMol): JSMol;
