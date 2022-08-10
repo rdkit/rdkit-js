@@ -197,3 +197,6 @@ sketch
 # .pnp.*
 
 # End of https://www.toptal.com/developers/gitignore/api/node,react,visualstudiocode,yarn
+
+# typescript docs
+typescript/docs
