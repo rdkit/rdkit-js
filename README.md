@@ -17,11 +17,11 @@
 [![NPM Yearly Downloads](https://img.shields.io/npm/dy/@rdkit/rdkit)](https://www.npmjs.com/package/@rdkit/rdkit)
 [![NPM Total Downloads](https://img.shields.io/npm/dt/@rdkit/rdkit?label=total%20downloads)](https://www.npmjs.com/package/@rdkit/rdkit)
 
-| Website             | URL               |
-| :------------------ | :---------------- |
-| JavaScript Examples | rdkitjs.com       |
-| React.js Examples   | react.rdkitjs.com |
-| API Docs            | docs.rdkitjs.com  |
+| Website             | URL                                             |
+| :------------------ | :---------------------------------------------- |
+| JavaScript Examples | [rdkitjs.com](https://www.rdkitjs.com/)         |
+| React.js Examples   | [react.rdkitjs.com](https://react.rdkitjs.com/) |
+| API Docs            | [docs.rdkitjs.com](https://docs.rdkitjs.com/)   |
 
 ## Table of contents <!-- omit in toc -->
 
