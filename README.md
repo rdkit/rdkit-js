@@ -17,11 +17,18 @@
 [![NPM Yearly Downloads](https://img.shields.io/npm/dy/@rdkit/rdkit)](https://www.npmjs.com/package/@rdkit/rdkit)
 [![NPM Total Downloads](https://img.shields.io/npm/dt/@rdkit/rdkit?label=total%20downloads)](https://www.npmjs.com/package/@rdkit/rdkit)
 
+| Website             | URL                                             |
+| :------------------ | :---------------------------------------------- |
+| JavaScript Examples | [rdkitjs.com](https://www.rdkitjs.com/)         |
+| React.js Examples   | [react.rdkitjs.com](https://react.rdkitjs.com/) |
+| API Docs            | [docs.rdkitjs.com](https://docs.rdkitjs.com/)   |
+
 ## Table of contents <!-- omit in toc -->
 
 - [Introduction](#introduction)
 - [Install](#install)
 - [Usage](#usage)
+- [Usage in TypeScript](#usage-in-typescript)
 - [Contributing](#contributing)
 - [Release process](#release-process)
 - [Website deployment](#website-deployment)
@@ -113,6 +120,14 @@ It is recommended to go through all the JavaScript examples available on the off
 ### Using RDKit.js with React.js
 
 If you are using React.js, several additional examples using React.js are available at [react.rdkitjs.com](https://react.rdkitjs.com).
+
+## Usage in TypeScript
+
+To see how to use RDKit.js with TypeScript, please go through the walkthrough [here](https://github.com/rdkit/rdkit-js/tree/master/typescript).
+
+The full documentation related to type definitions is at [docs.rdkitjs.com](https://docs.rdkitjs.com/).
+
+**Note**: This is still at an experimental stage.
 
 ## Contributing
 
