@@ -31,9 +31,7 @@ Window is extended with the initRDKitModule property, typed as a Promise returni
 window
 .initRDKitModule()
 .then((instance: RDKitModule) => {
-    /**
-     * window.RDKit is loaded and will be typed as RDKitModule
-     */
+    // window.RDKit is loaded and will be typed as RDKitModule
     window.RDKit = instance;
     return instance;
 })
