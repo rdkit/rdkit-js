@@ -3,6 +3,7 @@
   "version": "2022.3.5-1.0.2",
   "description": "JavaScript distribution of cheminformatics functionality from the RDKit - a C++ library for cheminformatics.",
   "main": "dist/RDKit_minimal.js",
+  "types": "dist/index.d.ts",
   "homepage": "https://www.rdkitjs.com",
   "private": true,
   "workspaces": [
@@ -14,7 +15,9 @@
     "react:build": "cd examples/react && PUBLIC_URL='' npm run build",
     "react:start": "cd examples/react && npm run start",
     "javascript:start": "serve examples/javascript",
-    "format": "prettier --trailing-comma none --write examples *.md !examples/*/build",
+    "docs:build": "typedoc --out typescript/docs --readme none typescript/index.d.ts",
+    "docs:serve": "npm run docs:build && serve typescript/docs",
+    "format": "prettier --trailing-comma none --write examples *.md !examples/*/build typescript/**/*",
     "test": "echo \"Tests are run during the docker build. See https://github.com/rdkit/rdkit/blob/master/docker/Dockerfile .\" && exit 1"
   },
   "repository": {
@@ -42,6 +45,7 @@
     "license.txt",
     "package.json",
     "README.md",
+    "dist/index.d.ts",
     "dist/demo.html",
     "dist/GettingStartedInJS.html",
     "dist/RDKit_minimal.js",
@@ -50,9 +54,9 @@
     "Code/MinimalLib/dist/RDKit_minimal.wasm"
   ],
   "devDependencies": {
-    "prettier": "^2.7.1"
-  },
-  "dependencies": {
-    "serve": "^14.0.1"
+    "prettier": "^2.7.1",
+    "serve": "^14.0.1",
+    "typedoc": "^0.23.10",
+    "typescript": "^4.7.4"
   }
 }
