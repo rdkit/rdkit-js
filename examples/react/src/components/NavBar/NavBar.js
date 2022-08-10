@@ -47,7 +47,12 @@ export default class NavBar extends Component {
             >
               Source Code
             </a>
-
+            <a
+              className="navbar-item"
+              href="https://docs.rdkitjs.com/"
+            >
+              API Docs
+            </a>
             <div className="navbar-item has-dropdown is-hoverable">
               <a className="navbar-link" href="#/">
                 {" "}
