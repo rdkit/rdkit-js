@@ -133,12 +133,6 @@ export interface SubstructLibrary {
   count_matches(q: JSMol, useChirality: boolean, numThreads: number): number;
 }
 
-// constructor interfaces
-
-interface JSMolConstructor {
-  new(): JSMol
-}
-
 interface SubstructLibraryConstructor {
   new(): SubstructLibrary
 }
