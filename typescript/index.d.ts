@@ -138,7 +138,6 @@ interface SubstructLibraryConstructor {
 }
 
 export interface RDKitModule {
-  Mol: JSMolConstructor;
   SubstructLibrary: SubstructLibraryConstructor;
   get_mol(input: string, details_json?: string): JSMol;
   get_mol_from_pickle(pkl: string): JSMol;
