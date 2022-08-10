@@ -51,9 +51,9 @@ const firstMolecule = window.RDKit.get_mol(smiles);
 const secondMolecule: JSMol = window.RDKit.get_mol(smiles);
 ```
 
-## Step 4 - Instantiating a substructure Library
+## Step 4 - Instantiating a substructure library
 
-Instantiating a substructure Library with `new window.RDKit.SubStructLibrary` will also return an object of type `SubstructLibrary`.
+Instantiating a substructure library with `new window.RDKit.SubStructLibrary` will also return an object of type `SubstructLibrary`.
 
 ```typescript
 
