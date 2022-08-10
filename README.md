@@ -123,7 +123,7 @@ If you are using React.js, several additional examples using React.js are availa
 
 ## Usage in TypeScript
 
-To see how to use RDKit.js with TypeScript, please go through the walkthrough [here](https://github.com/rdkit/rdkit-js/tree/master/examples/react).
+To see how to use RDKit.js with TypeScript, please go through the walkthrough [here](https://github.com/rdkit/rdkit-js/tree/master/typescript).
 
 The full documentation related to type definitions is at [docs.rdkitjs.com](https://docs.rdkitjs.com/).
 
