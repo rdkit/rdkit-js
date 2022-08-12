@@ -63,7 +63,7 @@ export interface JSMol {
   /**
    * Returns an SVG of the molcule, with atoms highlighted
    * 
-   * @param details A substructure match string (return value of {@link get_substruct_match}) detailing which atoms to highlight
+   * @param details A stringified JSON object containing any of the following options https://www.rdkitjs.com/#drawing-molecules-all-options
    */
   get_svg_with_highlights(details: string): string;
 
@@ -74,7 +74,7 @@ export interface JSMol {
    * Returns a substructure match string
    * 
    * @param q query molecule
-   * @returns JSON parsable string containing the matched atoms and bonds of the parent molecule
+   * @returns A stringified JSON object containing the matched atoms and bonds of the parent molecule
    */
   get_substruct_match(q: JSMol): string;
 
@@ -82,14 +82,14 @@ export interface JSMol {
    * Returns all substructure matches
    * 
    * @param q query molecule
-   * @returns JSON parsable string containing the matched atoms and bonds of the parent molecule
+   * @returns A stringified JSON object containing the matched atoms and bonds of the parent molecule
    */
   get_substruct_matches(q: JSMol): string;
 
 
   // molecular descriptors
 
-  /** Returns a JSON parsable string of molecular descriptors */
+  /** Returns a stringified JSON object of molecular descriptors */
   get_descriptors(): string;
 
 
@@ -232,7 +232,7 @@ export interface JSMol {
   /** Check is the molecule has any 2D coordinates generated */
   has_coords(): boolean;
 
-  /** Returns a JSON parsable string containing the atoms and bonds of stereo centers */
+  /** Returns a stringified JSON object containing the atoms and bonds of stereo centers */
   get_stereo_tags(): string;
 
   /** Returns the V2000 Molfile representation of the aromatic form of the molecule */
@@ -358,7 +358,7 @@ export interface JSMol {
    * Draw the molecule to an HTML5 canvas, with atom highlights
    * 
    * @param canvas canvas ID
-   * @param details substructure match string (return value of {@link get_substruct_match}) detailing which atoms to highlight
+   * @param details A stringified JSON object containing any of the following options https://www.rdkitjs.com/#drawing-molecules-all-options
    */
   draw_to_canvas_with_highlights(
     canvas: HTMLCanvasElement,
