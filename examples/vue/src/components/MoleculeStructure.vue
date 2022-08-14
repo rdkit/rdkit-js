@@ -4,13 +4,14 @@
 
     <p v-if="!rdkitLoaded">Loading renderer</p>
 
-    <span v-if="!isValidMolString(structure)" :title="`Cannot render structure: ${structure}`"></span>
+    <span v-else-if="!isValidMolString(structure)" :title="`Cannot render structure: ${structure}`"></span>
 
     <div 
         v-else-if="svgMode"
         :class="`molecule-structure-svg ${className}`"
         :style="{width: props.width, height: props.height}"
-    >{{ svg }}</div>
+        v-html="svg"
+    ></div>
 
     <div v-else :class="`molecule-canvas-container ${className}`">
         <canvas :title="structure" :id="id" :width="width" :height="height"></canvas>
@@ -23,7 +24,7 @@ import { onMounted, onUpdated, reactive, ref, watch } from 'vue';
 import { JSMol } from '../../../../typescript';
 import initRDKit from '../utils/initRDKit';
 
-const props = defineProps<>({
+const props = defineProps({
     /**
      * Generic props
      */
@@ -222,11 +223,11 @@ onMounted(() => {
 onUpdated(() => {
     if (!rdkitError && rdkitLoaded && !props.svgMode)
     {
-        drawOnce()
+        //drawOnce()
     }
 })
 
-watch([props.structure, props.subStructure, props.svgMode, props.width, props.height, props.extraDetails], () => draw())
+//watch([props.structure, props.subStructure, props.svgMode, props.width, props.height, props.extraDetails], () => draw())
 
 </script>
 
