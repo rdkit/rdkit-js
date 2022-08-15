@@ -56,6 +56,7 @@ import ExampleList from './components/examples/ExampleList.vue';
 import CodeExample from './components/CodeExample.vue';
 import ExampleMoleculeStructure from './components/examples/ExampleMoleculeStructure.vue';
 import ExampleSVG from './components/examples/ExampleSVG.vue';
+import ExampleCanvas from './components/examples/ExampleCanvas.vue'
 
 const examples = [
   {
@@ -70,6 +71,9 @@ const examples = [
     name: 'ExampleSVG',
     component: ExampleSVG
   },
+  {
+    name: 'ExampleCanvas',
+    component: ExampleCanvas
   }
 ]
 

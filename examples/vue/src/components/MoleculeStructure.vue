@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, onUpdated, reactive, ref, watch } from 'vue';
+import { nextTick, onMounted, onUpdated, reactive, ref, watch } from 'vue';
 import { JSMol } from '../../../../typescript';
 import initRDKit from '../utils/initRDKit';
 
@@ -140,7 +140,7 @@ function getMolDetails(mol: JSMol, qmol: JSMol)
 /**
  * Draw the molecule to the canvas, or return set the SVG variable
  */
-function drawSVGorCanvas()
+async function drawSVGorCanvas()
 {
     const mol = window.RDKit.get_mol(props.structure || "invalid")
     const qmol = window.RDKit.get_qmol(props.subStructure || "invalid")
@@ -153,6 +153,7 @@ function drawSVGorCanvas()
     }
     else if (isValidMol)
     {
+        await nextTick() // function needs to wait until canvas is rendered
         const canvas = document.getElementById(props.id) as HTMLCanvasElement
         mol.draw_to_canvas_with_highlights(canvas, getMolDetails(mol, qmol))
     }
