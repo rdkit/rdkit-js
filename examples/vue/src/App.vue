@@ -13,6 +13,10 @@
       <div class="container column is-10">
         <!-- Put main components here -->
         <Introduction/>
+        <template v-for="e in examples">
+          <component :is="e.component"></component>
+          <CodeExample :component_name="e.name"></CodeExample>
+        </template>
         <section class="hero">
           <div class="hero-body">
             <p class="title" id="other-examples">Where to go next</p>
@@ -48,6 +52,15 @@
 import Introduction from './components/Introduction.vue';
 import SideNav from './components/SideNav.vue';
 import NavBar from './components/NavBar.vue';
+import ExampleList from './components/examples/ExampleList.vue';
+import CodeExample from './components/CodeExample.vue';
+
+const examples = [
+  {
+    name: 'ExampleList',
+    component: ExampleList
+  }
+]
 
 </script>
 
