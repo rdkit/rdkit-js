@@ -66,4 +66,4 @@ const sslib2: SubstructLibrary = new window.RDKit.SubstructLibrary();
 
 # Full type definitions
 
-You can see all type definitions at [docs.rdkitjs.com](docs.rdkitjs.com).
+You can see all type definitions at [docs.rdkitjs.com](https://docs.rdkitjs.com).
