@@ -55,6 +55,7 @@ import NavBar from './components/NavBar.vue';
 import ExampleList from './components/examples/ExampleList.vue';
 import CodeExample from './components/CodeExample.vue';
 import ExampleMoleculeStructure from './components/examples/ExampleMoleculeStructure.vue';
+import ExampleSVG from './components/examples/ExampleSVG.vue';
 
 const examples = [
   {
@@ -64,6 +65,11 @@ const examples = [
   {
     name: 'MoleculeStructure',
     component: ExampleMoleculeStructure
+  },
+  {
+    name: 'ExampleSVG',
+    component: ExampleSVG
+  },
   }
 ]
 
