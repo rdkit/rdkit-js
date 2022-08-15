@@ -54,9 +54,11 @@ import SideNav from './components/SideNav.vue';
 import NavBar from './components/NavBar.vue';
 import ExampleList from './components/examples/ExampleList.vue';
 import CodeExample from './components/CodeExample.vue';
+// import examples here
 import ExampleMoleculeStructure from './components/examples/ExampleMoleculeStructure.vue';
 import ExampleSVG from './components/examples/ExampleSVG.vue';
 import ExampleCanvas from './components/examples/ExampleCanvas.vue'
+import ExampleMultiSubstructure from './components/examples/ExampleMultiSubstructure.vue';
 
 const examples = [
   {
@@ -74,6 +76,11 @@ const examples = [
   {
     name: 'ExampleCanvas',
     component: ExampleCanvas
+  },
+  {
+    name: 'ExampleMultiSubstructure',
+    component: ExampleMultiSubstructure
+
   }
 ]
 
