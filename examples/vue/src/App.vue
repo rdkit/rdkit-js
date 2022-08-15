@@ -54,11 +54,16 @@ import SideNav from './components/SideNav.vue';
 import NavBar from './components/NavBar.vue';
 import ExampleList from './components/examples/ExampleList.vue';
 import CodeExample from './components/CodeExample.vue';
+import ExampleMoleculeStructure from './components/examples/ExampleMoleculeStructure.vue';
 
 const examples = [
   {
     name: 'ExampleList',
     component: ExampleList
+  },
+  {
+    name: 'MoleculeStructure',
+    component: ExampleMoleculeStructure
   }
 ]
 
