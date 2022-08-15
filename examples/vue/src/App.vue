@@ -58,6 +58,7 @@ import CodeExample from './components/CodeExample.vue';
 import ExampleMoleculeStructure from './components/examples/ExampleMoleculeStructure.vue';
 import ExampleSVG from './components/examples/ExampleSVG.vue';
 import ExampleCanvas from './components/examples/ExampleCanvas.vue'
+import ExampleSubstructure from './components/examples/ExampleSubstructure.vue';
 import ExampleMultiSubstructure from './components/examples/ExampleMultiSubstructure.vue';
 
 const examples = [
@@ -76,6 +77,10 @@ const examples = [
   {
     name: 'ExampleCanvas',
     component: ExampleCanvas
+  },
+  {
+    name: 'ExampleSubstructure',
+    component: ExampleSubstructure
   },
   {
     name: 'ExampleMultiSubstructure',
