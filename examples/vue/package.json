@@ -9,11 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "simple-syntax-highlighter": "^2.2.3",
     "vue": "^3.2.37"
   },
   "devDependencies": {
-    "@creativebulma/bulma-collapsible": "^1.0.4",
     "@vitejs/plugin-vue": "^3.0.0",
     "typescript": "^4.6.4",
     "vite": "^3.0.0",
