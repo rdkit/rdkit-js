@@ -38,17 +38,17 @@ You are now ready to develop.
 
 ### Contributing examples
 
-All Vue.js examples are written in the `./examples/vue/examples` folder.
+All Vue.js examples are written in the `./examples/vue/components/examples` folder.
 
 To add a new example, make sure to respect the following checklist:
 
 1. [ ] Start a new git branch from the master branch and give it a meaningful name
-2. [ ] Create a new .vue file in the `./examples/vue/examples`, give it a meaningful name, and implement your Vue example in this file.
+2. [ ] Create a new .vue file in the `./examples/vue/components/examples`, give it a meaningful name, and implement your Vue example in this file.
 3. [ ] Import your example component in `./examples/vue/App.vue` and add it at the end of the examples list already present in this file.
 4. [ ] Reference your example in the SideNav.vue component, again following the convention of other examples (this step will be removed in the future).
 5. [ ] Make sure your example respects the styling conventions using [Bulma](https://bulma.io/)
 6. [ ] Make sure you formatted your code with `npm run format`.
 
-Refer to any other react example in `examples/vue/examples` if you are unusure about any of the steps above.
+Refer to any other Vue example in `examples/vue/components/examples` if you are unusure about any of the steps above.
 
 Once you're done, make a pull request to the master branch of the main RDKit.js repository, and wait for the review!
