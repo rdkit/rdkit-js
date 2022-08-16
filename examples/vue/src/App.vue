@@ -61,6 +61,7 @@ import ExampleCanvas from './components/examples/ExampleCanvas.vue'
 import ExampleSubstructure from './components/examples/ExampleSubstructure.vue';
 import ExampleMultiSubstructure from './components/examples/ExampleMultiSubstructure.vue';
 import ExampleSubstructureSearch from './components/examples/ExampleSubstructureSearch.vue';
+import ExampleDrawingOptions from './components/examples/ExampleDrawingOptions.vue';
 
 const examples = [
   {
@@ -91,6 +92,10 @@ const examples = [
     name: 'ExampleSubstructureSearch',
     component: ExampleSubstructureSearch
   },
+  {
+    name: 'ExampleDrawingOptions',
+    component: ExampleDrawingOptions
+  }
 ]
 
 </script>
