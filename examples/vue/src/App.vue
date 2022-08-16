@@ -60,6 +60,7 @@ import ExampleSVG from './components/examples/ExampleSVG.vue';
 import ExampleCanvas from './components/examples/ExampleCanvas.vue'
 import ExampleSubstructure from './components/examples/ExampleSubstructure.vue';
 import ExampleMultiSubstructure from './components/examples/ExampleMultiSubstructure.vue';
+import ExampleSubstructureSearch from './components/examples/ExampleSubstructureSearch.vue';
 
 const examples = [
   {
@@ -85,8 +86,11 @@ const examples = [
   {
     name: 'ExampleMultiSubstructure',
     component: ExampleMultiSubstructure
-
-  }
+  },
+  {
+    name: 'ExampleSubstructureSearch',
+    component: ExampleSubstructureSearch
+  },
 ]
 
 </script>
