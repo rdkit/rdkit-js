@@ -15,5 +15,13 @@
     "composite": true,
     "allowSyntheticDefaultImports": true
   },
-  "include": ["vite.config.ts", "src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "../../typescript/index.d.ts", "src/globals.d.ts"]
+  "include": [
+    "vite.config.ts",
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "../../typescript/index.d.ts",
+    "src/globals.d.ts"
+  ]
 }
