@@ -1,16 +1,54 @@
-# Vue 3 + TypeScript + Vite
+# RDKit for JavaScript (Vue Examples)
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+The following sub-repository is dedicated to showcasing a few examples using RDKit.js with [Vue.js](https://vuejs.org/).
 
-## Recommended IDE Setup
+The examples use Vue 3 with Typescript, utilizing the Vue's Composition API and Single-File Component features.
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+If you didn't go through the plain javascript examples already, it is recommended to do so before going forward:
 
-## Type Support For `.vue` Imports in TS
+- [JavaScript Examples](https://github.com/rdkit/rdkit-js/tree/master/examples/javascript)
 
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's Take Over mode by following these steps:
+## Contributing
 
-1. Run `Extensions: Show Built-in Extensions` from VS Code's command palette, look for `TypeScript and JavaScript Language Features`, then right click and select `Disable (Workspace)`. By default, Take Over mode will enable itself if the default TypeScript extension is disabled.
-2. Reload the VS Code window by running `Developer: Reload Window` from the command palette.
+First, fork the RDKit.js GitHub repository and run the remaining instructions from your fork.
 
-You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/volar/discussions/471).
+### Dependencies
+
+- Git
+- Node >= 14.x
+- Yarn 1.22.19
+
+### Installation and local development server
+
+Run the following command to install the RDKit.js project.
+
+```bash
+git clone https://github.com/<name of your fork>/rdkit-js.git && \
+cd rdkit-js && \
+yarn install
+```
+
+Once the project is installed, run the following command at the root of the RDKit.js repository to start the development server:
+
+```bash
+npm run dev
+```
+
+You are now ready to develop.
+
+### Contributing examples
+
+All Vue.js examples are written in the `./examples/vue/examples` folder.
+
+To add a new example, make sure to respect the following checklist:
+
+1. [ ] Start a new git branch from the master branch and give it a meaningful name
+2. [ ] Create a new .vue file in the `./examples/vue/examples`, give it a meaningful name, and implement your Vue example in this file.
+3. [ ] Import your example component in `./examples/vue/App.vue` and add it at the end of the examples list already present in this file.
+4. [ ] Reference your example in the SideNav.vue component, again following the convention of other examples (this step will be removed in the future).
+5. [ ] Make sure your example respects the styling conventions using [Bulma](https://bulma.io/)
+6. [ ] Make sure you formatted your code with `npm run format`.
+
+Refer to any other react example in `examples/vue/examples` if you are unusure about any of the steps above.
+
+Once you're done, make a pull request to the master branch of the main RDKit.js repository, and wait for the review!
