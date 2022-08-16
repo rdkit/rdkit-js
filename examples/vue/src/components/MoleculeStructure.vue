@@ -224,11 +224,11 @@ onMounted(() => {
 onUpdated(() => {
     if (!rdkitError && rdkitLoaded && !props.svgMode)
     {
-        //drawOnce()
+        drawOnce()
     }
 })
 
-//watch([props.structure, props.subStructure, props.svgMode, props.width, props.height, props.extraDetails], () => draw())
+watch(props, () => draw())
 
 </script>
 
