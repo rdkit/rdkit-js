@@ -10,9 +10,10 @@
         </header>
         <div class="card-content">
             <div class="content is-collapsible" ref="collapsible">
-                <pre>
-                    <code>{{ source_code }}</code>
-                </pre>
+                <highlightjs
+                    autodetect
+                    :code="source_code"
+                ></highlightjs>
             </div>
         </div>
     </div>
