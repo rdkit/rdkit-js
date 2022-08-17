@@ -9,7 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@highlightjs/vue-plugin": "^2.1.0",
     "debounce": "^1.2.1",
+    "highlight.js": "^11.6.0",
     "vue": "^3.2.37"
   },
   "devDependencies": {
