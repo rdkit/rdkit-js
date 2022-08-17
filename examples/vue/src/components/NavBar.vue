@@ -32,6 +32,15 @@
                 <div class="buttons">
                     <a data-tooltip="Go to main RDKit project" class="button has-tooltip-bottom is-white is-big" href="https://github.com/rdkit/rdkit">
                         <span class="icon">
+                            <img alt="RDKit Logo" src="/rdkit.png"/>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <div class="navbar-item">
+                <div class="buttons">
+                    <a data-tooltip="Go to RDKit.js" class="button has-tooltip-bottom is-white is-big" href="https://github.com/rdkit/rdkit-js">
+                        <span class="icon">
                             <i class="fab fa-github fa-2x"></i>
                         </span>
                     </a>
@@ -39,7 +48,7 @@
             </div>
             <div class="navbar-item">
                 <div class="buttons mr-6">
-                    <a data-tooltip="Go to NPM package" class="button has-tooltip-bottom is-white is-big">
+                    <a data-tooltip="Go to NPM package" class="button has-tooltip-bottom is-white is-big" href="https://www.npmjs.com/package/@rdkit/rdkit">
                         <span class="icon">
                             <i class="fab fa-npm fa-2x"></i>
                         </span>
