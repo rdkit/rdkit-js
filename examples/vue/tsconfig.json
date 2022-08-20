@@ -13,7 +13,8 @@
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
     "composite": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "types": ["vite/client"]
   },
   "include": [
     "vite.config.ts",
