@@ -19,12 +19,11 @@
 
 | Website             | URL                                                                           | Contributor(s)                                                                                |
 | :------------------ | :---------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------- |
-| JavaScript Examples | [rdkitjs.com](https://www.rdkitjs.com/)                                       | [@greglandrum](https://github.com/greglandrum), [@MichelML](https://github.com/MichelML)     |
+| JavaScript Examples | [rdkitjs.com](https://www.rdkitjs.com/)                                       | [@greglandrum](https://github.com/greglandrum), [@MichelML](https://github.com/MichelML)      |
 | React Examples      | [react.rdkitjs.com](https://react.rdkitjs.com/)                               | [@MichelML](https://github.com/MichelML)                                                      |
 | Vue Examples        | [vue.rdkitjs.com](https://vue.rdkitjs.com/)                                   | [@adam-of-barrot](https://github.com/adam-of-barot), [@MichelML](https://github.com/MichelML) |
 | API Docs            | [docs.rdkitjs.com](https://docs.rdkitjs.com/)                                 | [@adam-of-barrot](https://github.com/adam-of-barot), [@MichelML](https://github.com/MichelML) |
 | WASM Module         | [see source code](https://github.com/rdkit/rdkit/tree/master/Code/MinimalLib) | [@ptosco](https://github.com/ptosco)                                                          |
-
 
 ## Table of contents <!-- omit in toc -->
 
@@ -130,7 +129,7 @@ If you are using React.js, several additional examples using React.js are availa
 
 ### Using RDKit.js with Vue.js
 
-If you are using Vue.js, several additional examples using Vue.js are available at [vue.rdkitjs.com](https://vue.rdkitjs.com).  
+If you are using Vue.js, several additional examples using Vue.js are available at [vue.rdkitjs.com](https://vue.rdkitjs.com).
 
 [Source code](https://github.com/rdkit/rdkit-js/tree/master/examples/vue)
 
