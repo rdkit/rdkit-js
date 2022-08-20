@@ -66,6 +66,9 @@ export default class NavBar extends Component {
                 >
                   React
                 </a>
+                <a className="navbar-item" href="https://vue.rdkitjs.com">
+                  Vue
+                </a>
                 <hr className="navbar-divider" />
                 <a
                   className="navbar-item"
