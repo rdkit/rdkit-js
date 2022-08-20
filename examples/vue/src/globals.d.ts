@@ -1,7 +1,9 @@
 import { RDKitModule } from "../../../typescript";
 
-export {}
+export {};
 
 declare global {
-    interface Window { RDKit: RDKitModule; }
+  interface Window {
+    RDKit: RDKitModule;
+  }
 }
