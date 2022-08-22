@@ -22,7 +22,7 @@
 </div>
 <p align="center">
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <a href="https://www.rdkitjs.com/"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://github.com/rdkit/rdkit-js/issues">Report Bug</a>
