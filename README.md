@@ -1,4 +1,6 @@
 <br />
+<br />
+<br />
 <p align="center">
   <a href="https://github.com/rdkit/rdkit-js">
     <img src="rdkitjs_logo.png" alt="rdkit.js - Project Logo">
