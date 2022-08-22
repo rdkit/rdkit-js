@@ -7,6 +7,8 @@
   </a>
   </p>
 <br />
+<br />
+<br />
 
 # RDKit for JavaScript (Official) <!-- omit in toc -->
 
