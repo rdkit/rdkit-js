@@ -1,9 +1,13 @@
 <br />
+<br />
+<br />
 <p align="center">
   <a href="https://github.com/rdkit/rdkit-js">
     <img src="rdkitjs_logo.png" alt="rdkit.js - Project Logo">
   </a>
   </p>
+<br />
+<br />
 <br />
 
 # RDKit for JavaScript (Official) <!-- omit in toc -->
@@ -17,11 +21,13 @@
 [![NPM Yearly Downloads](https://img.shields.io/npm/dy/@rdkit/rdkit)](https://www.npmjs.com/package/@rdkit/rdkit)
 [![NPM Total Downloads](https://img.shields.io/npm/dt/@rdkit/rdkit?label=total%20downloads)](https://www.npmjs.com/package/@rdkit/rdkit)
 
-| Website             | URL                                             |
-| :------------------ | :---------------------------------------------- |
-| JavaScript Examples | [rdkitjs.com](https://www.rdkitjs.com/)         |
-| React.js Examples   | [react.rdkitjs.com](https://react.rdkitjs.com/) |
-| API Docs            | [docs.rdkitjs.com](https://docs.rdkitjs.com/)   |
+| Website             | URL                                                                           | Contributor(s)                                                                                |
+| :------------------ | :---------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------- |
+| JavaScript Examples | [rdkitjs.com](https://www.rdkitjs.com/)                                       | [@greglandrum](https://github.com/greglandrum), [@MichelML](https://github.com/MichelML)      |
+| React Examples      | [react.rdkitjs.com](https://react.rdkitjs.com/)                               | [@MichelML](https://github.com/MichelML)                                                      |
+| Vue Examples        | [vue.rdkitjs.com](https://vue.rdkitjs.com/)                                   | [@adam-of-barrot](https://github.com/adam-of-barot), [@MichelML](https://github.com/MichelML) |
+| API Docs            | [docs.rdkitjs.com](https://docs.rdkitjs.com/)                                 | [@adam-of-barrot](https://github.com/adam-of-barot), [@MichelML](https://github.com/MichelML) |
+| WASM Module         | [see source code](https://github.com/rdkit/rdkit/tree/master/Code/MinimalLib) | [@ptosco](https://github.com/ptosco)                                                          |
 
 ## Table of contents <!-- omit in toc -->
 
@@ -117,9 +123,19 @@ To use RDKit.js, load the javascript file and instantiate the wasm module inside
 
 It is recommended to go through all the JavaScript examples available on the official website [rdkitjs.com](https://rdkitjs.com).
 
+[Source code](https://github.com/rdkit/rdkit-js/tree/master/examples/javascript)
+
 ### Using RDKit.js with React.js
 
 If you are using React.js, several additional examples using React.js are available at [react.rdkitjs.com](https://react.rdkitjs.com).
+
+[Source code](https://github.com/rdkit/rdkit-js/tree/master/examples/react)
+
+### Using RDKit.js with Vue.js
+
+If you are using Vue.js, several additional examples using Vue.js are available at [vue.rdkitjs.com](https://vue.rdkitjs.com).
+
+[Source code](https://github.com/rdkit/rdkit-js/tree/master/examples/vue)
 
 ## Usage in TypeScript
 
