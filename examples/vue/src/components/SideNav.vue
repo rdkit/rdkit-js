@@ -79,7 +79,7 @@ const sections = [
         name: "JavaScript Examples"
       },
       {
-        id: "#other-examples-react-js",
+        id: "#other-examples-react",
         name: "React Examples"
       },
       {
