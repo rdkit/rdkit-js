@@ -1,16 +1,14 @@
 <br />
 <br />
-<br />
 <p align="center">
-  <a href="https://github.com/rdkit/rdkit-js">
+  <a href="https://www.rdkitjs.com/">
     <img src="rdkitjs_logo.png" alt="rdkit.js - Project Logo">
   </a>
   </p>
-<br />
-<br />
-<br />
-
-# RDKit for JavaScript (Official) <!-- omit in toc -->
+      <p align="center">
+    A powerful cheminformatics and molecule rendering toolbelt for JavaScript</p>
+    <br/>
+<div align="center">
 
 [![Build Status](https://dev.azure.com/rdkit-js/rdkit-js/_apis/build/status/rdkit.rdkit-js?branchName=master)](https://dev.azure.com/rdkit-js/rdkit-js/_build/latest?definitionId=1&branchName=master)
 [![License](https://img.shields.io/github/license/rdkit/rdkit)](https://github.com/rdkit/rdkit-js/blob/master/LICENSE)
@@ -21,6 +19,22 @@
 [![NPM Yearly Downloads](https://img.shields.io/npm/dy/@rdkit/rdkit)](https://www.npmjs.com/package/@rdkit/rdkit)
 [![NPM Total Downloads](https://img.shields.io/npm/dt/@rdkit/rdkit?label=total%20downloads)](https://www.npmjs.com/package/@rdkit/rdkit)
 
+</div>
+<p align="center">
+    <br />
+    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/rdkit/rdkit-js/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/rdkit/rdkit-js/issues">Request Feature</a>
+        ·
+        <a href="https://github.com/rdkit/rdkit-js/stargazers">Star Repository</a>
+  </p>
+<br />
+
+<p align="center">
+
 | Website             | URL                                                                           | Contributor(s)                                                                                |
 | :------------------ | :---------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------- |
 | JavaScript Examples | [rdkitjs.com](https://www.rdkitjs.com/)                                       | [@greglandrum](https://github.com/greglandrum), [@MichelML](https://github.com/MichelML)      |
@@ -28,6 +42,11 @@
 | Vue Examples        | [vue.rdkitjs.com](https://vue.rdkitjs.com/)                                   | [@adam-of-barrot](https://github.com/adam-of-barot), [@MichelML](https://github.com/MichelML) |
 | API Docs            | [docs.rdkitjs.com](https://docs.rdkitjs.com/)                                 | [@adam-of-barrot](https://github.com/adam-of-barot), [@MichelML](https://github.com/MichelML) |
 | WASM Module         | [see source code](https://github.com/rdkit/rdkit/tree/master/Code/MinimalLib) | [@ptosco](https://github.com/ptosco)                                                          |
+
+</p>
+<br/>
+<hr>
+<br/>
 
 ## Table of contents <!-- omit in toc -->
 
@@ -42,7 +61,9 @@
 
 ## Introduction
 
-RDKit.js is the JavaScript distribution of cheminformatics functionality from the [RDKit](https://github.com/rdkit/rdkit) - a C++ library for cheminformatics.
+RDKit.js is a powerful cheminformatics and molecule rendering toolbelt for JavaScript.
+
+It is the official JavaScript distribution of cheminformatics functionality from the [RDKit](https://github.com/rdkit/rdkit) - a C++ library for cheminformatics.
 
 The project is leveraging web assembly to rollout a subset of the RDKit functionality that is relevant in any javascript context. The WASM module bundled with this package is compiled directly from the RDKit source code.
 
