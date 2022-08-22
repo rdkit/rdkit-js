@@ -55,10 +55,6 @@
 
 </div>
 
-<br/>
-<hr>
-<br/>
-
 ## Table of contents <!-- omit in toc -->
 
 - [Introduction](#introduction)
