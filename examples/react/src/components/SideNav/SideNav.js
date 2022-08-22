@@ -72,6 +72,10 @@ export default class SideNav extends Component {
             name: "JavaScript Examples"
           },
           {
+            id: "#other-examples-vue",
+            name: "Vue Examples"
+          },
+          {
             id: "#other-examples-legacy",
             name: "Legacy Examples"
           }

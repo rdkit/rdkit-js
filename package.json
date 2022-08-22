@@ -8,10 +8,13 @@
   "private": true,
   "workspaces": [
     "examples/react",
-    "examples/javascript"
+    "examples/javascript",
+    "examples/vue"
   ],
   "scripts": {
     "build": "bash scripts/build_rdkitjs.sh",
+    "vue:start": "cd examples/vue && npm run dev",
+    "vue:build": "cd examples/vue && npm run build",
     "react:build": "cd examples/react && PUBLIC_URL='' npm run build",
     "react:start": "cd examples/react && npm run start",
     "javascript:start": "serve examples/javascript",
