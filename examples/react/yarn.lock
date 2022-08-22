@@ -2235,10 +2235,10 @@
     schema-utils "^3.0.0"
     source-map "^0.7.3"
 
-"@rdkit/rdkit@^2022.3.5-1.1.1":
-  version "2022.3.5-1.1.1"
-  resolved "https://registry.yarnpkg.com/@rdkit/rdkit/-/rdkit-2022.3.5-1.1.1.tgz#370775422000dc6a5a9c028c5254b9cb77415dda"
-  integrity sha512-UhcZ7PpiGZL+O/K29xmXvwLGVq33yANDAspsnkTPbT9Zvxpx73w2LQYPpejrWPNghu6JwHGitdNdw138GdmD4Q==
+"@rdkit/rdkit@^2022.3.5-1.2.1":
+  version "2022.3.5-1.2.1"
+  resolved "https://registry.yarnpkg.com/@rdkit/rdkit/-/rdkit-2022.3.5-1.2.1.tgz#8c78d04a2363c2a64e16814ac42cd8c5b7067033"
+  integrity sha512-KtNiKmwXDZQfy5gIGBanUorPrB0zFPK+v0XPsX689NsgDjlUoffg5Q44p+YLuFlUEjFP0tXxyu3lL/osPF8Wzw==
 
 "@rollup/plugin-babel@^5.2.0":
   version "5.3.1"
