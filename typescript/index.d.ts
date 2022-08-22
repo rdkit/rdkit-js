@@ -11,6 +11,12 @@
  */
 export interface JSMol {
 
+  /** Delete C++ mol objects manually from memory
+   * 
+   * See {@link https://emscripten.org/docs/porting/connecting_cpp_and_javascript/embind.html#memory-management | Emscripten docs} for more details
+   */
+  delete(): void
+
   // string representations
 
   /** Returns the SMILES string */
