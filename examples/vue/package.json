@@ -17,7 +17,7 @@
   "devDependencies": {
     "@types/debounce": "^1.2.1",
     "@vitejs/plugin-vue": "^3.0.0",
-    "typescript": "^4.6.4",
+    "typescript": "^4.8.2",
     "vite": "^3.0.0",
     "vue-tsc": "^0.40.4"
   }
