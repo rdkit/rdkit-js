@@ -1,5 +1,8 @@
 /**
- * Run this file to generate the code examples LUT.
+ * code-example-generator.js
+ * 
+ * This NodeJS file is designed to generate the code examples look up object.
+ * 
  */
 
 const fs = require('fs');

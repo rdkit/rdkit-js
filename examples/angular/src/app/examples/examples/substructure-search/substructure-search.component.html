@@ -1,7 +1,7 @@
 <div id="component-example-substruct-search" class="container">
     <section class="hero">
         <div class="hero-body">
-            <p class="title">Substructure match</p>
+            <h1 class="title">Substructure match</h1>
             <p class="subtitle">
                 You can perform client-side substructure match.
             </p>
@@ -10,11 +10,13 @@
     <div class="columns" style="margin: 12px 0">
         <div class="column">
             <div class="field">
+                <label for="substructure-search" class="label">Substructure</label>
                 <div class="control has-icons-left">
                     <input [(ngModel)]="currentQuery" 
                     class="input"  
                     (change)="this.handleSearchChange($event)" 
                     placeholder="Enter a SMARTS or SMILES string here..." 
+                    id="substructure-search"
                      />
                     <!-- {{this.renderInputIcon()}} -->
                 </div>
