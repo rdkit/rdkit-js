@@ -45,17 +45,19 @@ export class SvgRendererComponent implements OnChanges, AfterViewInit {
     if ((!!this.structure && !!this.drawingDetails)) {
       this.rdkit.getRDKit().pipe(first()).subscribe(
         rdkit => {
-
           const mol = rdkit.get_mol(this.structure)
-          if (!(!!mol && mol.is_valid())) {
-            return;
+          try {
+            if (!(!!mol && mol.is_valid())) {
+              return;
+            }
+
+            const svgData = mol.get_svg_with_highlights(JSON.stringify(this.drawingDetails))
+
+            this.safeSVG = this.domSanitizer.bypassSecurityTrustHtml(svgData)
+            this.cdr.detectChanges()
+          } finally {
+            mol.delete()
           }
-
-          const svgData = mol.get_svg_with_highlights(JSON.stringify(this.drawingDetails))
-
-          this.safeSVG = this.domSanitizer.bypassSecurityTrustHtml(svgData)
-          this.cdr.detectChanges()
-          mol.delete()
         }
       )
     }
