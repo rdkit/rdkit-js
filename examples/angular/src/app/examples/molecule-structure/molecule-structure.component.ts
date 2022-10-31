@@ -20,7 +20,7 @@ export class MoleculeStructureComponent implements OnChanges, AfterViewInit {
   @Input() refreshDelay?: number
   @Input() svgMode: boolean = false;
   @Input() molDrawOptions?: MolDrawOptions
-  
+
   drawDetails: any = {}
 
   rdkit$!: Observable<RDKitModule>
@@ -31,9 +31,9 @@ export class MoleculeStructureComponent implements OnChanges, AfterViewInit {
 
   refreshTimeout?: any
 
-  @ViewChild('molCanvas', {read: ElementRef}) canvasContainer!: ElementRef<HTMLCanvasElement>
+  @ViewChild('molCanvas', { read: ElementRef }) canvasContainer!: ElementRef<HTMLCanvasElement>
 
-  
+
   constructor(private rdkitService: RDKitLoaderService, private domSanitizer: DomSanitizer, private el: ElementRef) {
     this.loading = true;
     this.rdkit$ = this.rdkitService.getRDKit().pipe(shareReplay(1))
@@ -45,7 +45,7 @@ export class MoleculeStructureComponent implements OnChanges, AfterViewInit {
       error => {
         this.loading = false;
         console.error(error)
-        this.error = 'RDKit failed to load' 
+        this.error = 'RDKit failed to load'
       }
     )
   }
@@ -55,12 +55,12 @@ export class MoleculeStructureComponent implements OnChanges, AfterViewInit {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if(!Object.keys(changes).some(k=>changes[k].currentValue !== changes[k].previousValue)){
+    if (!Object.keys(changes).some(k => changes[k].currentValue !== changes[k].previousValue)) {
       return
     }
-    
-    if(this.refreshDelay){
-      if(this.refreshTimeout){
+
+    if (this.refreshDelay) {
+      if (this.refreshTimeout) {
         clearTimeout(this.refreshTimeout)
       }
       this.refreshTimeout = setTimeout(
@@ -72,48 +72,49 @@ export class MoleculeStructureComponent implements OnChanges, AfterViewInit {
     }
   }
 
-  renderStructure(){
-    this.error = null 
+  renderStructure() {
+    this.error = null
 
     this.rdkit$.pipe(first()).subscribe(
       rdkit => {
-        
         const mol = rdkit.get_mol(this.structure)
-        if(!(!!mol && mol.is_valid())){
-          this.error = 'Invalid structure'
-          return;
-        }
-        
-        let highlightDetails: any = {}
         const qmol = rdkit.get_qmol(this.substructure || '')
-
-        if(!!qmol && qmol.is_valid()){
-          const highlights: {atoms: any[], bonds: any[]}[] = JSON.parse(mol.get_substruct_matches(qmol))
-
-          highlightDetails = highlights
-
-          if(highlights?.length){
-            highlightDetails = highlights.reduce(
-              (acc, { atoms, bonds }) => ({
-                atoms: [...acc.atoms, ...atoms],
-                bonds: [...acc.bonds, ...bonds]
-              }),
-              { bonds: [], atoms: [] }
-            )
+        try {
+          if (!(!!mol && mol.is_valid())) {
+            this.error = 'Invalid structure'
+            return;
           }
-        }
 
-        this.drawDetails = {
-          width: this.width,
-          height: this.height,
-          bondLineWidth: 1,
-          addStereoAnnotation: true,
-          ...(this.molDrawOptions || {}),
-          ...highlightDetails
-        }
+          let highlightDetails: any = {}
 
-        mol.delete()
-        qmol.delete()
+          if (!!qmol && qmol.is_valid()) {
+            const highlights: { atoms: any[], bonds: any[] }[] = JSON.parse(mol.get_substruct_matches(qmol))
+
+            highlightDetails = highlights
+
+            if (highlights?.length) {
+              highlightDetails = highlights.reduce(
+                (acc, { atoms, bonds }) => ({
+                  atoms: [...acc.atoms, ...atoms],
+                  bonds: [...acc.bonds, ...bonds]
+                }),
+                { bonds: [], atoms: [] }
+              )
+            }
+          }
+
+          this.drawDetails = {
+            width: this.width,
+            height: this.height,
+            bondLineWidth: 1,
+            addStereoAnnotation: true,
+            ...(this.molDrawOptions || {}),
+            ...highlightDetails
+          }
+        } finally {
+          mol.delete()
+          qmol.delete()
+        }
       }
     )
   }

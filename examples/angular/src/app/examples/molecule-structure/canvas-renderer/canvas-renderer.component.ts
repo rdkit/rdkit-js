@@ -7,17 +7,17 @@ import { RDKitLoaderService } from '../../rdkit-loader/rdkit-loader.service';
   templateUrl: './canvas-renderer.component.html',
   styleUrls: ['./canvas-renderer.component.css']
 })
-export class CanvasRendererComponent implements OnChanges, AfterViewInit{
- 
+export class CanvasRendererComponent implements OnChanges, AfterViewInit {
+
   @Input() structure!: string;
   @Input() drawingDetails: any;
 
-  @ViewChild('molCanvas', {read: ElementRef}) canvasContainer!: ElementRef<HTMLCanvasElement>
+  @ViewChild('molCanvas', { read: ElementRef }) canvasContainer!: ElementRef<HTMLCanvasElement>
 
-  constructor(private rdkit:RDKitLoaderService) { }
+  constructor(private rdkit: RDKitLoaderService) { }
 
   ngAfterViewInit(): void {
-    this.renderMolecule()    
+    this.renderMolecule()
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -34,22 +34,26 @@ export class CanvasRendererComponent implements OnChanges, AfterViewInit{
     )
   }
 
-  renderMolecule(){
-    if(! (!!this.canvasContainer)){
+  renderMolecule() {
+    if (!(!!this.canvasContainer)) {
       return
     }
 
-    if((!!this.structure && !!this.drawingDetails)){
+    if ((!!this.structure && !!this.drawingDetails)) {
       this.rdkit.getRDKit().pipe(first()).subscribe(
         rdkit => {
           const mol = rdkit.get_mol(this.structure)
-          if(!(!!mol && mol.is_valid())){
-            return;
+          try {
+            if (!(!!mol && mol.is_valid())) {
+              return;
+            }
+
+            mol.draw_to_canvas_with_highlights(this.canvasContainer.nativeElement, JSON.stringify(this.drawingDetails))
+
+          } finally {
+            mol.delete()
           }
 
-          mol.draw_to_canvas_with_highlights(this.canvasContainer.nativeElement, JSON.stringify(this.drawingDetails))
-          mol.delete()
-          
         }
       )
     }

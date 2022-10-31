@@ -29,29 +29,29 @@ export class IsSubstructDirective implements AsyncValidator {
       map(
         rdkit => {
           const mol = rdkit.get_mol(this.refMol)
-          const isMol = !!mol && mol.is_valid()
-
-          if (!isMol) {
-            mol?.delete()
-            return null
-          }
-
           const qmol = rdkit.get_qmol(control.value)
-          const isQMol = !!qmol && qmol.is_valid()
+          try {
+            const isMol = !!mol && mol.is_valid()
 
-          if (!isQMol) {
+            if (!isMol) {
+              return null
+            }
+
+
+            const isQMol = !!qmol && qmol.is_valid()
+
+            if (!isQMol) {
+              return { isSubstruct: 'Input is not a valid Molecule' }
+            }
+
+            // Check if its not "{}". No need to parse as JSON this way
+            const rtn = mol.get_substruct_match(qmol).length > 2
+            return rtn ? null : { isSubstruct: 'Input is not a substructure of the given Molecule' }
+          } finally {
             mol?.delete()
             qmol?.delete()
-            return { isSubstruct: 'Input is not a valid Molecule'}
           }
 
-          // Check if its not "{}". No need to parse as JSON this way
-          const rtn = mol.get_substruct_match(qmol).length > 2
-
-          mol?.delete()
-          qmol?.delete()
-
-          return rtn ? null : { isSubstruct: 'Input is not a substructure of the given Molecule' }
         }
       )
     )

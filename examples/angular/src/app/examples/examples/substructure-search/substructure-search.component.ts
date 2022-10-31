@@ -14,7 +14,7 @@ export class SubstructureSearchComponent {
   currentQuery = ''
   currentSmilesList = SMILES_LIST
 
-  filterMask = Array.from(SMILES_LIST, (...arg)=>true)
+  filterMask = Array.from(SMILES_LIST, (...arg) => true)
 
   queryTimer: any
 
@@ -24,46 +24,53 @@ export class SubstructureSearchComponent {
 
   }
 
-  runSearch(search: any){
+  runSearch(search: any) {
     this.rdkitService.getRDKit().pipe(
       map(rdkit => {
-      if (!search) {
-        return Array.from(SMILES_LIST, (...arg)=>true)
-      }
-      const qmol = rdkit.get_qmol(search)
-      const rtn = SMILES_LIST.map(smiles => {
-        const mol = rdkit.get_mol(smiles)
-        const matches = mol.get_substruct_match(qmol)
-        mol.delete()
-        return matches.length > 2
-      })
+        if (!search) {
+          return Array.from(SMILES_LIST, (...arg) => true)
+        }
+        const qmol = rdkit.get_qmol(search)
+        try {
+          const rtn = SMILES_LIST.map(smiles => {
+            const mol = rdkit.get_mol(smiles)
+            try {
+              const matches = mol.get_substruct_match(qmol)
+              return matches.length > 2
+            } finally {
+              mol.delete()
+            }
 
-      qmol.delete()
-      return rtn
-    })).subscribe(
-    filteredSmiles => {
-      this.filterMask = filteredSmiles
+          })
+          return rtn
+        } finally {
+          qmol.delete()
+        }
 
-      this.loading = false;
-    }
-  )
+      })).subscribe(
+        filteredSmiles => {
+          this.filterMask = filteredSmiles
+
+          this.loading = false;
+        }
+      )
   }
 
   handleSearchChange(search: any) {
     // this.searchQueue.next(event)
     this.loading = true
-    if(this.queryTimer){
+    if (this.queryTimer) {
       clearTimeout(this.queryTimer)
     }
 
     this.queryTimer = setTimeout(
-      ()=>{
+      () => {
         this.runSearch(search.target.value)
       }, 500
     )
   }
 
-  searchTrackFn(i: any, smiles: any){
+  searchTrackFn(i: any, smiles: any) {
     return smiles
   }
 }
