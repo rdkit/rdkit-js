@@ -1,0 +1,17 @@
+<div id="component-example-substruct" class="container">
+    <section class="hero">
+        <div class="hero-body">
+            <p class="title">Multi-substructure Highlight</p>
+            <p class="subtitle">You can also highlight multiple substructures of molecules with SMILES, SMARTS and a combination of the two with dot notation.</p>
+        </div>
+    </section>
+    <div class="columns is-desktop">
+        <div class="column">
+            <app-molecule-structure [width]="350" [height]="300" [structure]="caffeine" [substructure]="caffeineSubstruct"></app-molecule-structure>
+        </div>
+        <div class="column">
+            <app-molecule-structure [width]="350" [height]="300" [structure]="aspirin" [substructure]="aspirinSubstruct"></app-molecule-structure>
+        </div>
+    </div>
+    <app-code-example [files]="['substructure-highlight.component.html','substructure-highlight.component.ts']"></app-code-example>
+</div>

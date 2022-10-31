@@ -1,0 +1,18 @@
+<div id="component-example-loader" class="container">
+    <section class="hero">
+        <div class="hero-body">
+            <h1 class="title">RDKit JS Loading Service</h1>
+            <p class="subtitle">
+                Alternatively to loading and binding to window, Angular users can make use of a service to load it, and provide from a single point.
+            </p>
+        </div>
+    </section>
+    <div>
+        <p style="padding-bottom: .5rem;"><b>RDKit Version:</b> {{rdkit?.version() || '-'}}</p>
+        <button class="button" (click)="clickToLoad()">
+            {{loading?'Loading...':'Click to get RDKit'}}
+        </button>
+        <br><br>
+        <app-code-example [files]="['rdkit-loader.service.ts','example-loader.component.ts','example-loader.component.html']"></app-code-example>
+    </div>
+</div>

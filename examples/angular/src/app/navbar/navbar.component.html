@@ -1,1 +1,75 @@
-<p>navbar works!</p>
+<nav class="navbar has-shadow" style="padding: 12px 0" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand" style="padding: 6px">
+        <a class="navbar-item" href="#/">
+            <img alt="logo" src="assets/rdkitjs_cropped_200.png" />
+        </a>
+
+        <a role="button" [ngClass]="{'navbar-burger':true, 'is-active': burgerState}" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" href="#/" (click)="toggleBurgerState()">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div id="navbarBasicExample" [ngClass]="{'navbar-menu':true, 'is-active': burgerState}">
+        <div class="navbar-start">
+            <a class="navbar-item" href="https://github.com/rdkit/rdkit-js/tree/master/examples/javascript">
+                Source Code
+            </a>
+            <a class="navbar-item" href="https://docs.rdkitjs.com/">
+                API Docs
+            </a>
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link" href="#/">
+                    Examples
+                </a>
+
+                <div class="navbar-dropdown">
+                    <a class="navbar-item" href="https://rdkitjs.com">
+                        JavaScript
+                    </a>
+                    <a class="navbar-item is-active" href="https://react.rdkitjs.com">
+                        React
+                    </a>
+                    <a class="navbar-item" href="https://vue.rdkitjs.com">
+                        Vue
+                    </a>
+                    <hr class="navbar-divider" />
+                    <a class="navbar-item" href="https://github.com/rdkit/rdkit-js#contributing">
+                        Contribute
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="buttons">
+                    <a data-tooltip="Go to main RDKit project" class="button has-tooltip-bottom is-white is-big" href="https://github.com/rdkit/rdkit">
+                        <span class="icon">
+                            <img alt="RDKit Logo" src="assets/rdkit.png" />
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <div class="navbar-item">
+                <div class="buttons">
+                    <a aria-label="Go to RDKit.js" class="button has-tooltip-bottom is-white is-big" href="https://github.com/rdkit/rdkit-js/tree/master/examples/react">
+                        <span class="icon">
+                            <i class="fab fa-github fa-2x"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <div class="navbar-item">
+                <div class="buttons mr-6">
+                    <a aria-label="Go to NPM package" class="button has-tooltip-bottom is-white is-big" href="https://www.npmjs.com/package/@rdkit/rdkit">
+                        <span class="icon">
+                            <i class="fab fa-npm fa-2x"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
