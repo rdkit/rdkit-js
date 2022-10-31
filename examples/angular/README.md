@@ -1,27 +1,54 @@
-# Angular
+# RDKit for JavaScript (Angular Examples)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.13.
+The following sub-repository is dedicated to showcasing a few examples using RDKit.js with [Angular](https://angular.io/).
 
-## Development server
+The examples are live at [angular.rdkitjs.com](https://angular.rdkitjs.com).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+If you didn't go through the plain javascript examples already, it is recommended to do so before going forward:
 
-## Code scaffolding
+- [JavaScript Examples](https://github.com/rdkit/rdkit-js/tree/master/examples/javascript)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Contributing
 
-## Build
+First, fork the RDKit.js GitHub repository and run the remaining instructions from your fork.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### Dependencies
 
-## Running unit tests
+- Git
+- Node >= 14.x
+- Yarn 1.22.19
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Installation and local development server
 
-## Running end-to-end tests
+Run the following command to install the RDKit.js project.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```bash
+git clone https://github.com/<name of your fork>/rdkit-js.git && \
+cd rdkit-js && \
+yarn install
+```
 
-## Further help
+Once the project is installed, run the following command at the root of the RDKit.js repository to start the development server:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+npm run angular:start
+```
+
+You are now ready to develop.
+
+### Contributing examples
+
+All angular.js examples are written in the `./examples/angular/examples` folder.
+
+To add a new example, make sure to respect the following checklist:
+
+1. [ ] Start a new git branch from the master branch and give it a meaningful name
+2. [ ] Use `ng g c examples/examples/<your-example-name>` to generate a new component for your example. Use kebab-case for naming files. You will see a folder generated with a ts file, a HTML file and a css file. 
+3. [ ] Add your component to [the main examples file](/examples/angular/src/app/examples/examples.component.html) under the appropriate section.
+4. [ ] Reference your example in SideBarComponent, again following the convention of other examples (this step will be removed in the future).
+5. [ ] Make sure your example respects the styling conventions using [Bulma](https://bulma.io/)
+6. [ ] Make sure you formatted your code with `npm run format`.
+
+Refer to any other Angular example in `examples/angular/examples` if you are unusure about any of the steps above.
+
+Once you're done, make a pull request to the master branch of the main RDKit.js repository, and wait for the review!

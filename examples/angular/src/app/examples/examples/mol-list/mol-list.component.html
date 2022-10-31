@@ -1,0 +1,17 @@
+<div id="component-example-list" class="container">
+    <section class="hero">
+        <div class="hero-body">
+            <h1 class="title">Overview</h1>
+            <p class="subtitle">
+                You can draw any molecule from SMILES dynamically with RDKit.js .
+            </p>
+        </div>
+    </section>
+    <div id="structure-list" class="columns is-desktop" style="margin: 12px; overflow-x: scroll">
+        <div *ngFor="let smiles of exampleSmiles" class="column">
+            <app-molecule-structure [structure]="smiles" [width]="200" [height]="200" [svgMode]="true"></app-molecule-structure>
+        </div>
+    </div>
+    <br>
+    <app-code-example [files]="['mol-list.component.ts','mol-list.component.html']"></app-code-example>
+</div>

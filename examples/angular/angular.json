@@ -2,11 +2,14 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "cli": {
-    "packageManager": "yarn"
+    "packageManager": "yarn",
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   },
   "newProjectRoot": "projects",
   "projects": {
-    "angular": {
+    "@rdkit/angular-example": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -24,8 +27,7 @@
         "@schematics/angular:interceptor": {
           "skipTests": true
         },
-        "@schematics/angular:module": {
-        },
+        "@schematics/angular:module": {},
         "@schematics/angular:pipe": {
           "skipTests": true
         },
@@ -50,12 +52,22 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "RDKit_minimal.wasm",
+                "input": "node_modules/@rdkit/rdkit/dist/",
+                "output": "/"
+              }
             ],
             "styles": [
-              "src/styles.css"
+              "node_modules/bulma/css/bulma.min.css",
+              "src/styles.css",
+              "node_modules/prismjs/themes/prism.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/@rdkit/rdkit/dist/RDKit_minimal.js",
+              "node_modules/prismjs/prism.js"
+            ],
             "vendorChunk": true,
             "extractLicenses": false,
             "buildOptimizer": false,
@@ -97,18 +109,27 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular:build"
+            "browserTarget": "@rdkit/angular-example:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular:build:production"
+              "browserTarget": "@rdkit/angular-example:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular:build"
+            "browserTarget": "@rdkit/angular-example:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
           }
         }
       }

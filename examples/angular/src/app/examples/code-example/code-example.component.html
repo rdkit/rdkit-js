@@ -1,0 +1,15 @@
+<div class="code-example-wrapper container" [ngClass]="{active: isOpen}">
+  <button class="code-example-header button is-primary is-light is-large is-fullwidth" (click)="isOpen = !isOpen">
+    See Code Example
+  </button>
+  <div class="code-example-body container" [ngClass]="{active: isOpen}" [@expandBody]="isOpen?'show':'hidden'">
+    <div class="tabs">
+      <ul>
+        <li *ngFor="let heading of files" [ngClass]="{'is-active': currentTab === heading}"><a (click)="currentTab = heading">{{heading}}</a></li>
+      </ul>
+    </div>
+    <div class="code-tab-body">
+      <pre><code>{{codeBodies[currentTab || '']}}</code></pre>
+    </div>
+  </div>
+</div>

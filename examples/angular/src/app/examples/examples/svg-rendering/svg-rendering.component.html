@@ -1,0 +1,17 @@
+<div id="component-example-svg" class="container">
+    <section class="hero">
+        <div class="hero-body">
+            <p class="title">SVG Rendering</p>
+            <p class="subtitle">You can render molecules using svg.</p>
+        </div>
+    </section>
+    <div class="columns is-desktop">
+        <div class="column">
+            <app-molecule-structure [width]="350" [height]="300" [structure]="caffeine" [svgMode]="true"></app-molecule-structure>
+        </div>
+        <div class="column">
+            <app-molecule-structure [width]="350" [height]="300" [structure]="aspirin" [svgMode]="true"></app-molecule-structure>
+        </div>
+    </div>
+    <app-code-example [files]="['svg-rendering.component.html','svg-rendering.component.ts']"></app-code-example>
+</div>

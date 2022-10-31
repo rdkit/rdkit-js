@@ -1,0 +1,4 @@
+.molecule-structure-svg svg rect:first-of-type {
+    fill: transparent !important;
+  }
+  
