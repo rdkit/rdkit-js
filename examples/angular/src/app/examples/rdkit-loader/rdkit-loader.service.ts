@@ -37,7 +37,7 @@ export class RDKitLoaderService implements OnDestroy {
       this.rdkitSubject$ = new ReplaySubject(1);
       window.initRDKitModule().then(
         (instance: RDKitModule) => {
-          instance.prefer_coordgen(true)
+          // instance.prefer_coordgen(true)
           this.rdkitSubject$.next(instance)
         },
         error => {
