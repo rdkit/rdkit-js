@@ -48,6 +48,7 @@ To add a new example, make sure to respect the following checklist:
 4. [ ] Reference your example in SideBarComponent, again following the convention of other examples (this step will be removed in the future).
 5. [ ] Make sure your example respects the styling conventions using [Bulma](https://bulma.io/)
 6. [ ] Make sure you formatted your code with `npm run format`.
+7. [ ] Make sure you have updated the code examples file with `npm run-script example-gen` within the Angular example directory.
 
 Refer to any other Angular example in `examples/angular/examples` if you are unusure about any of the steps above.
 
