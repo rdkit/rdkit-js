@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { first, shareReplay } from 'rxjs/operators';
 import { RDKitModule } from '../../../../../../typescript';
 import { RDKitLoaderService } from '../rdkit-loader/rdkit-loader.service';
-import { MolDrawOptions } from './mol-draw-options';
+import { MolDrawOptions, MolHighlight } from './mol-draw-options';
 
 @Component({
   selector: 'app-molecule-structure',
@@ -85,21 +85,23 @@ export class MoleculeStructureComponent implements OnChanges, AfterViewInit {
             return;
           }
 
-          let highlightDetails: any = {}
+          let highlightDetails: MolHighlight = { bonds: [], atoms: [] }
 
           if (!!qmol && qmol.is_valid()) {
-            const highlights: { atoms: any[], bonds: any[] }[] = JSON.parse(mol.get_substruct_matches(qmol))
-
-            highlightDetails = highlights
+            const highlights: any = JSON.parse(mol.get_substruct_matches(qmol))
+            console.log(highlights)
+            
 
             if (highlights?.length) {
-              highlightDetails = highlights.reduce(
+              highlightDetails = (highlights as MolHighlight[]).reduce(
                 (acc, { atoms, bonds }) => ({
                   atoms: [...acc.atoms, ...atoms],
                   bonds: [...acc.bonds, ...bonds]
                 }),
                 { bonds: [], atoms: [] }
               )
+            } else {
+              highlightDetails = highlights as MolHighlight
             }
           }
 

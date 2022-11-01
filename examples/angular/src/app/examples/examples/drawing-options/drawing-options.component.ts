@@ -67,10 +67,10 @@ export class DrawingOptionsComponent {
 
     return (
       rgb
-        .match('#([a-fA-f0-9]{2})([a-fA-f0-9]{2})([a-fA-f0-9]{2})')
-        ?.map((c: string) => Number.parseInt(c, 16) / 255.0)
-        ?.slice(1)
-    ) as DrawColour
+        .match('#([a-fA-f0-9]{2})([a-fA-f0-9]{2})([a-fA-f0-9]{2})')  // Regex to match the #RGB pattern
+        ?.map((c: string) => Number.parseInt(c, 16) / 255.0)         // Convert Hex to number and normalize
+        ?.slice(1)                                                   // Regex includes the entire match as the first in the list, so slice it
+    ) as DrawColour 
   }
 
 

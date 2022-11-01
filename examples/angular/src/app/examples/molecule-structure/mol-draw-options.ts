@@ -1,4 +1,8 @@
-
+/**
+ * RDKit colours are arrays of 4 numbers, in the range 0.0 => 1.0, in the order RGBA
+ * 
+ * RDKit accept
+ */
 export type DrawColour = [number, number, number, number];
 
 export interface MolDrawOptions {
@@ -40,4 +44,16 @@ export interface MolDrawOptions {
     scaleBondWidth?: boolean,
     scaleHighlightBondWidth?: boolean,
     symbolColour?: DrawColour,
+}
+
+export interface MolHighlight {
+    atoms: number[];
+    bonds: number[];
+}
+
+export interface DrawingParameters extends MolDrawOptions {
+    width?: number;
+    height?: number;
+    atoms?: number[];
+    bonds?: number[];
 }
