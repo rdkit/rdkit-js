@@ -16,7 +16,6 @@ export class DrawingOptionsComponent {
 
   constructor() {
 
-
     this.drawOptionsForm = new FormGroup({
       mainStructureInput: new FormControl("CSCC[C@H](NC(=O)[C@H](CC1=CNC2=C1C=CC=C2)NC(=O)CCNC(=O)OC(C)(C)C)C(=O)N[C@@H](CC(O)=O)C(=O)N[C@@H](CC1=CC=CC=C1)C(N)=O", [Validators.required]),
       substructureInput: new FormControl("[n,O]"),
@@ -64,14 +63,11 @@ export class DrawingOptionsComponent {
   }
 
   parseRGBToDrawColour(rgb: string): DrawColour {
-
     return (
       rgb
         .match('#([a-fA-f0-9]{2})([a-fA-f0-9]{2})([a-fA-f0-9]{2})')  // Regex to match the #RGB pattern
         ?.map((c: string) => Number.parseInt(c, 16) / 255.0)         // Convert Hex to number and normalize
-        ?.slice(1)                                                   // Regex includes the entire match as the first in the list, so slice it
+        ?.slice(1)                                                   // Regex includes the entire match as the first in the list, so ignore the first
     ) as DrawColour 
   }
-
-
 }
