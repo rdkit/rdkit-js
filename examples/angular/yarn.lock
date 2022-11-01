@@ -1546,10 +1546,10 @@
     read-package-json-fast "^2.0.3"
     which "^2.0.2"
 
-"@rdkit/rdkit@^2022.3.5-1.2.1":
-  version "2022.3.5-1.2.1"
-  resolved "https://registry.npmjs.org/@rdkit/rdkit/-/rdkit-2022.3.5-1.2.1.tgz"
-  integrity sha512-KtNiKmwXDZQfy5gIGBanUorPrB0zFPK+v0XPsX689NsgDjlUoffg5Q44p+YLuFlUEjFP0tXxyu3lL/osPF8Wzw==
+"@rdkit/rdkit@^2022.9.1-1.0.0":
+  version "2022.9.1-1.0.0"
+  resolved "https://registry.yarnpkg.com/@rdkit/rdkit/-/rdkit-2022.9.1-1.0.0.tgz#c97065b2d75bbee19d3d7e698f5814df458e845b"
+  integrity sha512-D6LA4gqZhMtXoP/M4+Jv5q0KO4anYk8sEDSMjoplcyK7U/qUfuDxyLkqP3GP5arJQNRfh0wHn7Nfhsh7CLVTXQ==
 
 "@schematics/angular@14.2.6":
   version "14.2.6"

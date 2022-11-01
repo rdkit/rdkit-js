@@ -18,7 +18,7 @@
     "@angular/platform-browser": "^14.2.6",
     "@angular/platform-browser-dynamic": "^14.2.6",
     "@angular/router": "^14.2.6",
-    "@rdkit/rdkit": "^2022.3.5-1.2.1",
+    "@rdkit/rdkit": "^2022.9.1-1.0.0",
     "bulma": "^0.9.4",
     "prismjs": "^1.29.0",
     "rxjs": "~6.6.0",
