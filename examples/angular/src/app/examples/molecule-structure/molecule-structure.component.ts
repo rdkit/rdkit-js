@@ -89,8 +89,6 @@ export class MoleculeStructureComponent implements OnChanges, AfterViewInit {
 
           if (!!qmol && qmol.is_valid()) {
             const highlights: any = JSON.parse(mol.get_substruct_matches(qmol))
-            console.log(highlights)
-            
 
             if (highlights?.length) {
               highlightDetails = (highlights as MolHighlight[]).reduce(

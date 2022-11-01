@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { debounceTime, map, mergeMap, tap } from 'rxjs/operators';
+import { Component } from '@angular/core';
+import { map } from 'rxjs/operators';
 import { RDKitLoaderService } from '../../rdkit-loader/rdkit-loader.service';
 import { SMILES_LIST } from '../common/smiles';
 
@@ -20,11 +19,10 @@ export class SubstructureSearchComponent {
 
   loading = false;
 
-  constructor(private rdkitService: RDKitLoaderService) {
-
-  }
+  constructor(private rdkitService: RDKitLoaderService) { }
 
   runSearch(search: any) {
+
     this.rdkitService.getRDKit().pipe(
       map(rdkit => {
         if (!search) {
@@ -57,7 +55,6 @@ export class SubstructureSearchComponent {
   }
 
   handleSearchChange(search: any) {
-    // this.searchQueue.next(event)
     this.loading = true
     if (this.queryTimer) {
       clearTimeout(this.queryTimer)
