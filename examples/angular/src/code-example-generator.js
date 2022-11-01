@@ -9,7 +9,7 @@ const fs = require('fs');
 const path = require('path')
 const dirpath = "./app/examples"
 const ignoreHeader = "// @ignore-example-code-gen"
-
+const codeExampleRegex = / *<app-code-example.*<\/app-code-example>\n/
 
 function getDirectoryAsObject(dir) {
   let obj = {}
@@ -21,7 +21,8 @@ function getDirectoryAsObject(dir) {
     } else {
       const fileText = fs.readFileSync(fullPath).toString()
       if (!fileText.startsWith(ignoreHeader)) {
-        obj[file] = fileText 
+        const cleanText = fileText.replace(codeExampleRegex, '')
+        obj[file] = cleanText
       }
     }
   });
