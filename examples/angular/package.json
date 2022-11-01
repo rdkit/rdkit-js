@@ -20,7 +20,6 @@
     "@angular/router": "^14.2.6",
     "@rdkit/rdkit": "^2022.9.1-1.0.0",
     "bulma": "^0.9.4",
-    "prismjs": "^1.29.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"
@@ -35,7 +34,6 @@
     "@angular/cli": "^14.2.6",
     "@angular/compiler-cli": "^14.2.6",
     "@types/node": "^12.11.1",
-    "@types/prismjs": "^1.26.0",
     "@typescript-eslint/eslint-plugin": "5.37.0",
     "@typescript-eslint/parser": "5.37.0",
     "eslint": "^8.23.1",
