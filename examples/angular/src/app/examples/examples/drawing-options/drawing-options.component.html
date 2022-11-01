@@ -31,7 +31,7 @@
                 <div class="field">
                     <label class="label" for="main-structure-input">Main Structure</label>
                     <div class="control">
-                        <input class="input" id="main-structure-input" formControlid="mainStructureInput" [class.is-danger]="drawOptionsForm.controls['mainStructureInput'].invalid" placeholder="Enter a SMILES string here..." isMol/>
+                        <input class="input" id="main-structure-input" formControlName="mainStructureInput" [class.is-danger]="drawOptionsForm.controls['mainStructureInput'].invalid" placeholder="Enter a SMILES string here..." isMol/>
                     </div>
                     <p class="help is-danger" *ngIf="drawOptionsForm.controls['mainStructureInput'].invalid">{{drawOptionsForm.controls['mainStructureInput'].errors?.isMol}}</p>
                 </div>
@@ -42,7 +42,7 @@
                 <div class="field">
                     <label class="label" for="substructure-input">Substructure</label>
                     <div class="control">
-                        <input class="input" id="substructure-input" formControlid="substructureInput" [class.is-danger]="drawOptionsForm.controls['substructureInput'].invalid" placeholder="Enter a SMILES or SMARTS string here..." 
+                        <input class="input" id="substructure-input" formControlName="substructureInput" [class.is-danger]="drawOptionsForm.controls['substructureInput'].invalid" placeholder="Enter a SMILES or SMARTS string here..." 
                         [isSubstruct]="enforceSubstruct.checked?drawOptionsForm.controls['mainStructureInput'].value:''"
                         />
                     </div>
@@ -55,7 +55,7 @@
                 <div class="field">
                     <label class="label" for="legend-text">Legend</label>
                     <div class="control">
-                        <input class="input" id="legend-text" formControlid="legend" [class.is-danger]="drawOptionsForm.controls['legend'].invalid" placeholder="Add a legend here..." />
+                        <input class="input" id="legend-text" formControlName="legend" [class.is-danger]="drawOptionsForm.controls['legend'].invalid" placeholder="Add a legend here..." />
                     </div>
                 </div>
             </div>
@@ -63,7 +63,7 @@
                 <div class="field">
                     <label class="label" for="legend-font-size">Legend font size</label>
                     <div class="control">
-                        <input class="input" id="legend-font-size" type="number" formControlid="legendFontSize" [class.is-danger]="drawOptionsForm.controls['legendFontSize'].invalid" placeholder="Add a font size..." />
+                        <input class="input" id="legend-font-size" type="number" formControlName="legendFontSize" [class.is-danger]="drawOptionsForm.controls['legendFontSize'].invalid" placeholder="Add a font size..." />
                     </div>
                 </div>
             </div>
@@ -73,7 +73,7 @@
                 <div class="field">
                     <label class="label" for="width">Width</label>
                     <div class="control">
-                        <input class="input" id="width" type="number" formControlid="width" [class.is-danger]="drawOptionsForm.controls['width'].invalid" placeholder="Width" />
+                        <input class="input" id="width" type="number" formControlName="width" [class.is-danger]="drawOptionsForm.controls['width'].invalid" placeholder="Width" />
                     </div>
                 </div>
             </div>
@@ -81,7 +81,7 @@
                 <div class="field">
                     <label class="label" for="height">Height</label>
                     <div class="control">
-                        <input class="input" id="height" type="number" formControlid="height" [class.is-danger]="drawOptionsForm.controls['height'].invalid" placeholder="Height" />
+                        <input class="input" id="height" type="number" formControlName="height" [class.is-danger]="drawOptionsForm.controls['height'].invalid" placeholder="Height" />
                     </div>
                 </div>
             </div>
@@ -89,7 +89,7 @@
                 <div class="field">
                     <label class="label" for="bond-line-width">Bond line width</label>
                     <div class="control">
-                        <input class="input" id="bond-line-width" type="number" formControlid="bondLineWidth" [class.is-danger]="drawOptionsForm.controls['bondLineWidth'].invalid" placeholder="Bond line width" />
+                        <input class="input" id="bond-line-width" type="number" formControlName="bondLineWidth" [class.is-danger]="drawOptionsForm.controls['bondLineWidth'].invalid" placeholder="Bond line width" />
                     </div>
                 </div>
             </div>
@@ -97,7 +97,7 @@
                 <div class="field">
                     <label class="label" for="annotation-font-scale">Annotation font scale</label>
                     <div class="control">
-                        <input class="input" id="annotation-font-scale" type="number" step="0.1" formControlid="annotationFontScale" [class.is-danger]="drawOptionsForm.controls['annotationFontScale'].invalid" placeholder="Annotation font scale" />
+                        <input class="input" id="annotation-font-scale" type="number" step="0.1" formControlName="annotationFontScale" [class.is-danger]="drawOptionsForm.controls['annotationFontScale'].invalid" placeholder="Annotation font scale" />
                     </div>
                 </div>
             </div>
@@ -105,7 +105,7 @@
                 <div class="field">
                     <label class="label" for="rotation">Rotate</label>
                     <div class="control">
-                        <input class="input" id="rotation" type="number" step="0.5" formControlid="rotate" [class.is-danger]="drawOptionsForm.controls['rotate'].invalid" placeholder="Rotate" />
+                        <input class="input" id="rotation" type="number" step="0.5" formControlName="rotate" [class.is-danger]="drawOptionsForm.controls['rotate'].invalid" placeholder="Rotate" />
                     </div>
                 </div>
             </div>
@@ -115,7 +115,7 @@
                 <div class="field">
                     <label class="label" for="stereo-annotation">Stereo-Annotation</label>
                     <div class="control">
-                        <input class="checkbox" id="stereo-annotation" type="checkbox" formControlid="addStereoAnnotation" [class.is-danger]="drawOptionsForm.controls['addStereoAnnotation'].invalid" placeholder="Stereo-Annotation" />
+                        <input class="checkbox" id="stereo-annotation" type="checkbox" formControlName="addStereoAnnotation" [class.is-danger]="drawOptionsForm.controls['addStereoAnnotation'].invalid" placeholder="Stereo-Annotation" />
                     </div>
                 </div>
             </div>
@@ -123,7 +123,7 @@
                 <div class="field">
                     <label class="label" for="show-atom-indices">Atom Indices</label>
                     <div class="control">
-                        <input class="checkbox" id="show-atom-indices" type="checkbox" formControlid="addAtomIndices" [class.is-danger]="drawOptionsForm.controls['addAtomIndices'].invalid" placeholder="Atom Indices" />
+                        <input class="checkbox" id="show-atom-indices" type="checkbox" formControlName="addAtomIndices" [class.is-danger]="drawOptionsForm.controls['addAtomIndices'].invalid" placeholder="Atom Indices" />
                     </div>
                 </div>
             </div>
@@ -131,7 +131,7 @@
                 <div class="field">
                     <label class="label" for="show-bond-indices">Bond Indices</label>
                     <div class="control">
-                        <input class="checkbox" id="show-bond-indices" type="checkbox" formControlid="addBondIndices" [class.is-danger]="drawOptionsForm.controls['addBondIndices'].invalid" placeholder="Bond Indices" />
+                        <input class="checkbox" id="show-bond-indices" type="checkbox" formControlName="addBondIndices" [class.is-danger]="drawOptionsForm.controls['addBondIndices'].invalid" placeholder="Bond Indices" />
                     </div>
                 </div>
             </div>
@@ -139,7 +139,7 @@
                 <div class="field">
                     <label class="label" for="show-explicit-methyl">Explicit Methyl</label>
                     <div class="control">
-                        <input class="checkbox" id="show-explicit-methyl" type="checkbox" formControlid="explicitMethyl" [class.is-danger]="drawOptionsForm.controls['explicitMethyl'].invalid" placeholder="Explicit Methyl" />
+                        <input class="checkbox" id="show-explicit-methyl" type="checkbox" formControlName="explicitMethyl" [class.is-danger]="drawOptionsForm.controls['explicitMethyl'].invalid" placeholder="Explicit Methyl" />
                     </div>
                 </div>
             </div>
@@ -147,7 +147,7 @@
                 <div class="field">
                     <label class="label" for="scale-bond-width">Scale bond width</label>
                     <div class="control">
-                        <input class="checkbox" id="scale-bond-width" type="checkbox" formControlid="scaleBondWidth" [class.is-danger]="drawOptionsForm.controls['scaleBondWidth'].invalid" placeholder="Scale bond width" />
+                        <input class="checkbox" id="scale-bond-width" type="checkbox" formControlName="scaleBondWidth" [class.is-danger]="drawOptionsForm.controls['scaleBondWidth'].invalid" placeholder="Scale bond width" />
                     </div>
                 </div>
             </div>
@@ -155,7 +155,7 @@
                 <div class="field">
                     <label class="label" for="center-mol">Center molecule</label>
                     <div class="control">
-                        <input class="checkbox" id="center-mol" type="checkbox" formControlid="centerMoleculesBeforeDrawing" [class.is-danger]="drawOptionsForm.controls['centerMoleculesBeforeDrawing'].invalid" placeholder="Center molecule" />
+                        <input class="checkbox" id="center-mol" type="checkbox" formControlName="centerMoleculesBeforeDrawing" [class.is-danger]="drawOptionsForm.controls['centerMoleculesBeforeDrawing'].invalid" placeholder="Center molecule" />
                     </div>
                 </div>
             </div>
@@ -163,7 +163,7 @@
                 <div class="field">
                     <label class="label" for="comic-mode">Comic mode</label>
                     <div class="control">
-                        <input class="checkbox" id="comic-mode" type="checkbox" formControlid="comicMode" [class.is-danger]="drawOptionsForm.controls['comicMode'].invalid" placeholder="Comic mode" />
+                        <input class="checkbox" id="comic-mode" type="checkbox" formControlName="comicMode" [class.is-danger]="drawOptionsForm.controls['comicMode'].invalid" placeholder="Comic mode" />
                     </div>
                 </div>
             </div>
@@ -173,7 +173,7 @@
                 <div class="field">
                     <label class="label" for="highlight-colour">Highlight Colour</label>
                     <div class="control">
-                        <input type="color" id="highlight-colour" class="input" formControlid="highlightColour" [class.is-danger]="drawOptionsForm.controls['highlightColour'].invalid" placeholder="Highlight Colour" />
+                        <input type="color" id="highlight-colour" class="input" formControlName="highlightColour" [class.is-danger]="drawOptionsForm.controls['highlightColour'].invalid" placeholder="Highlight Colour" />
                     </div>
                 </div>
             </div>
@@ -181,7 +181,7 @@
                 <div class="field">
                     <label class="label" for="background-colour">Background Colour (canvas only)</label>
                     <div class="control">
-                        <input type="color" id="background-colour" class="input" formControlid="backgroundColour" [class.is-danger]="drawOptionsForm.controls['backgroundColour'].invalid" placeholder="Background Colour" />
+                        <input type="color" id="background-colour" class="input" formControlName="backgroundColour" [class.is-danger]="drawOptionsForm.controls['backgroundColour'].invalid" placeholder="Background Colour" />
                     </div>
                 </div>
             </div>
@@ -189,7 +189,7 @@
                 <div class="field">
                     <label class="label" for="legend-colour">Legend Colour</label>
                     <div class="control">
-                        <input type="color" id="legend-colour" class="input" formControlid="legendColour" [class.is-danger]="drawOptionsForm.controls['legendColour'].invalid" placeholder="Legend Colour" />
+                        <input type="color" id="legend-colour" class="input" formControlName="legendColour" [class.is-danger]="drawOptionsForm.controls['legendColour'].invalid" placeholder="Legend Colour" />
                     </div>
                 </div>
             </div>
@@ -197,7 +197,7 @@
                 <div class="field">
                     <label class="label" for="symbol-colour">Symbol Colour</label>
                     <div class="control">
-                        <input type="color" id="symbol-colour" class="input" formControlid="symbolColour" [class.is-danger]="drawOptionsForm.controls['symbolColour'].invalid" placeholder="Symbol Colour" />
+                        <input type="color" id="symbol-colour" class="input" formControlName="symbolColour" [class.is-danger]="drawOptionsForm.controls['symbolColour'].invalid" placeholder="Symbol Colour" />
                     </div>
                 </div>
             </div>
@@ -209,7 +209,7 @@
                         SVG/Canvas Rendering (Uncheck for canvas rendering)
                     </label>
                     <div class="control">
-                        <input class="checkbox" id="svg-canvas-render-toggle" type="checkbox" formControlid="svgMode" [class.is-danger]="drawOptionsForm.controls['svgMode'].invalid" placeholder="SVG mode" />
+                        <input class="checkbox" id="svg-canvas-render-toggle" type="checkbox" formControlName="svgMode" [class.is-danger]="drawOptionsForm.controls['svgMode'].invalid" placeholder="SVG mode" />
                     </div>
                 </div>
             </div>
