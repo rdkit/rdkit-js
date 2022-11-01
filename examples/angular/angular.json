@@ -61,12 +61,10 @@
             ],
             "styles": [
               "node_modules/bulma/css/bulma.min.css",
-              "src/styles.css",
-              "node_modules/prismjs/themes/prism.css"
+              "src/styles.css"
             ],
             "scripts": [
-              "node_modules/@rdkit/rdkit/dist/RDKit_minimal.js",
-              "node_modules/prismjs/prism.js"
+              "node_modules/@rdkit/rdkit/dist/RDKit_minimal.js"
             ],
             "vendorChunk": true,
             "extractLicenses": false,
