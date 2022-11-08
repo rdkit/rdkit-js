@@ -1099,7 +1099,7 @@
     js-yaml "^3.13.1"
     resolve-from "^5.0.0"
 
-"@istanbuljs/schema@^0.1.2":
+"@istanbuljs/schema@^0.1.2", "@istanbuljs/schema@^0.1.3":
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/@istanbuljs/schema/-/schema-0.1.3.tgz#e45e384e4b8ec16bce2fd903af78450f6bf7ec98"
 
@@ -1314,7 +1314,7 @@
     "@jridgewell/sourcemap-codec" "^1.4.10"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@jridgewell/resolve-uri@^3.0.3":
+"@jridgewell/resolve-uri@3.1.0", "@jridgewell/resolve-uri@^3.0.3":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@jridgewell/resolve-uri/-/resolve-uri-3.1.0.tgz#2203b118c157721addfe69d47b70465463066d78"
   integrity sha512-F2msla3tad+Mfht5cJq7LSXcdudKTWCVYUgw6pLFOOHSTtZlj6SWNYAp+AhuqLmWdBO2X5hPrLcu8cVP8fy28w==
@@ -1336,10 +1336,18 @@
     "@jridgewell/gen-mapping" "^0.3.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@jridgewell/sourcemap-codec@^1.4.10":
+"@jridgewell/sourcemap-codec@1.4.14", "@jridgewell/sourcemap-codec@^1.4.10":
   version "1.4.14"
   resolved "https://registry.yarnpkg.com/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.4.14.tgz#add4c98d341472a289190b424efbdb096991bb24"
   integrity sha512-XPSJHWmi394fuUuzDnGz1wiKqWfo1yXecHQMRf2l6hztTO+nPru658AyDngaBe7isIxEkRsPR3FZh+s7iVa4Uw==
+
+"@jridgewell/trace-mapping@^0.3.12":
+  version "0.3.17"
+  resolved "https://registry.yarnpkg.com/@jridgewell/trace-mapping/-/trace-mapping-0.3.17.tgz#793041277af9073b0951a7fe0f0d8c4c98c36985"
+  integrity sha512-MCNzAp77qzKca9+W/+I0+sEpaUnZoeasnghNeVc41VZCEKaCH73Vq3BZZ/SzWIgrqE4H4ceI+p+b6C0mHf9T4g==
+  dependencies:
+    "@jridgewell/resolve-uri" "3.1.0"
+    "@jridgewell/sourcemap-codec" "1.4.14"
 
 "@jridgewell/trace-mapping@^0.3.7":
   version "0.3.13"
@@ -2812,6 +2820,24 @@ bytes@3.1.2:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/bytes/-/bytes-3.1.2.tgz#8b0beeb98605adf1b128fa4386403c009e0221a5"
 
+c8@7.11.3:
+  version "7.11.3"
+  resolved "https://registry.yarnpkg.com/c8/-/c8-7.11.3.tgz#88c8459c1952ed4f701b619493c9ae732b057163"
+  integrity sha512-6YBmsaNmqRm9OS3ZbIiL2EZgi1+Xc4O24jL3vMYGE6idixYuGdy76rIfIdltSKDj9DpLNrcXSonUTR1miBD0wA==
+  dependencies:
+    "@bcoe/v8-coverage" "^0.2.3"
+    "@istanbuljs/schema" "^0.1.3"
+    find-up "^5.0.0"
+    foreground-child "^2.0.0"
+    istanbul-lib-coverage "^3.2.0"
+    istanbul-lib-report "^3.0.0"
+    istanbul-reports "^3.1.4"
+    rimraf "^3.0.2"
+    test-exclude "^6.0.0"
+    v8-to-istanbul "^9.0.0"
+    yargs "^16.2.0"
+    yargs-parser "^20.2.9"
+
 call-bind@^1.0.0, call-bind@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/call-bind/-/call-bind-1.0.2.tgz#b1d4e89e688119c3c9a903ad30abb2f6a919be3c"
@@ -3157,7 +3183,7 @@ cosmiconfig@^7.0.0:
     path-type "^4.0.0"
     yaml "^1.10.0"
 
-cross-spawn@^7.0.2, cross-spawn@^7.0.3:
+cross-spawn@^7.0.0, cross-spawn@^7.0.2, cross-spawn@^7.0.3:
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-7.0.3.tgz#f73a85b9d5d41d045551c177e2882d4ac85728a6"
   dependencies:
@@ -4315,6 +4341,14 @@ follow-redirects@^1.0.0:
   version "1.15.1"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.1.tgz#0ca6a452306c9b276e4d3127483e29575e207ad5"
 
+foreground-child@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/foreground-child/-/foreground-child-2.0.0.tgz#71b32800c9f15aa8f2f83f4a6bd9bff35d861a53"
+  integrity sha512-dCIq9FpEcyQyXKCkyzmlPTFNgrCzPudOe+mhvJU5zAtlBnGVy2yKxtfsxK2tQBThwq225jcvBjpw1Gr40uzZCA==
+  dependencies:
+    cross-spawn "^7.0.0"
+    signal-exit "^3.0.2"
+
 fork-ts-checker-webpack-plugin@^6.5.0:
   version "6.5.2"
   resolved "https://registry.yarnpkg.com/fork-ts-checker-webpack-plugin/-/fork-ts-checker-webpack-plugin-6.5.2.tgz#4f67183f2f9eb8ba7df7177ce3cf3e75cdafb340"
@@ -5009,6 +5043,14 @@ istanbul-lib-source-maps@^4.0.0:
 istanbul-reports@^3.1.3:
   version "3.1.4"
   resolved "https://registry.yarnpkg.com/istanbul-reports/-/istanbul-reports-3.1.4.tgz#1b6f068ecbc6c331040aab5741991273e609e40c"
+  dependencies:
+    html-escaper "^2.0.0"
+    istanbul-lib-report "^3.0.0"
+
+istanbul-reports@^3.1.4:
+  version "3.1.5"
+  resolved "https://registry.yarnpkg.com/istanbul-reports/-/istanbul-reports-3.1.5.tgz#cc9a6ab25cb25659810e4785ed9d9fb742578bae"
+  integrity sha512-nUsEMa9pBt/NOHqbcbeJEgqIlY/K7rVWUX6Lql2orY5e9roQOthbR3vtY4zzf2orPELg80fnxxk9zUyPlgwD1w==
   dependencies:
     html-escaper "^2.0.0"
     istanbul-lib-report "^3.0.0"
@@ -5855,7 +5897,7 @@ minimatch@3.0.4:
   dependencies:
     brace-expansion "^1.1.7"
 
-minimatch@^3.0.4, minimatch@^3.1.1, minimatch@^3.1.2:
+minimatch@3.1.2, minimatch@^3.0.4, minimatch@^3.1.1, minimatch@^3.1.2:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-3.1.2.tgz#19cd194bfd3e428f049a70817c038d89ab4be35b"
   dependencies:
@@ -7410,16 +7452,16 @@ serialize-javascript@^6.0.0:
   dependencies:
     randombytes "^2.1.0"
 
-serve-handler@6.1.3:
-  version "6.1.3"
-  resolved "https://registry.yarnpkg.com/serve-handler/-/serve-handler-6.1.3.tgz#1bf8c5ae138712af55c758477533b9117f6435e8"
-  integrity sha512-FosMqFBNrLyeiIDvP1zgO6YoTzFYHxLDEIavhlmQ+knB2Z7l1t+kGLHkZIDN7UVWqQAmKI3D20A6F6jo3nDd4w==
+serve-handler@6.1.5:
+  version "6.1.5"
+  resolved "https://registry.yarnpkg.com/serve-handler/-/serve-handler-6.1.5.tgz#a4a0964f5c55c7e37a02a633232b6f0d6f068375"
+  integrity sha512-ijPFle6Hwe8zfmBxJdE+5fta53fdIY0lHISJvuikXB3VYFafRjMRpOffSPvCYsbKyBA7pvy9oYr/BT1O3EArlg==
   dependencies:
     bytes "3.0.0"
     content-disposition "0.5.2"
     fast-url-parser "1.1.3"
     mime-types "2.1.18"
-    minimatch "3.0.4"
+    minimatch "3.1.2"
     path-is-inside "1.0.2"
     path-to-regexp "2.2.1"
     range-parser "1.2.0"
@@ -7445,21 +7487,22 @@ serve-static@1.15.0:
     parseurl "~1.3.3"
     send "0.18.0"
 
-serve@^14.0.1:
-  version "14.0.1"
-  resolved "https://registry.yarnpkg.com/serve/-/serve-14.0.1.tgz#5b6ffc17e18e1a8e963cc392958d7df13e1ef9fd"
-  integrity sha512-tNGwxl27FwA8TbmMQqN0jTaSx8/trL532qZsJHX1VdiEIjjtMJHCs7AFS6OvtC7cTHOvmjXqt5yczejU6CV2Xg==
+serve@^14.1.0:
+  version "14.1.0"
+  resolved "https://registry.yarnpkg.com/serve/-/serve-14.1.0.tgz#7abd9fac1a198a011938482eca0ffcc37474e9fa"
+  integrity sha512-eTvzLX/SbNRUtM20fOAW4y6z8/wICx2/ZiEY4ynXDxH/RPgThz3RAU6NmTu3+iQNrRHAFTrNM7bBTMDn40NJDA==
   dependencies:
     "@zeit/schemas" "2.21.0"
     ajv "8.11.0"
     arg "5.0.2"
     boxen "7.0.0"
+    c8 "7.11.3"
     chalk "5.0.1"
     chalk-template "0.4.0"
     clipboardy "3.0.0"
     compression "1.7.4"
     is-port-reachable "4.0.0"
-    serve-handler "6.1.3"
+    serve-handler "6.1.5"
     update-check "1.5.4"
 
 setprototypeof@1.1.0:
@@ -8156,6 +8199,15 @@ v8-to-istanbul@^8.1.0:
     convert-source-map "^1.6.0"
     source-map "^0.7.3"
 
+v8-to-istanbul@^9.0.0:
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/v8-to-istanbul/-/v8-to-istanbul-9.0.1.tgz#b6f994b0b5d4ef255e17a0d17dc444a9f5132fa4"
+  integrity sha512-74Y4LqY74kLE6IFyIjPtkSTWzUZmj8tdHT9Ii/26dvQ6K9Dl2NbEfj0XgU2sHCtKgt5VupqhlO/5aWuqS+IY1w==
+  dependencies:
+    "@jridgewell/trace-mapping" "^0.3.12"
+    "@types/istanbul-lib-coverage" "^2.0.1"
+    convert-source-map "^1.6.0"
+
 vary@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
@@ -8644,7 +8696,7 @@ yaml@^1.10.0, yaml@^1.10.2, yaml@^1.7.2:
   version "1.10.2"
   resolved "https://registry.yarnpkg.com/yaml/-/yaml-1.10.2.tgz#2301c5ffbf12b467de8da2333a459e29e7920e4b"
 
-yargs-parser@^20.2.2:
+yargs-parser@^20.2.2, yargs-parser@^20.2.9:
   version "20.2.9"
   resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-20.2.9.tgz#2eb7dc3b0289718fc295f362753845c41a0c94ee"
 
