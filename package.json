@@ -23,7 +23,7 @@
     "javascript:start": "serve examples/javascript",
     "docs:build": "typedoc --out typescript/docs --readme none typescript/index.d.ts",
     "docs:serve": "npm run docs:build && serve typescript/docs",
-    "format": "prettier --trailing-comma none --write examples *.md !examples/*/build typescript/**/*",
+    "format": "prettier --trailing-comma none --write examples *.md typescript/**/* !examples/angular/src/app/examples/code-examples.ts !examples/*/build !examples/*/dist !examples/*/.angular",
     "test": "echo \"Tests are run during the docker build. See https://github.com/rdkit/rdkit/blob/master/docker/Dockerfile .\" && exit 1"
   },
   "repository": {

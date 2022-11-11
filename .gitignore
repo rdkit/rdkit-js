@@ -200,3 +200,7 @@ sketch
 
 # typescript docs
 typescript/docs
+
+# Angular
+examples/angular/.angular/cache
+examples/angular/dist

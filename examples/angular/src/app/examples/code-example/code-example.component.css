@@ -1,16 +1,16 @@
 .code-example-wrapper .code-example-body {
-    display: flex;
-    overflow: hidden;
-    width: 100%;
-    flex-direction: column;
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  flex-direction: column;
 }
 
 .code-example-body pre {
-    margin: 0;
-    width: 100%
+  margin: 0;
+  width: 100%;
 }
 
 .code-example-wrapper.active .code-example-header {
-    border-bottom-left-radius: 0 !important;
-    border-bottom-right-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
 }

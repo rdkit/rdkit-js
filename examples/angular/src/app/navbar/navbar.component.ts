@@ -1,18 +1,16 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  selector: "app-navbar",
+  templateUrl: "./navbar.component.html",
+  styleUrls: ["./navbar.component.css"]
 })
 export class NavbarComponent {
-
   burgerState = false;
 
-  constructor() { }
+  constructor() {}
 
-  toggleBurgerState(){
-    this.burgerState = !this.burgerState
+  toggleBurgerState() {
+    this.burgerState = !this.burgerState;
   }
-
 }

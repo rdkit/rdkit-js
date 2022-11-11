@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-multi-substructure-highlight',
-  templateUrl: './multi-substructure-highlight.component.html',
-  styleUrls: ['./multi-substructure-highlight.component.css']
+  selector: "app-multi-substructure-highlight",
+  templateUrl: "./multi-substructure-highlight.component.html",
+  styleUrls: ["./multi-substructure-highlight.component.css"]
 })
 export class MultiSubstructureHighlightComponent {
   caffeine = "CN1C=NC2=C1C(=O)N(C(=O)N2C)";

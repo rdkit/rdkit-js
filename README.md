@@ -53,7 +53,7 @@
 
 | ![space-1.jpg](examples.png)  |
 | :---------------------------: |
-| *Molecule Rendering Examples* |
+| _Molecule Rendering Examples_ |
 
 </div>
 

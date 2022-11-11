@@ -1,17 +1,32 @@
 <div id="component-example-canvas" class="container">
-    <section class="hero">
-        <div class="hero-body">
-            <h1 class="title">Canvas Rendering</h1>
-            <p class="subtitle">You can also render molecules using the HTML Canvas API.</p>
-        </div>
-    </section>
-    <div class="columns is-desktop">
-        <div class="column">
-            <app-molecule-structure [width]="350" [height]="300" [structure]="caffeine"></app-molecule-structure>
-        </div>
-        <div class="column">
-            <app-molecule-structure [width]="350" [height]="300" [structure]="aspirin"></app-molecule-structure>
-        </div>
+  <section class="hero">
+    <div class="hero-body">
+      <h1 class="title">Canvas Rendering</h1>
+      <p class="subtitle">
+        You can also render molecules using the HTML Canvas API.
+      </p>
     </div>
-    <app-code-example [files]="['canvas-rendering.component.html','canvas-rendering.component.ts']"></app-code-example>
+  </section>
+  <div class="columns is-desktop">
+    <div class="column">
+      <app-molecule-structure
+        [width]="350"
+        [height]="300"
+        [structure]="caffeine"
+      ></app-molecule-structure>
+    </div>
+    <div class="column">
+      <app-molecule-structure
+        [width]="350"
+        [height]="300"
+        [structure]="aspirin"
+      ></app-molecule-structure>
+    </div>
+  </div>
+  <app-code-example
+    [files]="[
+      'canvas-rendering.component.html',
+      'canvas-rendering.component.ts'
+    ]"
+  ></app-code-example>
 </div>
