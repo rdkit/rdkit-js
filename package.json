@@ -9,18 +9,21 @@
   "workspaces": [
     "examples/react",
     "examples/javascript",
-    "examples/vue"
+    "examples/vue",
+    "examples/angular"
   ],
   "scripts": {
     "build": "bash scripts/build_rdkitjs.sh",
     "vue:start": "cd examples/vue && npm run dev",
     "vue:build": "cd examples/vue && npm run build",
+    "angular:start": "cd examples/angular && npm run start",
+    "angular:build": "cd examples/angular && npm run build",
     "react:build": "cd examples/react && PUBLIC_URL='' npm run build",
     "react:start": "cd examples/react && npm run start",
     "javascript:start": "serve examples/javascript",
     "docs:build": "typedoc --out typescript/docs --readme none typescript/index.d.ts",
     "docs:serve": "npm run docs:build && serve typescript/docs",
-    "format": "prettier --trailing-comma none --write examples *.md !examples/*/build typescript/**/*",
+    "format": "prettier --trailing-comma none --write examples *.md typescript/**/* !examples/angular/src/app/examples/code-examples.ts !examples/*/build !examples/*/dist !examples/*/.angular",
     "test": "echo \"Tests are run during the docker build. See https://github.com/rdkit/rdkit/blob/master/docker/Dockerfile .\" && exit 1"
   },
   "repository": {
