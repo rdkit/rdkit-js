@@ -43,7 +43,6 @@
 | Angular Examples    | [angular.rdkitjs.com](https://angular.rdkitjs.com/)                           | [@Phil-DS](https://github.com/Phil-DS)                                                        |
 | API Docs            | [docs.rdkitjs.com](https://docs.rdkitjs.com/)                                 | [@adam-of-barrot](https://github.com/adam-of-barot), [@MichelML](https://github.com/MichelML) |
 | WASM Module         | [see source code](https://github.com/rdkit/rdkit/tree/master/Code/MinimalLib) | [@ptosco](https://github.com/ptosco)                                                          |
-|                     |
 
 </div>
 
