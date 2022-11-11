@@ -3,9 +3,7 @@
   "version": 1,
   "cli": {
     "packageManager": "yarn",
-    "schematicCollections": [
-      "@angular-eslint/schematics"
-    ],
+    "schematicCollections": ["@angular-eslint/schematics"],
     "analytics": false
   },
   "newProjectRoot": "projects",
@@ -64,9 +62,7 @@
               "node_modules/bulma/css/bulma.min.css",
               "src/styles.css"
             ],
-            "scripts": [
-              "node_modules/@rdkit/rdkit/dist/RDKit_minimal.js"
-            ],
+            "scripts": ["node_modules/@rdkit/rdkit/dist/RDKit_minimal.js"],
             "vendorChunk": true,
             "extractLicenses": false,
             "buildOptimizer": false,
@@ -125,10 +121,7 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "src/**/*.ts",
-              "src/**/*.html"
-            ]
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
           }
         }
       }

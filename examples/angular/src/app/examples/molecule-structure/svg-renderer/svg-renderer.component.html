@@ -1,1 +1,10 @@
-<div #molSVG class="molecule-structure-svg" [title]="this.structure" [ngStyle]="{width: drawingDetails.width+'px', height: drawingDetails.height+'px'}" [innerHtml]="safeSVG"></div>
+<div
+  #molSVG
+  class="molecule-structure-svg"
+  [title]="this.structure"
+  [ngStyle]="{
+    width: drawingDetails.width + 'px',
+    height: drawingDetails.height + 'px'
+  }"
+  [innerHtml]="safeSVG"
+></div>

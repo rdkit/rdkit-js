@@ -1,14 +1,26 @@
-<div class="molecule-structure-wrapper" [ngStyle]="{width: width+'px', height: height+'px'}">
-    <span *ngIf="loading; else loadedView" class="loading-icon"><i class="fas fa-spin fa-2x fa-circle-notch"></i></span>
-    <ng-template #loadedView>
-        <span *ngIf="error; else molView">
-            {{error}}
-        </span>
-        <ng-template #molView>
-            <app-svg-renderer *ngIf="svgMode; else canvasMode" [structure]="structure" [drawingDetails]="drawDetails"></app-svg-renderer>
-            <ng-template #canvasMode>
-                <app-canvas-renderer [structure]="structure" [drawingDetails]="drawDetails"></app-canvas-renderer>
-            </ng-template>
-        </ng-template>
+<div
+  class="molecule-structure-wrapper"
+  [ngStyle]="{ width: width + 'px', height: height + 'px' }"
+>
+  <span *ngIf="loading; else loadedView" class="loading-icon"
+    ><i class="fas fa-spin fa-2x fa-circle-notch"></i
+  ></span>
+  <ng-template #loadedView>
+    <span *ngIf="error; else molView">
+      {{ error }}
+    </span>
+    <ng-template #molView>
+      <app-svg-renderer
+        *ngIf="svgMode; else canvasMode"
+        [structure]="structure"
+        [drawingDetails]="drawDetails"
+      ></app-svg-renderer>
+      <ng-template #canvasMode>
+        <app-canvas-renderer
+          [structure]="structure"
+          [drawingDetails]="drawDetails"
+        ></app-canvas-renderer>
+      </ng-template>
     </ng-template>
+  </ng-template>
 </div>

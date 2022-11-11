@@ -1,43 +1,55 @@
 <div id="component-example-substruct-search" class="container">
-    <section class="hero">
-        <div class="hero-body">
-            <h1 class="title">Substructure match</h1>
-            <p class="subtitle">
-                You can perform client-side substructure match.
-            </p>
-        </div>
-    </section>
-    <div class="columns" style="margin: 12px 0">
-        <div class="column">
-            <div class="field">
-                <label for="substructure-search" class="label">Substructure</label>
-                <div class="control has-icons-left">
-                    <input [(ngModel)]="currentQuery" class="input" (input)="this.handleSearchChange($event)" placeholder="Enter a SMARTS or SMILES string here..." id="substructure-search" />
-                    <span class="icon is-small is-left">
-                        <span *ngIf="loading; else searchIcon">
-                        <i  class="fas fa-circle-notch fa-spin"></i>
-                    </span>
-                        <ng-template #searchIcon>
-                            <span>
-                                <i class="fas fa-search"></i>
-                            </span>
-                        </ng-template>
-                    </span>
-                </div>
-            </div>
-        </div>
+  <section class="hero">
+    <div class="hero-body">
+      <h1 class="title">Substructure match</h1>
+      <p class="subtitle">You can perform client-side substructure match.</p>
     </div>
-    <div *ngIf="!currentSmilesList; else smilesList">
-        No molecules were found with the given input
-    </div>
-    <ng-template #smilesList>
-        <div class="columns is-multiline" style="margin: 12px">
-            <ng-container *ngFor="let struct of currentSmilesList; let i=index">
-                <div class="column" *ngIf="filterMask[i]">
-                    <app-molecule-structure [width]="200" [height]="200" [svgMode]="true" [structure]="struct" [substructure]="currentQuery"></app-molecule-structure>
-                </div>
-            </ng-container>
+  </section>
+  <div class="columns" style="margin: 12px 0">
+    <div class="column">
+      <div class="field">
+        <label for="substructure-search" class="label">Substructure</label>
+        <div class="control has-icons-left">
+          <input
+            [(ngModel)]="currentQuery"
+            class="input"
+            (input)="this.handleSearchChange($event)"
+            placeholder="Enter a SMARTS or SMILES string here..."
+            id="substructure-search"
+          />
+          <span class="icon is-small is-left">
+            <span *ngIf="loading; else searchIcon">
+              <i class="fas fa-circle-notch fa-spin"></i>
+            </span>
+            <ng-template #searchIcon>
+              <span>
+                <i class="fas fa-search"></i>
+              </span>
+            </ng-template>
+          </span>
         </div>
-    </ng-template>
-    <app-code-example [files]="['is-mol.directive.ts','is-substruct.directive.ts']"></app-code-example>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!currentSmilesList; else smilesList">
+    No molecules were found with the given input
+  </div>
+  <ng-template #smilesList>
+    <div class="columns is-multiline" style="margin: 12px">
+      <ng-container *ngFor="let struct of currentSmilesList; let i = index">
+        <div class="column" *ngIf="filterMask[i]">
+          <app-molecule-structure
+            [width]="200"
+            [height]="200"
+            [svgMode]="true"
+            [structure]="struct"
+            [substructure]="currentQuery"
+          ></app-molecule-structure>
+        </div>
+      </ng-container>
+    </div>
+  </ng-template>
+  <app-code-example
+    [files]="['is-mol.directive.ts', 'is-substruct.directive.ts']"
+  ></app-code-example>
 </div>

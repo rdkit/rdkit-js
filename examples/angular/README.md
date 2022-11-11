@@ -43,7 +43,7 @@ All angular.js examples are written in the `./examples/angular/examples` folder.
 To add a new example, make sure to respect the following checklist:
 
 1. [ ] Start a new git branch from the master branch and give it a meaningful name
-2. [ ] Use `ng g c examples/examples/<your-example-name>` to generate a new component for your example. Use kebab-case for naming files. You will see a folder generated with a ts file, a HTML file and a css file. 
+2. [ ] Use `ng g c examples/examples/<your-example-name>` to generate a new component for your example. Use kebab-case for naming files. You will see a folder generated with a ts file, a HTML file and a css file.
 3. [ ] Add your component to [the main examples file](/examples/angular/src/app/examples/examples.component.html) under the appropriate section.
 4. [ ] Reference your example in SideBarComponent, again following the convention of other examples (this step will be removed in the future).
 5. [ ] Make sure your example respects the styling conventions using [Bulma](https://bulma.io/)

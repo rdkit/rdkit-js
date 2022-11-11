@@ -1,4 +1,14 @@
-
-<div class="molecule-canvas-container" [ngStyle]="{width: drawingDetails.width+'px', height: drawingDetails.height+'px'}" >
-    <canvas #molCanvas [title]="this.structure" [width]="drawingDetails.width" [height]="drawingDetails.height" ></canvas>
+<div
+  class="molecule-canvas-container"
+  [ngStyle]="{
+    width: drawingDetails.width + 'px',
+    height: drawingDetails.height + 'px'
+  }"
+>
+  <canvas
+    #molCanvas
+    [title]="this.structure"
+    [width]="drawingDetails.width"
+    [height]="drawingDetails.height"
+  ></canvas>
 </div>
