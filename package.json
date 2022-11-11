@@ -1,6 +1,6 @@
 {
   "name": "@rdkit/rdkit",
-  "version": "2022.3.5-1.2.1",
+  "version": "2022.9.1-1.0.0",
   "description": "JavaScript distribution of cheminformatics functionality from the RDKit - a C++ library for cheminformatics.",
   "main": "dist/RDKit_minimal.js",
   "types": "dist/index.d.ts",
@@ -61,8 +61,8 @@
   ],
   "devDependencies": {
     "prettier": "^2.7.1",
-    "serve": "^14.0.1",
-    "typedoc": "^0.23.16",
+    "serve": "^14.1.1",
+    "typedoc": "^0.23.20",
     "typescript": "^4.8.4"
   }
 }
