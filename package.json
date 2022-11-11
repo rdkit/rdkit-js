@@ -9,7 +9,8 @@
   "workspaces": [
     "examples/react",
     "examples/javascript",
-    "examples/vue"
+    "examples/vue",
+    "examples/angular"
   ],
   "scripts": {
     "build": "bash scripts/build_rdkitjs.sh",
