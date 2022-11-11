@@ -13,18 +13,6 @@
         </div>
     </section>
  
-    <div class="block">
-        <div class="field">
-            <label class="label" for="enforce-substruct">Enforce Substructure Matching Main Structure</label>
-            <div>
-                Require the substructre to match the current compound.
-            </div>
-            <div class="control">
-                <input #enforceSubstruct id="enforce-substruct" class="checkbox" type="checkbox" placeholder="Enforce Substructure" (change)="drawOptionsForm.updateValueAndValidity()"/>
-            </div>
-        </div>
-    </div>
-    <app-code-example [files]="['is-mol.directive.ts','is-substruct.directive.ts']"></app-code-example>
     <form [formGroup]="drawOptionsForm">
         <div class="columns">
             <div class="column">
@@ -47,6 +35,15 @@
                         />
                     </div>
                     <p class="help is-danger" *ngIf="drawOptionsForm.controls['substructureInput'].invalid">{{drawOptionsForm.controls['substructureInput'].errors?.isSubstruct}}</p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="field">
+                    <label class="label">Enforce Substructure Matching Main Structure</label>
+                    <div class="control">
+                        <input #enforceSubstruct id="enforce-substruct" class="checkbox" type="checkbox" placeholder="Enforce Substructure" (change)="drawOptionsForm.updateValueAndValidity()"/>
+                        <label for="enforce-substruct">Require the substructre to match the current compound.</label>
+                    </div>
                 </div>
             </div>
         </div>
