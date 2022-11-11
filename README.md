@@ -37,11 +37,13 @@
 
 | Website             | URL                                                                           | Contributor(s)                                                                                |
 | :------------------ | :---------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------- |
-| JavaScript Examples | [rdkitjs.com](https://www.rdkitjs.com/)                                       | [@greglandrum](https://github.com/greglandrum), [@MichelML](https://github.com/MichelML)      |
+| JavaScript Examples | [rdkitjs.com](https://www.rdkitjs.com/)                                       | [@greglandrum](https://github.com/greglandrum) , [@MichelML](https://github.com/MichelML)     |
 | React Examples      | [react.rdkitjs.com](https://react.rdkitjs.com/)                               | [@MichelML](https://github.com/MichelML)                                                      |
 | Vue Examples        | [vue.rdkitjs.com](https://vue.rdkitjs.com/)                                   | [@adam-of-barrot](https://github.com/adam-of-barot), [@MichelML](https://github.com/MichelML) |
+| Angular Examples    | [angular.rdkitjs.com](https://angular.rdkitjs.com/)                           | [@Phil-DS](https://github.com/Phil-DS)                                                        |
 | API Docs            | [docs.rdkitjs.com](https://docs.rdkitjs.com/)                                 | [@adam-of-barrot](https://github.com/adam-of-barot), [@MichelML](https://github.com/MichelML) |
 | WASM Module         | [see source code](https://github.com/rdkit/rdkit/tree/master/Code/MinimalLib) | [@ptosco](https://github.com/ptosco)                                                          |
+|                     |
 
 </div>
 
@@ -49,9 +51,9 @@
 
 <div align="center">
 
-| ![space-1.jpg](examples.png) | 
-|:--:| 
-| *Molecule Rendering Examples* |
+| ![space-1.jpg](examples.png)  |
+| :---------------------------: |
+| _Molecule Rendering Examples_ |
 
 </div>
 
@@ -165,6 +167,12 @@ If you are using Vue.js, several additional examples using Vue.js are available 
 
 [Source code](https://github.com/rdkit/rdkit-js/tree/master/examples/vue)
 
+### Using RDKit.js with Angular
+
+If you are using Angular, several additional examples using Angular are available at [angular.rdkitjs.com](https://angular.rdkitjs.com).
+
+[Source code](https://github.com/rdkit/rdkit-js/tree/master/examples/angular)
+
 ## Usage in TypeScript
 
 To see how to use RDKit.js with TypeScript, please go through the walkthrough [here](https://github.com/rdkit/rdkit-js/tree/master/typescript).
@@ -182,6 +190,10 @@ You are also welcome to [log any issue](https://github.com/rdkit/rdkit-js/issues
 To contribute to the plain javascript examples, read [this sub-repository README](https://github.com/rdkit/rdkit-js/tree/master/examples/javascript).
 
 To contribute to the React.js examples, read [this sub-repository README](https://github.com/rdkit/rdkit-js/tree/master/examples/react).
+
+To contribute to the Vue.js examples, read [this sub-repository README](https://github.com/rdkit/rdkit-js/tree/master/examples/vue).
+
+To contribute to the Angular.js examples, read [this sub-repository README](https://github.com/rdkit/rdkit-js/tree/master/examples/angular).
 
 ## Release process
 

@@ -40,6 +40,14 @@
               advanced and interactive examples.
             </p>
             <p
+              class="subtitle column is-two-thirds pl-0"
+              id="other-examples-vue"
+            >
+              You can visit the Angular examples
+              <a href="https://angular.rdkitjs.com">here</a>, which include more
+              advanced and interactive examples.
+            </p>
+            <p
               id="other-examples-legacy"
               class="subtitle column is-two-thirds pl-0"
             >

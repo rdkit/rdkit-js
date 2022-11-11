@@ -1,0 +1,14 @@
+<ng-container *ngFor="let section of sections">
+  <p class="menu-label">{{ section.name }}</p>
+  <ul class="menu-list">
+    <li *ngFor="let child of section.children">
+      <a
+        [href]="child.id"
+        [ngClass]="{ 'is-active': activeRoute === child.id }"
+        (click)="activeRoute = child.id"
+      >
+        {{ child.name }}
+      </a>
+    </li>
+  </ul>
+</ng-container>

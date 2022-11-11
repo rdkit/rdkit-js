@@ -83,6 +83,10 @@ const sections = [
         name: "React Examples"
       },
       {
+        id: "#other-examples-angular",
+        name: "Angular Examples"
+      },
+      {
         id: "#other-examples-legacy",
         name: "Legacy Examples"
       }

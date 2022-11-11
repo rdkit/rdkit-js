@@ -1,0 +1,437 @@
+<div id="component-example-drawing-options" class="container col-margin">
+  <section class="hero">
+    <div class="hero-body">
+      <h1 class="title">Additional Drawing Options</h1>
+      <p class="subtitle column is-two-thirds pl-0">
+        RDKit.js provides you a lot of options for drawing molecules. Checkout
+        the
+        <a href="https://rdkitjs.com#drawing-molecules-all-options">
+          JavaScript examples
+        </a>
+        for the full list of available options.
+      </p>
+    </div>
+  </section>
+
+  <form [formGroup]="drawOptionsForm">
+    <div class="columns">
+      <div class="column">
+        <div class="field">
+          <label class="label" for="main-structure-input">Main Structure</label>
+          <div class="control">
+            <input
+              class="input"
+              id="main-structure-input"
+              formControlName="mainStructureInput"
+              [class.is-danger]="
+                drawOptionsForm.controls['mainStructureInput'].invalid
+              "
+              placeholder="Enter a SMILES string here..."
+              isMol
+            />
+          </div>
+          <p
+            class="help is-danger"
+            *ngIf="drawOptionsForm.controls['mainStructureInput'].invalid"
+          >
+            {{ drawOptionsForm.controls["mainStructureInput"].errors?.isMol }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="field">
+          <label class="label" for="substructure-input">Substructure</label>
+          <div class="control">
+            <input
+              class="input"
+              id="substructure-input"
+              formControlName="substructureInput"
+              [class.is-danger]="
+                drawOptionsForm.controls['substructureInput'].invalid
+              "
+              placeholder="Enter a SMILES or SMARTS string here..."
+              [isSubstruct]="
+                enforceSubstruct.checked
+                  ? drawOptionsForm.controls['mainStructureInput'].value
+                  : ''
+              "
+            />
+          </div>
+          <p
+            class="help is-danger"
+            *ngIf="drawOptionsForm.controls['substructureInput'].invalid"
+          >
+            {{
+              drawOptionsForm.controls["substructureInput"].errors?.isSubstruct
+            }}
+          </p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="field">
+          <label class="label"
+            >Enforce Substructure Matching Main Structure</label
+          >
+          <div class="control">
+            <input
+              #enforceSubstruct
+              id="enforce-substruct"
+              class="checkbox"
+              type="checkbox"
+              placeholder="Enforce Substructure"
+              (change)="drawOptionsForm.updateValueAndValidity()"
+            />
+            <label for="enforce-substruct"
+              >Require the substructre to match the current compound.</label
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="field">
+          <label class="label" for="legend-text">Legend</label>
+          <div class="control">
+            <input
+              class="input"
+              id="legend-text"
+              formControlName="legend"
+              [class.is-danger]="drawOptionsForm.controls['legend'].invalid"
+              placeholder="Add a legend here..."
+            />
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="field">
+          <label class="label" for="legend-font-size">Legend font size</label>
+          <div class="control">
+            <input
+              class="input"
+              id="legend-font-size"
+              type="number"
+              formControlName="legendFontSize"
+              [class.is-danger]="
+                drawOptionsForm.controls['legendFontSize'].invalid
+              "
+              placeholder="Add a font size..."
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="field">
+          <label class="label" for="width">Width</label>
+          <div class="control">
+            <input
+              class="input"
+              id="width"
+              type="number"
+              formControlName="width"
+              [class.is-danger]="drawOptionsForm.controls['width'].invalid"
+              placeholder="Width"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="field">
+          <label class="label" for="height">Height</label>
+          <div class="control">
+            <input
+              class="input"
+              id="height"
+              type="number"
+              formControlName="height"
+              [class.is-danger]="drawOptionsForm.controls['height'].invalid"
+              placeholder="Height"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="field">
+          <label class="label" for="bond-line-width">Bond line width</label>
+          <div class="control">
+            <input
+              class="input"
+              id="bond-line-width"
+              type="number"
+              formControlName="bondLineWidth"
+              [class.is-danger]="
+                drawOptionsForm.controls['bondLineWidth'].invalid
+              "
+              placeholder="Bond line width"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="field">
+          <label class="label" for="annotation-font-scale"
+            >Annotation font scale</label
+          >
+          <div class="control">
+            <input
+              class="input"
+              id="annotation-font-scale"
+              type="number"
+              step="0.1"
+              formControlName="annotationFontScale"
+              [class.is-danger]="
+                drawOptionsForm.controls['annotationFontScale'].invalid
+              "
+              placeholder="Annotation font scale"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="field">
+          <label class="label" for="rotation">Rotate</label>
+          <div class="control">
+            <input
+              class="input"
+              id="rotation"
+              type="number"
+              step="0.5"
+              formControlName="rotate"
+              [class.is-danger]="drawOptionsForm.controls['rotate'].invalid"
+              placeholder="Rotate"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="field">
+          <label class="label" for="stereo-annotation">Stereo-Annotation</label>
+          <div class="control">
+            <input
+              class="checkbox"
+              id="stereo-annotation"
+              type="checkbox"
+              formControlName="addStereoAnnotation"
+              [class.is-danger]="
+                drawOptionsForm.controls['addStereoAnnotation'].invalid
+              "
+              placeholder="Stereo-Annotation"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="field">
+          <label class="label" for="show-atom-indices">Atom Indices</label>
+          <div class="control">
+            <input
+              class="checkbox"
+              id="show-atom-indices"
+              type="checkbox"
+              formControlName="addAtomIndices"
+              [class.is-danger]="
+                drawOptionsForm.controls['addAtomIndices'].invalid
+              "
+              placeholder="Atom Indices"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="field">
+          <label class="label" for="show-bond-indices">Bond Indices</label>
+          <div class="control">
+            <input
+              class="checkbox"
+              id="show-bond-indices"
+              type="checkbox"
+              formControlName="addBondIndices"
+              [class.is-danger]="
+                drawOptionsForm.controls['addBondIndices'].invalid
+              "
+              placeholder="Bond Indices"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="field">
+          <label class="label" for="show-explicit-methyl"
+            >Explicit Methyl</label
+          >
+          <div class="control">
+            <input
+              class="checkbox"
+              id="show-explicit-methyl"
+              type="checkbox"
+              formControlName="explicitMethyl"
+              [class.is-danger]="
+                drawOptionsForm.controls['explicitMethyl'].invalid
+              "
+              placeholder="Explicit Methyl"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="field">
+          <label class="label" for="scale-bond-width">Scale bond width</label>
+          <div class="control">
+            <input
+              class="checkbox"
+              id="scale-bond-width"
+              type="checkbox"
+              formControlName="scaleBondWidth"
+              [class.is-danger]="
+                drawOptionsForm.controls['scaleBondWidth'].invalid
+              "
+              placeholder="Scale bond width"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="field">
+          <label class="label" for="center-mol">Center molecule</label>
+          <div class="control">
+            <input
+              class="checkbox"
+              id="center-mol"
+              type="checkbox"
+              formControlName="centerMoleculesBeforeDrawing"
+              [class.is-danger]="
+                drawOptionsForm.controls['centerMoleculesBeforeDrawing'].invalid
+              "
+              placeholder="Center molecule"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="field">
+          <label class="label" for="comic-mode">Comic mode</label>
+          <div class="control">
+            <input
+              class="checkbox"
+              id="comic-mode"
+              type="checkbox"
+              formControlName="comicMode"
+              [class.is-danger]="drawOptionsForm.controls['comicMode'].invalid"
+              placeholder="Comic mode"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="field">
+          <label class="label" for="highlight-colour">Highlight Colour</label>
+          <div class="control">
+            <input
+              type="color"
+              id="highlight-colour"
+              class="input"
+              formControlName="highlightColour"
+              [class.is-danger]="
+                drawOptionsForm.controls['highlightColour'].invalid
+              "
+              placeholder="Highlight Colour"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="field">
+          <label class="label" for="background-colour"
+            >Background Colour (canvas only)</label
+          >
+          <div class="control">
+            <input
+              type="color"
+              id="background-colour"
+              class="input"
+              formControlName="backgroundColour"
+              [class.is-danger]="
+                drawOptionsForm.controls['backgroundColour'].invalid
+              "
+              placeholder="Background Colour"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="field">
+          <label class="label" for="legend-colour">Legend Colour</label>
+          <div class="control">
+            <input
+              type="color"
+              id="legend-colour"
+              class="input"
+              formControlName="legendColour"
+              [class.is-danger]="
+                drawOptionsForm.controls['legendColour'].invalid
+              "
+              placeholder="Legend Colour"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="field">
+          <label class="label" for="symbol-colour">Symbol Colour</label>
+          <div class="control">
+            <input
+              type="color"
+              id="symbol-colour"
+              class="input"
+              formControlName="symbolColour"
+              [class.is-danger]="
+                drawOptionsForm.controls['symbolColour'].invalid
+              "
+              placeholder="Symbol Colour"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="field">
+          <label class="label" for="svg-canvas-render-toggle">
+            SVG/Canvas Rendering (Uncheck for canvas rendering)
+          </label>
+          <div class="control">
+            <input
+              class="checkbox"
+              id="svg-canvas-render-toggle"
+              type="checkbox"
+              formControlName="svgMode"
+              [class.is-danger]="drawOptionsForm.controls['svgMode'].invalid"
+              placeholder="SVG mode"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <!-- {{drawOptionsForm.value | json}} -->
+  <!-- Insert renderer here -->
+  <app-molecule-structure
+    [structure]="drawOptionsForm.controls['mainStructureInput'].value"
+    [substructure]="drawOptionsForm.controls['substructureInput'].value"
+    [width]="drawOptionsForm.controls['width'].value"
+    [height]="drawOptionsForm.controls['height'].value"
+    [molDrawOptions]="molOptions"
+    [svgMode]="drawOptionsForm.controls['svgMode'].value"
+  ></app-molecule-structure>
+  <app-code-example
+    [files]="['drawing-options.component.ts', 'drawing-options.component.html']"
+  ></app-code-example>
+</div>

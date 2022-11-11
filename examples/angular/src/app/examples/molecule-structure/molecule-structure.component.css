@@ -1,0 +1,4 @@
+.molecule-structure-wrapper {
+  display: grid;
+  place-items: center;
+}
