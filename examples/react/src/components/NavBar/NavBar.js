@@ -69,6 +69,9 @@ export default class NavBar extends Component {
                 <a className="navbar-item" href="https://vue.rdkitjs.com">
                   Vue
                 </a>
+                <a className="navbar-item" href="https://angular.rdkitjs.com">
+                  Angular
+                </a>
                 <hr className="navbar-divider" />
                 <a
                   className="navbar-item"
@@ -99,7 +102,7 @@ export default class NavBar extends Component {
                 <a
                   data-tooltip="Go to RDKit.js"
                   className="button has-tooltip-bottom is-white is-big"
-                  href="https://github.com/rdkit/rdkit-js/tree/master/examples/react"
+                  href="https://github.com/rdkit/rdkit-js"
                 >
                   <span className="icon">
                     <i className="fab fa-github fa-2x"></i>
