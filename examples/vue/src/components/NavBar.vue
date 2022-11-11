@@ -36,6 +36,9 @@
             <a class="navbar-item is-active" href="https://vue.rdkitjs.com"
               >Vue</a
             >
+            <a class="navbar-item" href="https://angular.rdkitjs.com"
+              >Angular</a
+            >
             <hr class="navbar-divider" />
             <a
               class="navbar-item"
