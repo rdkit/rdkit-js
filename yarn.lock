@@ -267,10 +267,10 @@
     tslib "^2.3.0"
     yargs "^17.2.1"
 
-"@angular/compiler@^14.2.6":
-  version "14.2.10"
-  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-14.2.10.tgz#883e2d79edd4e135cff89efac3c8e6163d801515"
-  integrity sha512-CvZTJNKCNqU3Lr0La60U3XXZfpQbba/eb5YWTgygpoP0kjwOcNOsVou9TrGm57hT5ODy8281JOjWTrKspmYt5w==
+"@angular/compiler@^15.0.0":
+  version "15.0.0"
+  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-15.0.0.tgz#b7420fc078a2a36569b3e10a6e183c15649ae5c7"
+  integrity sha512-k+tsyKpbPvumBr0qtGZ/bisoq/1evvTa6dCUR126Yb1bX0HlBodwIqu9Xjh3nY90hMak+3zHznj6kJB83LoLeA==
   dependencies:
     tslib "^2.3.0"
 
@@ -11647,10 +11647,10 @@ wcwidth@^1.0.1:
   dependencies:
     defaults "^1.0.3"
 
-web-vitals@^3.0.4:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/web-vitals/-/web-vitals-3.0.4.tgz#a78ea93e95f7d7961dd151e0a76ac132c5dee2c9"
-  integrity sha512-Yau8qf1AJ/dm6MY180Bi0qpCIuWmAfKAnOqmxLecGfIHn0+ND3H4JOhXeY73Pyi9zjSF5J4SNUewHLNUzU7mmA==
+web-vitals@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/web-vitals/-/web-vitals-3.1.0.tgz#a6f5156cb6c7fee562da46078540265ac2cd2d16"
+  integrity sha512-zCeQ+bOjWjJbXv5ZL0r8Py3XP2doCQMZXNKlBGfUjPAVZWokApdeF/kFlK1peuKlCt8sL9TFkKzyXE9/cmNJQA==
 
 webidl-conversions@^4.0.2:
   version "4.0.2"
