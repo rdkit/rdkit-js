@@ -9,7 +9,8 @@ RUN apt-get update && apt-get upgrade -y && apt install -y \
   g++ \
   libeigen3-dev \
   git \
-  nodejs
+  nodejs \
+  libfreetype6-dev
 
 ENV LANG C
 
@@ -52,6 +53,8 @@ RUN emcmake cmake -DBoost_INCLUDE_DIR=/opt/boost/include -DRDK_BUILD_FREETYPE_SU
   -DRDK_BUILD_DESCRIPTORS3D=OFF -DRDK_TEST_MULTITHREADED=OFF \
   -DRDK_BUILD_MAEPARSER_SUPPORT=OFF -DRDK_BUILD_COORDGEN_SUPPORT=ON \
   -DRDK_BUILD_SLN_SUPPORT=OFF -DRDK_USE_BOOST_IOSTREAMS=OFF \
+  -DFREETYPE_INCLUDE_DIRS=/usr/include/freetype2 \
+  -DFREETYPE_LIBRARY=/usr/lib/x86_64-linux-gnu/libfreetype.so.6 \
   -DCMAKE_CXX_FLAGS="-s DISABLE_EXCEPTION_CATCHING=0 -s MODULARIZE=1 -s EXPORT_NAME=\"'initRDKitModule'\"" \
   -DCMAKE_C_FLAGS="-DCOMPILE_ANSI_ONLY -s MODULARIZE=1 -s EXPORT_NAME=\"'initRDKitModule'\"" \
   -D CMAKE_EXE_LINKER_FLAGS="-s MODULARIZE=1 -s EXPORT_NAME=\"'initRDKitModule'\"" ..
