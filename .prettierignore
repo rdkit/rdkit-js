@@ -1,0 +1,6 @@
+typescript/README.md
+typescript/index.d.ts
+examples/angular/src/app/examples/code-examples.ts
+examples/*/build
+examples/*/dist
+examples/*/.angular

@@ -1,6 +1,7 @@
 {
   "name": "@rdkit/rdkit",
-  "version": "2022.9.3-1.0.0",
+  "version": "2022.9.4-1.0.0",
+  "private": true,
   "description": "JavaScript distribution of cheminformatics functionality from the RDKit - a C++ library for cheminformatics.",
   "main": "dist/RDKit_minimal.js",
   "types": "dist/index.d.ts",
@@ -22,7 +23,7 @@
     "javascript:start": "serve examples/javascript",
     "docs:build": "typedoc --out typescript/docs --readme none typescript/index.d.ts",
     "docs:serve": "npm run docs:build && serve typescript/docs",
-    "format": "prettier --trailing-comma none --write examples *.md typescript/**/* !examples/angular/src/app/examples/code-examples.ts !examples/*/build !examples/*/dist !examples/*/.angular",
+    "format": "prettier --trailing-comma none --write examples *.md typescript/**/*",
     "test": "echo \"Tests are run during the docker build. See https://github.com/rdkit/rdkit/blob/master/docker/Dockerfile .\" && exit 1"
   },
   "repository": {

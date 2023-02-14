@@ -19,4 +19,4 @@ jobs:
         uses: creyD/prettier_action@v4.2
         with:
           dry: true
-          prettier_options: --check examples *.md typescript/**/* !examples/angular/src/app/examples/code-examples.ts !examples/*/build !examples/*/dist !examples/*/.angular
+          prettier_options: --trailing-comma none --check examples *.md typescript/**/*
