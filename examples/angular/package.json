@@ -21,7 +21,7 @@
     "@rdkit/rdkit": "^2022.9.1-1.0.0",
     "bulma": "^0.9.4",
     "rxjs": "~6.6.0",
-    "tslib": "^2.0.0",
+    "tslib": "^2.5.0",
     "zone.js": "~0.12.0"
   },
   "devDependencies": {
