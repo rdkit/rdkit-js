@@ -193,13 +193,13 @@
     strip-json-comments "3.1.1"
     tmp "0.2.1"
 
-"@angular-eslint/template-parser@14.1.2":
-  version "14.1.2"
-  resolved "https://registry.yarnpkg.com/@angular-eslint/template-parser/-/template-parser-14.1.2.tgz#c224dd8e3ef8675cba4207df1368a7e010d75a43"
-  integrity sha512-bQI+poQDIyR3OU9EQzJeLYRtmsvjFGtV5dc+4XPJ6eIyRAc8baCG/0V/cOrpofIdSf7e/sCV8H7rXcFg6tSdUw==
+"@angular-eslint/template-parser@15.2.1":
+  version "15.2.1"
+  resolved "https://registry.yarnpkg.com/@angular-eslint/template-parser/-/template-parser-15.2.1.tgz#dbe4978afdcea81b9d5cac3d672c20de5821dc54"
+  integrity sha512-ViCi79gC2aKJecmYLkOT+QlT5WMRNXeYz0Dr9Pr8qXzIbY0oAWE7nOT5jkXwQ9oUk+ybtGCWHma5JVJWVJsIog==
   dependencies:
-    "@angular-eslint/bundled-angular-compiler" "14.1.2"
-    eslint-scope "^5.1.0"
+    "@angular-eslint/bundled-angular-compiler" "15.2.1"
+    eslint-scope "^7.0.0"
 
 "@angular-eslint/utils@14.1.2":
   version "14.1.2"
@@ -5710,7 +5710,7 @@ eslint-plugin-testing-library@^5.0.1:
   dependencies:
     "@typescript-eslint/utils" "^5.13.0"
 
-eslint-scope@5.1.1, eslint-scope@^5.1.0, eslint-scope@^5.1.1:
+eslint-scope@5.1.1, eslint-scope@^5.1.1:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/eslint-scope/-/eslint-scope-5.1.1.tgz#e786e59a66cb92b3f6c1fb0d508aab174848f48c"
   integrity sha512-2NxwbF/hZ0KpepYN0cNbo+FN6XoK7GaHlQhgx/hIZl6Va0bF45RQOOwhLIy8lQDbuCiadSLCBnH2CFYquit5bw==
@@ -5718,7 +5718,7 @@ eslint-scope@5.1.1, eslint-scope@^5.1.0, eslint-scope@^5.1.1:
     esrecurse "^4.3.0"
     estraverse "^4.1.1"
 
-eslint-scope@^7.1.1:
+eslint-scope@^7.0.0, eslint-scope@^7.1.1:
   version "7.1.1"
   resolved "https://registry.yarnpkg.com/eslint-scope/-/eslint-scope-7.1.1.tgz#fff34894c2f65e5226d3041ac480b4513a163642"
   integrity sha512-QKQM/UXpIiHcLqJ5AOyIW7XZmzjkzQXYE54n1++wb0u9V/abW3l9uQnxX8Z5Xd18xyKIMTUAyQ0k1e8pz6LUrw==
