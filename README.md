@@ -19,7 +19,7 @@
 <br />
 [![Build Status](https://dev.azure.com/rdkit-js/rdkit-js/_apis/build/status/rdkit.rdkit-js?branchName=master)](https://dev.azure.com/rdkit-js/rdkit-js/_build/latest?definitionId=1&branchName=master)
 [![License](https://img.shields.io/github/license/rdkit/rdkit)](https://github.com/rdkit/rdkit-js/blob/master/LICENSE)
-[![DOI](https://zenodo.org/badge/10009991.svg)](https://zenodo.org/badge/latestdoi/10009991)  
+[![DOI](https://zenodo.org/badge/10009991.svg)](https://zenodo.org/badge/latestdoi/10009991)
 
 </div>
 <p align="center">
