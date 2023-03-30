@@ -3,12 +3,12 @@ updates:
 - package-ecosystem: npm
   directory: "/"
   schedule:
-    interval: daily
+    interval: monthly
 - package-ecosystem: npm
   directory: "/examples/react/"
   schedule:
-    interval: daily
+    interval: monthly
 - package-ecosystem: npm
   directory: "/examples/javascript/"
   schedule:
-    interval: daily
+    interval: monthly
