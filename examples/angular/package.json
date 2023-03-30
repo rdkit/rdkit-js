@@ -12,7 +12,7 @@
   "dependencies": {
     "@angular/animations": "^14.2.6",
     "@angular/common": "^14.2.6",
-    "@angular/compiler": "^14.2.6",
+    "@angular/compiler": "^15.2.0",
     "@angular/core": "^14.2.6",
     "@angular/forms": "^14.2.6",
     "@angular/platform-browser": "^14.2.6",
@@ -21,22 +21,22 @@
     "@rdkit/rdkit": "^2022.9.1-1.0.0",
     "bulma": "^0.9.4",
     "rxjs": "~6.6.0",
-    "tslib": "^2.0.0",
+    "tslib": "^2.5.0",
     "zone.js": "~0.12.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^14.2.6",
     "@angular-eslint/builder": "14.1.2",
-    "@angular-eslint/eslint-plugin": "14.1.2",
-    "@angular-eslint/eslint-plugin-template": "14.1.2",
+    "@angular-eslint/eslint-plugin": "15.2.1",
+    "@angular-eslint/eslint-plugin-template": "15.2.1",
     "@angular-eslint/schematics": "14.3.0",
-    "@angular-eslint/template-parser": "14.1.2",
+    "@angular-eslint/template-parser": "15.2.1",
     "@angular/cli": "^14.2.6",
     "@angular/compiler-cli": "^14.2.6",
     "@types/node": "^12.11.1",
-    "@typescript-eslint/eslint-plugin": "5.45.1",
+    "@typescript-eslint/eslint-plugin": "5.54.0",
     "@typescript-eslint/parser": "5.45.0",
-    "eslint": "^8.29.0",
+    "eslint": "^8.35.0",
     "typescript": "~4.6.4"
   }
 }
