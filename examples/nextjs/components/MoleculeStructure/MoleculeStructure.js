@@ -18,7 +18,6 @@ const initRDKit = (() => {
       rdkitLoadingPromise = new Promise((resolve, reject) => {
         initRDKitModule()
           .then((RDKit) => {
-            window.RDKit = RDKit;
             resolve(RDKit);
           })
           .catch((e) => {
@@ -100,8 +99,8 @@ class MoleculeStructure extends Component {
   }
 
   drawSVGorCanvas() {
-    const mol = window.RDKit.get_mol(this.props.structure || 'invalid');
-    const qmol = window.RDKit.get_qmol(this.props.subStructure || 'invalid');
+    const mol = this.RDKit.get_mol(this.props.structure || 'invalid');
+    const qmol = this.RDKit.get_qmol(this.props.subStructure || 'invalid');
     const isValidMol = this.isValidMol(mol);
 
     if (this.props.svgMode && isValidMol) {
@@ -155,7 +154,8 @@ class MoleculeStructure extends Component {
 
   componentDidMount() {
     initRDKit()
-      .then(() => {
+      .then((RDKit) => {
+        this.RDKit = RDKit;
         this.setState({ rdKitLoaded: true });
         try {
           this.draw();
@@ -201,7 +201,7 @@ class MoleculeStructure extends Component {
       return 'Loading renderer...';
     }
 
-    const mol = window.RDKit.get_mol(this.props.structure || 'invalid');
+    const mol = this.RDKit.get_mol(this.props.structure || 'invalid');
     const isValidMol = this.isValidMol(mol);
     mol.delete();
 
