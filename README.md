@@ -162,6 +162,12 @@ If you are using React.js, several additional examples using React.js are availa
 
 [Source code](https://github.com/rdkit/rdkit-js/tree/master/examples/react)
 
+### Using RDKit.js with Next.js
+
+If you are using Next.js, you can use a modified webpack config to build your app.
+
+[Source code](https://github.com/rdkit/rdkit-js/tree/master/examples/nextjs)
+
 ### Using RDKit.js with Vue.js
 
 If you are using Vue.js, several additional examples using Vue.js are available at [vue.rdkitjs.com](https://vue.rdkitjs.com).
