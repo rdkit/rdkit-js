@@ -19,10 +19,21 @@ Run the following command to install the RDKit.js project.
 ```bash
 git clone https://github.com/<name of your fork>/rdkit-js.git && \
 cd rdkit-js && \
-yarn install
+yarn install && \
+cd examples/node
 ```
 
-You are now ready to develop.
+You can now run all the available examples in this folder with the following command:  
+
+```bash
+node examples/<name_of_the_example>.js  
+```  
+
+Example for the descriptors example would be:  
+
+```bash  
+node examples/descriptors_calculation.js  
+```
 
 ### Contributing examples
 

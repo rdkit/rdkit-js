@@ -37,12 +37,14 @@
 
 <div align="center">
 
-| Website             | URL                                                                           | Contributor(s)                                                                                |
+| Resources           | URL                                                                           | Contributor(s)                                                                                |
 | :------------------ | :---------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------- |
 | JavaScript Examples | [rdkitjs.com](https://www.rdkitjs.com/)                                       | [@greglandrum](https://github.com/greglandrum) , [@MichelML](https://github.com/MichelML)     |
-| React Examples      | [react.rdkitjs.com](https://react.rdkitjs.com/)                               | [@MichelML](https://github.com/MichelML)                                                      |
-| Vue Examples        | [vue.rdkitjs.com](https://vue.rdkitjs.com/)                                   | [@adam-of-barrot](https://github.com/adam-of-barot), [@MichelML](https://github.com/MichelML) |
-| Angular Examples    | [angular.rdkitjs.com](https://angular.rdkitjs.com/)                           | [@Phil-DS](https://github.com/Phil-DS)                                                        |
+| React.js Examples   | [react.rdkitjs.com](https://react.rdkitjs.com/)                               | [@MichelML](https://github.com/MichelML)                                                      |
+| Vue.js Examples     | [vue.rdkitjs.com](https://vue.rdkitjs.com/)                                   | [@adam-of-barrot](https://github.com/adam-of-barot), [@MichelML](https://github.com/MichelML) |
+| Angular.js Examples | [angular.rdkitjs.com](https://angular.rdkitjs.com/)                           | [@Phil-DS](https://github.com/Phil-DS)                                                        |
+| Next.js Example     | [source code](https://github.com/rdkit/rdkit-js/tree/master/examples/nextjs)  | [@bugzpodder](https://github.com/bugzpodder)                                                  |
+| Node.js Examples    | [source code](https://github.com/rdkit/rdkit-js/tree/master/examples/node)    | [@adam-of-barrot](https://github.com/adam-of-barot)                                           |
 | API Docs            | [docs.rdkitjs.com](https://docs.rdkitjs.com/)                                 | [@adam-of-barrot](https://github.com/adam-of-barot), [@MichelML](https://github.com/MichelML) |
 | WASM Module         | [see source code](https://github.com/rdkit/rdkit/tree/master/Code/MinimalLib) | [@ptosco](https://github.com/ptosco)                                                          |
 

@@ -10,7 +10,9 @@
     "examples/react",
     "examples/javascript",
     "examples/vue",
-    "examples/angular"
+    "examples/angular",
+    "examples/nextjs",
+    "examples/node"
   ],
   "scripts": {
     "build": "bash scripts/build_rdkitjs.sh",
