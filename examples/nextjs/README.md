@@ -20,5 +20,11 @@ Simply run the following command at the root of the example:
 ```bash  
 npm install && \
 npm run build && \
-npm start # or npm start -- -p <a different port than the default 3000>, example: npm start -- -p 3001
+npm start
+```
+
+You can also run the app on a different port than the default 3000 with the following option:
+
+```bash  
+npm start -- -p 3001
 ```
