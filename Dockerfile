@@ -25,13 +25,10 @@ RUN ./bootstrap.sh --prefix=/opt/boost --with-libraries=system && \
 WORKDIR /opt
 RUN git clone https://github.com/emscripten-core/emsdk.git
 
-# Install emsdk version 3.1.17 until problems related to
-# later versions are resolved.
-# reference issue: https://github.com/rdkit/rdkit/issues/5485
 WORKDIR /opt/emsdk
 RUN ./emsdk update-tags && \
-  ./emsdk install 3.1.17 && \
-  ./emsdk activate 3.1.17
+  ./emsdk install latest && \
+  ./emsdk activate latest
 
 RUN mkdir /src
 WORKDIR /src
@@ -45,7 +42,7 @@ RUN git fetch --all --tags && \
 RUN mkdir build
 WORKDIR build
 
-RUN echo "source /opt/emsdk/emsdk_env.sh" >> ~/.bashrc
+RUN echo "source /opt/emsdk/emsdk_env.sh > /dev/null 2>&1" >> ~/.bashrc
 SHELL ["/bin/bash", "-c", "-l"]
 RUN emcmake cmake -DBoost_INCLUDE_DIR=/opt/boost/include -DRDK_BUILD_FREETYPE_SUPPORT=ON -DRDK_BUILD_MINIMAL_LIB=ON \
   -DRDK_BUILD_PYTHON_WRAPPERS=OFF -DRDK_BUILD_CPP_TESTS=OFF -DRDK_BUILD_INCHI_SUPPORT=ON \
@@ -53,11 +50,11 @@ RUN emcmake cmake -DBoost_INCLUDE_DIR=/opt/boost/include -DRDK_BUILD_FREETYPE_SU
   -DRDK_BUILD_DESCRIPTORS3D=OFF -DRDK_TEST_MULTITHREADED=OFF \
   -DRDK_BUILD_MAEPARSER_SUPPORT=OFF -DRDK_BUILD_COORDGEN_SUPPORT=ON \
   -DRDK_BUILD_SLN_SUPPORT=OFF -DRDK_USE_BOOST_IOSTREAMS=OFF \
-  -DFREETYPE_INCLUDE_DIRS=/usr/include/freetype2 \
-  -DFREETYPE_LIBRARY=/usr/lib/x86_64-linux-gnu/libfreetype.so.6 \
-  -DCMAKE_CXX_FLAGS="-s DISABLE_EXCEPTION_CATCHING=0 -s MODULARIZE=1 -s EXPORT_NAME=\"'initRDKitModule'\"" \
-  -DCMAKE_C_FLAGS="-DCOMPILE_ANSI_ONLY -s MODULARIZE=1 -s EXPORT_NAME=\"'initRDKitModule'\"" \
-  -D CMAKE_EXE_LINKER_FLAGS="-s MODULARIZE=1 -s EXPORT_NAME=\"'initRDKitModule'\"" ..
+  -DFREETYPE_INCLUDE_DIRS=/opt/emsdk/upstream/emscripten/cache/sysroot/include/freetype2 \
+  -DFREETYPE_LIBRARY=/opt/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/libfreetype.a \
+  -DCMAKE_CXX_FLAGS="-Wno-enum-constexpr-conversion -s DISABLE_EXCEPTION_CATCHING=0" \
+  -DCMAKE_C_FLAGS="-Wno-enum-constexpr-conversion -DCOMPILE_ANSI_ONLY" \
+  -DCMAKE_EXE_LINKER_FLAGS="-s MODULARIZE=1 -s EXPORT_NAME=\"'initRDKitModule'\"" ..
 
 # "patch" to make the InChI code work with emscripten:
 RUN cp /src/rdkit/External/INCHI-API/src/INCHI_BASE/src/util.c /src/rdkit/External/INCHI-API/src/INCHI_BASE/src/util.c.bak && \
