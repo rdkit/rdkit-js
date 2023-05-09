@@ -597,7 +597,7 @@
   M  END
   `;
   var qmol = RDKitModule.get_mol(template);
-  mol.generate_aligned_coords(qmol,true);
+  mol.generate_aligned_coords(qmol,"");
   var tdetails = mol.get_substruct_match(qmol);
   var canvas = document.getElementById("canvas-6");
   mol.draw_to_canvas_with_highlights(canvas,tdetails);
