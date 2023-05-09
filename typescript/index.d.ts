@@ -108,12 +108,14 @@ export interface JSMol {
   get_morgan_fp(): string;
 
   /**
-   * Returns the Morgan fingerprint as string
+   * Returns the Morgan fingerprint as string.
    * 
-   * @param radius fingerprint radius
-   * @param len fingerprint length
+   * You can also specify the following options
+   * (passed as a stringified JSON object)
+   * @param {number} radius fingerprint radius
+   * @param {number} len fingerprint length
    */
-  get_morgan_fp(radius: number, len: number): string;
+  get_morgan_fp(options: JSONString): string;
 
   /**
    * Returns the Morgan fingerprint as binary
@@ -136,10 +138,12 @@ export interface JSMol {
   /**
    * Returns the Morgan fingerprint as an unsigned integer array
    * 
-   * @param radius fingerprint radius
-   * @param fplen fingerprint length
+   * You can also specify the following options
+   * (passed as a stringified JSON object)
+   * @param {number} radius fingerprint radius
+   * @param {number} fplen fingerprint length
    */
-  get_morgan_fp_as_uint8array(radius: number, fplen: number): Uint8Array;
+  get_morgan_fp_as_uint8array(options: JSONString): Uint8Array;
 
   /**
    * Returns the pattern fingerprint as string
@@ -149,9 +153,11 @@ export interface JSMol {
   /**
    * Returns the pattern fingerprint as string
    * 
-   * @param len fingerprint length
+   * you can also specify the following options
+   * (passed as a stringified JSON object)
+   * @param {number} len fingerprint length
    */
-  get_pattern_fp(len: number): string;
+  get_pattern_fp(options: JSONString): string;
 
   /**
    * Returns the pattern fingerprint as binary
@@ -173,9 +179,11 @@ export interface JSMol {
   /**
    * Returns the pattern fingerprint as an unsigned integer array
    * 
-   * @param fplen fingerprint length
+   * you can also specify the following options
+   * (passed as a stringified JSON object)
+   * @param {number} fplen fingerprint length
    */
-  get_pattern_fp_as_uint8array(fplen: number): Uint8Array;
+  get_pattern_fp_as_uint8array(options: JSONString): Uint8Array;
 
 
   // abbreviation methods
