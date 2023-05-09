@@ -1,4 +1,4 @@
-const CopyPlugin = require('copy-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -7,21 +7,21 @@ const nextConfig = {
       new CopyPlugin({
         patterns: [
           {
-            from: 'node_modules/@rdkit/rdkit/dist/RDKit_minimal.wasm',
-            to: 'static/chunks',
-          },
-        ],
+            from: "node_modules/@rdkit/rdkit/dist/RDKit_minimal.wasm",
+            to: "static/chunks"
+          }
+        ]
       })
     );
 
     if (!isServer) {
       config.resolve.fallback = {
-        fs: false,
+        fs: false
       };
     }
 
     return config;
-  },
+  }
 };
 
 module.exports = nextConfig;

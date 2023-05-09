@@ -23,16 +23,16 @@ yarn install && \
 cd examples/node
 ```
 
-You can now run all the available examples in this folder with the following command:  
+You can now run all the available examples in this folder with the following command:
 
 ```bash
-node examples/<name_of_the_example>.js  
-```  
+node examples/<name_of_the_example>.js
+```
 
-Example for the descriptors example would be:  
+Example for the descriptors example would be:
 
-```bash  
-node examples/descriptors_calculation.js  
+```bash
+node examples/descriptors_calculation.js
 ```
 
 ### Contributing examples

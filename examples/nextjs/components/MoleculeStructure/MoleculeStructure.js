@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import _ from 'lodash';
-import PropTypes from 'prop-types';
-import initRDKitModule from '@rdkit/rdkit';
+import React, { Component } from "react";
+import _ from "lodash";
+import PropTypes from "prop-types";
+import initRDKitModule from "@rdkit/rdkit";
 
 const initRDKit = (() => {
   let rdkitLoadingPromise;
@@ -46,17 +46,17 @@ class MoleculeStructure extends Component {
     structure: PropTypes.string.isRequired,
     subStructure: PropTypes.string,
     extraDetails: PropTypes.object,
-    drawingDelay: PropTypes.number,
+    drawingDelay: PropTypes.number
   };
 
   static defaultProps = {
-    subStructure: '',
-    className: '',
+    subStructure: "",
+    className: "",
     width: 250,
     height: 200,
     svgMode: false,
     extraDetails: {},
-    drawingDelay: undefined,
+    drawingDelay: undefined
   };
 
   constructor(props) {
@@ -67,13 +67,13 @@ class MoleculeStructure extends Component {
       height: this.props.height,
       bondLineWidth: 1,
       addStereoAnnotation: true,
-      ...this.props.extraDetails,
+      ...this.props.extraDetails
     };
 
     this.state = {
       svg: undefined,
       rdKitLoaded: false,
-      rdKitError: false,
+      rdKitError: false
     };
   }
 
@@ -99,8 +99,8 @@ class MoleculeStructure extends Component {
   }
 
   drawSVGorCanvas() {
-    const mol = this.RDKit.get_mol(this.props.structure || 'invalid');
-    const qmol = this.RDKit.get_qmol(this.props.subStructure || 'invalid');
+    const mol = this.RDKit.get_mol(this.props.structure || "invalid");
+    const qmol = this.RDKit.get_qmol(this.props.subStructure || "invalid");
     const isValidMol = this.isValidMol(mol);
 
     if (this.props.svgMode && isValidMol) {
@@ -134,7 +134,7 @@ class MoleculeStructure extends Component {
         ? subStructHighlightDetails.reduce(
             (acc, { atoms, bonds }) => ({
               atoms: [...acc.atoms, ...atoms],
-              bonds: [...acc.bonds, ...bonds],
+              bonds: [...acc.bonds, ...bonds]
             }),
             { bonds: [], atoms: [] }
           )
@@ -142,12 +142,12 @@ class MoleculeStructure extends Component {
       return JSON.stringify({
         ...this.MOL_DETAILS,
         ...(this.props.extraDetails || {}),
-        ...subStructHighlightDetailsMerged,
+        ...subStructHighlightDetailsMerged
       });
     } else {
       return JSON.stringify({
         ...this.MOL_DETAILS,
-        ...(this.props.extraDetails || {}),
+        ...(this.props.extraDetails || {})
       });
     }
   }
@@ -195,13 +195,13 @@ class MoleculeStructure extends Component {
 
   render() {
     if (this.state.rdKitError) {
-      return 'Error loading renderer.';
+      return "Error loading renderer.";
     }
     if (!this.state.rdKitLoaded) {
-      return 'Loading renderer...';
+      return "Loading renderer...";
     }
 
-    const mol = this.RDKit.get_mol(this.props.structure || 'invalid');
+    const mol = this.RDKit.get_mol(this.props.structure || "invalid");
     const isValidMol = this.isValidMol(mol);
     mol.delete();
 
@@ -215,7 +215,7 @@ class MoleculeStructure extends Component {
       return (
         <div
           title={this.props.structure}
-          className={'molecule-structure-svg ' + (this.props.className || '')}
+          className={"molecule-structure-svg " + (this.props.className || "")}
           style={{ width: this.props.width, height: this.props.height }}
           dangerouslySetInnerHTML={{ __html: this.state.svg }}
         ></div>
@@ -224,7 +224,7 @@ class MoleculeStructure extends Component {
       return (
         <div
           className={
-            'molecule-canvas-container ' + (this.props.className || '')
+            "molecule-canvas-container " + (this.props.className || "")
           }
         >
           <canvas
