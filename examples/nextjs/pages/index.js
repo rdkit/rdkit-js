@@ -1,6 +1,6 @@
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 const MoleculeStructure = dynamic(
-  () => import('../components/MoleculeStructure/MoleculeStructure'),
+  () => import("../components/MoleculeStructure/MoleculeStructure"),
   { ssr: false }
 );
 
