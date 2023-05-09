@@ -29,7 +29,7 @@ var template = `
   M  END
   `;
 let qmol = RDKitModule.get_mol(template);
-mol.generate_aligned_coords(qmol, true);
+mol.generate_aligned_coords(qmol, "");
 let tdetails = mol.get_substruct_match(qmol);
 let svg = mol.get_svg_with_highlights(tdetails);
 console.log(svg);
