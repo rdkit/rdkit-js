@@ -59,7 +59,6 @@
               }
             ],
             "styles": [
-              "node_modules/bulma/css/bulma.min.css",
               "src/styles.css"
             ],
             "scripts": ["node_modules/@rdkit/rdkit/dist/RDKit_minimal.js"],
