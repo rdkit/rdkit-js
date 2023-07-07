@@ -470,7 +470,7 @@ export interface RDKitModule {
   /**
    * Create a molecule from a variety of input strings
    * 
-   * @param input SMILES / SMARTS / MolFile / InChI / JSON string
+   * @param input SMILES / SMARTS / MolFile / JSON string
    * @param details_json 
    */
   get_mol(input: string, details_json?: string): JSMol;
