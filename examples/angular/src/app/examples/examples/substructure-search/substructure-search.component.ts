@@ -33,7 +33,7 @@ export class SubstructureSearchComponent {
             const rtn = SMILES_LIST.map((smiles) => {
               const mol = rdkit.get_mol(smiles);
               try {
-                const matches = mol.get_substruct_match(qmol);
+                const matches = !!mol && !!qmol ? mol.get_substruct_match(qmol) : [];
                 return matches.length > 2;
               } finally {
                 mol?.delete();

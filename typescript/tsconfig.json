@@ -8,6 +8,9 @@
     "forceConsistentCasingInFileNames": true,            
     "strict": true,                                      
     "skipLibCheck": true,
-    "experimentalDecorators": true                              
-  }
+    "experimentalDecorators": true,                          
+  },
+  "include": [
+    "./index.d.ts"
+  ],
 }
