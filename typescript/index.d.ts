@@ -544,7 +544,7 @@ type RDKitLoaderOptions = {
  * Loads the RDKit module asynchronously.
  * In order to use the RDKit module, calling this function is necessary.
  */
-export type RDKitLoader = (options: RDKitLoaderOptions) => Promise<RDKitModule>;
+export type RDKitLoader = (options?: RDKitLoaderOptions) => Promise<RDKitModule>;
 
 declare global {
   interface Window {
