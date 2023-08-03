@@ -65,24 +65,22 @@ class ExampleList extends React.Component {
       const currentVal = e.target.value;
       this.setState({ searchValue: currentVal });
       if (!currentVal) {
-        this.setState({ smilesList: SMILES_LIST });
+        this.setState({ matches: SMILES_LIST.slice(), searching: false });
       } else {
         const qmol = window.RDKit.get_qmol(currentVal);
-        const matches = SMILES_LIST.filter((smiles) => {
-          const mol = window.RDKit.get_mol(smiles);
-          const hasMatch = mol.get_substruct_match(qmol).length > noMatchLength;
-          mol.delete();
-          return hasMatch;
-        });
-        this.setState({ matches });
-        if (qmol.is_valid()) {
+        if (!this.isValidMol(qmol)) {
+          this.setState({ matches: [], searching: false });
         } else {
-          this.setState({ matches: [] });
+          const matches = SMILES_LIST.filter((smiles) => {
+            const mol = window.RDKit.get_mol(smiles);
+            const hasMatch = mol.get_substruct_match(qmol).length > noMatchLength;
+            mol?.delete();
+            return hasMatch;
+          });
+          this.setState({ matches, searching: false });
+          qmol?.delete();
         }
-        qmol.delete();
       }
-
-      this.setState({ searching: false });
     }, 100);
   }, 300);
 
@@ -100,6 +98,10 @@ class ExampleList extends React.Component {
         </span>
       );
     }
+  }
+
+  isValidMol(qmolOrMol) {
+    return !!qmolOrMol;
   }
 }
 
