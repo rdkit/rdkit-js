@@ -62,7 +62,7 @@
   }
   function callback(text, update_descrs) {
     var mol = RDKitModule.get_mol(text);
-    if (mol.is_valid()) {
+    if (!!mol) {
       draw(mol);
       var ob = document.getElementById("can_smiles");
       ob.outerHTML = "<div id='can_smiles'>" + mol.get_smiles() + "</div>";
@@ -75,19 +75,20 @@
           "<br /><b>MFP2:</b> " + mol.get_morgan_fp(2, 128) +
           "</div>";
       }
+      mol.delete();
     }
-    mol.delete();
   }
   function sma_callback(text) {
     var qmol = RDKitModule.get_qmol(text);
     var mol = RDKitModule.get_mol(document.getElementById("smiles_input").value);
-    if (mol.is_valid() && qmol.is_valid()) {
+    if (!!mol && !!qmol) {
       var mdetails = mol.get_substruct_match(qmol);
       var match = JSON.parse(mdetails);
       if (match.atoms && match.atoms.length) draw_with_highlights(mol, match);
+      mol.delete();
+      qmol.delete();
     }
-    mol.delete();
-    qmol.delete();
+
   }
   function template_callback(text) {
     if(text==""){
@@ -95,15 +96,15 @@
     }
     var qmol = RDKitModule.get_mol(text);
     var mol = RDKitModule.get_mol(document.getElementById("smiles_input").value);
-    if (mol.is_valid() && qmol.is_valid()) {
+    if (!!mol && !!qmol) {
       var mdetails = mol.get_substruct_match(qmol);
       var match = JSON.parse(mdetails);
       var useCoordgen = document.getElementById("useCoordgen").checked;
       mol.generate_aligned_coords(qmol,useCoordgen);
       if (match.atoms && match.atoms.length) draw_with_highlights(mol, match);
+      mol.delete();
+      qmol.delete();
     }
-    mol.delete();
-    qmol.delete();
   }
   function option_changed(cb) {
     var smi = document.getElementById('smiles_input').value;

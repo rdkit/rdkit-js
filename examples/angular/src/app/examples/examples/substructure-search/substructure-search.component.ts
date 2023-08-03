@@ -36,12 +36,12 @@ export class SubstructureSearchComponent {
                 const matches = mol.get_substruct_match(qmol);
                 return matches.length > 2;
               } finally {
-                mol.delete();
+                mol?.delete();
               }
             });
             return rtn;
           } finally {
-            qmol.delete();
+            qmol?.delete();
           }
         })
       )

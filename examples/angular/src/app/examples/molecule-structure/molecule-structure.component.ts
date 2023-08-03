@@ -97,14 +97,14 @@ export class MoleculeStructureComponent implements OnChanges, AfterViewInit {
       const mol = rdkit.get_mol(this.structure);
       const qmol = rdkit.get_qmol(this.substructure || "");
       try {
-        if (!(!!mol && mol.is_valid())) {
+        if (!(!!mol)) {
           this.error = "Invalid structure";
           return;
         }
 
         let highlightDetails: MolHighlight = { bonds: [], atoms: [] };
 
-        if (!!qmol && qmol.is_valid()) {
+        if (!!qmol) {
           const highlights: any = JSON.parse(mol.get_substruct_matches(qmol));
 
           if (highlights?.length) {
@@ -129,8 +129,8 @@ export class MoleculeStructureComponent implements OnChanges, AfterViewInit {
           ...highlightDetails
         };
       } finally {
-        mol.delete();
-        qmol.delete();
+        mol?.delete();
+        qmol?.delete();
       }
     });
   }

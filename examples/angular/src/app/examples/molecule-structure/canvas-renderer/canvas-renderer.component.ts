@@ -59,7 +59,7 @@ export class CanvasRendererComponent implements OnChanges, AfterViewInit {
         .subscribe((rdkit) => {
           const mol = rdkit.get_mol(this.structure);
           try {
-            if (!(!!mol && mol.is_valid())) {
+            if (!(!!mol)) {
               return;
             }
 
@@ -68,7 +68,7 @@ export class CanvasRendererComponent implements OnChanges, AfterViewInit {
               JSON.stringify(this.drawingDetails)
             );
           } finally {
-            mol.delete();
+            mol?.delete();
           }
         });
     }

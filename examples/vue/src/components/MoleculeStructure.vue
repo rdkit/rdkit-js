@@ -94,7 +94,7 @@ let svg = ref("");
  * Validate the molecule
  */
 function isValid(m: JSMol) {
-  return !!m && m.is_valid();
+  return !!m;
 }
 
 /**
@@ -103,7 +103,7 @@ function isValid(m: JSMol) {
 function isValidMolString(s: string) {
   const mol = window.RDKit.get_mol(s || "invalid");
   const isValidMol = isValid(mol);
-  mol.delete();
+  mol?.delete();
 
   return isValidMol;
 }
@@ -164,8 +164,8 @@ async function drawSVGorCanvas() {
    * Delete C++ mol objects manually
    * https://emscripten.org/docs/porting/connecting_cpp_and_javascript/embind.html#memory-management
    */
-  mol.delete();
-  qmol.delete();
+  mol?.delete();
+  qmol?.delete();
 }
 
 /**

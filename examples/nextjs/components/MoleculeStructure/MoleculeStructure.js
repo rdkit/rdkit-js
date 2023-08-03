@@ -115,12 +115,12 @@ class MoleculeStructure extends Component {
      * Delete C++ mol objects manually
      * https://emscripten.org/docs/porting/connecting_cpp_and_javascript/embind.html#memory-management
      */
-    mol.delete();
-    qmol.delete();
+    mol?.delete();
+    qmol?.delete();
   }
 
   isValidMol(mol) {
-    return !!mol && mol.is_valid();
+    return !!mol;
   }
 
   getMolDetails(mol, qmol) {
@@ -203,7 +203,7 @@ class MoleculeStructure extends Component {
 
     const mol = this.RDKit.get_mol(this.props.structure || "invalid");
     const isValidMol = this.isValidMol(mol);
-    mol.delete();
+    mol?.delete();
 
     if (!isValidMol) {
       return (

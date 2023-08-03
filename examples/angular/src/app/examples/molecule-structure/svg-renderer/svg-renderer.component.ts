@@ -68,7 +68,7 @@ export class SvgRendererComponent implements OnChanges, AfterViewInit {
         .subscribe((rdkit) => {
           const mol = rdkit.get_mol(this.structure);
           try {
-            if (!(!!mol && mol.is_valid())) {
+            if (!(!!mol)) {
               return;
             }
 
@@ -79,7 +79,7 @@ export class SvgRendererComponent implements OnChanges, AfterViewInit {
             this.safeSVG = this.domSanitizer.bypassSecurityTrustHtml(svgData);
             this.cdr.detectChanges();
           } finally {
-            mol.delete();
+            mol?.delete();
           }
         });
     }
