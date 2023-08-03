@@ -468,12 +468,13 @@ export interface RDKitModule {
   SubstructLibrary: SubstructLibraryConstructor;
 
   /**
-   * Create a molecule from a variety of input strings
+   * Create a molecule from a variety of input strings.
+   * This will return null if the input is invalid.
    * 
    * @param input SMILES / SMARTS / MolFile / JSON string
    * @param details_json 
    */
-  get_mol(input: string, details_json?: string): JSMol;
+  get_mol(input: string, details_json?: string): JSMol | null;
 
   /**
    * Create a molecule from a pickle string
@@ -498,10 +499,11 @@ export interface RDKitModule {
 
   /**
    * Create a query molecule
+   * This will return null if the input is invalid.
    * 
    * @param input SMARTS string
    */
-  get_qmol(input: string): JSMol;
+  get_qmol(input: string): JSMol | null;
 
   /**
    * Get the InChI key for an InChI string

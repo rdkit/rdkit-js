@@ -38,13 +38,13 @@ export class IsSubstructDirective implements AsyncValidator {
         const mol = rdkit.get_mol(this.refMol);
         const qmol = rdkit.get_qmol(control.value);
         try {
-          const isMol = !!mol && mol.is_valid();
+          const isMol = !!mol;
 
           if (!isMol) {
             return null;
           }
 
-          const isQMol = !!qmol && qmol.is_valid();
+          const isQMol = !!qmol;
 
           if (!isQMol) {
             return { isSubstruct: "Input is not a valid Molecule" };

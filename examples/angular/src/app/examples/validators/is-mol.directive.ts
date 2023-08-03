@@ -35,11 +35,11 @@ export class IsMolDirective implements AsyncValidator {
       map((rdkit) => {
         const mol = rdkit.get_mol(control.value);
         try {
-          const isMol = !!mol && mol.is_valid();
+          const isMol = !!mol;
 
           return isMol ? null : { isMol: "Input is not a valid Molecule" };
         } finally {
-          mol.delete();
+          mol?.delete();
         }
       })
     );

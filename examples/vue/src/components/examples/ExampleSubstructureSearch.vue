@@ -78,11 +78,11 @@ function performSearch() {
     // only return those from the list that match the query
     const mol = window.RDKit.get_mol(smiles);
     const hasMatch = mol.get_substruct_match(qmol).length > noMatchLength;
-    mol.delete();
+    mol?.delete();
     return hasMatch;
   });
 
-  qmol.delete();
+  qmol?.delete();
 
   // replace search results
   updateMatches(results);
