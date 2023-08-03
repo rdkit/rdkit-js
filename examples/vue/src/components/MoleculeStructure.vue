@@ -93,7 +93,7 @@ let svg = ref("");
 /**
  * Validate the molecule
  */
-function isValid(m: JSMol) {
+function isValid(m: JSMol | null) {
   return !!m;
 }
 
@@ -111,10 +111,10 @@ function isValidMolString(s: string) {
 /**
  * Get highlight details for molecule
  */
-function getMolDetails(mol: JSMol, qmol: JSMol) {
+function getMolDetails(mol: JSMol | null, qmol: JSMol | null) {
   if (isValid(mol) && isValid(qmol)) {
     // get substructure highlight details
-    const details = JSON.parse(mol.get_substruct_matches(qmol));
+    const details = JSON.parse(mol?.get_substruct_matches(qmol as JSMol) || "");
     // reduce the list of objects to a single list object with all atoms and bonds
     const detailsMerged: { atoms: number[]; bonds: number[] } = details
       ? details.reduce(
@@ -152,12 +152,12 @@ async function drawSVGorCanvas() {
   const isValidMol = isValid(mol);
 
   if (props.svgMode && isValidMol) {
-    const svgGenerated = mol.get_svg_with_highlights(getMolDetails(mol, qmol));
+    const svgGenerated = (mol as JSMol).get_svg_with_highlights(getMolDetails(mol, qmol));
     svg.value = svgGenerated;
   } else if (isValidMol) {
     await nextTick(); // function needs to wait until canvas is rendered
     const canvas = document.getElementById(props.id) as HTMLCanvasElement;
-    mol.draw_to_canvas_with_highlights(canvas, getMolDetails(mol, qmol));
+    (mol as JSMol).draw_to_canvas_with_highlights(canvas, getMolDetails(mol, qmol));
   }
 
   /**

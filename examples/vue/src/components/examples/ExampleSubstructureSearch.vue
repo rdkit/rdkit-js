@@ -50,6 +50,7 @@ import MoleculeStructure from "../MoleculeStructure.vue";
 import { SMILES_LIST } from "../../utils/smiles";
 import { reactive, ref, watch } from "vue";
 import debounce from "debounce";
+import { JSMol } from "../../../../../typescript";
 
 let searching = ref(false);
 let searchValue = ref("");
@@ -73,14 +74,27 @@ function performSearch() {
   }
 
   const qmol = window.RDKit.get_qmol(searchValue.value);
+  let results: string[] = [];
+  if (!!qmol) {
+    // if the query is a valid SMARTS, we can use the substructure search
+    const results = SMILES_LIST.filter((smiles: string) => {
+      // only return those from the list that match the query
+      const mol = window.RDKit.get_mol(smiles);
+      const hasMatch = !!mol && mol.get_substruct_match(qmol).length > 0;
+      mol?.delete();
+      return hasMatch;
+    });
 
-  const results = SMILES_LIST.filter((smiles: string) => {
-    // only return those from the list that match the query
-    const mol = window.RDKit.get_mol(smiles);
-    const hasMatch = mol.get_substruct_match(qmol).length > noMatchLength;
-    mol?.delete();
-    return hasMatch;
-  });
+    qmol?.delete();
+
+    // replace search results
+    updateMatches(results);
+
+    // finish search
+    searching.value = false;
+  } else {
+    results = []
+  }
 
   qmol?.delete();
 
