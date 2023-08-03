@@ -58,9 +58,7 @@
                 "output": "/"
               }
             ],
-            "styles": [
-              "src/styles.css"
-            ],
+            "styles": ["src/styles.css"],
             "scripts": ["node_modules/@rdkit/rdkit/dist/RDKit_minimal.js"],
             "vendorChunk": true,
             "extractLicenses": false,
