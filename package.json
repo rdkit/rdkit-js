@@ -19,7 +19,7 @@
     "vue:start": "cd examples/vue && npm run dev",
     "vue:build": "cd examples/vue && npm run build",
     "angular:start": "cd examples/angular && npm run start",
-    "angular:build": "cd examples/angular && mv ../../node_modules/bulma node_modules/bulma && npm run build",
+    "angular:build": "cd examples/angular && npm run build",
     "react:build": "cd examples/react && PUBLIC_URL='' npm run build",
     "react:start": "cd examples/react && npm run start",
     "javascript:start": "serve examples/javascript",
