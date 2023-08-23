@@ -115,11 +115,11 @@ Once you have the RDKit package installed in your node modules, copy the followi
 - `node_modules/@rdkit/rdkit/dist/RDKit_minimal.js`
 - `node_modules/@rdkit/rdkit/dist/RDKit_minimal.wasm`
 
-**NOTE: By default, both files must be copied at the same location in your deployed assets for the library to work properly.**. If you need the `RDKIT_minimal.wasm` file to be loaded from another location, use the `locateFile` option when invoking `initRDKitModule`.
+**NOTE:** By default, both files must be copied at the same location in your deployed assets for the library to work properly. If you need the `RDKIT_minimal.wasm` file to be loaded from another location, use the `locateFile` option when invoking `initRDKitModule`.
 
 ```js
 // Load the RDKit WASM module from a specific path on your server.
-window.initRDKitModule({ locateFile: () => '/path/to/RDKit_minimal.wasm' }).then();
+window.initRDKitModule({ locateFile: () => '/path/to/RDKit_minimal.wasm' }).then(/* ... */);
 ```
 
 #### Option 2: Use the remote distribution files from [unpkg.com](https://unpkg.com/)
