@@ -6607,12 +6607,6 @@ readdirp@~3.6.0:
   dependencies:
     picomatch "^2.2.1"
 
-recursive-readdir@^2.2.2:
-  version "2.2.2"
-  resolved "https://registry.npmjs.org/recursive-readdir/-/recursive-readdir-2.2.2.tgz"
-  dependencies:
-    minimatch "3.0.4"
-
 redent@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/redent/-/redent-3.0.0.tgz"
