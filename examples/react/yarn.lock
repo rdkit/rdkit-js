@@ -7903,10 +7903,6 @@ which@^2.0.1:
   dependencies:
     isexe "^2.0.0"
 
-word-wrap@^1.2.3, word-wrap@~1.2.3:
-  version "1.2.3"
-  resolved "https://registry.npmjs.org/word-wrap/-/word-wrap-1.2.3.tgz"
-
 workbox-background-sync@6.5.2:
   version "6.5.2"
   resolved "https://registry.npmjs.org/workbox-background-sync/-/workbox-background-sync-6.5.2.tgz"
