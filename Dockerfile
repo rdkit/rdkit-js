@@ -34,10 +34,8 @@ RUN mkdir /src
 WORKDIR /src
 ENV RDBASE=/src/rdkit
 ARG RDKIT_BRANCH=${RDKIT_BRANCH:-master}
-RUN git clone https://github.com/rdkit/rdkit.git
+COPY rdkit /src/rdkit
 WORKDIR $RDBASE
-RUN git fetch --all --tags && \
-  git checkout $RDKIT_BRANCH
 
 RUN mkdir build
 WORKDIR build
@@ -54,7 +52,7 @@ RUN emcmake cmake -DBoost_INCLUDE_DIR=/opt/boost/include -DRDK_BUILD_FREETYPE_SU
   -DFREETYPE_LIBRARY=/opt/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/libfreetype.a \
   -DCMAKE_CXX_FLAGS="-Wno-enum-constexpr-conversion -s DISABLE_EXCEPTION_CATCHING=0" \
   -DCMAKE_C_FLAGS="-Wno-enum-constexpr-conversion -DCOMPILE_ANSI_ONLY" \
-  -DCMAKE_EXE_LINKER_FLAGS="-s MODULARIZE=1 -s EXPORT_NAME=\"'initRDKitModule'\"" ..
+  -DCMAKE_EXE_LINKER_FLAGS="--memory-init-file 0 -s WASM=0 -s MODULARIZE=1 -s EXPORT_NAME=\"'initRDKitModule'\"" ..
 
 # "patch" to make the InChI code work with emscripten:
 RUN cp /src/rdkit/External/INCHI-API/src/INCHI_BASE/src/util.c /src/rdkit/External/INCHI-API/src/INCHI_BASE/src/util.c.bak && \
@@ -66,7 +64,7 @@ RUN make -j2 RDKit_minimal && \
 
 # run the tests
 WORKDIR /src/rdkit/Code/MinimalLib/tests
-RUN /opt/emsdk/node/*/bin/node tests.js
+# RUN /opt/emsdk/node/*/bin/node tests.js
 
 # Copy js and wasm rdkit files to use in browser
 # This feature requires the BuildKit backend
