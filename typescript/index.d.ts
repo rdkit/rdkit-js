@@ -538,6 +538,12 @@ export interface SubstructLibrary {
   count_matches(q: JSMol, useChirality: boolean, numThreads: number): number;
 }
 
+export interface JSLog {
+  clear_buffer(): void;
+  get_buffer(): string;
+  delete(): void;
+}
+
 // constructor interfaces
 
 /** Returns a new SubstructLibrary instance */
@@ -629,6 +635,10 @@ export interface RDKitModule {
    */
   get_rxn(input: string, details_json?: string): JSReaction | null
 
+  enable_logging(): void;
+  disable_logging(): void;
+  set_log_capture(log_name: string): JSLog;
+  set_log_tee(log_name: string): JSLog;
 }
 
 type RDKitLoaderOptions = {
