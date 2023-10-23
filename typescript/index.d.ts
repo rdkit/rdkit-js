@@ -615,6 +615,13 @@ export interface RDKitModule {
   use_legacy_stereo_perception(value: boolean): void;
 
   /**
+   * Set whether to allow non-tetrahedral chirality
+   * 
+   * @param value
+   */
+  allow_non_tetrahedral_chirality(value: boolean): boolean;
+
+  /**
    * Create a reaction from a variety of input strings.
    * This will return null if the input is invalid.
    * @param input 
