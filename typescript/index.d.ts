@@ -211,7 +211,9 @@ export interface JSMol {
     options: JSONString
   ): string;
 
-  /** Returns true if the molecule's structure is valid */
+  /**
+   * @deprecated Please check the get_mol return value for non-nullness instead
+   */
   is_valid(): boolean;
 
   /** Check is the molecule has any 2D coordinates generated */
