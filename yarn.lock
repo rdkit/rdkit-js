@@ -184,10 +184,10 @@
     "@angular-eslint/bundled-angular-compiler" "14.1.2"
     "@typescript-eslint/utils" "5.37.0"
 
-"@angular/animations@^14.2.6":
-  version "14.2.10"
-  resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-14.2.10.tgz#d9f5abf4b051a6de0e2665b659b89f5b26fa6a76"
-  integrity sha512-t3ntvZvEI3lFrsJOC2qcF4ZCD04rVXWt8769YfearACBMsAXF0OAsLFcFHSDxcJelLGvQlXtBhjhe4IFAnQiZw==
+"@angular/animations@^17.0.5":
+  version "17.0.5"
+  resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-17.0.5.tgz#917402181383b0852203d225a342208fac3d23d1"
+  integrity sha512-NZ9Y3QWqrn0THypVNwsztMV9rnjxNMRIf6to8aZv+ehIUOvskqcA/lW5qAdcMr1uNoyloB9vahJrDniWWEKT5A==
   dependencies:
     tslib "^2.3.0"
 
@@ -2458,10 +2458,10 @@
     lz-string "^1.4.4"
     pretty-format "^27.0.2"
 
-"@testing-library/jest-dom@^6.1.3":
-  version "6.1.4"
-  resolved "https://registry.yarnpkg.com/@testing-library/jest-dom/-/jest-dom-6.1.4.tgz#cf0835c33bc5ef00befb9e672b1e3e6a710e30e3"
-  integrity sha512-wpoYrCYwSZ5/AxcrjLxJmCU6I5QAJXslEeSiMQqaWmP2Kzpd1LvF/qxmAIW2qposULGWq2gw30GgVNFLSc2Jnw==
+"@testing-library/jest-dom@^6.1.4":
+  version "6.1.5"
+  resolved "https://registry.yarnpkg.com/@testing-library/jest-dom/-/jest-dom-6.1.5.tgz#0a635d0ad4a1a880089d967299d94e9cfc81fbe1"
+  integrity sha512-3y04JLW+EceVPy2Em3VwNr95dOKqA8DhR0RJHhHKDZNYXcVXnEK7WIrpj4eYU8SVt/qYZ2aRWt/WgQ+grNES8g==
   dependencies:
     "@adobe/css-tools" "^4.3.1"
     "@babel/runtime" "^7.9.2"
