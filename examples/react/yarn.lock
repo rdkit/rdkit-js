@@ -3847,10 +3847,6 @@ flatted@^3.1.0:
   version "3.1.1"
   resolved "https://registry.npmjs.org/flatted/-/flatted-3.1.1.tgz"
 
-follow-redirects@^1.0.0:
-  version "1.14.8"
-  resolved "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.14.8.tgz"
-
 for-each@^0.3.3:
   version "0.3.3"
   resolved "https://registry.npmjs.org/for-each/-/for-each-0.3.3.tgz"
