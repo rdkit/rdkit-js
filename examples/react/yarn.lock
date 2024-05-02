@@ -3253,12 +3253,6 @@ ee-first@1.1.1:
   resolved "https://registry.npmjs.org/ee-first/-/ee-first-1.1.1.tgz"
   integrity "sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0= sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow=="
 
-ejs@^3.1.6:
-  version "3.1.7"
-  resolved "https://registry.npmjs.org/ejs/-/ejs-3.1.7.tgz"
-  dependencies:
-    jake "^10.8.5"
-
 electron-to-chromium@^1.4.477:
   version "1.4.482"
   resolved "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.4.482.tgz"
