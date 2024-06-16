@@ -1,23 +1,61 @@
+# Example usage of this Dockerfile:
+# (the build-arg arguments are all optional)
+#
+# 1. cd to Code/MinimalLib/docker
+# cd Code/MinimalLib/docker
+#
+# 2. build the JS and WASM libraries
+#    (the build-arg arguments are all optional)
+# docker build -t rdkit-minimallib --network=host \
+#  --build-arg "RDKIT_GIT_URL=https://github.com/myfork/rdkit.git" \
+#  --build-arg "RDKIT_BRANCH=mybranch" .
+#
+# 3. create a temporary container and copy built libraries
+#    from the container to your local filesystem, then destroy
+#    the temporary container
+# docker create --name=rdkit-minimallib-container rdkit-minimallib:latest --entrypoint /
+# docker cp rdkit-minimallib-container:/RDKit_minimal.js ../demo
+# docker cp rdkit-minimallib-container:/RDKit_minimal.wasm ../demo
+# docker rm rdkit-minimallib-container
+
+
+ARG RDKIT_GIT_URL="https://github.com/rdkit/rdkit.git"
+ARG RDKIT_BRANCH="master"
+ARG EMSDK_VERSION="latest"
+ARG BOOST_MAJOR_VERSION="1"
+ARG BOOST_MINOR_VERSION="84"
+ARG BOOST_PATCH_VERSION="0"
+
 FROM debian:buster as build-stage
+ARG RDKIT_GIT_URL
+ARG RDKIT_BRANCH
+ARG EMSDK_VERSION
+ARG BOOST_MAJOR_VERSION
+ARG BOOST_MINOR_VERSION
+ARG BOOST_PATCH_VERSION
+
 LABEL maintainer="Greg Landrum <greg.landrum@t5informatics.com>"
+
+RUN echo "deb http://archive.debian.org/debian buster-backports main contrib non-free" >> /etc/apt/sources.list.d/backports.list
 
 RUN apt-get update && apt-get upgrade -y && apt install -y \
   curl \
   wget \
-  cmake \
+  cmake/buster-backports \
   python3 \
   g++ \
   libeigen3-dev \
   git \
-  nodejs \
-  libfreetype6-dev
+  nodejs
 
 ENV LANG C
 
 WORKDIR /opt
-RUN wget -q https://boostorg.jfrog.io/artifactory/main/release/1.67.0/source/boost_1_67_0.tar.gz && \
-  tar xzf boost_1_67_0.tar.gz 
-WORKDIR /opt/boost_1_67_0
+ARG BOOST_DOT_VERSION="${BOOST_MAJOR_VERSION}.${BOOST_MINOR_VERSION}.${BOOST_PATCH_VERSION}"
+ARG BOOST_UNDERSCORE_VERSION="${BOOST_MAJOR_VERSION}_${BOOST_MINOR_VERSION}_${BOOST_PATCH_VERSION}"
+RUN wget -q https://boostorg.jfrog.io/artifactory/main/release/${BOOST_DOT_VERSION}/source/boost_${BOOST_UNDERSCORE_VERSION}.tar.gz && \
+  tar xzf boost_${BOOST_UNDERSCORE_VERSION}.tar.gz
+WORKDIR /opt/boost_${BOOST_UNDERSCORE_VERSION}
 RUN ./bootstrap.sh --prefix=/opt/boost --with-libraries=system && \
   ./b2 install
 
@@ -26,21 +64,21 @@ WORKDIR /opt
 RUN git clone https://github.com/emscripten-core/emsdk.git
 
 WORKDIR /opt/emsdk
-RUN ./emsdk update-tags && \
-  ./emsdk install latest && \
-  ./emsdk activate latest
+RUN ./emsdk install ${EMSDK_VERSION} && \
+  ./emsdk activate ${EMSDK_VERSION}
+
+#RUN source ./emsdk_env.sh
 
 RUN mkdir /src
 WORKDIR /src
 ENV RDBASE=/src/rdkit
-ARG RDKIT_BRANCH=${RDKIT_BRANCH:-master}
-RUN git clone https://github.com/rdkit/rdkit.git
+RUN git clone ${RDKIT_GIT_URL}
 WORKDIR $RDBASE
 RUN git fetch --all --tags && \
-  git checkout $RDKIT_BRANCH
+  git checkout ${RDKIT_BRANCH}
 
 RUN mkdir build
-WORKDIR build
+WORKDIR $RDBASE/build
 
 RUN echo "source /opt/emsdk/emsdk_env.sh > /dev/null 2>&1" >> ~/.bashrc
 SHELL ["/bin/bash", "-c", "-l"]
