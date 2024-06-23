@@ -26,7 +26,7 @@ ARG BOOST_MAJOR_VERSION="1"
 ARG BOOST_MINOR_VERSION="84"
 ARG BOOST_PATCH_VERSION="0"
 
-FROM debian:buster as build-stage
+FROM --platform=linux/amd64 debian:bookworm as build-stage
 ARG RDKIT_GIT_URL
 ARG RDKIT_BRANCH
 ARG EMSDK_VERSION
@@ -35,8 +35,6 @@ ARG BOOST_MINOR_VERSION
 ARG BOOST_PATCH_VERSION
 
 LABEL maintainer="Greg Landrum <greg.landrum@t5informatics.com>"
-
-RUN echo "deb http://archive.debian.org/debian buster-backports main contrib non-free" >> /etc/apt/sources.list.d/backports.list
 
 RUN apt-get update && apt-get upgrade -y && apt install -y \
   curl \
@@ -97,6 +95,12 @@ RUN emcmake cmake -DBoost_INCLUDE_DIR=/opt/boost/include -DRDK_BUILD_FREETYPE_SU
 # "patch" to make the InChI code work with emscripten:
 RUN cp /src/rdkit/External/INCHI-API/src/INCHI_BASE/src/util.c /src/rdkit/External/INCHI-API/src/INCHI_BASE/src/util.c.bak && \
   sed 's/&& defined(__APPLE__)//' /src/rdkit/External/INCHI-API/src/INCHI_BASE/src/util.c.bak > /src/rdkit/External/INCHI-API/src/INCHI_BASE/src/util.c
+
+# comment out a line which causes a compilation error on some platforms
+# (based on the change which has already been applied to the RapidJSON master branch, see
+# https://github.com/Tencent/rapidjson/blob/ab1842a2dae061284c0a62dca1cc6d5e7e37e346/include/rapidjson/document.h#L414)
+RUN sed -i 's|^\( *\)\(GenericStringRef\& operator=(const GenericStringRef\& rhs) { s = rhs.s; length = rhs.length; } *\)$|\1//\2|' \
+  /src/rdkit/External/rapidjson-1.1.0/include/rapidjson/document.h
 
 # build and "install"
 RUN make -j2 RDKit_minimal && \
