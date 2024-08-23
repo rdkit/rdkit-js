@@ -26,7 +26,7 @@ ARG BOOST_MAJOR_VERSION="1"
 ARG BOOST_MINOR_VERSION="84"
 ARG BOOST_PATCH_VERSION="0"
 
-FROM --platform=linux/amd64 debian:bookworm as build-stage
+FROM debian:bookworm as build-stage
 ARG RDKIT_GIT_URL
 ARG RDKIT_BRANCH
 ARG EMSDK_VERSION
@@ -39,11 +39,12 @@ LABEL maintainer="Greg Landrum <greg.landrum@t5informatics.com>"
 RUN apt-get update && apt-get upgrade -y && apt install -y \
   curl \
   wget \
-  cmake/buster-backports \
+  cmake \
   python3 \
   g++ \
   libeigen3-dev \
   git \
+  xz-utils \
   nodejs
 
 ENV LANG C

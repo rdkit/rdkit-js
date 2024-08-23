@@ -25,10 +25,27 @@ mkdir -p $MINIMALLIB_OUTPUT_PATH
 # legacy minimallib output path
 LEGACY_MINIMALLIB_OUTPUT_PATH="Code/MinimalLib/dist"
 rm -rf $LEGACY_MINIMALLIB_OUTPUT_PATH
-mkdir -p $LEGACY_MINIMALLIB_OUTPUT_PATH 
+mkdir -p $LEGACY_MINIMALLIB_OUTPUT_PATH
 
 # Build distribution files
-DOCKER_BUILDKIT=1 docker build --no-cache -f Dockerfile --build-arg RDKIT_BRANCH=$RDKIT_BRANCH -o $MINIMALLIB_OUTPUT_PATH .
+DOCKER_BUILDKIT=1 docker build --no-cache --platform=linux/amd64 -f Dockerfile --build-arg RDKIT_BRANCH=$RDKIT_BRANCH -o $MINIMALLIB_OUTPUT_PATH .
+
+# Make dist files executable
+chmod a+rwx $MINIMALLIB_OUTPUT_PATH/RDKit_minimal.js
+chmod a+rwx $MINIMALLIB_OUTPUT_PATH/RDKit_minimal.wasm
+
+# Add a copy of the distribution files at the original rdkit location
+# for backwards compatibility
+cp $MINIMALLIB_OUTPUT_PATH/RDKit_minimal.js $LEGACY_MINIMALLIB_OUTPUT_PATH/RDKit_minimal.js
+cp $MINIMALLIB_OUTPUT_PATH/RDKit_minimal.wasm $LEGACY_MINIMALLIB_OUTPUT_PATH/RDKit_minimal.wasm
+
+# Move docs file in dist folder for demos to work properly
+cp docs/demo.html $MINIMALLIB_OUTPUT_PATH/demo.html
+cp docs/GettingStartedInJS.html $MINIMALLIB_OUTPUT_PATH/GettingStartedInJS.html
+
+# Log build completed
+echo "Build completed"
+echo "MinimalLib distribution files are at $MINIMALLIB_OUTPUT_PATH"
 
 # Make dist files executable
 chmod a+rwx $MINIMALLIB_OUTPUT_PATH/RDKit_minimal.js
