@@ -53,12 +53,17 @@ WORKDIR /opt
 ARG BOOST_DOT_VERSION="${BOOST_MAJOR_VERSION}.${BOOST_MINOR_VERSION}.${BOOST_PATCH_VERSION}"
 ARG BOOST_UNDERSCORE_VERSION="${BOOST_MAJOR_VERSION}_${BOOST_MINOR_VERSION}_${BOOST_PATCH_VERSION}"
 RUN wget -q https://boostorg.jfrog.io/artifactory/main/release/${BOOST_DOT_VERSION}/source/boost_${BOOST_UNDERSCORE_VERSION}.tar.gz && \
-  tar xzf boost_${BOOST_UNDERSCORE_VERSION}.tar.gz && \
-  mv boost_${BOOST_UNDERSCORE_VERSION} /opt/boost
+    tar xzf boost_${BOOST_UNDERSCORE_VERSION}.tar.gz && \
+    mv boost_${BOOST_UNDERSCORE_VERSION} /opt/boost && \
+    cd /opt/boost && \
+    # Create the include directory structure that CMake expects
+    mkdir -p /usr/local/include && \
+    cp -r boost /usr/local/include/
 
-# No need to build Boost, we'll just use the headers
+# Set environment variables for Boost
 ENV BOOST_ROOT=/opt/boost
-ENV Boost_INCLUDE_DIR=/opt/boost
+ENV BOOST_INCLUDEDIR=/usr/local/include
+ENV CMAKE_PREFIX_PATH=/opt/boost:/usr/local
 
 
 WORKDIR /opt
@@ -83,32 +88,33 @@ WORKDIR $RDBASE/build
 RUN echo "source /opt/emsdk/emsdk_env.sh > /dev/null 2>&1" >> ~/.bashrc
 SHELL ["/bin/bash", "-c", "-l"]
 RUN emcmake cmake \
-  -DBOOST_ROOT=/opt/boost \
-  -DBoost_INCLUDE_DIR=/opt/boost \
-  -DBoost_NO_SYSTEM_PATHS=ON \
-  -DBoost_NO_BOOST_CMAKE=ON \
-  -DBOOST_LIBRARYDIR=/opt/boost/lib \
-  -DBoost_USE_STATIC_LIBS=ON \
-  -DBoost_USE_STATIC_RUNTIME=ON \
-  -DRDK_BUILD_FREETYPE_SUPPORT=ON \
-  -DRDK_BUILD_MINIMAL_LIB=ON \
-  -DRDK_BUILD_PYTHON_WRAPPERS=OFF \
-  -DRDK_BUILD_CPP_TESTS=OFF \
-  -DRDK_BUILD_INCHI_SUPPORT=ON \
-  -DRDK_USE_BOOST_SERIALIZATION=OFF \
-  -DRDK_OPTIMIZE_POPCNT=OFF \
-  -DRDK_BUILD_THREADSAFE_SSS=OFF \
-  -DRDK_BUILD_DESCRIPTORS3D=OFF \
-  -DRDK_TEST_MULTITHREADED=OFF \
-  -DRDK_BUILD_MAEPARSER_SUPPORT=OFF \
-  -DRDK_BUILD_COORDGEN_SUPPORT=ON \
-  -DRDK_BUILD_SLN_SUPPORT=OFF \
-  -DRDK_USE_BOOST_IOSTREAMS=OFF \
-  -DFREETYPE_INCLUDE_DIRS=/opt/emsdk/upstream/emscripten/cache/sysroot/include/freetype2 \
-  -DFREETYPE_LIBRARY=/opt/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/libfreetype.a \
-  -DCMAKE_CXX_FLAGS="-Wno-enum-constexpr-conversion -s DISABLE_EXCEPTION_CATCHING=0" \
-  -DCMAKE_C_FLAGS="-Wno-enum-constexpr-conversion -DCOMPILE_ANSI_ONLY" \
-  -DCMAKE_EXE_LINKER_FLAGS="-s MODULARIZE=1 -s EXPORT_NAME=\"'initRDKitModule'\"" ..
+    -DBoost_DEBUG=ON \
+    -DBoost_VERBOSE=ON \
+    -DBoost_NO_BOOST_CMAKE=ON \
+    -DBoost_NO_SYSTEM_PATHS=ON \
+    -DBOOST_ROOT=/opt/boost \
+    -DBOOST_INCLUDEDIR=/usr/local/include \
+    -DBoost_INCLUDE_DIR=/usr/local/include \
+    -DCMAKE_MODULE_PATH=/opt/boost \
+    -DRDK_BUILD_FREETYPE_SUPPORT=ON \
+    -DRDK_BUILD_MINIMAL_LIB=ON \
+    -DRDK_BUILD_PYTHON_WRAPPERS=OFF \
+    -DRDK_BUILD_CPP_TESTS=OFF \
+    -DRDK_BUILD_INCHI_SUPPORT=ON \
+    -DRDK_USE_BOOST_SERIALIZATION=OFF \
+    -DRDK_OPTIMIZE_POPCNT=OFF \
+    -DRDK_BUILD_THREADSAFE_SSS=OFF \
+    -DRDK_BUILD_DESCRIPTORS3D=OFF \
+    -DRDK_TEST_MULTITHREADED=OFF \
+    -DRDK_BUILD_MAEPARSER_SUPPORT=OFF \
+    -DRDK_BUILD_COORDGEN_SUPPORT=ON \
+    -DRDK_BUILD_SLN_SUPPORT=OFF \
+    -DRDK_USE_BOOST_IOSTREAMS=OFF \
+    -DFREETYPE_INCLUDE_DIRS=/opt/emsdk/upstream/emscripten/cache/sysroot/include/freetype2 \
+    -DFREETYPE_LIBRARY=/opt/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/libfreetype.a \
+    -DCMAKE_CXX_FLAGS="-Wno-enum-constexpr-conversion -s DISABLE_EXCEPTION_CATCHING=0" \
+    -DCMAKE_C_FLAGS="-Wno-enum-constexpr-conversion -DCOMPILE_ANSI_ONLY" \
+    -DCMAKE_EXE_LINKER_FLAGS="-s MODULARIZE=1 -s EXPORT_NAME=\"'initRDKitModule'\"" ..
 
 # "patch" to make the InChI code work with emscripten:
 RUN cp /src/rdkit/External/INCHI-API/src/INCHI_BASE/src/util.c /src/rdkit/External/INCHI-API/src/INCHI_BASE/src/util.c.bak && \
