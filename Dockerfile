@@ -53,17 +53,12 @@ WORKDIR /opt
 ARG BOOST_DOT_VERSION="${BOOST_MAJOR_VERSION}.${BOOST_MINOR_VERSION}.${BOOST_PATCH_VERSION}"
 ARG BOOST_UNDERSCORE_VERSION="${BOOST_MAJOR_VERSION}_${BOOST_MINOR_VERSION}_${BOOST_PATCH_VERSION}"
 RUN wget -q https://boostorg.jfrog.io/artifactory/main/release/${BOOST_DOT_VERSION}/source/boost_${BOOST_UNDERSCORE_VERSION}.tar.gz && \
-  tar xzf boost_${BOOST_UNDERSCORE_VERSION}.tar.gz
-WORKDIR /opt/boost_${BOOST_UNDERSCORE_VERSION}
-RUN ./bootstrap.sh --prefix=/opt/boost --with-libraries=system,serialization,iostreams && \
-  ./b2 install \
-    --with-system \
-    --with-serialization \
-    --with-iostreams \
-    link=static \
-    runtime-link=static \
-    threading=multi \
-    variant=release
+  tar xzf boost_${BOOST_UNDERSCORE_VERSION}.tar.gz && \
+  mv boost_${BOOST_UNDERSCORE_VERSION} /opt/boost
+
+# No need to build Boost, we'll just use the headers
+ENV BOOST_ROOT=/opt/boost
+ENV Boost_INCLUDE_DIR=/opt/boost
 
 
 WORKDIR /opt
@@ -85,13 +80,16 @@ RUN git fetch --all --tags && \
 
 RUN mkdir build
 WORKDIR $RDBASE/build
-
 RUN echo "source /opt/emsdk/emsdk_env.sh > /dev/null 2>&1" >> ~/.bashrc
 SHELL ["/bin/bash", "-c", "-l"]
-RUN emcmake cmake -DBoost_INCLUDE_DIR=/opt/boost/include \
+RUN emcmake cmake \
   -DBOOST_ROOT=/opt/boost \
+  -DBoost_INCLUDE_DIR=/opt/boost \
   -DBoost_NO_SYSTEM_PATHS=ON \
   -DBoost_NO_BOOST_CMAKE=ON \
+  -DBOOST_LIBRARYDIR=/opt/boost/lib \
+  -DBoost_USE_STATIC_LIBS=ON \
+  -DBoost_USE_STATIC_RUNTIME=ON \
   -DRDK_BUILD_FREETYPE_SUPPORT=ON \
   -DRDK_BUILD_MINIMAL_LIB=ON \
   -DRDK_BUILD_PYTHON_WRAPPERS=OFF \
