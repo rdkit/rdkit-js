@@ -55,8 +55,15 @@ ARG BOOST_UNDERSCORE_VERSION="${BOOST_MAJOR_VERSION}_${BOOST_MINOR_VERSION}_${BO
 RUN wget -q https://boostorg.jfrog.io/artifactory/main/release/${BOOST_DOT_VERSION}/source/boost_${BOOST_UNDERSCORE_VERSION}.tar.gz && \
   tar xzf boost_${BOOST_UNDERSCORE_VERSION}.tar.gz
 WORKDIR /opt/boost_${BOOST_UNDERSCORE_VERSION}
-RUN ./bootstrap.sh --prefix=/opt/boost --with-libraries=system && \
-  ./b2 install
+RUN ./bootstrap.sh --prefix=/opt/boost --with-libraries=system,serialization,iostreams && \
+  ./b2 install \
+    --with-system \
+    --with-serialization \
+    --with-iostreams \
+    link=static \
+    runtime-link=static \
+    threading=multi \
+    variant=release
 
 
 WORKDIR /opt
@@ -81,12 +88,24 @@ WORKDIR $RDBASE/build
 
 RUN echo "source /opt/emsdk/emsdk_env.sh > /dev/null 2>&1" >> ~/.bashrc
 SHELL ["/bin/bash", "-c", "-l"]
-RUN emcmake cmake -DBoost_INCLUDE_DIR=/opt/boost/include -DRDK_BUILD_FREETYPE_SUPPORT=ON -DRDK_BUILD_MINIMAL_LIB=ON \
-  -DRDK_BUILD_PYTHON_WRAPPERS=OFF -DRDK_BUILD_CPP_TESTS=OFF -DRDK_BUILD_INCHI_SUPPORT=ON \
-  -DRDK_USE_BOOST_SERIALIZATION=OFF -DRDK_OPTIMIZE_POPCNT=OFF -DRDK_BUILD_THREADSAFE_SSS=OFF \
-  -DRDK_BUILD_DESCRIPTORS3D=OFF -DRDK_TEST_MULTITHREADED=OFF \
-  -DRDK_BUILD_MAEPARSER_SUPPORT=OFF -DRDK_BUILD_COORDGEN_SUPPORT=ON \
-  -DRDK_BUILD_SLN_SUPPORT=OFF -DRDK_USE_BOOST_IOSTREAMS=OFF \
+RUN emcmake cmake -DBoost_INCLUDE_DIR=/opt/boost/include \
+  -DBOOST_ROOT=/opt/boost \
+  -DBoost_NO_SYSTEM_PATHS=ON \
+  -DBoost_NO_BOOST_CMAKE=ON \
+  -DRDK_BUILD_FREETYPE_SUPPORT=ON \
+  -DRDK_BUILD_MINIMAL_LIB=ON \
+  -DRDK_BUILD_PYTHON_WRAPPERS=OFF \
+  -DRDK_BUILD_CPP_TESTS=OFF \
+  -DRDK_BUILD_INCHI_SUPPORT=ON \
+  -DRDK_USE_BOOST_SERIALIZATION=OFF \
+  -DRDK_OPTIMIZE_POPCNT=OFF \
+  -DRDK_BUILD_THREADSAFE_SSS=OFF \
+  -DRDK_BUILD_DESCRIPTORS3D=OFF \
+  -DRDK_TEST_MULTITHREADED=OFF \
+  -DRDK_BUILD_MAEPARSER_SUPPORT=OFF \
+  -DRDK_BUILD_COORDGEN_SUPPORT=ON \
+  -DRDK_BUILD_SLN_SUPPORT=OFF \
+  -DRDK_USE_BOOST_IOSTREAMS=OFF \
   -DFREETYPE_INCLUDE_DIRS=/opt/emsdk/upstream/emscripten/cache/sysroot/include/freetype2 \
   -DFREETYPE_LIBRARY=/opt/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/libfreetype.a \
   -DCMAKE_CXX_FLAGS="-Wno-enum-constexpr-conversion -s DISABLE_EXCEPTION_CATCHING=0" \
