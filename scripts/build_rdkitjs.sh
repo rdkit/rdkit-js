@@ -1,3 +1,5 @@
+#!/bin/bash
+
 set -e
 
 # Set branch to release
@@ -28,7 +30,7 @@ rm -rf $LEGACY_MINIMALLIB_OUTPUT_PATH
 mkdir -p $LEGACY_MINIMALLIB_OUTPUT_PATH
 
 # Build distribution files
-DOCKER_BUILDKIT=1 docker build --no-cache --platform=linux/amd64 -f Dockerfile --build-arg RDKIT_BRANCH=$RDKIT_BRANCH -o $MINIMALLIB_OUTPUT_PATH .
+DOCKER_BUILDKIT=1 docker build --platform=linux/amd64 -f Dockerfile --build-arg RDKIT_BRANCH=$RDKIT_BRANCH -o $MINIMALLIB_OUTPUT_PATH .
 
 # Make dist files executable
 chmod a+rwx $MINIMALLIB_OUTPUT_PATH/RDKit_minimal.js

@@ -1,0 +1,28 @@
+name: Docker Build
+
+on:
+  workflow_dispatch:
+    inputs:
+      semver_version:
+        description: 'Semantic version (e.g. 1.0.0)'
+        required: true
+        type: string
+      rdkit_dash_version:
+        description: 'RDKit Dash version'
+        required: true
+        type: string
+      beta:
+        description: 'Beta flag'
+        required: true
+        type: string
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+      
+    - name: Build with NPM
+      run: |
+        RDKIT_DASH_VERSION=${{ inputs.rdkit_dash_version }} SEMVER_VERSION=${{ inputs.semver_version }} BETA=${{ inputs.beta }} NPM_TOKEN=${{ secrets.NPM_TOKEN }} npm run build
