@@ -56,14 +56,13 @@ RUN wget -q https://boostorg.jfrog.io/artifactory/main/release/${BOOST_DOT_VERSI
     tar xzf boost_${BOOST_UNDERSCORE_VERSION}.tar.gz && \
     mv boost_${BOOST_UNDERSCORE_VERSION} /opt/boost && \
     cd /opt/boost && \
-    # Create the include directory structure that CMake expects
-    mkdir -p /usr/local/include && \
-    cp -r boost /usr/local/include/
+    ./bootstrap.sh && \
+    ./b2 headers
 
 # Set environment variables for Boost
 ENV BOOST_ROOT=/opt/boost
-ENV BOOST_INCLUDEDIR=/usr/local/include
-ENV CMAKE_PREFIX_PATH=/opt/boost:/usr/local
+ENV Boost_INCLUDE_DIR=/opt/boost
+ENV CMAKE_PREFIX_PATH=/opt/boost
 
 
 WORKDIR /opt
@@ -84,18 +83,21 @@ RUN git fetch --all --tags && \
   git checkout ${RDKIT_BRANCH}
 
 RUN mkdir build
+# Create a minimal FindBoost.cmake
+RUN mkdir -p /opt/cmake/Modules && \
+    echo 'set(Boost_FOUND TRUE)' > /opt/cmake/Modules/FindBoost.cmake && \
+    echo 'set(Boost_INCLUDE_DIRS ${BOOST_ROOT})' >> /opt/cmake/Modules/FindBoost.cmake && \
+    echo 'set(Boost_VERSION ${Boost_FIND_VERSION})' >> /opt/cmake/Modules/FindBoost.cmake
+
 WORKDIR $RDBASE/build
 RUN echo "source /opt/emsdk/emsdk_env.sh > /dev/null 2>&1" >> ~/.bashrc
 SHELL ["/bin/bash", "-c", "-l"]
 RUN emcmake cmake \
-    -DBoost_DEBUG=ON \
-    -DBoost_VERBOSE=ON \
-    -DBoost_NO_BOOST_CMAKE=ON \
+    -DCMAKE_MODULE_PATH=/opt/cmake/Modules \
     -DBoost_NO_SYSTEM_PATHS=ON \
+    -DBoost_NO_BOOST_CMAKE=ON \
     -DBOOST_ROOT=/opt/boost \
-    -DBOOST_INCLUDEDIR=/usr/local/include \
-    -DBoost_INCLUDE_DIR=/usr/local/include \
-    -DCMAKE_MODULE_PATH=/opt/boost \
+    -DBoost_INCLUDE_DIR=/opt/boost \
     -DRDK_BUILD_FREETYPE_SUPPORT=ON \
     -DRDK_BUILD_MINIMAL_LIB=ON \
     -DRDK_BUILD_PYTHON_WRAPPERS=OFF \
