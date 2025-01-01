@@ -10,7 +10,7 @@
     "@testing-library/user-event": "^14.5.1",
     "hex-rgb": "^5.0.0",
     "lodash": "^4.17.21",
-    "react": "^18.2.0",
+    "react": "^19.0.0",
     "react-collapsible": "^2.10.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
