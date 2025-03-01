@@ -29,7 +29,7 @@
     "@angular-eslint/eslint-plugin": "14.1.2",
     "@angular-eslint/eslint-plugin-template": "14.1.2",
     "@angular-eslint/schematics": "14.1.2",
-    "@angular-eslint/template-parser": "14.1.2",
+    "@angular-eslint/template-parser": "19.1.0",
     "@angular/cli": "^14.2.6",
     "@angular/compiler-cli": "^14.2.6",
     "@types/node": "^20.5.7",
