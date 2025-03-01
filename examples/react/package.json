@@ -44,7 +44,7 @@
   },
   "devDependencies": {
     "@creativebulma/bulma-collapsible": "^1.0.4",
-    "prettier": "^3.0.3",
+    "prettier": "^3.5.2",
     "prop-types": "^15.8.1",
     "raw-loader": "^4.0.2"
   }
