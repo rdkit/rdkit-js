@@ -1,3 +1,5 @@
+[See note maintenance status here](https://github.com/rdkit/rdkit-js/issues/389#issuecomment-2919456915) . This library is maintained, but for more context, read the link.
+
 <br />
 <br />
 <p align="center">
