@@ -1,10 +1,4 @@
-'use client'
-
-import dynamic from "next/dynamic";
-const MoleculeStructure = dynamic(
-  () => import("@/components/molecular-structure"),
-  { ssr: false }
-);
+import MoleculeStructure from "@/components/molecular-structure/client-wrapper";
 
 export default function Home() {
   return (
