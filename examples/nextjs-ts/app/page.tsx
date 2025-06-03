@@ -1,4 +1,4 @@
-import MoleculeStructure from "@/components/molecular-structure/client-wrapper";
+import MoleculeStructure from "@/components/molecular-structure";
 
 export default function Home() {
   return (
