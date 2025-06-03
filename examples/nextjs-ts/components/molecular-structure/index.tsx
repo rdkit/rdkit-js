@@ -2,7 +2,7 @@
 
 import React, { useRef, useEffect, useState } from "react";
 import * as RDKitModule from "@rdkit/rdkit";
-import _ from "lodash";
+import { isEmpty } from "lodash";
 
 interface RDKitMolecule {
   get_substruct_matches(qmol: RDKitMolecule): string;
@@ -123,7 +123,7 @@ const MoleculeStructure: React.FC<MoleculeStructureProps> = (props) => {
           mol.get_substruct_matches(qmol)
         );
         
-        const subStructHighlightDetailsMerged: Partial<SubstructMatch> = !_.isEmpty(
+        const subStructHighlightDetailsMerged: Partial<SubstructMatch> = !isEmpty(
           subStructHighlightDetails
         )
           ? subStructHighlightDetails.reduce(
