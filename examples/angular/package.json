@@ -16,7 +16,7 @@
     "@angular/core": "^14.2.6",
     "@angular/forms": "^14.2.6",
     "@angular/platform-browser": "^14.2.6",
-    "@angular/platform-browser-dynamic": "^14.2.6",
+    "@angular/platform-browser-dynamic": "^20.1.4",
     "@angular/router": "^14.2.6",
     "@rdkit/rdkit": "^2022.9.1-1.0.0",
     "rxjs": "~6.6.0",
