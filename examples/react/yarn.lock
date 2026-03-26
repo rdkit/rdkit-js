@@ -5792,10 +5792,6 @@ picocolors@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/picocolors/-/picocolors-1.0.0.tgz"
 
-picomatch@^2.0.4, picomatch@^2.2.1, picomatch@^2.2.2, picomatch@^2.2.3, picomatch@^2.3.1:
-  version "2.3.1"
-  resolved "https://registry.npmjs.org/picomatch/-/picomatch-2.3.1.tgz"
-
 pirates@^4.0.4:
   version "4.0.5"
   resolved "https://registry.npmjs.org/pirates/-/pirates-4.0.5.tgz"
