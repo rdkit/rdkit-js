@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import { RDKit } from "@rdkit/rdkit/es";
 import _ from "lodash";
 import PropTypes from "prop-types";
+import { Component } from "react";
 import "./MoleculeStructure.css";
-import initRDKit from "../../utils/initRDKit";
 
 class MoleculeStructure extends Component {
   static propTypes = {
@@ -46,8 +46,6 @@ class MoleculeStructure extends Component {
 
     this.state = {
       svg: undefined,
-      rdKitLoaded: false,
-      rdKitError: false
     };
   }
 
@@ -72,9 +70,9 @@ class MoleculeStructure extends Component {
     }
   }
 
-  drawSVGorCanvas() {
-    const mol = window.RDKit.get_mol(this.props.structure || "invalid");
-    const qmol = window.RDKit.get_qmol(this.props.subStructure || "invalid");
+  drawSVGorCanvas() {    
+    const mol = RDKit.get_mol(this.props.structure || "invalid");
+    const qmol = RDKit.get_qmol(this.props.subStructure || "invalid");
     const isValidMol = this.isValidMol(mol);
 
     if (this.props.svgMode && isValidMol) {
@@ -127,54 +125,33 @@ class MoleculeStructure extends Component {
   }
 
   componentDidMount() {
-    initRDKit()
-      .then(() => {
-        this.setState({ rdKitLoaded: true });
-        try {
-          this.draw();
-        } catch (err) {
-          console.log(err);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-        this.setState({ rdKitError: true });
-      });
+    try {
+      this.draw();
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   componentDidUpdate(prevProps) {
-    if (
-      !this.state.rdKitError &&
-      this.state.rdKitLoaded &&
-      !this.props.svgMode
-    ) {
+    if (!this.props.svgMode) {
       this.drawOnce();
     }
 
-    if (this.state.rdKitLoaded) {
-      const shouldUpdateDrawing =
-        prevProps.structure !== this.props.structure ||
-        prevProps.svgMode !== this.props.svgMode ||
-        prevProps.subStructure !== this.props.subStructure ||
-        prevProps.width !== this.props.width ||
-        prevProps.height !== this.props.height ||
-        !_.isEqual(prevProps.extraDetails, this.props.extraDetails);
+    const shouldUpdateDrawing =
+      prevProps.structure !== this.props.structure ||
+      prevProps.svgMode !== this.props.svgMode ||
+      prevProps.subStructure !== this.props.subStructure ||
+      prevProps.width !== this.props.width ||
+      prevProps.height !== this.props.height ||
+      !_.isEqual(prevProps.extraDetails, this.props.extraDetails);
 
-      if (shouldUpdateDrawing) {
-        this.draw();
-      }
+    if (shouldUpdateDrawing) {
+      this.draw();
     }
   }
 
   render() {
-    if (this.state.rdKitError) {
-      return "Error loading renderer.";
-    }
-    if (!this.state.rdKitLoaded) {
-      return "Loading renderer...";
-    }
-
-    const mol = window.RDKit.get_mol(this.props.structure || "invalid");
+    const mol = RDKit.get_mol(this.props.structure || "invalid");
     const isValidMol = this.isValidMol(mol);
     mol?.delete();
 
