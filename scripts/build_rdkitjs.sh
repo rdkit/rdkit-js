@@ -50,7 +50,9 @@ echo "Build completed"
 echo "MinimalLib distribution files are at $MINIMALLIB_OUTPUT_PATH"
 
 # Move typescript files to dist folder
-cp typescript/index.d.ts $MINIMALLIB_OUTPUT_PATH/index.d.ts
+cp typescript/index.js typescript/index.mjs typescript/index.d.ts typescript/loader.js typescript/loader.mjs typescript/loader.d.ts "$MINIMALLIB_OUTPUT_PATH/"
+chmod a+rwx $MINIMALLIB_OUTPUT_PATH/index.js $MINIMALLIB_OUTPUT_PATH/index.mjs $MINIMALLIB_OUTPUT_PATH/loader.js $MINIMALLIB_OUTPUT_PATH/loader.mjs
+cp $MINIMALLIB_OUTPUT_PATH/index.js $MINIMALLIB_OUTPUT_PATH/index.mjs $MINIMALLIB_OUTPUT_PATH/loader.js $MINIMALLIB_OUTPUT_PATH/loader.mjs $LEGACY_MINIMALLIB_OUTPUT_PATH/ 
 
 # Pre-publish
 sed -i '/"private": true/d' ./package.json

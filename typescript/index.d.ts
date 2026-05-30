@@ -546,8 +546,8 @@ type RDKitLoaderOptions = {
  */
 export type RDKitLoader = (options?: RDKitLoaderOptions) => Promise<RDKitModule>;
 
-declare global {
-  interface Window {
-    initRDKitModule: RDKitLoader;
-  }
-}
+declare const RDKit: RDKitModule;
+
+export const initRDKitModule: RDKitLoader;
+
+export default initRDKitModule;
