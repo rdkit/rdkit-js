@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import initRDKitModule from "@rdkit/rdkit";
 import _ from "lodash";
 import PropTypes from "prop-types";
-import initRDKitModule from "@rdkit/rdkit";
+import { Component } from "react";
 
 const initRDKit = (() => {
   let rdkitLoadingPromise;
@@ -156,16 +156,12 @@ class MoleculeStructure extends Component {
     initRDKit()
       .then((RDKit) => {
         this.RDKit = RDKit;
-        this.setState({ rdKitLoaded: true });
-        try {
-          this.draw();
-        } catch (err) {
-          console.log(err);
-        }
       })
       .catch((err) => {
         console.log(err);
-        this.setState({ rdKitError: true });
+      })
+      .finally(() => {
+        this.setState({ rdKitLoaded: true });
       });
   }
 
