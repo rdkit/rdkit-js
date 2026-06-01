@@ -49,23 +49,6 @@ cp docs/GettingStartedInJS.html $MINIMALLIB_OUTPUT_PATH/GettingStartedInJS.html
 echo "Build completed"
 echo "MinimalLib distribution files are at $MINIMALLIB_OUTPUT_PATH"
 
-# Make dist files executable
-chmod a+rwx $MINIMALLIB_OUTPUT_PATH/RDKit_minimal.js
-chmod a+rwx $MINIMALLIB_OUTPUT_PATH/RDKit_minimal.wasm
-
-# Add a copy of the distribution files at the original rdkit location
-# for backwards compatibility
-cp $MINIMALLIB_OUTPUT_PATH/RDKit_minimal.js $LEGACY_MINIMALLIB_OUTPUT_PATH/RDKit_minimal.js
-cp $MINIMALLIB_OUTPUT_PATH/RDKit_minimal.wasm $LEGACY_MINIMALLIB_OUTPUT_PATH/RDKit_minimal.wasm
-
-# Move docs file in dist folder for demos to work properly
-cp docs/demo.html $MINIMALLIB_OUTPUT_PATH/demo.html
-cp docs/GettingStartedInJS.html $MINIMALLIB_OUTPUT_PATH/GettingStartedInJS.html
-
-# Log build completed
-echo "Build completed"
-echo "MinimalLib distribution files are at $MINIMALLIB_OUTPUT_PATH"
-
 # Move typescript files to dist folder
 cp typescript/index.d.ts $MINIMALLIB_OUTPUT_PATH/index.d.ts
 
