@@ -3,7 +3,9 @@
   "version": 1,
   "cli": {
     "packageManager": "yarn",
-    "schematicCollections": ["@angular-eslint/schematics"],
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ],
     "analytics": false
   },
   "newProjectRoot": "projects",
@@ -54,12 +56,14 @@
               "src/assets",
               {
                 "glob": "RDKit_minimal.wasm",
-                "input": "node_modules/@rdkit/rdkit/dist/",
+                "input": "node_modules/@rdkit/rdkit/dist/esm",
                 "output": "/"
               }
             ],
-            "styles": ["src/styles.css"],
-            "scripts": ["node_modules/@rdkit/rdkit/dist/RDKit_minimal.js"],
+            "styles": [
+              "src/styles.css"
+            ],
+            "scripts": [],
             "vendorChunk": true,
             "extractLicenses": false,
             "buildOptimizer": false,
@@ -118,7 +122,10 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
           }
         }
       }
