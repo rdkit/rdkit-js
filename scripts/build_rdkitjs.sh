@@ -22,7 +22,6 @@ echo $RDKIT_VERSION
 # Clean and create distribution folder
 MINIMALLIB_OUTPUT_PATH="dist"
 rm -rf $MINIMALLIB_OUTPUT_PATH
-mkdir -p $MINIMALLIB_OUTPUT_PATH
 
 # legacy minimallib output path
 LEGACY_MINIMALLIB_OUTPUT_PATH="Code/MinimalLib/dist"
@@ -30,29 +29,27 @@ rm -rf $LEGACY_MINIMALLIB_OUTPUT_PATH
 mkdir -p $LEGACY_MINIMALLIB_OUTPUT_PATH
 
 # Build distribution files
-DOCKER_BUILDKIT=1 docker build --platform=linux/amd64 -f Dockerfile --build-arg RDKIT_BRANCH=$RDKIT_BRANCH -o $MINIMALLIB_OUTPUT_PATH .
+DOCKER_BUILDKIT=1 docker build --platform=linux/amd64 -f Dockerfile --build-arg RDKIT_BRANCH=$RDKIT_BRANCH -o typescript/generated .
 
-# Make dist files executable
-chmod a+rwx $MINIMALLIB_OUTPUT_PATH/RDKit_minimal.js
-chmod a+rwx $MINIMALLIB_OUTPUT_PATH/RDKit_minimal.wasm
+# Set permissions for generated files
+# chmod a+rw typescript/generated/RDKit_minimal.js
+# chmod a+rw typescript/generated/RDKit_minimal.wasm
 
 # Add a copy of the distribution files at the original rdkit location
 # for backwards compatibility
-cp $MINIMALLIB_OUTPUT_PATH/RDKit_minimal.js $LEGACY_MINIMALLIB_OUTPUT_PATH/RDKit_minimal.js
-cp $MINIMALLIB_OUTPUT_PATH/RDKit_minimal.wasm $LEGACY_MINIMALLIB_OUTPUT_PATH/RDKit_minimal.wasm
+cp typescript/generated/RDKit_minimal.js $LEGACY_MINIMALLIB_OUTPUT_PATH/RDKit_minimal.js
+cp typescript/generated/RDKit_minimal.wasm $LEGACY_MINIMALLIB_OUTPUT_PATH/RDKit_minimal.wasm
 
-# Move docs file in dist folder for demos to work properly
-cp docs/demo.html $MINIMALLIB_OUTPUT_PATH/demo.html
-cp docs/GettingStartedInJS.html $MINIMALLIB_OUTPUT_PATH/GettingStartedInJS.html
+# Compile TypeScript files
+npx tsup
 
 # Log build completed
 echo "Build completed"
 echo "MinimalLib distribution files are at $MINIMALLIB_OUTPUT_PATH"
 
-# Move typescript files to dist folder
-cp typescript/index.js typescript/index.mjs typescript/index.d.ts typescript/loader.js typescript/loader.mjs typescript/loader.d.ts "$MINIMALLIB_OUTPUT_PATH/"
-chmod a+rwx $MINIMALLIB_OUTPUT_PATH/index.js $MINIMALLIB_OUTPUT_PATH/index.mjs $MINIMALLIB_OUTPUT_PATH/loader.js $MINIMALLIB_OUTPUT_PATH/loader.mjs
-cp $MINIMALLIB_OUTPUT_PATH/index.js $MINIMALLIB_OUTPUT_PATH/index.mjs $MINIMALLIB_OUTPUT_PATH/loader.js $MINIMALLIB_OUTPUT_PATH/loader.mjs $LEGACY_MINIMALLIB_OUTPUT_PATH/ 
+# Move docs file in dist folder for demos to work properly
+cp docs/demo.html $MINIMALLIB_OUTPUT_PATH/demo.html
+cp docs/GettingStartedInJS.html $MINIMALLIB_OUTPUT_PATH/GettingStartedInJS.html
 
 # Pre-publish
 sed -i '/"private": true/d' ./package.json
