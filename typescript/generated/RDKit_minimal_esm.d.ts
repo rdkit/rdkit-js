@@ -533,7 +533,7 @@ export interface RDKitModule {
   use_legacy_stereo_perception(value: boolean): void;
 }
 
-type RDKitLoaderOptions = {
+export type RDKitLoaderOptions = {
   /**
    * Optional path to the RDKit module .wasm file on your server.
    */
@@ -545,8 +545,6 @@ type RDKitLoaderOptions = {
  * In order to use the RDKit module, calling this function is necessary.
  */
 export type RDKitLoader = (options?: RDKitLoaderOptions) => Promise<RDKitModule>;
-
-declare const RDKit: RDKitModule;
 
 export const initRDKitModule: RDKitLoader;
 
