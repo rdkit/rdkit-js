@@ -1,13 +1,7 @@
 import { Injectable, OnDestroy } from "@angular/core";
+import initRDKitModule, { RDKitModule } from "@rdkit/rdkit";
 import { Observable, ReplaySubject } from "rxjs";
 import { first } from "rxjs/operators";
-import { RDKitLoader, RDKitModule } from "../../../../../../typescript";
-
-declare global {
-  interface Window {
-    initRDKitModule: RDKitLoader;
-  }
-}
 
 @Injectable({
   providedIn: "root"
@@ -34,7 +28,7 @@ export class RDKitLoaderService implements OnDestroy {
   getRDKit(): Observable<RDKitModule> {
     if (!this.rdkitSubject$) {
       this.rdkitSubject$ = new ReplaySubject(1);
-      window.initRDKitModule().then(
+      initRDKitModule({ locateFile: () => '/RDKit_minimal.wasm' }).then(
         (instance: RDKitModule) => {
           // instance.prefer_coordgen(true)
           this.rdkitSubject$.next(instance);

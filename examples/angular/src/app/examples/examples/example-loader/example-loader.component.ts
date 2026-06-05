@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { RDKitModule } from "../../../../../../../typescript";
+import { RDKitModule } from "@rdkit/rdkit";
 import { RDKitLoaderService } from "../../rdkit-loader/rdkit-loader.service";
 
 @Component({

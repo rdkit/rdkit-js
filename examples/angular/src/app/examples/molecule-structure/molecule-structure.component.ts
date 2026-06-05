@@ -4,16 +4,13 @@ import {
   ElementRef,
   Input,
   OnChanges,
-  OnDestroy,
-  OnInit,
-  SecurityContext,
   SimpleChanges,
   ViewChild
 } from "@angular/core";
 import { DomSanitizer } from "@angular/platform-browser";
+import { RDKitModule } from "@rdkit/rdkit";
 import { Observable } from "rxjs";
 import { first, shareReplay } from "rxjs/operators";
-import { RDKitModule } from "../../../../../../typescript";
 import { RDKitLoaderService } from "../rdkit-loader/rdkit-loader.service";
 import { MolDrawOptions, MolHighlight } from "./mol-draw-options";
 
