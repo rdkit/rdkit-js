@@ -1,5 +1,5 @@
 {
-  "name": "vue",
+  "name": "vue-example",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -13,7 +13,8 @@
     "@highlightjs/vue-plugin": "^2.1.0",
     "debounce": "^1.2.1",
     "highlight.js": "^11.8.0",
-    "vue": "^3.2.37"
+    "vue": "^3.2.37",
+    "hex-rgb": "^5.0.0"
   },
   "devDependencies": {
     "@types/debounce": "^1.2.1",

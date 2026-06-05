@@ -26,8 +26,8 @@
 </template>
 
 <script setup lang="ts">
+import { JSMol } from "@rdkit/rdkit";
 import { nextTick, onMounted, onUpdated, reactive, ref, watch } from "vue";
-import { JSMol } from "../../../../typescript";
 import initRDKit from "../utils/initRDKit";
 
 const props = defineProps({

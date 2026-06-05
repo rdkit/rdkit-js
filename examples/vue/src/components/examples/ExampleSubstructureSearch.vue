@@ -46,11 +46,10 @@
 </template>
 
 <script setup lang="ts">
-import MoleculeStructure from "../MoleculeStructure.vue";
-import { SMILES_LIST } from "../../utils/smiles";
-import { reactive, ref, watch } from "vue";
 import debounce from "debounce";
-import { JSMol } from "../../../../../typescript";
+import { reactive, ref, watch } from "vue";
+import { SMILES_LIST } from "../../utils/smiles";
+import MoleculeStructure from "../MoleculeStructure.vue";
 
 let searching = ref(false);
 let searchValue = ref("");

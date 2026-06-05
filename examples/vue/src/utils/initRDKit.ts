@@ -1,4 +1,4 @@
-import { RDKitModule } from "../../../../typescript";
+import initRDKitModule, { RDKitModule } from "@rdkit/rdkit";
 
 const initRDKit = (() => {
   let rdkitLoadingPromise: Promise<RDKitModule>;
@@ -13,8 +13,7 @@ const initRDKit = (() => {
      */
     if (!rdkitLoadingPromise) {
       rdkitLoadingPromise = new Promise((resolve, reject) => {
-        window
-          .initRDKitModule()
+        initRDKitModule()
           .then((RDKit) => {
             window.RDKit = RDKit;
             resolve(RDKit);

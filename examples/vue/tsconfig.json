@@ -7,14 +7,18 @@
     "strict": false,
     "jsx": "preserve",
     "sourceMap": true,
-    "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
-    "lib": ["ESNext", "DOM"],
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
     "skipLibCheck": true,
     "composite": true,
     "allowSyntheticDefaultImports": true,
-    "types": ["vite/client"]
+    "types": [
+      "vite/client"
+    ]
   },
   "include": [
     "vite.config.ts",
@@ -22,7 +26,6 @@
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "../../typescript/index.d.ts",
     "src/globals.d.ts"
   ]
 }
