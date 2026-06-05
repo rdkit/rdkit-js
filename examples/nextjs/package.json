@@ -3,13 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "dev": "NEXT_TELEMETRY_DISABLED=1 next dev",
+    "build": "NEXT_TELEMETRY_DISABLED=1 next build",
+    "start": "NEXT_TELEMETRY_DISABLED=1 next start"
   },
   "dependencies": {
     "@rdkit/rdkit": "file:../..",
-    "copy-webpack-plugin": "^11.0.0",
     "lodash": "^4.17.21",
     "next": "^13.5.4",
     "prop-types": "^15.8.1",
