@@ -124,6 +124,12 @@ RUN sed -i 's|^\( *\)\(GenericStringRef\& operator=(const GenericStringRef\& rhs
 RUN make -j2 RDKit_minimal && \
   cp Code/MinimalLib/RDKit_minimal.* ../Code/MinimalLib/demo/
 
+# Build the ESM version (using the cached CMake configuration from the previous build). The linker
+# flags are the same as for the non-ESM version, except "-s EXPORT_ES6=1" at the end.
+RUN emcmake cmake -DCMAKE_EXE_LINKER_FLAGS="${EXCEPTION_HANDLING} -s STACK_OVERFLOW_CHECK=1 -s USE_PTHREADS=0 -s ALLOW_MEMORY_GROWTH=1 -s MAXIMUM_MEMORY=4GB -s MODULARIZE=1 -s EXPORT_NAME=\"'initRDKitModule'\" -s EXPORT_ES6=1" .. && \
+  make -j2 RDKit_minimal && \
+  cp Code/MinimalLib/RDKit_minimal.js ../Code/MinimalLib/demo/RDKit_minimal_esm.js
+
 # run the tests
 WORKDIR /src/rdkit/Code/MinimalLib/tests
 RUN /opt/emsdk/node/*/bin/node tests.js
