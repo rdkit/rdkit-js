@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@rdkit/rdkit": "file:../..",
     "@highlightjs/vue-plugin": "^2.1.0",
     "debounce": "^1.2.1",
     "highlight.js": "^11.8.0",
