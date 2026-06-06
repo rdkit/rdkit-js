@@ -7,6 +7,7 @@ RDKIT_BRANCH="Release_$RDKIT_DASH_VERSION"
 RDKIT_VERSION=${RDKIT_DASH_VERSION//_0/_}
 RDKIT_VERSION=${RDKIT_VERSION//_/.}
 SEMVER_VERSION="$SEMVER_VERSION"
+EMSDK_VERSION=${EMSDK_VERSION:-"latest"}
 NPM_RELEASE_VERSION="$RDKIT_VERSION-$SEMVER_VERSION"
 
 # make sure true/false is lowercase
@@ -29,7 +30,10 @@ rm -rf $LEGACY_MINIMALLIB_OUTPUT_PATH
 mkdir -p $LEGACY_MINIMALLIB_OUTPUT_PATH
 
 # Build distribution files
-DOCKER_BUILDKIT=1 docker build --platform=linux/amd64 -f Dockerfile --build-arg RDKIT_BRANCH=$RDKIT_BRANCH -o typescript/generated .
+DOCKER_BUILDKIT=1 docker build --platform=linux/amd64 -f Dockerfile \
+    --build-arg RDKIT_BRANCH=$RDKIT_BRANCH \
+    --build-arg EMSDK_VERSION=$EMSDK_VERSION \
+    -o typescript/generated .
 
 # Set permissions for generated files
 # chmod a+rw typescript/generated/RDKit_minimal.js
