@@ -4,7 +4,7 @@
   "homepage": "https://react.rdkitjs.com",
   "private": true,
   "dependencies": {
-    "@rdkit/rdkit": "^2022.3.5-1.2.1",
+    "@rdkit/rdkit": "file:../..",
     "@testing-library/jest-dom": "^6.1.4",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.5.1",
