@@ -2,8 +2,9 @@
 
 set -e
 
-# Set branch to release
-RDKIT_BRANCH="Release_$RDKIT_DASH_VERSION"
+# Set tag to release
+RDKIT_DASH_VERSION=${RDKIT_DASH_VERSION:-"2026_03_3"}
+RDKIT_TAG="Release_$RDKIT_DASH_VERSION"
 RDKIT_VERSION=${RDKIT_DASH_VERSION//_0/_}
 RDKIT_VERSION=${RDKIT_VERSION//_/.}
 SEMVER_VERSION="$SEMVER_VERSION"
@@ -31,7 +32,7 @@ mkdir -p $LEGACY_MINIMALLIB_OUTPUT_PATH
 
 # Build distribution files
 DOCKER_BUILDKIT=1 docker build --platform=linux/amd64 -f Dockerfile \
-    --build-arg RDKIT_BRANCH=$RDKIT_BRANCH \
+    --build-arg RDKIT_TAG=$RDKIT_TAG \
     --build-arg EMSDK_VERSION=$EMSDK_VERSION \
     -o typescript/generated .
 

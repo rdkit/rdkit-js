@@ -10,7 +10,7 @@
 #     native WASM exception handling):
 # docker build -t rdkit-minimallib --network=host \
 #  --build-arg "RDKIT_GIT_URL=https://github.com/myfork/rdkit.git" \
-#  --build-arg "RDKIT_BRANCH=mybranch" \
+#  --build-arg "RDKIT_TAG=Release_2026_03_3" \
 #  --build-arg "EXCEPTION_HANDLING=-fwasm-exceptions".
 #
 # 3. create a temporary container and copy built libraries
@@ -23,7 +23,7 @@
 
 
 ARG RDKIT_GIT_URL="https://github.com/rdkit/rdkit.git"
-ARG RDKIT_BRANCH="master"
+ARG RDKIT_TAG="Release_2026_03_3"
 ARG EMSDK_VERSION="latest"
 ARG EXCEPTION_HANDLING="-fexceptions -sNO_DISABLE_EXCEPTION_CATCHING"
 ARG BOOST_MAJOR_VERSION="1"
@@ -33,7 +33,7 @@ ARG FREETYPE_VERSION="2.13.3"
 
 FROM debian:bookworm as build-stage
 ARG RDKIT_GIT_URL
-ARG RDKIT_BRANCH
+ARG RDKIT_TAG
 ARG EMSDK_VERSION
 ARG EXCEPTION_HANDLING
 ARG BOOST_MAJOR_VERSION
@@ -93,7 +93,7 @@ ENV RDBASE=/src/rdkit
 RUN git clone ${RDKIT_GIT_URL}
 WORKDIR $RDBASE
 RUN git fetch --all --tags && \
-  git checkout ${RDKIT_BRANCH}
+  git checkout tags/${RDKIT_TAG}
 RUN mkdir build
 WORKDIR $RDBASE/build
 RUN emcmake cmake -DRDK_BUILD_FREETYPE_SUPPORT=ON -DRDK_BUILD_MINIMAL_LIB=ON \
