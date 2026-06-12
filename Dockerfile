@@ -117,8 +117,10 @@ RUN cp /src/rdkit/External/INCHI-API/src/INCHI_BASE/src/util.c /src/rdkit/Extern
 # comment out a line which causes a compilation error on some platforms
 # (based on the change which has already been applied to the RapidJSON master branch, see
 # https://github.com/Tencent/rapidjson/blob/ab1842a2dae061284c0a62dca1cc6d5e7e37e346/include/rapidjson/document.h#L414)
-RUN sed -i 's|^\( *\)\(GenericStringRef\& operator=(const GenericStringRef\& rhs) { s = rhs.s; length = rhs.length; } *\)$|\1//\2|' \
-  /src/rdkit/External/rapidjson-1.1.0/include/rapidjson/document.h
+RUN if [ -f /src/rdkit/External/rapidjson-1.1.0/include/rapidjson/document.h ]; then \
+  sed -i 's|^\( *\)\(GenericStringRef\& operator=(const GenericStringRef\& rhs) { s = rhs.s; length = rhs.length; } *\)$|\1//\2|' \
+    /src/rdkit/External/rapidjson-1.1.0/include/rapidjson/document.h; \
+  fi
 
 # build and "install"
 RUN make -j2 RDKit_minimal && \
