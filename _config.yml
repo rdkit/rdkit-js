@@ -3,8 +3,8 @@ description: >-
   RDKit.js is a powerful cheminformatics and molecule rendering toolbelt for JavaScript.
   Official docs with examples for React, Vue, Angular, Svelte, Next.js, Node.js, and vanilla JS.
 
-baseurl: "/rdkit-js-doc"
-url: "https://charnley.github.io"
+baseurl: "/rdkit-js"
+url: "https://rdkit.github.io"
 
 # Build settings
 theme: minima
@@ -17,7 +17,7 @@ minima:
 
 permalink: /:title:output_ext
 
-repository: charnley/rdkit-js-doc
+repository: rdkit/rdkit-js
 
 sass:
   quiet_deps: true
