@@ -1,0 +1,39 @@
+title: RDKit.js Documentation
+description: >-
+  RDKit.js is a powerful cheminformatics and molecule rendering toolbelt for JavaScript.
+  Official docs with examples for React, Vue, Angular, Svelte, Next.js, Node.js, and vanilla JS.
+
+baseurl: "/rdkit-js-doc"
+url: "https://charnley.github.io"
+
+# Build settings
+theme: minima
+
+plugins:
+  - jekyll-feed
+
+minima:
+  skin: dark
+
+permalink: /:title:output_ext
+
+repository: charnley/rdkit-js-doc
+
+sass:
+  quiet_deps: true
+
+# Exclude from processing.
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - env
+  - configs
+  - workdir

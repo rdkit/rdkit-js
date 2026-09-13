@@ -1,0 +1,6 @@
+---
+layout: none
+---
+{% for page in site.pages %}{% unless page.name contains '404' or page.name contains 'assets' or page.name contains 'xml' or page.name contains 'sitemap' or page.name contains 'map' or page.name contains 'robots' or page.name contains 'txt' or page.name contains 'css' or page.name contains 'Gemfile' or page.name contains 'LICENSE' %}{{ site.url }}{{ site.baseurl }}{{ page.url }}
+{% endunless %}{% endfor %}{% for post in site.posts %}{{ site.url }}{{ site.baseurl }}{{ post.url }}
+{% endfor %}
