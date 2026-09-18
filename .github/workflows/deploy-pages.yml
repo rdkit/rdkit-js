@@ -27,8 +27,15 @@ jobs:
           ruby-version: "3.3"
           bundler-cache: true
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
       - name: Install
         run: make all
+
+      - name: Build docs
+        run: make build-docs
 
       - name: Build
         run: make build
