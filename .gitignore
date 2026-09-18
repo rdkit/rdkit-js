@@ -4,3 +4,7 @@ _site
 .jekyll-metadata
 vendor
 .bundle
+docs/
+typedoc/node_modules/
+typedoc/package/
+typedoc/rdkit-rdkit-*.tgz
