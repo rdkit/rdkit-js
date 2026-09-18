@@ -1,4 +1,4 @@
-.PHONY: all config build build-doc dev start start-python format
+.PHONY: all config build build-docs dev start start-python format
 
 port=5000
 

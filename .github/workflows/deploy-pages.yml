@@ -35,7 +35,7 @@ jobs:
         run: make all
 
       - name: Build docs
-        run: make build-doc
+        run: make build-docs
 
       - name: Build
         run: make build
