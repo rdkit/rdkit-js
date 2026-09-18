@@ -8,7 +8,40 @@
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
 ></script>
 <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<style>
+  pre.highlight { position: relative; }
+  .copy-btn {
+    position: absolute; top: 0.5rem; right: 0.5rem;
+    opacity: 0; transition: opacity 0.2s;
+    background: none; border: 1px solid #ccc; border-radius: 4px;
+    cursor: pointer; padding: 2px 4px; line-height: 1;
+  }
+  pre.highlight:hover .copy-btn { opacity: 1; }
+  .copy-btn svg { width: 14px; height: 14px; display: block; }
+</style>
 <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll("pre.highlight").forEach(function (pre) {
+      var btn = document.createElement("button");
+      btn.className = "copy-btn";
+      btn.title = "Copy";
+      btn.appendChild(lucide.createElement(lucide.Copy));
+      btn.addEventListener("click", function () {
+        var code = pre.querySelector("code");
+        navigator.clipboard.writeText(code ? code.innerText : pre.innerText).then(function () {
+          btn.innerHTML = "";
+          btn.appendChild(lucide.createElement(lucide.Check));
+          setTimeout(function () {
+            btn.innerHTML = "";
+            btn.appendChild(lucide.createElement(lucide.Copy));
+          }, 1500);
+        });
+      });
+      pre.appendChild(btn);
+    });
+  });
+
   window.addEventListener("load", function () {
     mermaid.initialize({
       startOnLoad: true,
