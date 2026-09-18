@@ -98,7 +98,7 @@ mol.delete();
 ## Using RDKit.js Pro Tips
 
 - The module can also run inside a [Web Worker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API) so heavy work does not block the UI thread
-- Always call `mol.delete()` when you dont need the molecule anymore, to free some memory
+- Always call `mol.delete()` when you dont need the molecule anymore, to free some memory. See [WASM Memory management](https://emscripten.org/docs/porting/connecting_cpp_and_javascript/embind.html#memory-management).
 - You can make your molecule SVG transparent with `.molecule-structure-svg svg rect:first-of-type {fill: transparent !important;}`
 - The package is compiled with emscripten `-fwasm-exceptions`, e.i. [WebAssembly.Exception](https://developer.mozilla.org/en-US/docs/WebAssembly/Reference/JavaScript_interface/Exception).
 - Have fun!
