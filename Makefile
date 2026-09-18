@@ -21,10 +21,11 @@ start-python:
 	JEKYLL_ENV=development bundle exec jekyll build --drafts --baseurl ""
 	python -m http.server ${port} --directory _site/
 
-build-doc:
+build-docs:
 	$(MAKE) -C typedoc download
 	$(MAKE) -C typedoc install-typedoc
 	$(MAKE) -C typedoc build-typedoc
+	mv ./typedoc/docs ./docs
 
 format:
 	prettier --write .
