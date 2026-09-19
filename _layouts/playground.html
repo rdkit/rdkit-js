@@ -1,0 +1,15 @@
+---
+layout: page
+---
+
+{{ content }}
+
+<script>
+  /* Initialise RDKit and fire 'rdkit-ready' for playground widgets */
+  initRDKitModule().then(function (instance) {
+    window.RDKitModule = instance;
+    var el = document.getElementById("rdkit-version");
+    if (el) el.textContent = RDKitModule.version();
+    document.dispatchEvent(new CustomEvent("rdkit-ready"));
+  });
+</script>

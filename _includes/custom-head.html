@@ -3,6 +3,23 @@
   type="image/x-icon"
   href="{{ '/favicon.ico' | relative_url }}"
 />
+
+{% if page.layout == 'playground' %}
+<script src="https://unpkg.com/@rdkit/rdkit/dist/RDKit_minimal.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css"
+/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/closebrackets.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/matchbrackets.min.js"></script>
+<link
+  rel="stylesheet"
+  href="{{ '/assets/css/rdkit-playground.css' | relative_url }}"
+/>
+<script src="{{ '/assets/js/rdkit-playground.js' | relative_url }}"></script>
+{% endif %}
 <script
   type="text/javascript"
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
@@ -10,15 +27,30 @@
 <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 <style>
-  pre.highlight { position: relative; }
-  .copy-btn {
-    position: absolute; top: 0.5rem; right: 0.5rem;
-    opacity: 0; transition: opacity 0.2s;
-    background: none; border: 1px solid #ccc; border-radius: 4px;
-    cursor: pointer; padding: 2px 4px; line-height: 1;
+  pre.highlight {
+    position: relative;
   }
-  pre.highlight:hover .copy-btn { opacity: 1; }
-  .copy-btn svg { width: 14px; height: 14px; display: block; }
+  .copy-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    opacity: 0;
+    transition: opacity 0.2s;
+    background: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 2px 4px;
+    line-height: 1;
+  }
+  pre.highlight:hover .copy-btn {
+    opacity: 1;
+  }
+  .copy-btn svg {
+    width: 14px;
+    height: 14px;
+    display: block;
+  }
 </style>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
@@ -29,14 +61,16 @@
       btn.appendChild(lucide.createElement(lucide.Copy));
       btn.addEventListener("click", function () {
         var code = pre.querySelector("code");
-        navigator.clipboard.writeText(code ? code.innerText : pre.innerText).then(function () {
-          btn.innerHTML = "";
-          btn.appendChild(lucide.createElement(lucide.Check));
-          setTimeout(function () {
+        navigator.clipboard
+          .writeText(code ? code.innerText : pre.innerText)
+          .then(function () {
             btn.innerHTML = "";
-            btn.appendChild(lucide.createElement(lucide.Copy));
-          }, 1500);
-        });
+            btn.appendChild(lucide.createElement(lucide.Check));
+            setTimeout(function () {
+              btn.innerHTML = "";
+              btn.appendChild(lucide.createElement(lucide.Copy));
+            }, 1500);
+          });
       });
       pre.appendChild(btn);
     });

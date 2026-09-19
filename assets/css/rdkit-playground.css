@@ -1,0 +1,106 @@
+/* RDKit Playground widget styles */
+
+.rdkit-widget {
+  border: 1px solid #d0d7de;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 1.5em 0;
+}
+
+/* CodeMirror inside widget */
+.rdkit-widget .CodeMirror {
+  height: auto;
+  font-size: 0.85em;
+  font-family:
+    "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New",
+    monospace;
+  border: none;
+  background: #f8f8f8;
+  border-bottom: 1px solid #d0d7de;
+}
+
+.rdkit-widget .CodeMirror-scroll {
+  min-height: 60px;
+  max-height: 400px;
+}
+
+/* Toolbar */
+.rdkit-widget-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  background: #f6f8fa;
+  border-bottom: 1px solid #d0d7de;
+}
+
+.rdkit-widget-toolbar button {
+  font-family: inherit;
+  font-size: 0.82em;
+  padding: 3px 12px;
+  border: 1px solid #1a8917;
+  border-radius: 4px;
+  background: #1a8917;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.rdkit-widget-toolbar button:hover {
+  background: #0f5c0c;
+  border-color: #0f5c0c;
+}
+
+.rdkit-widget-toolbar .rdkit-shortcut {
+  font-size: 0.78em;
+  color: #9ca3af;
+}
+
+/* Console output panel */
+.rdkit-console {
+  font-family:
+    "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New",
+    monospace;
+  font-size: 0.82em;
+  line-height: 1.5;
+  padding: 6px 10px;
+  background: #fafbfc;
+  border-bottom: 1px solid #d0d7de;
+  white-space: pre-wrap;
+  word-break: break-all;
+  max-height: 120px;
+  overflow-y: auto;
+  display: none;
+}
+
+.rdkit-console.has-output {
+  display: block;
+}
+
+.rdkit-console .log-line {
+  color: #24292e;
+}
+.rdkit-console .log-error {
+  color: #cf222e;
+}
+.rdkit-console .log-warn {
+  color: #9a6700;
+}
+
+/* Visual output panel */
+.rdkit-visual {
+  padding: 10px;
+  min-height: 40px;
+  display: none;
+}
+
+.rdkit-visual.has-output {
+  display: block;
+}
+
+.rdkit-visual svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
