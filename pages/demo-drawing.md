@@ -13,7 +13,8 @@ this is the correct way to pass drawing options.
 
 ## Size and layout
 
-<script type="text/rdkit-example">
+{% raw %}
+<pre class="rdkit-example">
 var mol = RDKitModule.get_mol('CC(=O)Oc1ccccc1C(=O)O');
 document.getElementById('output').innerHTML = mol.get_svg_with_highlights(JSON.stringify({
   width: 250,    // output SVG width in pixels (default: 250)
@@ -22,11 +23,13 @@ document.getElementById('output').innerHTML = mol.get_svg_with_highlights(JSON.s
   rotate: 45,    // rotate molecule clockwise in degrees (default: 0)
 }));
 mol.delete();
-</script>
+</pre>
+{% endraw %}
 
 ## Bond style
 
-<script type="text/rdkit-example">
+{% raw %}
+<pre class="rdkit-example">
 var mol = RDKitModule.get_mol('CC(=O)Oc1ccccc1C(=O)O');
 document.getElementById('output').innerHTML = mol.get_svg_with_highlights(JSON.stringify({
   bondLineWidth: 2,          // bond line width in pixels (default: 2)
@@ -37,11 +40,13 @@ document.getElementById('output').innerHTML = mol.get_svg_with_highlights(JSON.s
   splitBonds: true,          // split bond color at midpoint between atom colors (default: false)
 }));
 mol.delete();
-</script>
+</pre>
+{% endraw %}
 
 ## Kekulé and wedge bonds
 
-<script type="text/rdkit-example">
+{% raw %}
+<pre class="rdkit-example">
 var mol = RDKitModule.get_mol('C[C@@H](F)c1ccccc1');
 document.getElementById('output').innerHTML = mol.get_svg_with_highlights(JSON.stringify({
   kekulize: true,       // draw Kekulé form with alternating single/double bonds (default: true)
@@ -49,11 +54,13 @@ document.getElementById('output').innerHTML = mol.get_svg_with_highlights(JSON.s
   singleColourBonds: false, // draw all bonds in symbolColour instead of element colors (default: false)
 }));
 mol.delete();
-</script>
+</pre>
+{% endraw %}
 
 ## Atom labels and indices
 
-<script type="text/rdkit-example">
+{% raw %}
+<pre class="rdkit-example">
 var mol = RDKitModule.get_mol('CC(=O)Oc1ccccc1C(=O)O');
 document.getElementById('output').innerHTML = mol.get_svg_with_highlights(JSON.stringify({
   addAtomIndices: true,           // draw RDKit atom index next to each atom (default: false)
@@ -63,22 +70,26 @@ document.getElementById('output').innerHTML = mol.get_svg_with_highlights(JSON.s
   additionalAtomLabelPadding: 0,  // extra whitespace padding around atom labels as fraction of atom radius (default: 0)
 }));
 mol.delete();
-</script>
+</pre>
+{% endraw %}
 
 ## Isotope labels
 
-<script type="text/rdkit-example">
+{% raw %}
+<pre class="rdkit-example">
 var mol = RDKitModule.get_mol('[2H]C([14C])(F)Cl');
 document.getElementById('output').innerHTML = mol.get_svg_with_highlights(JSON.stringify({
   isotopeLabels: true,            // show isotope labels on non-dummy atoms (default: true)
   atomLabelDeuteriumTritium: true, // use D/T symbols for [2H]/[3H] (default: false)
 }));
 mol.delete();
-</script>
+</pre>
+{% endraw %}
 
 ## Explicit methyl and attachment points
 
-<script type="text/rdkit-example">
+{% raw %}
+<pre class="rdkit-example">
 var mol = RDKitModule.get_mol('*C(=O)NCC(C)(C)C');
 document.getElementById('output').innerHTML = mol.get_svg_with_highlights(JSON.stringify({
   explicitMethyl: true,         // draw terminal CH3 explicitly (default: false)
@@ -86,11 +97,13 @@ document.getElementById('output').innerHTML = mol.get_svg_with_highlights(JSON.s
   includeRadicals: true,        // draw radical dot annotations (default: true)
 }));
 mol.delete();
-</script>
+</pre>
+{% endraw %}
 
 ## Font sizing
 
-<script type="text/rdkit-example">
+{% raw %}
+<pre class="rdkit-example">
 var mol = RDKitModule.get_mol('CC(=O)Oc1ccccc1C(=O)O');
 document.getElementById('output').innerHTML = mol.get_svg_with_highlights(JSON.stringify({
   minFontSize: -1,    // minimum atom label font size in pixels; -1 = no minimum (default: -1)
@@ -99,13 +112,15 @@ document.getElementById('output').innerHTML = mol.get_svg_with_highlights(JSON.s
   baseFontSize: 0.6,  // base font size as fraction of bond length before scaling (default: 0.6)
 }));
 mol.delete();
-</script>
+</pre>
+{% endraw %}
 
 ## Stereo annotations
 
 `addStereoAnnotation` requires a molecule with defined stereocenters or double bond geometry.
 
-<script type="text/rdkit-example">
+{% raw %}
+<pre class="rdkit-example">
 var mol = RDKitModule.get_mol('C[C@@H](F)[C@H](Cl)Br');
 document.getElementById('output').innerHTML = mol.get_svg_with_highlights(JSON.stringify({
   addStereoAnnotation: true,    // draw R/S and E/Z labels (default: false)
@@ -113,23 +128,27 @@ document.getElementById('output').innerHTML = mol.get_svg_with_highlights(JSON.s
   annotationColour: [0.2, 0.2, 0.8], // annotation text color as [r,g,b] (default: [0.5,0.5,0.5])
 }));
 mol.delete();
-</script>
+</pre>
+{% endraw %}
 
 ## Comic mode
 
 Draws bonds and labels with a hand-drawn style.
 
-<script type="text/rdkit-example">
+{% raw %}
+<pre class="rdkit-example">
 var mol = RDKitModule.get_mol('CC(=O)Oc1ccccc1C(=O)O');
 document.getElementById('output').innerHTML = mol.get_svg_with_highlights(JSON.stringify({
   comicMode: true, // hand-drawn comic book style (default: false)
 }));
 mol.delete();
-</script>
+</pre>
+{% endraw %}
 
 ## Background
 
-<script type="text/rdkit-example">
+{% raw %}
+<pre class="rdkit-example">
 var mol = RDKitModule.get_mol('CC(=O)Oc1ccccc1C(=O)O');
 var out = document.getElementById('output');
 out.style.background = 'linear-gradient(135deg, #e8f5e9, #bbdefb)';
@@ -138,13 +157,15 @@ out.innerHTML = mol.get_svg_with_highlights(JSON.stringify({
   clearBackground: false,      // draw background rect; false = transparent SVG (default: true)
 }));
 mol.delete();
-</script>
+</pre>
+{% endraw %}
 
 ## Colour palette
 
 Apply a named palette or supply a custom per-element mapping. Named presets: `"default"`, `"avalon"`, `"cdk"`, `"darkmode"`, `"bw"`.
 
-<script type="text/rdkit-example">
+{% raw %}
+<pre class="rdkit-example">
 var mol = RDKitModule.get_mol('CC(=O)Oc1ccccc1C(=O)O');
 var out = document.getElementById('output');
 
@@ -159,11 +180,13 @@ out.innerHTML += '<b>Custom palette</b>' +
   }));
 
 mol.delete();
-</script>
+</pre>
+{% endraw %}
 
 ## Legend
 
-<script type="text/rdkit-example">
+{% raw %}
+<pre class="rdkit-example">
 var mol = RDKitModule.get_mol('CC(=O)Oc1ccccc1C(=O)O');
 var out = document.getElementById('output');
 
@@ -184,13 +207,15 @@ out.innerHTML += mol.get_svg_with_highlights(JSON.stringify({
 }));
 
 mol.delete();
-</script>
+</pre>
+{% endraw %}
 
 ## Highlight: atoms and bonds
 
 Default highlight color is `[1, 0.498, 0.498]` (`#FF7F7F`).
 
-<script type="text/rdkit-example">
+{% raw %}
+<pre class="rdkit-example">
 var mol = RDKitModule.get_mol('CC(=O)Oc1ccccc1C(=O)O');
 document.getElementById('output').innerHTML = mol.get_svg_with_highlights(JSON.stringify({
   atoms: [6, 7, 8, 9, 10, 11],         // atom indices to highlight (default: [])
@@ -205,13 +230,15 @@ document.getElementById('output').innerHTML = mol.get_svg_with_highlights(JSON.s
   standardColoursForHighlightedAtoms: false, // use element colors even when highlighted (default: false)
 }));
 mol.delete();
-</script>
+</pre>
+{% endraw %}
 
 ## Per-atom and per-bond highlight colors
 
 Override color individually for each highlighted atom or bond.
 
-<script type="text/rdkit-example">
+{% raw %}
+<pre class="rdkit-example">
 var mol = RDKitModule.get_mol('CC(=O)Oc1ccccc1C(=O)O');
 document.getElementById('output').innerHTML = mol.get_svg_with_highlights(JSON.stringify({
   atoms: [0, 1, 2, 6, 7, 8, 9, 10, 11],
@@ -234,14 +261,16 @@ document.getElementById('output').innerHTML = mol.get_svg_with_highlights(JSON.s
   },
 }));
 mol.delete();
-</script>
+</pre>
+{% endraw %}
 
 ## Multi-color highlighting
 
 Highlight atoms and bonds with multiple colors simultaneously using `highlightAtomMultipleColors`
 and `highlightBondMultipleColors`. Style is controlled by `multiColourHighlightStyle`.
 
-<script type="text/rdkit-example">
+{% raw %}
+<pre class="rdkit-example">
 var mol = RDKitModule.get_mol('CC(=O)Oc1ccccc1C(=O)O');
 var out = document.getElementById('output');
 
@@ -278,13 +307,15 @@ out.innerHTML += '<b>CircleAndLine</b>' + mol.get_svg_with_highlights(JSON.strin
 }));
 
 mol.delete();
-</script>
+</pre>
+{% endraw %}
 
 ## Substructure match highlighting
 
 Use `get_substruct_match()` to get indices, pass them directly to the draw call.
 
-<script type="text/rdkit-example">
+{% raw %}
+<pre class="rdkit-example">
 var mol  = RDKitModule.get_mol('CC(=O)Oc1ccccc1C(=O)O');
 var qmol = RDKitModule.get_qmol('c1ccccc1');
 
@@ -294,4 +325,5 @@ document.getElementById('output').innerHTML =
 
 mol.delete();
 qmol.delete();
-</script>
+</pre>
+{% endraw %}

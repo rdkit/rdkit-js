@@ -10,17 +10,20 @@ Demo is using RDKit version: <strong id="rdkit-version">loading...</strong>
 
 Render a molecule as SVG from a SMILES string. See [all drawing options](/demo/drawing/).
 
-<script type="text/rdkit-example">
+{% raw %}
+<pre class="rdkit-example">
 var mol = RDKitModule.get_mol('CC(=O)Oc1ccccc1C(=O)O');
 document.getElementById('output').innerHTML = mol.get_svg();
 mol.delete();
-</script>
+</pre>
+{% endraw %}
 
 ## Getting Properties
 
 `get_descriptors()` returns a JSON string with computed molecular properties.
 
-<script type="text/rdkit-example">
+{% raw %}
+<pre class="rdkit-example">
 var mol = RDKitModule.get_mol('CC(=O)Oc1ccccc1C(=O)O');
 var d = JSON.parse(mol.get_descriptors());
 
@@ -34,23 +37,27 @@ console.log('Rings:       ', d.RingCount);
 console.log('FractionCSP3:', d.FractionCSP3.toFixed(2));
 
 mol.delete();
-</script>
+</pre>
+{% endraw %}
 
 Compute molecular fingerprints as bit strings. Useful for similarity and machine learning.
 
-<script type="text/rdkit-example">
+{% raw %}
+<pre class="rdkit-example">
 var mol = RDKitModule.get_mol('CC(=O)Oc1ccccc1C(=O)O');
 console.log('Morgan (r=2, 64bit):', mol.get_morgan_fp(JSON.stringify({ radius: 2, nBits: 64 })));
 console.log('RDKit FP (64bit):   ', mol.get_rdkit_fp(JSON.stringify({ nBits: 64 })));
 console.log('MACCS (166bit):     ', mol.get_maccs_fp());
 mol.delete();
-</script>
+</pre>
+{% endraw %}
 
 ## Molecule Format Reading
 
 RDKit.js can read and write SMILES, SMARTS, molblock (V2000/V3000), and JSON.
 
-<script type="text/rdkit-example">
+{% raw %}
+<pre class="rdkit-example">
 var smiles = 'CC(=O)Oc1ccccc1C(=O)O';
 var mol = RDKitModule.get_mol(smiles);
 
@@ -66,13 +73,15 @@ var mol3 = RDKitModule.get_mol(json)
 document.getElementById('output').innerHTML = mol3.get_svg();
 mol.delete();
 mol2.delete();
-</script>
+</pre>
+{% endraw %}
 
 ## Substructure search
 
 Find atoms and bonds matching a SMARTS pattern. See [all substructure examples](/demo/substructures/).
 
-<script type="text/rdkit-example">
+{% raw %}
+<pre class="rdkit-example">
 var mol  = RDKitModule.get_mol('CC(=O)Oc1ccccc1C(=O)O');
 var qmol = RDKitModule.get_qmol('c1ccccc1');  // SMARTS: benzene ring
 
@@ -85,17 +94,20 @@ document.getElementById('output').innerHTML =
 
 mol.delete();
 qmol.delete();
-</script>
+</pre>
+{% endraw %}
 
 ## Reactions
 
 Parse and render reaction SMARTS. See [all reaction examples](/demo/reactions/).
 
-<script type="text/rdkit-example">
+{% raw %}
+<pre class="rdkit-example">
 var rxn = RDKitModule.get_rxn('[CH3:1][OH:2]>>[CH2:1]=[OH0:2]');
 document.getElementById('output').innerHTML = rxn.get_svg();
 rxn.delete();
-</script>
+</pre>
+{% endraw %}
 
 ## R-Group Decomposition
 

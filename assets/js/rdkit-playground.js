@@ -20,9 +20,7 @@
   var widgetCount = 0;
 
   function initPlayground() {
-    var examples = document.querySelectorAll(
-      'script[type="text/rdkit-example"]',
-    );
+    var examples = document.querySelectorAll('pre.rdkit-example');
     examples.forEach(function (scriptTag) {
       buildWidget(scriptTag);
     });

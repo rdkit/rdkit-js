@@ -19,7 +19,8 @@ If you want to learn more about SMARTS syntax you can visit
 
 `get_substruct_match()` returns the first matching set of atom and bond indices.
 
-<script type="text/rdkit-example">
+{% raw %}
+<pre class="rdkit-example">
 var mol  = RDKitModule.get_mol('CC(=O)Oc1ccccc1C(=O)O');
 var qmol = RDKitModule.get_qmol('C(=O)O'); // carboxylic acid / ester SMARTS
 
@@ -32,5 +33,6 @@ document.getElementById('output').innerHTML =
 
 mol.delete();
 qmol.delete();
-</script>
+</pre>
+{% endraw %}
 

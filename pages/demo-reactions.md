@@ -14,19 +14,22 @@ For in-depth understanding of reactions read [RDKit book on reaction handling](h
 
 Parse a reaction SMARTS and render it as an SVG diagram.
 
-<script type="text/rdkit-example">
+{% raw %}
+<pre class="rdkit-example">
 // Reaction SMARTS: reactants >> products
 // Atom-mapped atoms carry the same number on both sides
 var rxn = RDKitModule.get_rxn('[CH3:1][OH:2]>>[CH2:1]=[OH0:2]');
 document.getElementById('output').innerHTML = rxn.get_svg();
 rxn.delete();
-</script>
+</pre>
+{% endraw %}
 
 ## Highlight by reactant
 
 `highlightByReactant: true` colors each reactant's atoms distinctly in the SVG and optionally per-reactant colors with `highlightColorsReactants`.
 
-<script type="text/rdkit-example">
+{% raw %}
+<pre class="rdkit-example">
 var rxn = RDKitModule.get_rxn(
   '[C:1](=[O:2])[OH:3].[NH2:4][C:5]>>[C:1](=[O:2])[NH:4][C:5].[OH2:3]'
 );
@@ -40,14 +43,16 @@ document.getElementById('output').innerHTML =
     ],
   }));
 rxn.delete();
-</script>
+</pre>
+{% endraw %}
 
 ## Run reactants
 
 `run_reactants(molList, maxProducts)` applies the reaction to a set of reactant molecules
 and returns a list of product sets.
 
-<script type="text/rdkit-example">
+{% raw %}
+<pre class="rdkit-example">
 var rxn = RDKitModule.get_rxn('[C;H3:1].[Cl:2]>>[*:1][*:2]');
 
 var reactants = new RDKitModule.MolList();
@@ -73,5 +78,6 @@ for (var i = 0; i < results.size(); i++) {
 
 reactants.delete();
 rxn.delete();
-</script>
+</pre>
+{% endraw %}
 
