@@ -1,92 +1,115 @@
 ---
-layout: page
+layout: playground
 title: Getting Started with RDKit.js
 permalink: /demo/
 ---
 
-<script src="https://unpkg.com/@rdkit/rdkit/dist/RDKit_minimal.js"></script>
+Demo is using RDKit version: <strong id="rdkit-version">loading...</strong>
 
-<p>Demo is using RDKit version: <strong id="rdkit-version">loading...</strong></p>
+## Draw a molecule
 
-<h2>Molecule Drawing</h2>
+Render a molecule as SVG from a SMILES string. See [all drawing options](/demo/drawing/).
 
-<div id="drawing"></div>
-<div id="can_smiles"></div>
-<br>
+{% raw %}
+<pre class="rdkit-example">
+var mol = RDKitModule.get_mol('CC(=O)Oc1ccccc1C(=O)O');
+document.getElementById('output').innerHTML = mol.get_svg();
+mol.delete();
+</pre>
+{% endraw %}
 
-SMILES: <input id="smiles_input" type="text" value="CC(=O)Oc1ccccc1C(=O)O" onkeyup="callback(this.value,true)">
+## Getting Properties
 
-<h3>Canvas</h3>
-<canvas id="rdkit-canvas" width="400" height="300" style="border:1px solid #444;"></canvas>
+`get_descriptors()` returns a JSON string with computed molecular properties.
 
-<h3>Computed values</h3>
-<div id="descrs"></div>
+{% raw %}
+<pre class="rdkit-example">
+var mol = RDKitModule.get_mol('CC(=O)Oc1ccccc1C(=O)O');
+var d = JSON.parse(mol.get_descriptors());
 
-<h2>Substructure Search</h2>
+console.log('AMW:         ', d.amw.toFixed(2));
+console.log('ClogP:       ', d.CrippenClogP.toFixed(2));
+console.log('TPSA:        ', d.tpsa.toFixed(2));
+console.log('HBA:         ', d.NumHBA);
+console.log('HBD:         ', d.NumHBD);
+console.log('RotBonds:    ', d.NumRotatableBonds);
+console.log('Rings:       ', d.RingCount);
+console.log('FractionCSP3:', d.FractionCSP3.toFixed(2));
 
-SMARTS: <input id="smarts_input" type="text" value="" onkeyup="sma_callback(this.value)" placeholder="e.g. c1ccccc1">
+mol.delete();
+</pre>
+{% endraw %}
 
-<h2>Reactions</h2>
+Compute molecular fingerprints as bit strings. Useful for similarity and machine learning.
 
-...
+{% raw %}
+<pre class="rdkit-example">
+var mol = RDKitModule.get_mol('CC(=O)Oc1ccccc1C(=O)O');
+console.log('Morgan (r=2, 64bit):', mol.get_morgan_fp(JSON.stringify({ radius: 2, nBits: 64 })));
+console.log('RDKit FP (64bit):   ', mol.get_rdkit_fp(JSON.stringify({ nBits: 64 })));
+console.log('MACCS (166bit):     ', mol.get_maccs_fp());
+mol.delete();
+</pre>
+{% endraw %}
 
-<h2>SubstructLibrary</h2>
+## Molecule Format Reading
 
-...
+RDKit.js can read and write SMILES, SMARTS, molblock (V2000/V3000), and JSON.
 
-<h2>R-Group Decomposition</h2>
+{% raw %}
+<pre class="rdkit-example">
+var smiles = 'CC(=O)Oc1ccccc1C(=O)O';
+var mol = RDKitModule.get_mol(smiles);
 
-https://github.com/rdkit/rdkit/blob/master/Code/MinimalLib/demo/rgd_demo.html
+// Write to V2000 molblock
+var molblock = mol.get_molblock();
+// Round-trip: read back from molblock
+var mol2 = RDKitModule.get_mol(molblock);
+// RDKit JSON interchange format
+var json = mol.get_json();
+// and back
+var mol3 = RDKitModule.get_mol(json)
 
-<script>
-  var RDKitModule;
+document.getElementById('output').innerHTML = mol3.get_svg();
+mol.delete();
+mol2.delete();
+</pre>
+{% endraw %}
 
-  function drawMolecule(mol, details) {
-    details = details || {};
-    var tdetails = JSON.stringify(details);
-    var svg = mol.get_svg_with_highlights(tdetails);
-    if (svg) {
-      var ob = document.getElementById("drawing");
-      ob.outerHTML = "<div id='drawing'>" + svg + "</div>";
-    }
-    var canvas = document.getElementById("rdkit-canvas");
-    mol.draw_to_canvas_with_highlights(canvas, tdetails);
-  }
+## Substructure search
 
-  function callback(text, update_descrs) {
-    var mol = RDKitModule.get_mol(text);
-    if (mol.is_valid()) {
-      drawMolecule(mol);
-      var ob = document.getElementById("can_smiles");
-      ob.outerHTML = "<div id='can_smiles'>" + mol.get_smiles() + "</div>";
-      if (update_descrs) {
-        var descrs = JSON.parse(mol.get_descriptors());
-        var db = document.getElementById("descrs");
-        db.outerHTML = "<div id='descrs'>" +
-          "<b>AMW:</b> " + descrs.amw +
-          "<br><b>MolLogP:</b> " + descrs.CrippenClogP +
-          "<br><b>MFP2:</b> " + mol.get_morgan_fp(2, 128) +
-          "</div>";
-      }
-    }
-    mol.delete();
-  }
+Find atoms and bonds matching a SMARTS pattern. See [all substructure examples](/demo/substructures/).
 
-  function sma_callback(text) {
-    var qmol = RDKitModule.get_qmol(text);
-    var mol = RDKitModule.get_mol(document.getElementById("smiles_input").value);
-    if (mol.is_valid() && qmol.is_valid()) {
-      var mdetails = mol.get_substruct_match(qmol);
-      var match = JSON.parse(mdetails);
-      if (match.atoms && match.atoms.length) drawMolecule(mol, match);
-    }
-    mol.delete();
-    qmol.delete();
-  }
+{% raw %}
+<pre class="rdkit-example">
+var mol  = RDKitModule.get_mol('CC(=O)Oc1ccccc1C(=O)O');
+var qmol = RDKitModule.get_qmol('c1ccccc1');  // SMARTS: benzene ring
 
-  initRDKitModule().then(function(instance) {
-    RDKitModule = instance;
-    document.getElementById("rdkit-version").textContent = RDKitModule.version();
-    callback("CC(=O)Oc1ccccc1C(=O)O");
-  });
-</script>
+var match = JSON.parse(mol.get_substruct_match(qmol));
+console.log('Matched atoms:', match.atoms);
+console.log('Matched bonds:', match.bonds);
+
+document.getElementById('output').innerHTML =
+  mol.get_svg_with_highlights(JSON.stringify(match));
+
+mol.delete();
+qmol.delete();
+</pre>
+{% endraw %}
+
+## Reactions
+
+Parse and render reaction SMARTS. See [all reaction examples](/demo/reactions/).
+
+{% raw %}
+<pre class="rdkit-example">
+var rxn = RDKitModule.get_rxn('[CH3:1][OH:2]>>[CH2:1]=[OH0:2]');
+document.getElementById('output').innerHTML = rxn.get_svg();
+rxn.delete();
+</pre>
+{% endraw %}
+
+## R-Group Decomposition
+
+Decompose a set of molecules against a core scaffold. See [full R-group examples](/demo/r-group-decomposition/).
+
