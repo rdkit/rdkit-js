@@ -1,13 +1,5 @@
 /* RDKit Playground widget styles */
 
-/* CodeMirror selection visibility fix — defaults are near-invisible on light bg */
-.rdkit-widget .CodeMirror-selected {
-  background: #b3d4fc;
-}
-.rdkit-widget .CodeMirror-focused .CodeMirror-selected {
-  background: #3390ff;
-}
-
 /* Site's .post-content pre { background: #f8f8f8 !important } covers the
    selection layer which sits behind the code <pre> elements. Force transparent. */
 .rdkit-widget .CodeMirror pre {
